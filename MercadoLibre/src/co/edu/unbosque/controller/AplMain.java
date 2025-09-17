@@ -7,6 +7,7 @@ public class AplMain {
 		Controlador c = new Controlador();
 		c.runGUI();
 
+		//hola:)
 	}
 
 }
