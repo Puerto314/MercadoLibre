@@ -7,7 +7,7 @@ import co.edu.unbosque.model.Comprador;
 public class CompradorDAO implements DAO<Comprador> {
 
 	private List<Comprador> listaComprador = new ArrayList<>();
-	private final String FILE_NAME = "comprador.csv";
+	private final String FILE_NAME = "Comprador.csv";
 
 	public CompradorDAO() {
 		listaComprador = new ArrayList<>();
