@@ -7,7 +7,7 @@ import co.edu.unbosque.model.Vendedor;
 public class VendedorDAO implements DAO<Vendedor> {
 
 	private List<Vendedor> listaVendedor = new ArrayList<>();
-	private final String FILE_NAME = "vendedor.csv";
+	private final String FILE_NAME = "Vendedor.csv";
 
 	public VendedorDAO() {
 		listaVendedor = new ArrayList<>();
