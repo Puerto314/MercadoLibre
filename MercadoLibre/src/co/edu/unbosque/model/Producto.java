@@ -1,6 +1,5 @@
 package co.edu.unbosque.model;
 
-import co.edu.unbosque.model.Producto.Categoria;
 
 public class Producto {
 
