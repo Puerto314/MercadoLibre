@@ -125,6 +125,8 @@ public class VentanaInicio extends JFrame {
 		JLabel labelImagen5 = new JLabel(imagen5);
 		labelImagen5.setBounds(140, 170, 200, 200);
 		this.add(labelImagen5);
+		
+		//aa
 	}
 
 	public JLabel getTitulo() {
