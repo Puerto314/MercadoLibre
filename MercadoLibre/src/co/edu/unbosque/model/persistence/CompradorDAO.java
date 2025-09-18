@@ -52,10 +52,12 @@ public class CompradorDAO implements DAO<Comprador> {
 		for (Comprador comprador : listaComprador) {
 			sb.append(comprador.getIdUsuario() + ";");
 			sb.append(comprador.getContrasenia() + ";");
-			sb.append(comprador.getDireccion() + ";");
+			sb.append(comprador.getDireccionCasa() + ";");
+			sb.append(comprador.getCorreo() + ";");
 			sb.append(comprador.getTelefono() + ";");
+			sb.append(comprador.getCiudad() + ";");
 			sb.append(comprador.getNumeroTarjeta() + ";");
-			sb.append(comprador.getContraseniaTarjeta() + ";");
+			sb.append(comprador.getClaveDeSeguridad() + ";");
 		}
 		FileHandler.escribirEnArchivoTexto(FILE_NAME, sb.toString());
 	}
@@ -73,11 +75,12 @@ public class CompradorDAO implements DAO<Comprador> {
 				Comprador temp = new Comprador();
 				temp.setIdUsuario(columnas[0]);
 				temp.setContrasenia(columnas[1]);
-				temp.setDireccion(columnas[2]);
-				temp.setTelefono(Long.parseLong(columnas[3]));
-				temp.setNumeroTarjeta(columnas[4]);
-				temp.setContraseniaTarjeta(columnas[5]);
-
+				temp.setDireccionCasa(columnas[2]);
+				temp.setCorreo(columnas[3]);
+				temp.setTelefono(Long.parseLong(columnas[4]));
+				temp.setCiudad(columnas[5]);
+				temp.setNumeroTarjeta(columnas[6]);
+				temp.setClaveDeSeguridad(Short.parseShort(columnas[7]));
 				listaComprador.add(temp);
 			}
 
