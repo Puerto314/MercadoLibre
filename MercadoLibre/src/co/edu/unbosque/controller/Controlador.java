@@ -31,6 +31,8 @@ public class Controlador implements ActionListener {
 		vi.getBotonRegistrarse().setActionCommand("boton_registrarse");
 		vi.getBotonSalir().addActionListener(this);
 		vi.getBotonSalir().setActionCommand("boton_salir");
+		vis.getBotonSalir().addActionListener(this);
+		vis.getBotonSalir().setActionCommand("boton_iniciar_sesion_salir");
 
 	}
 
@@ -44,14 +46,17 @@ public class Controlador implements ActionListener {
 			vi.setVisible(false);
 			break;
 		}
-		/*
-		 * case "boton_registrarse":{
-		 * 
-		 * }
-		 */
+		case "boton_registrarse": {
+			vi.dispose();
+			vr.setVisible(true);
+		}
 		case "boton_salir": {
-			System.exit(0);
+			vi.dispose();
 			break;
+			}
+		case "boton_iniciar_sesion_salir": {
+			vis.dispose();
+			vi.setVisible(true);
 		}
 		}
 	}
