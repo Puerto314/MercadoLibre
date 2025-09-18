@@ -151,7 +151,6 @@ public class VentanaIniciarSesion extends JFrame {
 		
 	}
 
-	// getters y setters
 	public JButton getBotonEntrar() {
 		return botonEntrar;
 	}
@@ -160,12 +159,12 @@ public class VentanaIniciarSesion extends JFrame {
 		this.botonEntrar = botonEntrar;
 	}
 
-	public JButton getBotonSalir() {
+	public JButton getBotonVolver() {
 		return botonVolver;
 	}
 
-	public void setBotonSalir(JButton botonSalir) {
-		this.botonVolver = botonSalir;
+	public void setBotonVolver(JButton botonVolver) {
+		this.botonVolver = botonVolver;
 	}
 
 	public JLabel getLabelUsuario() {
@@ -232,5 +231,6 @@ public class VentanaIniciarSesion extends JFrame {
 		this.is = is;
 	}
 
-	
+	// getters y setters
+		
 }

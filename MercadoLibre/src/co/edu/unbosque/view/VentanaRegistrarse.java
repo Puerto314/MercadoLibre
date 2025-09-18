@@ -25,7 +25,6 @@ public class VentanaRegistrarse extends JFrame {
 	private JTextField textoEmail;
 	private JTextField textoTelefono;
 	private JButton botonRegistrar;
-	private JButton botonIniciarSesion;
 	private JButton botonVolver;
 	private JLabel registrar;
 	private JLabel ir;
@@ -209,7 +208,7 @@ public class VentanaRegistrarse extends JFrame {
 				botonVolver.setBorderPainted(false);
 				add(botonVolver);
 	}
-
+	//getters y setters
 	public JLabel getLabelIdUsuario() {
 		return labelIdUsuario;
 	}
@@ -298,20 +297,12 @@ public class VentanaRegistrarse extends JFrame {
 		this.botonRegistrar = botonRegistrar;
 	}
 
-	public JButton getBotonIniciarSesion() {
-		return botonIniciarSesion;
-	}
-
-	public void setBotonIniciarSesion(JButton botonIniciarSesion) {
-		this.botonIniciarSesion = botonIniciarSesion;
-	}
-
-	public JButton getBotonSalir() {
+	public JButton getBotonVolver() {
 		return botonVolver;
 	}
 
-	public void setBotonSalir(JButton botonSalir) {
-		this.botonVolver = botonSalir;
+	public void setBotonVolver(JButton botonVolver) {
+		this.botonVolver = botonVolver;
 	}
 
 	public JLabel getRegistrar() {
@@ -329,7 +320,7 @@ public class VentanaRegistrarse extends JFrame {
 	public void setIr(JLabel ir) {
 		this.ir = ir;
 	}
-	
-	
+
+		
 
 }

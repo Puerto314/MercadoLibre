@@ -31,8 +31,13 @@ public class Controlador implements ActionListener {
 		vi.getBotonRegistrarse().setActionCommand("boton_registrarse");
 		vi.getBotonSalir().addActionListener(this);
 		vi.getBotonSalir().setActionCommand("boton_salir");
-		vis.getBotonSalir().addActionListener(this);
-		vis.getBotonSalir().setActionCommand("boton_iniciar_sesion_salir");
+		vis.getBotonVolver().addActionListener(this);
+		vis.getBotonVolver().setActionCommand("boton_iniciar_sesion_volver");
+		vr.getBotonRegistrar().addActionListener(this);
+		vr.getBotonRegistrar().setActionCommand("boton_crear_cuenta");
+		vr.getBotonVolver().addActionListener(this);
+		vr.getBotonVolver().setActionCommand("boton_registrarse_volver");
+		
 
 	}
 
@@ -54,8 +59,16 @@ public class Controlador implements ActionListener {
 			vi.dispose();
 			break;
 			}
-		case "boton_iniciar_sesion_salir": {
+		case "boton_iniciar_sesion_volver": {
 			vis.dispose();
+			vi.setVisible(true);
+		}
+		case "boton_crear_cuenta":{
+			vr.dispose();
+			vi.setVisible(true);//este por ahora, toca crear una ventana emergente para un mensaje de "cuenta creada"
+		}
+		case "boton_registrarse_volver":{
+			vr.dispose();
 			vi.setVisible(true);
 		}
 		}
