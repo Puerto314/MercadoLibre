@@ -11,8 +11,7 @@ import javax.swing.SwingConstants;
 import co.edu.unbosque.controller.Controlador;
 
 public class VentanaInicio extends JFrame {
-	private JLabel titulo1;
-	private JLabel titulo2;
+	
 	private JButton botonInicioSesion;
 	private JButton botonRegistrarse;
 	private JLabel idioma;
@@ -22,7 +21,7 @@ public class VentanaInicio extends JFrame {
 	private JButton latin;
 	private JButton botonSalir;
 	private JLabel logoML;
-	private JLabel opcion;
+	private JLabel labelOpcion;
 
 	public VentanaInicio(Controlador controlador) {
 		inicializarComponentes();
@@ -30,62 +29,57 @@ public class VentanaInicio extends JFrame {
 	}
 
 	public void inicializarComponentes() {
-
+		//configuración ventana
 		this.setTitle("Mercado Libre");
 		this.setBounds(275, 20, 980, 720);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setResizable(false);
 		this.setLayout(null);
-
-		this.getContentPane().setBackground(Color.decode("#FFFF99")); // LE DA COLOR A TODA LA VENTANA
-
-		/*
-		 * // titulo titulo1 = new JLabel("Mercado", SwingConstants.CENTER);
-		 * titulo1.setBounds(200, 100, 600, 400);
-		 * titulo1.setForeground(Color.decode("#03080D")); titulo1.setFont(new
-		 * Font("Georgia", Font.BOLD, 50)); this.add(titulo1);
-		 * 
-		 * titulo2 = new JLabel("Libre", SwingConstants.CENTER); titulo2.setBounds(200,
-		 * 200, 600, 400); titulo2.setForeground(Color.decode("#03080D"));
-		 * titulo2.setFont(new Font("Georgia", Font.BOLD, 50)); this.add(titulo2);
-		 */
+		this.getContentPane().setBackground(Color.decode("#FFFFFF")); // LE DA COLOR A TODA LA VENTANA
 
 		// opción
-		opcion = new JLabel("Por favor, cree una cuenta y posteriormente inicie sesión", SwingConstants.CENTER);
-		opcion.setBounds(-20, -280, 1000, 1000);
+		labelOpcion = new JLabel("- El mercado de todos, para todos -");
+		labelOpcion.setBounds(320, 270, 480, 30);
+		labelOpcion.setForeground(Color.decode("#03080D"));
+		labelOpcion.setFont(new Font("Georgia", Font.BOLD, 20));
+		this.add(labelOpcion);
+	
+		
+		/*opcion = new JLabel("Por favor, cree una cuenta y posteriormente inicie sesión", SwingConstants.CENTER);
+		opcion.setBounds(20, 20, 1000, 1000);
 		opcion.setForeground(Color.decode("#03080D"));
 		opcion.setFont(new Font("Georgia", Font.BOLD, 20));
 		this.add(opcion);
-
+*/
 		// botones
 		botonInicioSesion = new JButton("INICIAR SESION");
-		botonInicioSesion.setBounds(200, 300, 200, 80);
-		botonInicioSesion.setBackground(Color.decode("#FFCC00"));
+		botonInicioSesion.setBounds(550, 340, 200, 80);
+		botonInicioSesion.setBackground(Color.decode("#FCE707"));
 		botonInicioSesion.setForeground(Color.decode("#03080D"));
 		botonInicioSesion.setFocusPainted(false);
-		botonInicioSesion.setBorderPainted(false);
+		botonInicioSesion.setBorderPainted(false);//QUITA LOS BORDES DE LOS BOTONES EN FALSE, TRUE PARA MOSTRAR LOS BORDES
 		this.add(botonInicioSesion);
 
 		botonRegistrarse = new JButton("REGISTRARSE");
-		botonRegistrarse.setBounds(550, 300, 200, 80);
-		botonRegistrarse.setBackground(Color.decode("#FFCC00"));
+		botonRegistrarse.setBounds(200, 340, 200, 80);
+		botonRegistrarse.setBackground(Color.decode("#FCE707"));
 		botonRegistrarse.setForeground(Color.decode("#03080D"));
 		botonRegistrarse.setFocusPainted(false);
-		botonRegistrarse.setBorderPainted(false);// QUITA LOS BORDES DE LOS BOTONES
+		botonRegistrarse.setBorderPainted(false);
 		this.add(botonRegistrarse);
 
 		// salir
-		botonSalir = new JButton("Salir");
+		botonSalir = new JButton("SALIR");
 		botonSalir.setBounds(430, 600, 90, 40);
-		botonSalir.setBackground(Color.decode("#FF0000"));
+		botonSalir.setBackground(Color.decode("#042F6D"));
 		botonSalir.setForeground(Color.decode("#FFFFFF"));
 		botonSalir.setFocusPainted(false);
-		botonSalir.setBorderPainted(false);// QUITA LOS BORDES DE LOS BOTONES
+		botonSalir.setBorderPainted(false);
 		this.add(botonSalir);
 
 		// languages
-		idioma = new JLabel("- Idioma -");
-		idioma.setBounds(430, 450, 90, 30);
+		idioma = new JLabel("- Cambiar Idioma -");
+		idioma.setBounds(380, 450, 260, 30);
 		idioma.setForeground(Color.decode("#03080D"));
 		idioma.setFont(new Font("Arial", Font.BOLD, 20));
 		this.add(idioma);
@@ -127,29 +121,12 @@ public class VentanaInicio extends JFrame {
 		this.add(latin);
 
 		// Logo
-		ImageIcon logo = new ImageIcon(getClass().getResource("logoML.png"));
+		ImageIcon logo = new ImageIcon(getClass().getResource("logoML.JPG"));
 		JLabel l = new JLabel(logo);
 		logoML = new JLabel(logo);
-		logoML.setBounds(0, -50, 960, 300);
+		logoML.setBounds(0, -52, 960, 300);
 		this.add(logoML);
-
-	}
-
-	public JLabel getTitulo1() {
-		return titulo1;
-	}
-
-	public void setTitulo1(JLabel titulo1) {
-		this.titulo1 = titulo1;
-	}
-
-	public JLabel getTitulo2() {
-		return titulo2;
-	}
-
-	public void setTitulo2(JLabel titulo2) {
-		this.titulo2 = titulo2;
-	}
+		}
 
 	public JButton getBotonInicioSesion() {
 		return botonInicioSesion;
@@ -223,12 +200,14 @@ public class VentanaInicio extends JFrame {
 		this.logoML = logoML;
 	}
 
-	public JLabel getOpcion() {
-		return opcion;
+	public JLabel getLabelOpcion() {
+		return labelOpcion;
 	}
 
-	public void setOpcion(JLabel opcion) {
-		this.opcion = opcion;
+	public void setLabelOpcion(JLabel labelOpcion) {
+		this.labelOpcion = labelOpcion;
 	}
+
+	
 
 }
