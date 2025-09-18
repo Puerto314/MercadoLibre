@@ -15,7 +15,7 @@ import javax.swing.JTextField;
 public class VentanaIniciarSesion extends JFrame {
 
 	private JButton botonEntrar;
-	private JButton botonSalir;
+	private JButton botonVolver;
 	private JLabel labelUsuario;
 	private JTextField usuario;
 	private JLabel labelEmail;
@@ -134,13 +134,13 @@ public class VentanaIniciarSesion extends JFrame {
 		botonEntrar.setBorderPainted(false);
 		add(botonEntrar);
 
-		botonSalir = new JButton("SALIR");
-		botonSalir.setBounds(755, 580, 100, 40);
-		botonSalir.setBackground(Color.decode("#042F6D"));
-		botonSalir.setForeground(Color.decode("#FFFFFF"));
-		botonSalir.setFocusPainted(false);
-		botonSalir.setBorderPainted(false);
-		add(botonSalir);
+		botonVolver = new JButton("VOLVER");
+		botonVolver.setBounds(755, 580, 100, 40);
+		botonVolver.setBackground(Color.decode("#042F6D"));
+		botonVolver.setForeground(Color.decode("#FFFFFF"));
+		botonVolver.setFocusPainted(false);
+		botonVolver.setBorderPainted(false);
+		add(botonVolver);
 
 		// imagen
 		ImageIcon banner1 = new ImageIcon(getClass().getResource("is.JPG"));
@@ -148,10 +148,7 @@ public class VentanaIniciarSesion extends JFrame {
 		is = new JLabel(banner1);
 		is.setBounds(0, 0, 570, 690);
 		add(is);
-		/*ImageIcon is = new ImageIcon(getClass().getResource("is.png"));
-		JLabel labelIs = new JLabel(is);
-		labelIs.setBounds(0, 0, 500, 720);
-		add(labelIs);*/
+		
 	}
 
 	// getters y setters
@@ -164,11 +161,11 @@ public class VentanaIniciarSesion extends JFrame {
 	}
 
 	public JButton getBotonSalir() {
-		return botonSalir;
+		return botonVolver;
 	}
 
 	public void setBotonSalir(JButton botonSalir) {
-		this.botonSalir = botonSalir;
+		this.botonVolver = botonSalir;
 	}
 
 	public JLabel getLabelUsuario() {
