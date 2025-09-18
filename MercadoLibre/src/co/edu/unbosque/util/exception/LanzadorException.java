@@ -139,4 +139,61 @@ public class LanzadorException {
 
 	}
 
+	public static void verificarDescuentoValido(String entrada) throws DescuentoException {
+		try {
+			int valor = Integer.parseInt(entrada);
+
+			if (valor < 1 || valor > 99) {
+				throw new DescuentoException();
+			}
+
+		} catch (NumberFormatException e) {
+			throw new DescuentoException();
+		}
+	}
+
+	public static void verificarPinValido(String entrada) throws DescuentoException {
+		try {
+			if (!entrada.matches("\\d{3}")) {
+				throw new DescuentoException();
+			}
+
+		} catch (NumberFormatException e) {
+			throw new DescuentoException();
+		}
+	}
+
+	public static void verificarCiudadValida(String entrada) throws CiudadException {
+		if (entrada == null || entrada.trim().isEmpty()) {
+			throw new CiudadException();
+		}
+		if (!entrada.matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+")) {
+			throw new CiudadException();
+		}
+	}
+
+	public static void verificarProductoValido(String entrada) throws NombreProductoException {
+		if (entrada == null || entrada.trim().isEmpty()) {
+			throw new NombreProductoException();
+		}
+		if (!entrada.matches("[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ .,'()\\-]+")) {
+			throw new NombreProductoException();
+		}
+	}
+
+	public static void verificarCorreoValido(String entrada) throws CorreoException {
+		if (entrada == null || entrada.trim().isEmpty()) {
+			throw new CorreoException();
+		}
+		entrada = entrada.trim();
+		if (entrada.endsWith("@unbosque.edu.co")) {
+			return;
+		}
+		String patronDelCorreo = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$";
+
+		if (!entrada.matches(patronDelCorreo)) {
+			throw new CorreoException();
+		}
+	}
+
 }
