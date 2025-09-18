@@ -33,6 +33,8 @@ public class Controlador implements ActionListener {
 		vi.getBotonSalir().setActionCommand("boton_salir");
 		vis.getBotonVolver().addActionListener(this);
 		vis.getBotonVolver().setActionCommand("boton_iniciar_sesion_volver");
+		vis.getBotonEntrar().addActionListener(this);
+		vis.getBotonEntrar().setActionCommand("boton_entrar");
 		vr.getBotonRegistrar().addActionListener(this);
 		vr.getBotonRegistrar().setActionCommand("boton_crear_cuenta");
 		vr.getBotonVolver().addActionListener(this);
@@ -70,6 +72,10 @@ public class Controlador implements ActionListener {
 		case "boton_registrarse_volver":{
 			vr.dispose();
 			vi.setVisible(true);
+		}
+		case "boton_entrar":{
+			vis.dispose();
+			vi.setVisible(true);//este por ahora, toca crear ventana principal
 		}
 		}
 	}
