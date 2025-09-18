@@ -6,13 +6,14 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-public class VentanaIniciarSesion extends JFrame{
-	
+public class VentanaIniciarSesion extends JFrame {
+
 	private JButton botonEntrar;
 	private JButton botonSalir;
 	private JLabel labelUsuario;
@@ -22,47 +23,36 @@ public class VentanaIniciarSesion extends JFrame{
 	private JLabel labelContrasenia;
 	private JTextField contrasenia;
 	private JLabel labelIniciarSesion;
-	
+	private JLabel is;
+
 	public VentanaIniciarSesion() {
 		inicializarVentanaInSesion();
 	}
-	
+
 	public void inicializarVentanaInSesion() {
-		//Configuración ventana
+		// Configuración ventana
 		setTitle("Ventana Iniciar Sesión");
-		setBounds(40, 40, 980, 720);
+		setBounds(275, 20, 980, 720);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setResizable(false);
 		setLayout(null);
 		getContentPane().setBackground(Color.decode("#FFFFFF"));
-		
-		//i.s.
+
+		// i.s.
 		labelIniciarSesion = new JLabel("Iniciar Sesión <-");
-		labelIniciarSesion.setBounds(EXIT_ON_CLOSE, ABORT, WIDTH, HEIGHT);
-		labelIniciarSesion.setFont(new Font("Georgia", Font.BOLD, 30));
+		labelIniciarSesion.setBounds(610, 60, 350, 40);
+		labelIniciarSesion.setFont(new Font("Georgia", Font.BOLD, 40));
 		add(labelIniciarSesion);
-		
-		//usuario
+
+		// usuario
 		labelUsuario = new JLabel("Usuario: ");
-		labelUsuario.setBounds(EXIT_ON_CLOSE, ABORT, WIDTH, HEIGHT);
-		labelUsuario.setFont(new Font("Arial", Font.BOLD, 15));
+		labelUsuario.setBounds(520, 210, 180, 25);
+		labelUsuario.setFont(new Font("Arial", Font.BOLD, 20));
 		add(labelUsuario);
 
-		//email
-		labelEmail = new JLabel("Email: ");
-		labelEmail.setBounds(EXIT_ON_CLOSE, ABORT, WIDTH, HEIGHT);
-		labelEmail.setFont(new Font("Arial", Font.BOLD, 15));
-		add(labelEmail);
-		
-		//contraseña
-		labelContrasenia = new JLabel("Contraseña: ");
-		labelContrasenia.setBounds(EXIT_ON_CLOSE, ABORT, WIDTH, HEIGHT);
-		labelContrasenia.setFont(new Font("Arial", Font.BOLD, 15));
-		add(labelContrasenia);
-		
-		//campo usuario
+		// campo usuario
 		usuario = new JTextField();
-		usuario.setBounds(750, 150, 265, 35);
+		usuario.setBounds(520, 250, 400, 40);
 		usuario.setFont(new Font("Arial", Font.PLAIN, 14));
 		usuario.setBorder(BorderFactory.createLineBorder(Color.decode("#144031"), 2));
 		usuario.addKeyListener(new KeyListener() {
@@ -79,11 +69,17 @@ public class VentanaIniciarSesion extends JFrame{
 				// buscarEnTiempoReal();
 			}
 		});
-		this.add(usuario);
 
-		//campo email
+		this.add(usuario);
+		// email
+		labelEmail = new JLabel("Email/ Número de teléfono: ");
+		labelEmail.setBounds(520, 320, 350, 25);
+		labelEmail.setFont(new Font("Arial", Font.BOLD, 20));
+		add(labelEmail);
+
+		// campo email
 		email = new JTextField();
-		email.setBounds(750, 150, 265, 35);
+		email.setBounds(520, 360, 400, 40);
 		email.setFont(new Font("Arial", Font.PLAIN, 14));
 		email.setBorder(BorderFactory.createLineBorder(Color.decode("#144031"), 2));
 		email.addKeyListener(new KeyListener() {
@@ -102,9 +98,15 @@ public class VentanaIniciarSesion extends JFrame{
 		});
 		this.add(email);
 
-		//contraseña
+		// contraseña
+		labelContrasenia = new JLabel("Contraseña: ");
+		labelContrasenia.setBounds(520, 430, 250, 25);
+		labelContrasenia.setFont(new Font("Arial", Font.BOLD, 20));
+		add(labelContrasenia);
+
+		// contraseña
 		contrasenia = new JTextField();
-		contrasenia.setBounds(750, 150, 265, 35);
+		contrasenia.setBounds(520, 470, 400, 40);
 		contrasenia.setFont(new Font("Arial", Font.PLAIN, 14));
 		contrasenia.setBorder(BorderFactory.createLineBorder(Color.decode("#144031"), 2));
 		contrasenia.addKeyListener(new KeyListener() {
@@ -122,8 +124,37 @@ public class VentanaIniciarSesion extends JFrame{
 			}
 		});
 		this.add(contrasenia);
+
+		// botones
+		botonEntrar = new JButton("ENTRAR");
+		botonEntrar.setBounds(600, 580, 100, 40);
+		botonEntrar.setBackground(Color.decode("#042F6D"));
+		botonEntrar.setForeground(Color.decode("#FFFFFF"));
+		botonEntrar.setFocusPainted(false);
+		botonEntrar.setBorderPainted(false);
+		add(botonEntrar);
+
+		botonSalir = new JButton("SALIR");
+		botonSalir.setBounds(755, 580, 100, 40);
+		botonSalir.setBackground(Color.decode("#042F6D"));
+		botonSalir.setForeground(Color.decode("#FFFFFF"));
+		botonSalir.setFocusPainted(false);
+		botonSalir.setBorderPainted(false);
+		add(botonSalir);
+
+		// imagen
+		ImageIcon banner1 = new ImageIcon(getClass().getResource("is.JPG"));
+		JLabel b1 = new JLabel(banner1);
+		is = new JLabel(banner1);
+		is.setBounds(0, 0, 570, 690);
+		add(is);
+		/*ImageIcon is = new ImageIcon(getClass().getResource("is.png"));
+		JLabel labelIs = new JLabel(is);
+		labelIs.setBounds(0, 0, 500, 720);
+		add(labelIs);*/
 	}
 
+	// getters y setters
 	public JButton getBotonEntrar() {
 		return botonEntrar;
 	}
@@ -195,7 +226,14 @@ public class VentanaIniciarSesion extends JFrame{
 	public void setLabelIniciarSesion(JLabel labelIniciarSesion) {
 		this.labelIniciarSesion = labelIniciarSesion;
 	}
-	
-	
 
+	public JLabel getIs() {
+		return is;
+	}
+
+	public void setIs(JLabel is) {
+		this.is = is;
+	}
+
+	
 }
