@@ -11,14 +11,14 @@ public class ModelFacade {
 	private CompradorDAO compradorDAO;
 	private ProductoDAO productoDAO;
 	private VendedorDAO vendedorDAO;
-	
+
 	public ModelFacade() {
-		
-	carritodecompraDAO = new CarritoDeCompraDAO();
-	compradorDAO = new CompradorDAO();
-	productoDAO = new ProductoDAO();
-	vendedorDAO = new VendedorDAO();
-		
+
+		carritodecompraDAO = new CarritoDeCompraDAO();
+		compradorDAO = new CompradorDAO();
+		productoDAO = new ProductoDAO();
+		vendedorDAO = new VendedorDAO();
+
 	}
 
 	public CarritoDeCompraDAO getCarritodecompraDAO() {
@@ -52,13 +52,5 @@ public class ModelFacade {
 	public void setVendedorDAO(VendedorDAO vendedorDAO) {
 		this.vendedorDAO = vendedorDAO;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-}
 
+}

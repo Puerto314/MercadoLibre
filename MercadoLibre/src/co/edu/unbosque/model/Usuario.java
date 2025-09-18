@@ -4,18 +4,20 @@ public abstract class Usuario {
 
 	private String idUsuario;
 	private String contrasenia;
-	private String direccion;
+	private String direccionCasa;
+	private String correo;
 	private long telefono;
 
 	public Usuario() {
 		super();
 	}
 
-	public Usuario(String idUsuario, String contrasenia, String direccion, long telefono) {
+	public Usuario(String idUsuario, String contrasenia, String direccionCasa, String correo, long telefono) {
 		super();
 		this.idUsuario = idUsuario;
 		this.contrasenia = contrasenia;
-		this.direccion = direccion;
+		this.direccionCasa = direccionCasa;
+		this.correo = correo;
 		this.telefono = telefono;
 	}
 
@@ -35,12 +37,20 @@ public abstract class Usuario {
 		this.contrasenia = contrasenia;
 	}
 
-	public String getDireccion() {
-		return direccion;
+	public String getDireccionCasa() {
+		return direccionCasa;
 	}
 
-	public void setDireccion(String direccion) {
-		this.direccion = direccion;
+	public void setDireccionCasa(String direccionCasa) {
+		this.direccionCasa = direccionCasa;
+	}
+
+	public String getCorreo() {
+		return correo;
+	}
+
+	public void setCorreo(String correo) {
+		this.correo = correo;
 	}
 
 	public long getTelefono() {
@@ -53,8 +63,8 @@ public abstract class Usuario {
 
 	@Override
 	public String toString() {
-		return "\n - Id usuario: " + idUsuario + "\n - Contraseña: " + contrasenia + "\n - Dirección: " + direccion + "\n - Teléfono: "
-				+ telefono;
+		return " Usuario \n id: " + idUsuario + "\n Contraseña: " + contrasenia + "\n Dirección: " + direccionCasa
+				+ "\n Correo: " + correo + "\n Teléfono: " + telefono;
 	}
 
 }

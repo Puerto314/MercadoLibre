@@ -7,13 +7,12 @@ public class CarritoDeCompra {
 	private int cantidad;
 	private int descuento;
 	private int precioFinal;
-	
+
 	public CarritoDeCompra() {
 		super();
 	}
 
-	public CarritoDeCompra(String nombreProducto, float precio, int cantidad, int descuento,
-			int precioFinal) {
+	public CarritoDeCompra(String nombreProducto, float precio, int cantidad, int descuento, int precioFinal) {
 		super();
 		this.nombreProducto = nombreProducto;
 		this.precio = precio;
@@ -64,16 +63,8 @@ public class CarritoDeCompra {
 
 	@Override
 	public String toString() {
-		return " - Nombre Producto: " + nombreProducto + "\n - Precio Producto: " + precio + "\n - Cantidad: " + cantidad
-				+ "\n - Descuento: " + descuento + "\n ´- Precio Final: " + precioFinal;
+		return " - Nombre Producto: " + nombreProducto + "\n - Precio Producto: " + precio + "\n - Cantidad: "
+				+ cantidad + "\n - Descuento: " + descuento + "\n ´- Precio Final: " + precioFinal;
 	}
-	
-	
 
-	
-	
-	
-	
-	
-	
 }
