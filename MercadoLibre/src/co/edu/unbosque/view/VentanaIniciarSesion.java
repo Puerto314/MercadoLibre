@@ -39,28 +39,24 @@ public class VentanaIniciarSesion extends JFrame{
 		//i.s.
 		labelIniciarSesion = new JLabel("Iniciar Sesión <-");
 		labelIniciarSesion.setBounds(EXIT_ON_CLOSE, ABORT, WIDTH, HEIGHT);
-		labelIniciarSesion.setForeground(Color.decode("#"));
 		labelIniciarSesion.setFont(new Font("Georgia", Font.BOLD, 30));
 		add(labelIniciarSesion);
 		
 		//usuario
 		labelUsuario = new JLabel("Usuario: ");
 		labelUsuario.setBounds(EXIT_ON_CLOSE, ABORT, WIDTH, HEIGHT);
-		labelUsuario.setForeground(Color.decode("#"));
 		labelUsuario.setFont(new Font("Arial", Font.BOLD, 15));
 		add(labelUsuario);
 
 		//email
 		labelEmail = new JLabel("Email: ");
 		labelEmail.setBounds(EXIT_ON_CLOSE, ABORT, WIDTH, HEIGHT);
-		labelEmail.setForeground(Color.decode("#"));
 		labelEmail.setFont(new Font("Arial", Font.BOLD, 15));
 		add(labelEmail);
 		
 		//contraseña
 		labelContrasenia = new JLabel("Contraseña: ");
 		labelContrasenia.setBounds(EXIT_ON_CLOSE, ABORT, WIDTH, HEIGHT);
-		labelContrasenia.setForeground(Color.decode("#"));
 		labelContrasenia.setFont(new Font("Arial", Font.BOLD, 15));
 		add(labelContrasenia);
 		
