@@ -14,7 +14,17 @@ public class VentanaCategoria extends JFrame {
 	private JLabel titulo;
 	private JLabel logoMLc;
 	private JButton botonSalir;
-	private JLabel catalog;
+	private JButton catalog;
+	private JButton lModa;
+	private JButton lHogar;
+	private JButton lTec;
+	private JButton lDep;
+	private JButton lElec;
+	private JButton lArte;
+	private JButton lBell;
+	private JButton lHer;
+	private JButton lVid;
+	private JButton lMasc;
 	
 	
 	public VentanaCategoria() {
@@ -46,7 +56,7 @@ public class VentanaCategoria extends JFrame {
 		ImageIcon imagen2 = new ImageIcon(getClass().getResource("catalogo.JPG"));
 		JLabel catalog = new JLabel(imagen2);
 		logoMLc = new JLabel(imagen2);
-		logoMLc.setBounds(0, 130, 300, 300);
+		logoMLc.setBounds(-30, 60, 200, 200);
 		add(logoMLc);
 		
 		
@@ -58,6 +68,12 @@ public class VentanaCategoria extends JFrame {
 		botonSalir.setFocusPainted(false);
 		botonSalir.setBorderPainted(false);
 		add(botonSalir);
+		
+		//---PANEL X CATEGORIA---
+		
+		//moda
+		
+		
 
 	}
 
