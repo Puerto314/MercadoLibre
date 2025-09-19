@@ -19,7 +19,7 @@ public class VentanaCategoria extends JFrame {
 	private JButton hogar;
 	private JButton tecnologia;
 	private JButton deporte;
-	private JButton electronica;
+	private JButton electrodomestico;
 	private JButton arte;
 	private JButton belleza;
 	private JButton herramienta;
@@ -79,12 +79,12 @@ public class VentanaCategoria extends JFrame {
 		moda.setFocusPainted(false);
 		moda.setBorderPainted(true);
 		add(moda);
-
+		
 		// deportes
 		ImageIcon imagen4 = new ImageIcon(getClass().getResource("deporte.JPG"));
 		JLabel labelImagen4 = new JLabel(imagen4);
 		deporte = new JButton(imagen4);
-		deporte.setBounds(30, 360, 100, 100);
+		deporte.setBounds(30, 330, 100, 100);
 		deporte.setFocusPainted(false);
 		deporte.setBorderPainted(true);
 		add(deporte);
@@ -93,7 +93,7 @@ public class VentanaCategoria extends JFrame {
 		ImageIcon imagen5 = new ImageIcon(getClass().getResource("belleza.JPG"));
 		JLabel labelImagen5 = new JLabel(imagen5);
 		belleza = new JButton(imagen5);
-		belleza.setBounds(30, 500, 100, 100);
+		belleza.setBounds(30, 440, 100, 100);
 		belleza.setFocusPainted(false);
 		belleza.setBorderPainted(true);
 		add(belleza);
@@ -102,21 +102,38 @@ public class VentanaCategoria extends JFrame {
 		ImageIcon imagen6 = new ImageIcon(getClass().getResource("belleza.JPG"));
 		JLabel labelImagen6 = new JLabel(imagen6);
 		belleza = new JButton(imagen6);
-		belleza.setBounds(30, 620, 100, 100);
+		belleza.setBounds(30, 550, 100, 100);
 		belleza.setFocusPainted(false);
 		belleza.setBorderPainted(true);
 		add(belleza);
-		
 
 		//---columna 2
 		// hogar y muebles
 		ImageIcon imagen7 = new ImageIcon(getClass().getResource("hogar.JPG"));
 		JLabel labelImagen7 = new JLabel(imagen7);
 		hogar = new JButton(imagen7);
-		hogar.setBounds(140, 220, 100, 100);
+		hogar.setBounds(300, 220, 100, 100);
 		hogar.setFocusPainted(false);
 		hogar.setBorderPainted(true);
 		add(hogar);
+
+		// electrodomesticos
+		ImageIcon imagen8 = new ImageIcon(getClass().getResource("electrodomestico.JPG"));
+		JLabel labelImagen8 = new JLabel(imagen8);
+		electrodomestico = new JButton(imagen8);
+		electrodomestico.setBounds(300, 330, 100, 100);
+		electrodomestico.setFocusPainted(false);
+		electrodomestico.setBorderPainted(true);
+		add(electrodomestico);
+
+		// herramientas de construccion
+		ImageIcon imagen9 = new ImageIcon(getClass().getResource("herramienta.JPG"));
+		JLabel labelImagen9 = new JLabel(imagen9);
+		herramienta = new JButton(imagen9);
+		herramienta.setBounds(300, 440, 100, 100);
+		herramienta.setFocusPainted(false);
+		herramienta.setBorderPainted(true);
+		add(herramienta);
 
 	}
 
