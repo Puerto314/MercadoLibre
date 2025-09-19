@@ -107,15 +107,13 @@ public class VentanaCategoria extends JFrame {
 		belleza.setBorderPainted(true);
 		add(belleza);
 		
-		
-		
 
 		//---columna 2
 		// hogar y muebles
 		ImageIcon imagen7 = new ImageIcon(getClass().getResource("hogar.JPG"));
 		JLabel labelImagen7 = new JLabel(imagen7);
 		hogar = new JButton(imagen7);
-		hogar.setBounds(30, 360, 100, 100);
+		hogar.setBounds(140, 220, 100, 100);
 		hogar.setFocusPainted(false);
 		hogar.setBorderPainted(true);
 		add(hogar);
