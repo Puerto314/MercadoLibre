@@ -1,7 +1,7 @@
 package co.edu.unbosque.model;
 
 
-public abstract class Producto {
+public class Producto {
 	private String nombreProducto;
 	private float precio;
 	private String categoria;
@@ -11,7 +11,7 @@ public abstract class Producto {
 	private double puntuacion;
 
 	public Producto() {
-		super();
+
 	}
 	
 	public Producto(String nombreProducto, float precio, String categoria, String descripcionProducto, int cantidad,
