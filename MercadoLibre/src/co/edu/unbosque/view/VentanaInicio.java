@@ -44,13 +44,6 @@ public class VentanaInicio extends JFrame {
 		labelOpcion.setFont(new Font("Georgia", Font.BOLD, 20));
 		this.add(labelOpcion);
 	
-		
-		/*opcion = new JLabel("Por favor, cree una cuenta y posteriormente inicie sesión", SwingConstants.CENTER);
-		opcion.setBounds(20, 20, 1000, 1000);
-		opcion.setForeground(Color.decode("#03080D"));
-		opcion.setFont(new Font("Georgia", Font.BOLD, 20));
-		this.add(opcion);
-*/
 		// botones
 		botonInicioSesion = new JButton("INICIAR SESION");
 		botonInicioSesion.setBounds(550, 340, 200, 80);
