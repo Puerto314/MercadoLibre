@@ -14,6 +14,7 @@ public class VentanaCuentaCreada extends JFrame {
 
 	public VentanaCuentaCreada() {
 		inicializarVentanaCuentaCreada();
+		setVisible(false);
 	}
 
 	public void inicializarVentanaCuentaCreada() {

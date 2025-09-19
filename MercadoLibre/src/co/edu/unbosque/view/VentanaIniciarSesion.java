@@ -27,6 +27,7 @@ public class VentanaIniciarSesion extends JFrame {
 
 	public VentanaIniciarSesion() {
 		inicializarVentanaInSesion();
+		setVisible(false);
 	}
 
 	public void inicializarVentanaInSesion() {

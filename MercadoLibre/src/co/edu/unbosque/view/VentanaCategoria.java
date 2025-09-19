@@ -29,6 +29,7 @@ public class VentanaCategoria extends JFrame {
 	
 	public VentanaCategoria() {
 		inicializarCategoria();
+		setVisible(false);
 	}
 	
 	public void inicializarCategoria() {

@@ -50,6 +50,7 @@ public class Controlador implements ActionListener {
 		// oyentes ventana categoria
 		vc.getBotonSalir().addActionListener(this);
 		vc.getBotonSalir().setActionCommand("boton_categoria_volver");
+		
 		// oyentes ventana cuenta creada
 		vcc.getBotonSeguir().addActionListener(this);
 		vcc.getBotonSeguir().setActionCommand("boton_continuar");
@@ -72,7 +73,7 @@ public class Controlador implements ActionListener {
 			break;
 		}
 		case "boton_salir": {
-			vi.dispose();
+			System.exit(0);
 			break;
 		}
 		case "boton_iniciar_sesion_volver": {

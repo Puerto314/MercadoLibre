@@ -31,6 +31,7 @@ public class VentanaRegistrarse extends JFrame {
 
 	public VentanaRegistrarse() {
 		inicializarVentanaReg();
+		setVisible(false);
 	}
 
 	public void inicializarVentanaReg() {
