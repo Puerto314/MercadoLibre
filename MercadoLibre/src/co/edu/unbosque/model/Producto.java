@@ -2,34 +2,20 @@ package co.edu.unbosque.model;
 
 
 public class Producto {
-
-	public enum Categoria {
-		MODA, 
-		HOGAR_Y_MUEBLES, 
-		TECNOLOGIA,
-		DEPORTES,
-		ELECTRODOMESTICOS,
-		ARTE,
-		BELLEZA_Y_CUIDADO_PERSONAL, 
-		HERRAMIENTAS_DE_CONSTRUCCION,
-		VIDEOJUEGOS,
-		MASCOTAS
-	}
-
 	private String nombreProducto;
 	private float precio;
 	private String descripcionProducto;
 	private int cantidad;
 	private int descuento;
 	private double puntuacion;
-	private Categoria categoria;
+
 
 	public Producto() {
 		super();
 	}
 
 	public Producto(String nombreProducto, float precio, String descripcionProducto, int cantidad, int descuento,
-			double puntuacion, Categoria categoria) {
+			double puntuacion) {
 		super();
 		this.nombreProducto = nombreProducto;
 		this.precio = precio;
@@ -37,7 +23,6 @@ public class Producto {
 		this.cantidad = cantidad;
 		this.descuento = descuento;
 		this.puntuacion = puntuacion;
-		this.categoria = categoria;
 	}
 
 	public String getNombreProducto() {
@@ -88,19 +73,11 @@ public class Producto {
 		this.puntuacion = puntuacion;
 	}
 
-	public Categoria getCategoria() {
-		return categoria;
-	}
-
-	public void setCategoria(Categoria categoria) {
-		this.categoria = categoria;
-	}
 
 	@Override
 	public String toString() {
 		return " \n - Nombre del producto: " + nombreProducto + "\n - Precio: " + precio + " \n - Descripción: " + descripcionProducto
-				+ "\n - Cantidad: " + cantidad + "\n - Descuento: " + descuento + "\n - Puntuación: " + puntuacion + "\n - Categoria: "
-				+ categoria;
+				+ "\n - Cantidad: " + cantidad + "\n - Descuento: " + descuento + "\n - Puntuación: " + puntuacion; 
 	}
 
 }

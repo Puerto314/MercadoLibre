@@ -110,7 +110,7 @@ public class Controlador implements ActionListener {
 	}
 
 	public void runGUI() { // Run de la ventana
-		vi.setVisible(true);
+		vi.setVisible(true);	
 	}
 
 	public VentanaInicio getVi() {
