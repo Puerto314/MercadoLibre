@@ -48,7 +48,8 @@ public class Controlador implements ActionListener {
 		vr.getBotonVolver().addActionListener(this);
 		vr.getBotonVolver().setActionCommand("boton_registrarse_volver");
 		// oyentes ventana categoria
-
+		vc.getBotonSalir().addActionListener(this);
+		vc.getBotonSalir().setActionCommand("boton_categoria_volver");
 		// oyentes ventana cuenta creada
 		vcc.getBotonSeguir().addActionListener(this);
 		vcc.getBotonSeguir().setActionCommand("boton_continuar");
@@ -98,6 +99,10 @@ public class Controlador implements ActionListener {
 			vcc.dispose();
 			vi.setVisible(true);
 			break;
+		}
+		case "boton_categoria_volver": {
+			vc.dispose();
+			vi.setVisible(true);
 		}
 
 		}

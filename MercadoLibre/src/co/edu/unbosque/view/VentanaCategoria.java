@@ -13,7 +13,7 @@ public class VentanaCategoria extends JFrame {
 	//atributos
 	private JLabel titulo;
 	private JLabel logoMLc;
-	private JButton botonSalir;
+	private JButton botonVolver;
 	private JButton catalog;
 	private JButton lModa;
 	private JButton lHogar;
@@ -61,13 +61,13 @@ public class VentanaCategoria extends JFrame {
 		
 		
 		//boton salir
-		botonSalir = new JButton("SALIR");
-		botonSalir.setBounds(795, 580, 100, 40);
-		botonSalir.setBackground(Color.decode("#042F6D"));
-		botonSalir.setForeground(Color.decode("#FFFFFF"));
-		botonSalir.setFocusPainted(false);
-		botonSalir.setBorderPainted(false);
-		add(botonSalir);
+		botonVolver = new JButton("VOLVER");
+		botonVolver.setBounds(795, 580, 100, 40);
+		botonVolver.setBackground(Color.decode("#042F6D"));
+		botonVolver.setForeground(Color.decode("#FFFFFF"));
+		botonVolver.setFocusPainted(false);
+		botonVolver.setBorderPainted(false);
+		add(botonVolver);
 		
 		//---PANEL X CATEGORIA---
 		
@@ -94,11 +94,11 @@ public class VentanaCategoria extends JFrame {
 	}
 
 	public JButton getBotonSalir() {
-		return botonSalir;
+		return botonVolver;
 	}
 
 	public void setBotonSalir(JButton botonSalir) {
-		this.botonSalir = botonSalir;
+		this.botonVolver = botonSalir;
 	}
 	
 	

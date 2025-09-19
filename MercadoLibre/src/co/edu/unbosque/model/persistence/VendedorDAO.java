@@ -55,7 +55,7 @@ public class VendedorDAO implements DAO<Vendedor> {
 			sb.append(vendedor.getDireccionCasa() + ";");
 			sb.append(vendedor.getCorreo() + ";");
 			sb.append(vendedor.getTelefono() + ";");
-			sb.append(vendedor.getNumeroVentas() + ";");
+			sb.append(vendedor.getNumeroVenta() + ";");
 		}
 		FileHandler.escribirEnArchivoTexto(FILE_NAME, sb.toString());
 	}
@@ -76,7 +76,7 @@ public class VendedorDAO implements DAO<Vendedor> {
 				temp.setDireccionCasa(columnas[2]);
 				temp.setCorreo(columnas[3]);
 				temp.setTelefono(Long.parseLong(columnas[4]));
-				temp.setNumeroVentas(Integer.parseInt(columnas[5]));
+				temp.setNumeroVenta(Integer.parseInt(columnas[5]));
 				listaVendedor.add(temp);
 			}
 
