@@ -1,8 +1,10 @@
 package co.edu.unbosque.model.persistence;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Properties;
 import java.util.Scanner;
 
 public class FileHandler {
@@ -12,6 +14,8 @@ public class FileHandler {
 	public static PrintWriter escritor;
 
 	public static Scanner lector;
+	
+	public static Properties prop;
 
 	public static void escribirEnArchivoTexto(String url, String contenido) {
 
@@ -49,6 +53,24 @@ public class FileHandler {
 			System.out.println("Error al leer el archivo de texto");
 			System.out.println(e.getMessage());
 			// e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public static Properties cargarArchivosDePropiedad(String url) {
+		
+		try {
+			archivo = new File(url);
+			if(!archivo.exists()) {
+				archivo.createNewFile();
+			}
+			prop = new Properties();
+			prop.load(new FileInputStream(archivo));
+			return prop;
+		} catch (IOException e) {
+			
+			System.out.println("Error al cargar el archivo de propiedad");
+			e.printStackTrace();
 		}
 		return null;
 	}
