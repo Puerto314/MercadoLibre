@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import co.edu.unbosque.view.VentanaCategoria;
+import co.edu.unbosque.view.VentanaCuentaCreada;
 import co.edu.unbosque.view.VentanaIniciarSesion;
 import co.edu.unbosque.view.VentanaInicio;
 //import co.edu.unbosque.view.VentanaPrincipal;
@@ -16,13 +17,15 @@ public class Controlador implements ActionListener {
 	private VentanaIniciarSesion vis;
 	private VentanaRegistrarse vr;
 	private VentanaCategoria vc;
+	private VentanaCuentaCreada vcc;
 
 	public Controlador() {
 		vi = new VentanaInicio(this);
 		vis = new VentanaIniciarSesion();
 		vr = new VentanaRegistrarse();
 		vc = new VentanaCategoria();
-		
+		vcc = new VentanaCuentaCreada();
+
 		asignarOyentes();
 	}
 
@@ -44,8 +47,11 @@ public class Controlador implements ActionListener {
 		vr.getBotonRegistrar().setActionCommand("boton_crear_cuenta");
 		vr.getBotonVolver().addActionListener(this);
 		vr.getBotonVolver().setActionCommand("boton_registrarse_volver");
-		//oyentes ventana categoria
-		
+		// oyentes ventana categoria
+
+		// oyentes ventana cuenta creada
+		vcc.getBotonSeguir().addActionListener(this);
+		vcc.getBotonSeguir().setActionCommand("boton_crear_cuenta");
 
 	}
 
@@ -66,23 +72,27 @@ public class Controlador implements ActionListener {
 		case "boton_salir": {
 			vi.dispose();
 			break;
-			}
+		}
 		case "boton_iniciar_sesion_volver": {
 			vis.dispose();
 			vi.setVisible(true);
+			break;
 		}
-		case "boton_crear_cuenta":{
+		case "boton_crear_cuenta": {
 			vr.dispose();
-			vi.setVisible(true);//este por ahora, toca crear una ventana emergente para un mensaje de "cuenta creada"
+			vcc.setVisible(true);
+			break;
 		}
-		case "boton_registrarse_volver":{
+		case "boton_registrarse_volver": {
 			vr.dispose();
 			vi.setVisible(true);
+			break;
 		}
-		case "boton_entrar":{
+		case "boton_entrar": {
 			vis.dispose();
 			vc.setVisible(true);
 		}
+
 		}
 	}
 
@@ -113,6 +123,21 @@ public class Controlador implements ActionListener {
 	public void setVr(VentanaRegistrarse vr) {
 		this.vr = vr;
 	}
-	
+
+	public VentanaCategoria getVc() {
+		return vc;
+	}
+
+	public void setVc(VentanaCategoria vc) {
+		this.vc = vc;
+	}
+
+	public VentanaCuentaCreada getVcc() {
+		return vcc;
+	}
+
+	public void setVcc(VentanaCuentaCreada vcc) {
+		this.vcc = vcc;
+	}
 
 }

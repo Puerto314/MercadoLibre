@@ -208,6 +208,4 @@ public class VentanaInicio extends JFrame {
 		this.labelOpcion = labelOpcion;
 	}
 
-	
-
 }

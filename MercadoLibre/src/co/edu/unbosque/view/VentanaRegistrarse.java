@@ -207,6 +207,7 @@ public class VentanaRegistrarse extends JFrame {
 				botonVolver.setFocusPainted(false);
 				botonVolver.setBorderPainted(false);
 				add(botonVolver);
+				
 	}
 	//getters y setters
 	public JLabel getLabelIdUsuario() {
