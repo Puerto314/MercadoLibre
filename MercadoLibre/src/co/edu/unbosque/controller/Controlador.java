@@ -3,6 +3,7 @@ package co.edu.unbosque.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import co.edu.unbosque.view.VentanaCategoria;
 import co.edu.unbosque.view.VentanaIniciarSesion;
 import co.edu.unbosque.view.VentanaInicio;
 //import co.edu.unbosque.view.VentanaPrincipal;
@@ -14,12 +15,14 @@ public class Controlador implements ActionListener {
 	private VentanaInicio vi;
 	private VentanaIniciarSesion vis;
 	private VentanaRegistrarse vr;
+	private VentanaCategoria vc;
 
 	public Controlador() {
 		vi = new VentanaInicio(this);
 		vis = new VentanaIniciarSesion();
 		vr = new VentanaRegistrarse();
-
+		vc = new VentanaCategoria();
+		
 		asignarOyentes();
 	}
 
@@ -31,14 +34,17 @@ public class Controlador implements ActionListener {
 		vi.getBotonRegistrarse().setActionCommand("boton_registrarse");
 		vi.getBotonSalir().addActionListener(this);
 		vi.getBotonSalir().setActionCommand("boton_salir");
+		// oyentes ventana iniciar sesion
 		vis.getBotonVolver().addActionListener(this);
 		vis.getBotonVolver().setActionCommand("boton_iniciar_sesion_volver");
 		vis.getBotonEntrar().addActionListener(this);
 		vis.getBotonEntrar().setActionCommand("boton_entrar");
+		// oyentes ventana registrar
 		vr.getBotonRegistrar().addActionListener(this);
 		vr.getBotonRegistrar().setActionCommand("boton_crear_cuenta");
 		vr.getBotonVolver().addActionListener(this);
 		vr.getBotonVolver().setActionCommand("boton_registrarse_volver");
+		//oyentes ventana categoria
 		
 
 	}
@@ -75,7 +81,7 @@ public class Controlador implements ActionListener {
 		}
 		case "boton_entrar":{
 			vis.dispose();
-			vi.setVisible(true);//este por ahora, toca crear ventana principal
+			vc.setVisible(true);
 		}
 		}
 	}
