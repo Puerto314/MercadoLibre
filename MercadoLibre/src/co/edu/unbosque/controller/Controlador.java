@@ -52,8 +52,6 @@ public class Controlador implements ActionListener {
 		vc.getBotonSalir().setActionCommand("boton_categoria_volver");
 		
 		// oyentes ventana cuenta creada
-		vcc.getBotonSeguir().addActionListener(this);
-		vcc.getBotonSeguir().setActionCommand("boton_continuar");
 
 	}
 
@@ -83,7 +81,7 @@ public class Controlador implements ActionListener {
 		}
 		case "boton_crear_cuenta": {
 			vr.dispose();
-			vcc.setVisible(true);
+			vcc.inicializarVentanaCuentaCreada();
 			break;
 		}
 		case "boton_registrarse_volver": {
@@ -108,7 +106,7 @@ public class Controlador implements ActionListener {
 
 		}
 	}
-
+	
 	public void runGUI() { // Run de la ventana
 		vi.setVisible(true);	
 	}
