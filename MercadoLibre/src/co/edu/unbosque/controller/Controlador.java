@@ -7,7 +7,6 @@ import co.edu.unbosque.view.VentanaCategoria;
 import co.edu.unbosque.view.VentanaCuentaCreada;
 import co.edu.unbosque.view.VentanaIniciarSesion;
 import co.edu.unbosque.view.VentanaInicio;
-//import co.edu.unbosque.view.VentanaPrincipal;
 import co.edu.unbosque.view.VentanaRegistrarse;
 
 public class Controlador implements ActionListener {
@@ -50,7 +49,6 @@ public class Controlador implements ActionListener {
 		// oyentes ventana categoria
 		vc.getBotonSalir().addActionListener(this);
 		vc.getBotonSalir().setActionCommand("boton_categoria_volver");
-		
 		// oyentes ventana cuenta creada
 
 	}
@@ -82,7 +80,7 @@ public class Controlador implements ActionListener {
 		case "boton_crear_cuenta": {
 			vr.dispose();
 			vcc.inicializarVentanaCuentaCreada();
-			break;
+			vi.dispose();
 		}
 		case "boton_registrarse_volver": {
 			vr.dispose();
@@ -106,9 +104,9 @@ public class Controlador implements ActionListener {
 
 		}
 	}
-	
+
 	public void runGUI() { // Run de la ventana
-		vi.setVisible(true);	
+		vi.setVisible(true);
 	}
 
 	public VentanaInicio getVi() {
