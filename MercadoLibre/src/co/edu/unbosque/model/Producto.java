@@ -1,29 +1,31 @@
 package co.edu.unbosque.model;
 
 
-public  class Producto {
+public abstract class Producto {
 	private String nombreProducto;
 	private float precio;
+	private String categoria;
 	private String descripcionProducto;
 	private int cantidad;
 	private int descuento;
 	private double puntuacion;
 
-
 	public Producto() {
 		super();
 	}
-
-	public Producto(String nombreProducto, float precio, String descripcionProducto, int cantidad, int descuento,
-			double puntuacion) {
+	
+	public Producto(String nombreProducto, float precio, String categoria, String descripcionProducto, int cantidad,
+			int descuento, double puntuacion) {
 		super();
 		this.nombreProducto = nombreProducto;
 		this.precio = precio;
+		this.categoria = categoria;
 		this.descripcionProducto = descripcionProducto;
 		this.cantidad = cantidad;
 		this.descuento = descuento;
 		this.puntuacion = puntuacion;
 	}
+
 
 	public String getNombreProducto() {
 		return nombreProducto;
@@ -39,6 +41,14 @@ public  class Producto {
 
 	public void setPrecio(float precio) {
 		this.precio = precio;
+	}
+
+	public String getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
 	}
 
 	public String getDescripcionProducto() {
@@ -72,7 +82,6 @@ public  class Producto {
 	public void setPuntuacion(double puntuacion) {
 		this.puntuacion = puntuacion;
 	}
-
 
 	@Override
 	public String toString() {
