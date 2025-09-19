@@ -2,7 +2,6 @@ package co.edu.unbosque.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import co.edu.unbosque.view.VentanaCategoria;
 import co.edu.unbosque.view.VentanaCuentaCreada;
 import co.edu.unbosque.view.VentanaIniciarSesion;
@@ -78,9 +77,16 @@ public class Controlador implements ActionListener {
 			break;
 		}
 		case "boton_crear_cuenta": {
+			String nombreUsuario = vr.getTextoIdUsuario().getText().trim();
+			String correo = vr.getTextoEmail().getText().trim();
+			long telefono = Long.parseLong(vr.getTextoTelefono().getText().trim());
+			String direccion = vr.getTextoDireccion().getText().trim();
+			String contrasenia = vr.getTextoContrasenia().getText().trim();
 			vr.dispose();
 			vcc.inicializarVentanaCuentaCreada();
 			vi.dispose();
+			vi.setVisible(true);
+			break;
 		}
 		case "boton_registrarse_volver": {
 			vr.dispose();
@@ -100,6 +106,7 @@ public class Controlador implements ActionListener {
 		case "boton_categoria_volver": {
 			vc.dispose();
 			vi.setVisible(true);
+			break;
 		}
 
 		}
