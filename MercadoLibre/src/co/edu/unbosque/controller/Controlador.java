@@ -51,7 +51,7 @@ public class Controlador implements ActionListener {
 
 		// oyentes ventana cuenta creada
 		vcc.getBotonSeguir().addActionListener(this);
-		vcc.getBotonSeguir().setActionCommand("boton_crear_cuenta");
+		vcc.getBotonSeguir().setActionCommand("boton_continuar");
 
 	}
 
@@ -68,6 +68,7 @@ public class Controlador implements ActionListener {
 		case "boton_registrarse": {
 			vi.dispose();
 			vr.setVisible(true);
+			break;
 		}
 		case "boton_salir": {
 			vi.dispose();
@@ -91,6 +92,12 @@ public class Controlador implements ActionListener {
 		case "boton_entrar": {
 			vis.dispose();
 			vc.setVisible(true);
+			break;
+		}
+		case "boton_continuar": {
+			vcc.dispose();
+			vi.setVisible(true);
+			break;
 		}
 
 		}
