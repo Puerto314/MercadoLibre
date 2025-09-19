@@ -1,7 +1,7 @@
 package co.edu.unbosque.model;
 
 
-public class Producto {
+public  class Producto {
 	private String nombreProducto;
 	private float precio;
 	private String descripcionProducto;

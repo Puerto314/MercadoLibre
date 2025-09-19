@@ -10,8 +10,11 @@ import java.util.Scanner;
 public class FileHandler {
 
 	public static File archivo;
+
 	public static PrintWriter escritor;
+
 	public static Scanner lector;
+	
 	public static Properties prop;
 
 	public static void escribirEnArchivoTexto(String url, String contenido) {
