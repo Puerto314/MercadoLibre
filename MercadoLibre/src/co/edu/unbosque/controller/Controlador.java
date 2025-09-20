@@ -2,7 +2,10 @@ package co.edu.unbosque.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import co.edu.unbosque.util.exception.ContraseniaException;
 import co.edu.unbosque.util.exception.CorreoException;
+import co.edu.unbosque.util.exception.DireccionException;
 import co.edu.unbosque.util.exception.LanzadorException;
 import co.edu.unbosque.util.exception.NombreUsuarioException;
 import co.edu.unbosque.util.exception.TelefonoException;
@@ -98,7 +101,7 @@ public class Controlador implements ActionListener {
 			try {
 				String entrada = vr.getTextoEmail().getText().trim();
 				LanzadorException.verificarCorreoValido(entrada);
-				nombreUsuario = entrada;
+				correo = entrada;
 			} catch (CorreoException ex) {
 				System.err.println(ex.getMessage());
 				vr.setVisible(true);
@@ -118,8 +121,29 @@ public class Controlador implements ActionListener {
 				break;
 			}
 
-			String direccion = vr.getTextoDireccion().getText().trim();
-			String contrasenia = vr.getTextoContrasenia().getText().trim();
+			String direccion;
+			try {
+				String entrada = vr.getTextoDireccion().getText().trim();
+				LanzadorException.verificarDireccionValida(entrada);
+				direccion = entrada;
+			} catch (DireccionException ex) {
+				System.err.println(ex.getMessage());
+				vr.setVisible(true);
+				vi.setVisible(false);
+				break;
+			}
+
+			String contrasenia;
+			try {
+				String entrada = vr.getTextoContrasenia().getText().trim();
+				LanzadorException.verificarContraseñaValida(entrada);
+				contrasenia = entrada;
+			} catch (ContraseniaException ex) {
+				System.err.println(ex.getMessage());
+				vr.setVisible(true);
+				vi.setVisible(false);
+				break;
+			}
 
 			vr.setVisible(false);
 			vcc.inicializarVentanaCuentaCreada();
