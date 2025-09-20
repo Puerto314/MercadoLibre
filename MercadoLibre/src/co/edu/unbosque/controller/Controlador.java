@@ -3,11 +3,16 @@ package co.edu.unbosque.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import co.edu.unbosque.util.exception.ContraseniaException;
+import co.edu.unbosque.util.exception.CorreoException;
+import co.edu.unbosque.util.exception.DireccionException;
+import co.edu.unbosque.util.exception.LanzadorException;
+import co.edu.unbosque.util.exception.NombreUsuarioException;
+import co.edu.unbosque.util.exception.TelefonoException;
 import co.edu.unbosque.view.VentanaCategoria;
 import co.edu.unbosque.view.VentanaCuentaCreada;
 import co.edu.unbosque.view.VentanaIniciarSesion;
 import co.edu.unbosque.view.VentanaInicio;
-//import co.edu.unbosque.view.VentanaPrincipal;
 import co.edu.unbosque.view.VentanaRegistrarse;
 
 public class Controlador implements ActionListener {
@@ -50,7 +55,6 @@ public class Controlador implements ActionListener {
 		// oyentes ventana categoria
 		vc.getBotonSalir().addActionListener(this);
 		vc.getBotonSalir().setActionCommand("boton_categoria_volver");
-		
 		// oyentes ventana cuenta creada
 
 	}
@@ -80,10 +84,73 @@ public class Controlador implements ActionListener {
 			break;
 		}
 		case "boton_crear_cuenta": {
-			vr.dispose();
+
+			String nombreUsuario;
+			try {
+				String entrada = vr.getTextoIdUsuario().getText().trim();
+				LanzadorException.verificarNombreUsuario(entrada);
+				nombreUsuario = entrada;
+			} catch (NombreUsuarioException ex) {
+				System.err.println(ex.getMessage());
+				vr.setVisible(true);
+				vi.setVisible(false);
+				break;
+			}
+
+			String correo;
+			try {
+				String entrada = vr.getTextoEmail().getText().trim();
+				LanzadorException.verificarCorreoValido(entrada);
+				correo = entrada;
+			} catch (CorreoException ex) {
+				System.err.println(ex.getMessage());
+				vr.setVisible(true);
+				vi.setVisible(false);
+				break;
+			}
+
+			long telefono;
+			try {
+				String entrada = vr.getTextoTelefono().getText().trim();
+				LanzadorException.verificarNumeroCelular(entrada);
+				telefono = Long.parseLong(entrada);
+			} catch (TelefonoException ex) {
+				System.err.println(ex.getMessage());
+				vr.setVisible(true);
+				vi.setVisible(false);
+				break;
+			}
+
+			String direccion;
+			try {
+				String entrada = vr.getTextoDireccion().getText().trim();
+				LanzadorException.verificarDireccionValida(entrada);
+				direccion = entrada;
+			} catch (DireccionException ex) {
+				System.err.println(ex.getMessage());
+				vr.setVisible(true);
+				vi.setVisible(false);
+				break;
+			}
+
+			String contrasenia;
+			try {
+				String entrada = vr.getTextoContrasenia().getText().trim();
+				LanzadorException.verificarContraseñaValida(entrada);
+				contrasenia = entrada;
+			} catch (ContraseniaException ex) {
+				System.err.println(ex.getMessage());
+				vr.setVisible(true);
+				vi.setVisible(false);
+				break;
+			}
+
+			vr.setVisible(false);
 			vcc.inicializarVentanaCuentaCreada();
+			vi.setVisible(true);
 			break;
 		}
+
 		case "boton_registrarse_volver": {
 			vr.dispose();
 			vi.setVisible(true);
@@ -102,13 +169,14 @@ public class Controlador implements ActionListener {
 		case "boton_categoria_volver": {
 			vc.dispose();
 			vi.setVisible(true);
+			break;
 		}
 
 		}
 	}
-	
+
 	public void runGUI() { // Run de la ventana
-		vi.setVisible(true);	
+		vi.setVisible(true);
 	}
 
 	public VentanaInicio getVi() {

@@ -57,7 +57,6 @@ public class ProductoDAO implements DAO<Producto> {
 			sb.append(producto.getDescuento() + ";");
 			sb.append(producto.getPuntuacion() + ";");
 
-
 		}
 		FileHandler.escribirEnArchivoTexto(FILE_NAME, sb.toString());
 	}
@@ -80,7 +79,7 @@ public class ProductoDAO implements DAO<Producto> {
 				temp.setCantidad(Integer.parseInt(columnas[3]));
 				temp.setDescuento(Integer.parseInt(columnas[4]));
 				temp.setPuntuacion(Double.parseDouble(columnas[5]));
-				
+
 				listaProductos.add(temp);
 			}
 
@@ -101,4 +100,3 @@ public class ProductoDAO implements DAO<Producto> {
 	}
 
 }
-
