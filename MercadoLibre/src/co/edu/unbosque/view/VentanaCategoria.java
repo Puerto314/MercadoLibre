@@ -431,5 +431,7 @@ public class VentanaCategoria extends JFrame {
 	public void setlMascota(JLabel lMascota) {
 		this.lMascota = lMascota;
 	}
+	
+	
 
 }
