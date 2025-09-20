@@ -3,6 +3,8 @@ package co.edu.unbosque.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JOptionPane;
+
 import co.edu.unbosque.util.exception.ContraseniaException;
 import co.edu.unbosque.util.exception.CorreoException;
 import co.edu.unbosque.util.exception.DireccionException;
@@ -91,7 +93,8 @@ public class Controlador implements ActionListener {
 				LanzadorException.verificarNombreUsuario(entrada);
 				nombreUsuario = entrada;
 			} catch (NombreUsuarioException ex) {
-				System.err.println(ex.getMessage());
+				JOptionPane.showMessageDialog(null, ex.getMessage(), "ERROR NOMBRE DE USUARIO",
+						JOptionPane.ERROR_MESSAGE, null);
 				vr.setVisible(true);
 				vi.setVisible(false);
 				break;
@@ -103,7 +106,8 @@ public class Controlador implements ActionListener {
 				LanzadorException.verificarCorreoValido(entrada);
 				correo = entrada;
 			} catch (CorreoException ex) {
-				System.err.println(ex.getMessage());
+				JOptionPane.showMessageDialog(null, ex.getMessage(), "ERROR CORREO",
+						JOptionPane.ERROR_MESSAGE, null);
 				vr.setVisible(true);
 				vi.setVisible(false);
 				break;
@@ -115,7 +119,8 @@ public class Controlador implements ActionListener {
 				LanzadorException.verificarNumeroCelular(entrada);
 				telefono = Long.parseLong(entrada);
 			} catch (TelefonoException ex) {
-				System.err.println(ex.getMessage());
+				JOptionPane.showMessageDialog(null, ex.getMessage(), "ERROR TELEFONO",
+						JOptionPane.ERROR_MESSAGE, null);
 				vr.setVisible(true);
 				vi.setVisible(false);
 				break;
@@ -127,7 +132,8 @@ public class Controlador implements ActionListener {
 				LanzadorException.verificarDireccionValida(entrada);
 				direccion = entrada;
 			} catch (DireccionException ex) {
-				System.err.println(ex.getMessage());
+				JOptionPane.showMessageDialog(null, ex.getMessage(), "ERROR DIRECCION",
+						JOptionPane.ERROR_MESSAGE, null);
 				vr.setVisible(true);
 				vi.setVisible(false);
 				break;
@@ -139,7 +145,8 @@ public class Controlador implements ActionListener {
 				LanzadorException.verificarContraseñaValida(entrada);
 				contrasenia = entrada;
 			} catch (ContraseniaException ex) {
-				System.err.println(ex.getMessage());
+				JOptionPane.showMessageDialog(null, ex.getMessage(), "ERROR CONTRASEÑA",
+						JOptionPane.ERROR_MESSAGE, null);
 				vr.setVisible(true);
 				vi.setVisible(false);
 				break;
