@@ -59,7 +59,7 @@ public class VentanaRegistrarse extends JFrame {
 		textoIdUsuario = new JTextField();
 		textoIdUsuario.setBounds(460, 250, 220, 40);
 		textoIdUsuario.setFont(new Font("Arial", Font.PLAIN, 14));
-		textoIdUsuario.setBorder(BorderFactory.createLineBorder(Color.decode("#144031"), 2));
+		textoIdUsuario.setBorder(BorderFactory.createLineBorder(Color.decode("#144031"), 1));
 		textoIdUsuario.addKeyListener(new KeyListener() {
 			@Override
 			public void keyTyped(KeyEvent e) {
@@ -86,7 +86,7 @@ public class VentanaRegistrarse extends JFrame {
 		textoTelefono = new JTextField();
 		textoTelefono.setBounds(460, 360, 220, 40);
 		textoTelefono.setFont(new Font("Arial", Font.PLAIN, 14));
-		textoTelefono.setBorder(BorderFactory.createLineBorder(Color.decode("#144031"), 2));
+		textoTelefono.setBorder(BorderFactory.createLineBorder(Color.decode("#144031"), 1));
 		textoTelefono.addKeyListener(new KeyListener() {
 			@Override
 			public void keyTyped(KeyEvent e) {
@@ -113,7 +113,7 @@ public class VentanaRegistrarse extends JFrame {
 		textoContrasenia = new JTextField();
 		textoContrasenia.setBounds(460, 470, 220, 40);
 		textoContrasenia.setFont(new Font("Arial", Font.PLAIN, 14));
-		textoContrasenia.setBorder(BorderFactory.createLineBorder(Color.decode("#144031"), 2));
+		textoContrasenia.setBorder(BorderFactory.createLineBorder(Color.decode("#144031"), 1));
 		textoContrasenia.addKeyListener(new KeyListener() {
 			@Override
 			public void keyTyped(KeyEvent e) {
@@ -141,7 +141,7 @@ public class VentanaRegistrarse extends JFrame {
 		textoEmail = new JTextField();
 		textoEmail.setBounds(725, 250, 220, 40);
 		textoEmail.setFont(new Font("Arial", Font.PLAIN, 14));
-		textoEmail.setBorder(BorderFactory.createLineBorder(Color.decode("#144031"), 2));
+		textoEmail.setBorder(BorderFactory.createLineBorder(Color.decode("#144031"), 1));
 		textoEmail.addKeyListener(new KeyListener() {
 			@Override
 			public void keyTyped(KeyEvent e) {
@@ -168,7 +168,7 @@ public class VentanaRegistrarse extends JFrame {
 		textoDireccion = new JTextField();
 		textoDireccion.setBounds(725, 360, 220, 40);
 		textoDireccion.setFont(new Font("Arial", Font.PLAIN, 14));
-		textoDireccion.setBorder(BorderFactory.createLineBorder(Color.decode("#144031"), 2));
+		textoDireccion.setBorder(BorderFactory.createLineBorder(Color.decode("#144031"), 1));
 		textoDireccion.addKeyListener(new KeyListener() {
 			@Override
 			public void keyTyped(KeyEvent e) {
