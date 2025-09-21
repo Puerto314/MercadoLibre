@@ -1,6 +1,6 @@
 package co.edu.unbosque.model;
 
-public class Comprador extends Usuario {
+public class Comprador {
 
 	private String ciudad;
 	private String numeroTarjeta;
@@ -10,21 +10,8 @@ public class Comprador extends Usuario {
 		super();
 	}
 
-	public Comprador(String idUsuario, String contrasenia, String direccionCasa, String correo, long telefono) {
-		super(idUsuario, contrasenia, direccionCasa, correo, telefono);
-		// TODO Auto-generated constructor stub
-	}
-
 	public Comprador(String ciudad, String numeroTarjeta, short claveDeSeguridad) {
 		super();
-		this.ciudad = ciudad;
-		this.numeroTarjeta = numeroTarjeta;
-		this.claveDeSeguridad = claveDeSeguridad;
-	}
-
-	public Comprador(String idUsuario, String contrasenia, String direccionCasa, String correo, long telefono,
-			String ciudad, String numeroTarjeta, short claveDeSeguridad) {
-		super(idUsuario, contrasenia, direccionCasa, correo, telefono);
 		this.ciudad = ciudad;
 		this.numeroTarjeta = numeroTarjeta;
 		this.claveDeSeguridad = claveDeSeguridad;
@@ -56,8 +43,8 @@ public class Comprador extends Usuario {
 
 	@Override
 	public String toString() {
-		return super.toString() + "\n - Ciudad:" + ciudad + "\n - Numero de tarjeta: " + numeroTarjeta
-				+ "\n - Clave de seguridad (CCV): " + claveDeSeguridad;
+		return "\n - Ciudad:" + ciudad + "\n - Numero de tarjeta: " + numeroTarjeta + "\n - Clave de seguridad (CCV): "
+				+ claveDeSeguridad;
 	}
 
 }

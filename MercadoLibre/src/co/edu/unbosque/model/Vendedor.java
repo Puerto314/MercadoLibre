@@ -1,6 +1,6 @@
 package co.edu.unbosque.model;
 
-public class Vendedor extends Usuario {
+public class Vendedor {
 
 	private int numeroVenta;
 
@@ -13,18 +13,6 @@ public class Vendedor extends Usuario {
 		this.numeroVenta = numeroVentas;
 	}
 
-	public Vendedor(String idUsuario, String contrasenia, String direccionCasa, String correo, long telefono) {
-		super(idUsuario, contrasenia, direccionCasa, correo, telefono);
-		// TODO Auto-generated constructor stub
-	}
-
-	public Vendedor(String idUsuario, String contrasenia, String direccionCasa, String correo, long telefono,
-			int numeroVentas) {
-		super(idUsuario, contrasenia, direccionCasa, correo, telefono);
-		this.numeroVenta = numeroVentas;
-	}
-
-
 	public int getNumeroVenta() {
 		return numeroVenta;
 	}
@@ -35,7 +23,7 @@ public class Vendedor extends Usuario {
 
 	@Override
 	public String toString() {
-		return super.toString() + "\n - Número de ventas del vendedor: " + numeroVenta;
+		return "\n - Número de ventas del vendedor: " + numeroVenta;
 	}
 
 }

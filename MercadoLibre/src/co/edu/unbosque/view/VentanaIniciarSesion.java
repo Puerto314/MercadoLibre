@@ -55,7 +55,7 @@ public class VentanaIniciarSesion extends JFrame {
 		usuario = new JTextField();
 		usuario.setBounds(520, 250, 400, 40);
 		usuario.setFont(new Font("Arial", Font.PLAIN, 14));
-		usuario.setBorder(BorderFactory.createLineBorder(Color.decode("#144031"), 2));
+		usuario.setBorder(BorderFactory.createLineBorder(Color.decode("#144031"), 1));
 		usuario.addKeyListener(new KeyListener() {
 			@Override
 			public void keyTyped(KeyEvent e) {
@@ -82,7 +82,7 @@ public class VentanaIniciarSesion extends JFrame {
 		email = new JTextField();
 		email.setBounds(520, 360, 400, 40);
 		email.setFont(new Font("Arial", Font.PLAIN, 14));
-		email.setBorder(BorderFactory.createLineBorder(Color.decode("#144031"), 2));
+		email.setBorder(BorderFactory.createLineBorder(Color.decode("#144031"), 1));
 		email.addKeyListener(new KeyListener() {
 			@Override
 			public void keyTyped(KeyEvent e) {
@@ -109,7 +109,7 @@ public class VentanaIniciarSesion extends JFrame {
 		contrasenia = new JTextField();
 		contrasenia.setBounds(520, 470, 400, 40);
 		contrasenia.setFont(new Font("Arial", Font.PLAIN, 14));
-		contrasenia.setBorder(BorderFactory.createLineBorder(Color.decode("#144031"), 2));
+		contrasenia.setBorder(BorderFactory.createLineBorder(Color.decode("#144031"), 1));
 		contrasenia.addKeyListener(new KeyListener() {
 			@Override
 			public void keyTyped(KeyEvent e) {
