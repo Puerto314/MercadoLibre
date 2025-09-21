@@ -38,14 +38,14 @@ public class VentanaInicio extends JFrame {
 		this.getContentPane().setBackground(Color.decode("#FFFFFF")); // LE DA COLOR A TODA LA VENTANA
 
 		// opción
-		labelOpcion = new JLabel("- El mercado de todos, para todos -");
+		labelOpcion = new JLabel("- The market for everyone, by everyone -");
 		labelOpcion.setBounds(320, 270, 480, 30);
 		labelOpcion.setForeground(Color.decode("#03080D"));
 		labelOpcion.setFont(new Font("Georgia", Font.BOLD, 20));
 		this.add(labelOpcion);
 	
 		// botones
-		botonInicioSesion = new JButton("INICIAR SESION");
+		botonInicioSesion = new JButton("ACCES");
 		botonInicioSesion.setBounds(550, 340, 200, 80);
 		botonInicioSesion.setBackground(Color.decode("#FCE707"));
 		botonInicioSesion.setForeground(Color.decode("#03080D"));
@@ -53,7 +53,7 @@ public class VentanaInicio extends JFrame {
 		botonInicioSesion.setBorderPainted(false);//QUITA LOS BORDES DE LOS BOTONES EN FALSE, TRUE PARA MOSTRAR LOS BORDES
 		this.add(botonInicioSesion);
 
-		botonRegistrarse = new JButton("REGISTRARSE");
+		botonRegistrarse = new JButton("CREATE AN ACCOUNT");
 		botonRegistrarse.setBounds(200, 340, 200, 80);
 		botonRegistrarse.setBackground(Color.decode("#FCE707"));
 		botonRegistrarse.setForeground(Color.decode("#03080D"));
@@ -62,7 +62,7 @@ public class VentanaInicio extends JFrame {
 		this.add(botonRegistrarse);
 
 		// salir
-		botonSalir = new JButton("SALIR");
+		botonSalir = new JButton("EXIT");
 		botonSalir.setBounds(430, 600, 90, 40);
 		botonSalir.setBackground(Color.decode("#042F6D"));
 		botonSalir.setForeground(Color.decode("#FFFFFF"));
@@ -71,7 +71,7 @@ public class VentanaInicio extends JFrame {
 		this.add(botonSalir);
 
 		// languages
-		idioma = new JLabel("- Cambiar Idioma -");
+		idioma = new JLabel("- Change the lenguage -");
 		idioma.setBounds(380, 450, 260, 30);
 		idioma.setForeground(Color.decode("#03080D"));
 		idioma.setFont(new Font("Arial", Font.BOLD, 20));
