@@ -58,8 +58,7 @@ public class Controlador implements ActionListener {
 		vr.getBotonVolver().addActionListener(this);
 		vr.getBotonVolver().setActionCommand("boton_registrarse_volver");
 		// oyentes ventana categoria
-		vc.getBotonSalir().addActionListener(this);
-		vc.getBotonSalir().setActionCommand("boton_categoria_volver");
+
 	}
 
 	@Override
