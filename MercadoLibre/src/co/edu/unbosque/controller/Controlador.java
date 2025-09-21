@@ -13,7 +13,6 @@ import co.edu.unbosque.util.exception.LanzadorException;
 import co.edu.unbosque.util.exception.NombreUsuarioException;
 import co.edu.unbosque.util.exception.TelefonoException;
 import co.edu.unbosque.view.VentanaCategoria;
-import co.edu.unbosque.view.VentanaCuentaCreada;
 import co.edu.unbosque.view.VentanaIniciarSesion;
 import co.edu.unbosque.view.VentanaInicio;
 import co.edu.unbosque.view.VentanaRegistrarse;
@@ -24,7 +23,6 @@ public class Controlador implements ActionListener {
 	private VentanaIniciarSesion vis;
 	private VentanaRegistrarse vr;
 	private VentanaCategoria vc;
-	private VentanaCuentaCreada vcc;
 	private List<Usuario> usuariosRegistrados;
 
 	public Controlador() {
@@ -32,7 +30,6 @@ public class Controlador implements ActionListener {
 		vis = new VentanaIniciarSesion();
 		vr = new VentanaRegistrarse();
 		vc = new VentanaCategoria();
-		vcc = new VentanaCuentaCreada();
 
 		usuariosRegistrados = new ArrayList<>();
 
@@ -150,7 +147,7 @@ public class Controlador implements ActionListener {
 				break;
 			}
 
-			Usuario nuevo = new Usuario(nombreUsuario, contrasenia, direccion, correo, telefono);
+			Usuario nuevo = new Usuario(); // TOCA AGREGAR LOS ATRIBUTOS EN EL METODO USUARIO()
 			usuariosRegistrados.add(nuevo);
 
 			vr.setVisible(false);
@@ -192,7 +189,6 @@ public class Controlador implements ActionListener {
 		}
 
 		case "boton_continuar": {
-			vcc.dispose();
 			vi.setVisible(true);
 			break;
 		}
@@ -238,14 +234,6 @@ public class Controlador implements ActionListener {
 
 	public void setVc(VentanaCategoria vc) {
 		this.vc = vc;
-	}
-
-	public VentanaCuentaCreada getVcc() {
-		return vcc;
-	}
-
-	public void setVcc(VentanaCuentaCreada vcc) {
-		this.vcc = vcc;
 	}
 
 	public List<Usuario> getUsuariosRegistrados() {

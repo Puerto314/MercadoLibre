@@ -10,10 +10,6 @@ public class Usuario {
 	private String ciudad;
 	private String numeroTarjeta;
 	private short claveDeSeguridad;
-	
-	
-	
-	
 
 	public String getCiudad() {
 		return ciudad;
