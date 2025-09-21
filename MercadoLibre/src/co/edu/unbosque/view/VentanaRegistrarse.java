@@ -19,11 +19,13 @@ public class VentanaRegistrarse extends JFrame {
 	private JLabel labelDireccion;
 	private JLabel labelEmail;
 	private JLabel labelTelefono;
+	private JLabel labelCiudad;
 	private JTextField textoIdUsuario;
 	private JTextField textoContrasenia;
 	private JTextField textoDireccion;
 	private JTextField textoEmail;
 	private JTextField textoTelefono;
+	private JTextField textoCiudad;
 	private JButton botonRegistrar;
 	private JButton botonVolver;
 	private JLabel registrar;
@@ -47,7 +49,7 @@ public class VentanaRegistrarse extends JFrame {
 		registrar.setBounds(610, 60, 350, 50);
 		registrar.setFont(new Font("Georgia", Font.BOLD, 40));
 		add(registrar);
-		
+
 		// ---LADO IZQUIERDO---
 		// usuario
 		labelIdUsuario = new JLabel("Usuario: ");
@@ -130,7 +132,6 @@ public class VentanaRegistrarse extends JFrame {
 		});
 		this.add(textoContrasenia);
 
-
 		// ---LADO DERECHO---
 		// email
 		labelEmail = new JLabel("Email: ");
@@ -185,7 +186,35 @@ public class VentanaRegistrarse extends JFrame {
 		});
 		this.add(textoDireccion);
 
-		//ir
+
+		// ciudad
+		labelCiudad = new JLabel("Ciudad: ");
+		labelCiudad.setBounds(725, 430, 250, 25);
+		labelCiudad.setFont(new Font("Arial", Font.BOLD, 20));
+		add(labelCiudad);
+
+		// campo ciudad
+		textoCiudad = new JTextField();
+		textoCiudad.setBounds(725, 470, 220, 40);
+		textoCiudad.setFont(new Font("Arial", Font.PLAIN, 14));
+		textoCiudad.setBorder(BorderFactory.createLineBorder(Color.decode("#144031"), 2));
+		textoCiudad.addKeyListener(new KeyListener() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+			}
+
+			@Override
+			public void keyPressed(KeyEvent e) {
+			}
+
+			@Override
+			public void keyReleased(KeyEvent e) {
+				// buscarEnTiempoReal();
+			}
+		});
+		this.add(textoCiudad);
+
+		// ir
 		ImageIcon banner2 = new ImageIcon(getClass().getResource("ir.JPG"));
 		JLabel b2 = new JLabel(banner2);
 		ir = new JLabel(banner2);
@@ -193,24 +222,24 @@ public class VentanaRegistrarse extends JFrame {
 		add(ir);
 		
 		// botones
-				botonRegistrar = new JButton("CREAR CUENTA");
-				botonRegistrar.setBounds(570, 580, 140, 40);
-				botonRegistrar.setBackground(Color.decode("#042F6D"));
-				botonRegistrar.setForeground(Color.decode("#FFFFFF"));
-				botonRegistrar.setFocusPainted(false);
-				botonRegistrar.setBorderPainted(false);
-				add(botonRegistrar);
-
-				botonVolver = new JButton("VOLVER");
-				botonVolver.setBounds(755, 580, 100, 40);
-				botonVolver.setBackground(Color.decode("#042F6D"));
-				botonVolver.setForeground(Color.decode("#FFFFFF"));
-				botonVolver.setFocusPainted(false);
-				botonVolver.setBorderPainted(false);
-				add(botonVolver);
-				
+		botonRegistrar = new JButton("CREAR CUENTA");
+		botonRegistrar.setBounds(570, 580, 140, 40);
+		botonRegistrar.setBackground(Color.decode("#042F6D"));
+		botonRegistrar.setForeground(Color.decode("#FFFFFF"));
+		botonRegistrar.setFocusPainted(false);
+		botonRegistrar.setBorderPainted(false);
+		add(botonRegistrar);
+		
+		botonVolver = new JButton("VOLVER");
+		botonVolver.setBounds(755, 580, 100, 40);
+		botonVolver.setBackground(Color.decode("#042F6D"));
+		botonVolver.setForeground(Color.decode("#FFFFFF"));
+		botonVolver.setFocusPainted(false);
+		botonVolver.setBorderPainted(false);
+		add(botonVolver);
 	}
-	//getters y setters
+
+	// getters y setters
 	public JLabel getLabelIdUsuario() {
 		return labelIdUsuario;
 	}
@@ -323,6 +352,21 @@ public class VentanaRegistrarse extends JFrame {
 		this.ir = ir;
 	}
 
-		
+	public JLabel getLabelCiudad() {
+		return labelCiudad;
+	}
 
+	public void setLabelCiudad(JLabel labelCiudad) {
+		this.labelCiudad = labelCiudad;
+	}
+
+	public JTextField getTextoCiudad() {
+		return textoCiudad;
+	}
+
+	public void setTextoCiudad(JTextField textoCiudad) {
+		this.textoCiudad = textoCiudad;
+	}
+
+	
 }

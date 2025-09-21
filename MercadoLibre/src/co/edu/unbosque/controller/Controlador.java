@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
+import co.edu.unbosque.model.ModelFacade;
 import co.edu.unbosque.model.Usuario;
 import co.edu.unbosque.util.exception.ContraseniaException;
 import co.edu.unbosque.util.exception.CorreoException;
@@ -13,7 +14,6 @@ import co.edu.unbosque.util.exception.LanzadorException;
 import co.edu.unbosque.util.exception.NombreUsuarioException;
 import co.edu.unbosque.util.exception.TelefonoException;
 import co.edu.unbosque.view.VentanaCategoria;
-import co.edu.unbosque.view.VentanaCuentaCreada;
 import co.edu.unbosque.view.VentanaIniciarSesion;
 import co.edu.unbosque.view.VentanaInicio;
 import co.edu.unbosque.view.VentanaRegistrarse;
@@ -24,7 +24,7 @@ public class Controlador implements ActionListener {
 	private VentanaIniciarSesion vis;
 	private VentanaRegistrarse vr;
 	private VentanaCategoria vc;
-	private VentanaCuentaCreada vcc;
+	private ModelFacade mf;
 	private List<Usuario> usuariosRegistrados;
 
 	public Controlador() {
@@ -32,8 +32,7 @@ public class Controlador implements ActionListener {
 		vis = new VentanaIniciarSesion();
 		vr = new VentanaRegistrarse();
 		vc = new VentanaCategoria();
-		vcc = new VentanaCuentaCreada();
-
+		mf = new ModelFacade();
 		usuariosRegistrados = new ArrayList<>();
 
 		asignarOyentes();
@@ -65,6 +64,7 @@ public class Controlador implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		String alias = e.getActionCommand();
 		switch (alias) {
+		// SOLO ABRIR LA VENTANA DE INICIAR SESIÓN
 		case "boton_iniciar_sesion": {
 			vi.setVisible(false);
 			vis.setVisible(true);
@@ -85,78 +85,74 @@ public class Controlador implements ActionListener {
 			vi.setVisible(true);
 			break;
 		}
-		case "boton_crear_cuenta": {
 
-			String nombreUsuario;
+		case "boton_crear_cuenta": {
+			String nombreUsuario, correo, direccion, contrasenia;
+			long telefono;
+
 			try {
-				String entrada = vr.getTextoIdUsuario().getText().trim();
-				LanzadorException.verificarNombreUsuario(entrada);
-				nombreUsuario = entrada;
+				nombreUsuario = vr.getTextoIdUsuario().getText().trim();
+				LanzadorException.verificarNombreUsuario(nombreUsuario);
 			} catch (NombreUsuarioException ex) {
 				JOptionPane.showMessageDialog(null, ex.getMessage(), "ERROR NOMBRE DE USUARIO",
-						JOptionPane.ERROR_MESSAGE, null);
+						JOptionPane.ERROR_MESSAGE);
 				vr.setVisible(true);
 				vi.setVisible(false);
 				break;
 			}
 
-			String correo;
 			try {
-				String entrada = vr.getTextoEmail().getText().trim();
-				LanzadorException.verificarCorreoValido(entrada);
-				correo = entrada;
+				correo = vr.getTextoEmail().getText().trim();
+				LanzadorException.verificarCorreoValido(correo);
 			} catch (CorreoException ex) {
-				JOptionPane.showMessageDialog(null, ex.getMessage(), "ERROR CORREO", JOptionPane.ERROR_MESSAGE, null);
+				JOptionPane.showMessageDialog(null, ex.getMessage(), "ERROR CORREO", JOptionPane.ERROR_MESSAGE);
 				vr.setVisible(true);
 				vi.setVisible(false);
 				break;
 			}
 
-			long telefono;
 			try {
 				String entrada = vr.getTextoTelefono().getText().trim();
 				LanzadorException.verificarNumeroCelular(entrada);
 				telefono = Long.parseLong(entrada);
 			} catch (TelefonoException ex) {
-				JOptionPane.showMessageDialog(null, ex.getMessage(), "ERROR TELEFONO", JOptionPane.ERROR_MESSAGE, null);
+				JOptionPane.showMessageDialog(null, ex.getMessage(), "ERROR TELEFONO", JOptionPane.ERROR_MESSAGE);
 				vr.setVisible(true);
 				vi.setVisible(false);
 				break;
 			}
 
-			String direccion;
 			try {
-				String entrada = vr.getTextoDireccion().getText().trim();
-				LanzadorException.verificarDireccionValida(entrada);
-				direccion = entrada;
+				direccion = vr.getTextoDireccion().getText().trim();
+				LanzadorException.verificarDireccionValida(direccion);
 			} catch (DireccionException ex) {
-				JOptionPane.showMessageDialog(null, ex.getMessage(), "ERROR DIRECCION", JOptionPane.ERROR_MESSAGE,
-						null);
+				JOptionPane.showMessageDialog(null, ex.getMessage(), "ERROR DIRECCION", JOptionPane.ERROR_MESSAGE);
 				vr.setVisible(true);
 				vi.setVisible(false);
 				break;
 			}
 
-			String contrasenia;
 			try {
-				String entrada = vr.getTextoContrasenia().getText().trim();
-				LanzadorException.verificarContraseñaValida(entrada);
-				contrasenia = entrada;
+				contrasenia = vr.getTextoContrasenia().getText().trim();
+				LanzadorException.verificarContraseñaValida(contrasenia);
 			} catch (ContraseniaException ex) {
-				JOptionPane.showMessageDialog(null, ex.getMessage(), "ERROR CONTRASEÑA", JOptionPane.ERROR_MESSAGE,
-						null);
+				JOptionPane.showMessageDialog(null, ex.getMessage(), "ERROR CONTRASEÑA", JOptionPane.ERROR_MESSAGE);
 				vr.setVisible(true);
 				vi.setVisible(false);
 				break;
 			}
 
-			Usuario nuevo = new Usuario(nombreUsuario, contrasenia, direccion, correo, telefono);
-			usuariosRegistrados.add(nuevo);
+			Usuario nuevo = new Usuario();
+			nuevo.setIdUsuario(nombreUsuario);
+			nuevo.setCorreo(correo);
+			nuevo.setTelefono(telefono);
+			nuevo.setDireccionCasa(direccion);
+			nuevo.setContrasenia(contrasenia);
+
+			mf.getUsuarioDAO().crear(nuevo);
 
 			vr.setVisible(false);
-
 			JOptionPane.showMessageDialog(null, "Cuenta creada con éxito");
-
 			vi.setVisible(true);
 			break;
 		}
@@ -166,33 +162,48 @@ public class Controlador implements ActionListener {
 			vi.setVisible(true);
 			break;
 		}
+
 		case "boton_entrar": {
-			String usuarioIngresado = vis.getUsuario().getText().trim();
-			String contraseniaIngresada = vis.getContrasenia().getText().trim();
+			try {
+				String usuarioIngresado = vis.getUsuario().getText().trim();
+				String identificadorIngresado = vis.getEmail().getText().trim();
+				String contraseniaIngresada = vis.getContrasenia().getText().trim();
 
-			boolean encontrado = false;
+				boolean encontrado = false;
 
-			for (Usuario u : usuariosRegistrados) {
-				if (u.getIdUsuario().equals(usuarioIngresado) && u.getContrasenia().equals(contraseniaIngresada)) {
-					encontrado = true;
-					break;
+				for (Usuario u : mf.getUsuarioDAO().leerTodos()) {
+					boolean idValido = u.getCorreo().equals(identificadorIngresado);
+
+					try {
+						long numeroIngresado = Long.parseLong(identificadorIngresado);
+						if (u.getTelefono() == numeroIngresado) {
+							idValido = true;
+						}
+					} catch (NumberFormatException ex) {
+					}
+
+					if (idValido && u.getContrasenia().equals(contraseniaIngresada)) {
+						encontrado = true;
+						break;
+					}
 				}
-			}
 
-			if (encontrado) {
-				JOptionPane.showMessageDialog(null, "Inicio de sesión exitoso");
-				vis.setVisible(false);
-				vc.setVisible(true);
-			} else {
-				JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos", "ERROR INICIO DE SESIÓN",
-						JOptionPane.ERROR_MESSAGE, null);
-				vis.setVisible(true);
+				if (encontrado) {
+					vis.dispose();
+					vc.setVisible(true);
+				} else {
+					JOptionPane.showMessageDialog(null, "Usuario, correo, teléfono o contraseña incorrectos",
+							"Error de inicio de sesión", JOptionPane.ERROR_MESSAGE);
+				}
+
+			} catch (Exception ex) {
+				JOptionPane.showMessageDialog(null, "Ocurrió un error al iniciar sesión", "Error",
+						JOptionPane.ERROR_MESSAGE);
 			}
 			break;
 		}
 
 		case "boton_continuar": {
-			vcc.dispose();
 			vi.setVisible(true);
 			break;
 		}
@@ -202,6 +213,14 @@ public class Controlador implements ActionListener {
 			break;
 		}
 		}
+	}
+
+	public ModelFacade getMf() {
+		return mf;
+	}
+
+	public void setMf(ModelFacade mf) {
+		this.mf = mf;
 	}
 
 	public void runGUI() { // Run de la ventana
@@ -238,14 +257,6 @@ public class Controlador implements ActionListener {
 
 	public void setVc(VentanaCategoria vc) {
 		this.vc = vc;
-	}
-
-	public VentanaCuentaCreada getVcc() {
-		return vcc;
-	}
-
-	public void setVcc(VentanaCuentaCreada vcc) {
-		this.vcc = vcc;
 	}
 
 	public List<Usuario> getUsuariosRegistrados() {
