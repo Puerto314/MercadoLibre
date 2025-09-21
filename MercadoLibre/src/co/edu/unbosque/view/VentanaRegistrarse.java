@@ -352,4 +352,21 @@ public class VentanaRegistrarse extends JFrame {
 		this.ir = ir;
 	}
 
+	public JLabel getLabelCiudad() {
+		return labelCiudad;
+	}
+
+	public void setLabelCiudad(JLabel labelCiudad) {
+		this.labelCiudad = labelCiudad;
+	}
+
+	public JTextField getTextoCiudad() {
+		return textoCiudad;
+	}
+
+	public void setTextoCiudad(JTextField textoCiudad) {
+		this.textoCiudad = textoCiudad;
+	}
+
+	
 }
