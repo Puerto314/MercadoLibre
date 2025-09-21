@@ -1,6 +1,6 @@
 package co.edu.unbosque.model;
 
-public abstract class Usuario {
+public class Usuario {
 
 	private String idUsuario;
 	private String contrasenia;
