@@ -62,7 +62,7 @@ public class VentanaCategoria extends JFrame {
 		
 		// boton salir
 		botonVolver = new JButton("VOLVER");
-		botonVolver.setBounds(795, 580, 100, 40);
+		botonVolver.setBounds(795, 590, 100, 40);
 		botonVolver.setBackground(Color.decode("#042F6D"));
 		botonVolver.setForeground(Color.decode("#FFFFFF"));
 		botonVolver.setFocusPainted(false);
@@ -71,15 +71,13 @@ public class VentanaCategoria extends JFrame {
 		
 		// boton vendedor
 		modoVendador = new JButton("MODO VENDEDOR");
-		modoVendador.setBounds(400, 580, 300, 40);
+		modoVendador.setBounds(610, 590, 180, 40);
 		modoVendador.setBackground(Color.decode("#042F6D"));
 		modoVendador.setForeground(Color.decode("#FFFFFF"));
 		modoVendador.setFocusPainted(false);
 		modoVendador.setBorderPainted(false);
 		add(modoVendador);
 		
-		
-
 		// ---PANEL X CATEGORIA---
 		// --columna 1---
 		// moda
@@ -107,7 +105,7 @@ public class VentanaCategoria extends JFrame {
 		add(deporte);
 
 		lDeporte = new JLabel("Deportes ");
-		lDeporte.setBounds(140, 335, 180, 25);
+		lDeporte.setBounds(140, 345, 180, 25);
 		lDeporte.setFont(new Font("Arial", Font.BOLD, 20));
 		add(lDeporte);
 
@@ -121,7 +119,7 @@ public class VentanaCategoria extends JFrame {
 		add(belleza);
 
 		lBelleza = new JLabel("Belleza");
-		lBelleza.setBounds(140, 475, 180, 25);
+		lBelleza.setBounds(140, 455, 180, 25);
 		lBelleza.setFont(new Font("Arial", Font.BOLD, 20));
 		add(lBelleza);
 
@@ -135,7 +133,7 @@ public class VentanaCategoria extends JFrame {
 		add(belleza);
 
 		lMascota = new JLabel("Para Mascotas ");
-		lMascota.setBounds(140, 585, 180, 25);
+		lMascota.setBounds(140, 565, 180, 25);
 		lMascota.setFont(new Font("Arial", Font.BOLD, 20));
 		add(lMascota);
 
@@ -150,7 +148,7 @@ public class VentanaCategoria extends JFrame {
 		add(hogar);
 
 		lHogar = new JLabel("Hogar y muebles ");
-		lHogar.setBounds(430, 255, 180, 25);
+		lHogar.setBounds(430, 235, 180, 25);
 		lHogar.setFont(new Font("Arial", Font.BOLD, 20));
 		add(lHogar);
 
@@ -164,7 +162,7 @@ public class VentanaCategoria extends JFrame {
 		add(electrodomestico);
 
 		lElectrodomestico = new JLabel("Electrodomésticos");
-		lElectrodomestico.setBounds(430, 365, 180, 25);
+		lElectrodomestico.setBounds(430, 345, 180, 25);
 		lElectrodomestico.setFont(new Font("Arial", Font.BOLD, 20));
 		add(lElectrodomestico);
 
@@ -178,7 +176,7 @@ public class VentanaCategoria extends JFrame {
 		add(herramienta);
 
 		lHerramienta = new JLabel("Herramientas ");
-		lHerramienta.setBounds(430, 475, 180, 25);
+		lHerramienta.setBounds(430, 455, 180, 25);
 		lHerramienta.setFont(new Font("Arial", Font.BOLD, 20));
 		add(lHerramienta);
 
@@ -193,7 +191,7 @@ public class VentanaCategoria extends JFrame {
 		add(tecnologia);
 
 		lTecnologia = new JLabel("Tecnología ");
-		lTecnologia.setBounds(740, 255, 180, 25);
+		lTecnologia.setBounds(740, 235, 180, 25);
 		lTecnologia.setFont(new Font("Arial", Font.BOLD, 20));
 		add(lTecnologia);
 
@@ -207,7 +205,7 @@ public class VentanaCategoria extends JFrame {
 		add(arte);
 
 		lArte = new JLabel("Arte ");
-		lArte.setBounds(740, 365, 180, 25);
+		lArte.setBounds(740, 345, 180, 25);
 		lArte.setFont(new Font("Arial", Font.BOLD, 20));
 		add(lArte);
 
@@ -221,7 +219,7 @@ public class VentanaCategoria extends JFrame {
 		add(videojuego);
 
 		lVideojuego = new JLabel("Videojuegos ");
-		lVideojuego.setBounds(740, 475, 180, 25);
+		lVideojuego.setBounds(740, 455, 180, 25);
 		lVideojuego.setFont(new Font("Arial", Font.BOLD, 20));
 		add(lVideojuego);
 

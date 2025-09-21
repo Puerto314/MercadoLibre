@@ -39,13 +39,13 @@ public class VentanaInicio extends JFrame {
 
 		// opción
 		labelOpcion = new JLabel("- The market for everyone, by everyone -");
-		labelOpcion.setBounds(320, 270, 480, 30);
+		labelOpcion.setBounds(300, 270, 480, 30);
 		labelOpcion.setForeground(Color.decode("#03080D"));
 		labelOpcion.setFont(new Font("Georgia", Font.BOLD, 20));
 		this.add(labelOpcion);
 	
 		// botones
-		botonInicioSesion = new JButton("ACCES");
+		botonInicioSesion = new JButton("ACCESS");
 		botonInicioSesion.setBounds(550, 340, 200, 80);
 		botonInicioSesion.setBackground(Color.decode("#FCE707"));
 		botonInicioSesion.setForeground(Color.decode("#03080D"));
