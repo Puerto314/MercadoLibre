@@ -155,10 +155,8 @@ public class Controlador implements ActionListener {
 
 			vr.setVisible(false);
 
-			vcc.inicializarVentanaCuentaCreada();
 			JOptionPane.showMessageDialog(null, "Cuenta creada con éxito");
 
-			vcc.setVisible(false);
 			vi.setVisible(true);
 			break;
 		}

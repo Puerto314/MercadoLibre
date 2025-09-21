@@ -7,18 +7,36 @@ public class Usuario {
 	private String direccionCasa;
 	private String correo;
 	private long telefono;
+	private String ciudad;
+	private String numeroTarjeta;
+	private short claveDeSeguridad;
+	
+	
+	
+	
 
-	public Usuario() {
-		super();
+	public String getCiudad() {
+		return ciudad;
 	}
 
-	public Usuario(String idUsuario, String contrasenia, String direccionCasa, String correo, long telefono) {
-		super();
-		this.idUsuario = idUsuario;
-		this.contrasenia = contrasenia;
-		this.direccionCasa = direccionCasa;
-		this.correo = correo;
-		this.telefono = telefono;
+	public void setCiudad(String ciudad) {
+		this.ciudad = ciudad;
+	}
+
+	public String getNumeroTarjeta() {
+		return numeroTarjeta;
+	}
+
+	public void setNumeroTarjeta(String numeroTarjeta) {
+		this.numeroTarjeta = numeroTarjeta;
+	}
+
+	public short getClaveDeSeguridad() {
+		return claveDeSeguridad;
+	}
+
+	public void setClaveDeSeguridad(short claveDeSeguridad) {
+		this.claveDeSeguridad = claveDeSeguridad;
 	}
 
 	public String getIdUsuario() {
