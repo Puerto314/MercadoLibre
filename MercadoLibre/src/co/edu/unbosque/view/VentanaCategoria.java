@@ -40,6 +40,7 @@ public class VentanaCategoria extends JFrame {
 	private JLabel lHerramienta;
 	private JLabel lVideojuego;
 	private JLabel lMascota;
+	private JLabel mensaje;
 
 	public VentanaCategoria() {
 		inicializarCategoria();
@@ -56,9 +57,15 @@ public class VentanaCategoria extends JFrame {
 
 		// titulo
 		titulo = new JLabel("-> Categorías");
-		titulo.setBounds(120, 130, 350, 45);
+		titulo.setBounds(105, 130, 350, 45);
 		titulo.setFont(new Font("Georgia", Font.BOLD, 40));
 		add(titulo);
+		
+		//mensaje
+		mensaje = new JLabel("-Seleccione una categoría para ver los productos!");
+		mensaje.setBounds(125, 165, 350, 40);
+		mensaje.setFont(new Font("Arial", Font.PLAIN, 12));
+		add(mensaje);
 
 		// imagen logo
 		ImageIcon imagen = new ImageIcon(getClass().getResource("logoMLc.JPG"));
@@ -228,210 +235,8 @@ public class VentanaCategoria extends JFrame {
 		lVideojuego.setFont(new Font("Arial", Font.BOLD, 20));
 		add(lVideojuego);
 
-		// campo busqueda
-
 	}
 
-	public JLabel getTitulo() {
-		return titulo;
-	}
 
-	public void setTitulo(JLabel titulo) {
-		this.titulo = titulo;
-	}
-
-	public JLabel getLogoMLc() {
-		return logoMLc;
-	}
-
-	public void setLogoMLc(JLabel logoMLc) {
-		this.logoMLc = logoMLc;
-	}
-
-	public JButton getBotonSalir() {
-		return botonVolver;
-	}
-
-	public void setBotonSalir(JButton botonSalir) {
-		this.botonVolver = botonSalir;
-	}
-
-	public JButton getBotonVolver() {
-		return botonVolver;
-	}
-
-	public void setBotonVolver(JButton botonVolver) {
-		this.botonVolver = botonVolver;
-	}
-
-	public JButton getCatalog() {
-		return catalog;
-	}
-
-	public void setCatalog(JButton catalog) {
-		this.catalog = catalog;
-	}
-
-	public JButton getModa() {
-		return moda;
-	}
-
-	public void setModa(JButton moda) {
-		this.moda = moda;
-	}
-
-	public JButton getHogar() {
-		return hogar;
-	}
-
-	public void setHogar(JButton hogar) {
-		this.hogar = hogar;
-	}
-
-	public JButton getTecnologia() {
-		return tecnologia;
-	}
-
-	public void setTecnologia(JButton tecnologia) {
-		this.tecnologia = tecnologia;
-	}
-
-	public JButton getDeporte() {
-		return deporte;
-	}
-
-	public void setDeporte(JButton deporte) {
-		this.deporte = deporte;
-	}
-
-	public JButton getElectrodomestico() {
-		return electrodomestico;
-	}
-
-	public void setElectrodomestico(JButton electrodomestico) {
-		this.electrodomestico = electrodomestico;
-	}
-
-	public JButton getArte() {
-		return arte;
-	}
-
-	public void setArte(JButton arte) {
-		this.arte = arte;
-	}
-
-	public JButton getBelleza() {
-		return belleza;
-	}
-
-	public void setBelleza(JButton belleza) {
-		this.belleza = belleza;
-	}
-
-	public JButton getHerramienta() {
-		return herramienta;
-	}
-
-	public void setHerramienta(JButton herramienta) {
-		this.herramienta = herramienta;
-	}
-
-	public JButton getVideojuego() {
-		return videojuego;
-	}
-
-	public void setVideojuego(JButton videojuego) {
-		this.videojuego = videojuego;
-	}
-
-	public JButton getMascota() {
-		return mascota;
-	}
-
-	public void setMascota(JButton mascota) {
-		this.mascota = mascota;
-	}
-
-	public JLabel getlModa() {
-		return lModa;
-	}
-
-	public void setlModa(JLabel lModa) {
-		this.lModa = lModa;
-	}
-
-	public JLabel getlHogar() {
-		return lHogar;
-	}
-
-	public void setlHogar(JLabel lHogar) {
-		this.lHogar = lHogar;
-	}
-
-	public JLabel getlTecnologia() {
-		return lTecnologia;
-	}
-
-	public void setlTecnologia(JLabel lTecnologia) {
-		this.lTecnologia = lTecnologia;
-	}
-
-	public JLabel getlDeporte() {
-		return lDeporte;
-	}
-
-	public void setlDeporte(JLabel lDeporte) {
-		this.lDeporte = lDeporte;
-	}
-
-	public JLabel getlElectrodomestico() {
-		return lElectrodomestico;
-	}
-
-	public void setlElectrodomestico(JLabel lElectrodomestico) {
-		this.lElectrodomestico = lElectrodomestico;
-	}
-
-	public JLabel getlArte() {
-		return lArte;
-	}
-
-	public void setlArte(JLabel lArte) {
-		this.lArte = lArte;
-	}
-
-	public JLabel getlBelleza() {
-		return lBelleza;
-	}
-
-	public void setlBelleza(JLabel lBelleza) {
-		this.lBelleza = lBelleza;
-	}
-
-	public JLabel getlHerramienta() {
-		return lHerramienta;
-	}
-
-	public void setlHerramienta(JLabel lHerramienta) {
-		this.lHerramienta = lHerramienta;
-	}
-
-	public JLabel getlVideojuego() {
-		return lVideojuego;
-	}
-
-	public void setlVideojuego(JLabel lVideojuego) {
-		this.lVideojuego = lVideojuego;
-	}
-
-	public JLabel getlMascota() {
-		return lMascota;
-	}
-
-	public void setlMascota(JLabel lMascota) {
-		this.lMascota = lMascota;
-	}
-	
-	
 
 }
