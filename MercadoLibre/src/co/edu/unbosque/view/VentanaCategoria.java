@@ -16,10 +16,8 @@ import javax.swing.JTextField;
 public class VentanaCategoria extends JFrame {
 
 	// atributos
-	private JLabel titulo;
-	private JLabel logoMLc;
+	private JLabel bannerVentana;
 	private JButton botonVolver;
-	private JButton catalog;
 	private JButton moda;
 	private JButton hogar;
 	private JButton tecnologia;
@@ -40,7 +38,7 @@ public class VentanaCategoria extends JFrame {
 	private JLabel lHerramienta;
 	private JLabel lVideojuego;
 	private JLabel lMascota;
-	private JLabel mensaje;
+	private JButton modoVendador;
 
 	public VentanaCategoria() {
 		inicializarCategoria();
@@ -55,32 +53,13 @@ public class VentanaCategoria extends JFrame {
 		setLayout(null);
 		getContentPane().setBackground(Color.decode("#FFFFFF"));
 
-		// titulo
-		titulo = new JLabel("-> Categorías");
-		titulo.setBounds(105, 130, 350, 45);
-		titulo.setFont(new Font("Georgia", Font.BOLD, 40));
-		add(titulo);
-		
-		//mensaje
-		mensaje = new JLabel("-Seleccione una categoría para ver los productos!");
-		mensaje.setBounds(125, 165, 350, 40);
-		mensaje.setFont(new Font("Arial", Font.PLAIN, 12));
-		add(mensaje);
-
-		// imagen logo
-		ImageIcon imagen = new ImageIcon(getClass().getResource("logoMLc.JPG"));
+		//banner
+		ImageIcon imagen = new ImageIcon(getClass().getResource("banner.JPG"));
 		JLabel labelimagen = new JLabel(imagen);
-		logoMLc = new JLabel(imagen);
-		logoMLc.setBounds(430, 0, 600, 130);
-		add(logoMLc);
-
-		// imagen catalogo
-		ImageIcon imagen2 = new ImageIcon(getClass().getResource("catalogo.JPG"));
-		JLabel catalog = new JLabel(imagen2);
-		logoMLc = new JLabel(imagen2);
-		logoMLc.setBounds(-30, 60, 200, 200);
-		add(logoMLc);
-
+		bannerVentana = new JLabel(imagen);
+		bannerVentana.setBounds(-10, -30, 980, 200);
+		add(bannerVentana);
+		
 		// boton salir
 		botonVolver = new JButton("VOLVER");
 		botonVolver.setBounds(795, 580, 100, 40);
@@ -89,6 +68,17 @@ public class VentanaCategoria extends JFrame {
 		botonVolver.setFocusPainted(false);
 		botonVolver.setBorderPainted(false);
 		add(botonVolver);
+		
+		// boton vendedor
+		modoVendador = new JButton("MODO VENDEDOR");
+		modoVendador.setBounds(400, 580, 300, 40);
+		modoVendador.setBackground(Color.decode("#042F6D"));
+		modoVendador.setForeground(Color.decode("#FFFFFF"));
+		modoVendador.setFocusPainted(false);
+		modoVendador.setBorderPainted(false);
+		add(modoVendador);
+		
+		
 
 		// ---PANEL X CATEGORIA---
 		// --columna 1---
@@ -97,13 +87,13 @@ public class VentanaCategoria extends JFrame {
 		ImageIcon imagen3 = new ImageIcon(getClass().getResource("moda.JPG"));
 		JLabel labelImagen3 = new JLabel(imagen3);
 		moda = new JButton(imagen3);
-		moda.setBounds(30, 220, 100, 100);
+		moda.setBounds(30, 200, 100, 100);
 		moda.setFocusPainted(false);
 		moda.setBorderPainted(true);
 		add(moda);
 
 		lModa = new JLabel("Moda ");
-		lModa.setBounds(140, 255, 180, 25);
+		lModa.setBounds(140, 235, 180, 25);
 		lModa.setFont(new Font("Arial", Font.BOLD, 20));
 		add(lModa);
 
@@ -111,13 +101,13 @@ public class VentanaCategoria extends JFrame {
 		ImageIcon imagen4 = new ImageIcon(getClass().getResource("deporte.JPG"));
 		JLabel labelImagen4 = new JLabel(imagen4);
 		deporte = new JButton(imagen4);
-		deporte.setBounds(30, 330, 100, 100);
+		deporte.setBounds(30, 310, 100, 100);
 		deporte.setFocusPainted(false);
 		deporte.setBorderPainted(true);
 		add(deporte);
 
 		lDeporte = new JLabel("Deportes ");
-		lDeporte.setBounds(140, 365, 180, 25);
+		lDeporte.setBounds(140, 335, 180, 25);
 		lDeporte.setFont(new Font("Arial", Font.BOLD, 20));
 		add(lDeporte);
 
@@ -125,7 +115,7 @@ public class VentanaCategoria extends JFrame {
 		ImageIcon imagen5 = new ImageIcon(getClass().getResource("belleza.JPG"));
 		JLabel labelImagen5 = new JLabel(imagen5);
 		belleza = new JButton(imagen5);
-		belleza.setBounds(30, 440, 100, 100);
+		belleza.setBounds(30, 420, 100, 100);
 		belleza.setFocusPainted(false);
 		belleza.setBorderPainted(true);
 		add(belleza);
@@ -139,7 +129,7 @@ public class VentanaCategoria extends JFrame {
 		ImageIcon imagen6 = new ImageIcon(getClass().getResource("mascota.JPG"));
 		JLabel labelImagen6 = new JLabel(imagen6);
 		belleza = new JButton(imagen6);
-		belleza.setBounds(30, 550, 100, 100);
+		belleza.setBounds(30, 530, 100, 100);
 		belleza.setFocusPainted(false);
 		belleza.setBorderPainted(true);
 		add(belleza);
@@ -154,7 +144,7 @@ public class VentanaCategoria extends JFrame {
 		ImageIcon imagen7 = new ImageIcon(getClass().getResource("hogar.JPG"));
 		JLabel labelImagen7 = new JLabel(imagen7);
 		hogar = new JButton(imagen7);
-		hogar.setBounds(320, 220, 100, 100);
+		hogar.setBounds(320, 200, 100, 100);
 		hogar.setFocusPainted(false);
 		hogar.setBorderPainted(true);
 		add(hogar);
@@ -168,7 +158,7 @@ public class VentanaCategoria extends JFrame {
 		ImageIcon imagen8 = new ImageIcon(getClass().getResource("electrodomestico.JPG"));
 		JLabel labelImagen8 = new JLabel(imagen8);
 		electrodomestico = new JButton(imagen8);
-		electrodomestico.setBounds(320, 330, 100, 100);
+		electrodomestico.setBounds(320, 310, 100, 100);
 		electrodomestico.setFocusPainted(false);
 		electrodomestico.setBorderPainted(true);
 		add(electrodomestico);
@@ -182,7 +172,7 @@ public class VentanaCategoria extends JFrame {
 		ImageIcon imagen9 = new ImageIcon(getClass().getResource("herramienta.JPG"));
 		JLabel labelImagen9 = new JLabel(imagen9);
 		herramienta = new JButton(imagen9);
-		herramienta.setBounds(320, 440, 100, 100);
+		herramienta.setBounds(320, 420, 100, 100);
 		herramienta.setFocusPainted(false);
 		herramienta.setBorderPainted(true);
 		add(herramienta);
@@ -197,7 +187,7 @@ public class VentanaCategoria extends JFrame {
 		ImageIcon imagen10 = new ImageIcon(getClass().getResource("tecnologia.JPG"));
 		JLabel labelImagen10 = new JLabel(imagen10);
 		tecnologia = new JButton(imagen10);
-		tecnologia.setBounds(630, 220, 100, 100);
+		tecnologia.setBounds(630, 200, 100, 100);
 		tecnologia.setFocusPainted(false);
 		tecnologia.setBorderPainted(true);
 		add(tecnologia);
@@ -211,7 +201,7 @@ public class VentanaCategoria extends JFrame {
 		ImageIcon imagen11 = new ImageIcon(getClass().getResource("arte.JPG"));
 		JLabel labelImagen11 = new JLabel(imagen11);
 		arte = new JButton(imagen11);
-		arte.setBounds(630, 330, 100, 100);
+		arte.setBounds(630, 310, 100, 100);
 		arte.setFocusPainted(false);
 		arte.setBorderPainted(true);
 		add(arte);
@@ -225,7 +215,7 @@ public class VentanaCategoria extends JFrame {
 		ImageIcon imagen12 = new ImageIcon(getClass().getResource("videojuego.JPG"));
 		JLabel labelImagen12 = new JLabel(imagen12);
 		videojuego = new JButton(imagen12);
-		videojuego.setBounds(630, 440, 100, 100);
+		videojuego.setBounds(630, 420, 100, 100);
 		videojuego.setFocusPainted(false);
 		videojuego.setBorderPainted(true);
 		add(videojuego);
@@ -236,6 +226,192 @@ public class VentanaCategoria extends JFrame {
 		add(lVideojuego);
 
 	}
+
+	public JLabel getBannerVentana() {
+		return bannerVentana;
+	}
+
+	public void setBannerVentana(JLabel bannerVentana) {
+		this.bannerVentana = bannerVentana;
+	}
+
+	public JButton getBotonVolver() {
+		return botonVolver;
+	}
+
+	public void setBotonVolver(JButton botonVolver) {
+		this.botonVolver = botonVolver;
+	}
+
+	public JButton getModa() {
+		return moda;
+	}
+
+	public void setModa(JButton moda) {
+		this.moda = moda;
+	}
+
+	public JButton getHogar() {
+		return hogar;
+	}
+
+	public void setHogar(JButton hogar) {
+		this.hogar = hogar;
+	}
+
+	public JButton getTecnologia() {
+		return tecnologia;
+	}
+
+	public void setTecnologia(JButton tecnologia) {
+		this.tecnologia = tecnologia;
+	}
+
+	public JButton getDeporte() {
+		return deporte;
+	}
+
+	public void setDeporte(JButton deporte) {
+		this.deporte = deporte;
+	}
+
+	public JButton getElectrodomestico() {
+		return electrodomestico;
+	}
+
+	public void setElectrodomestico(JButton electrodomestico) {
+		this.electrodomestico = electrodomestico;
+	}
+
+	public JButton getArte() {
+		return arte;
+	}
+
+	public void setArte(JButton arte) {
+		this.arte = arte;
+	}
+
+	public JButton getBelleza() {
+		return belleza;
+	}
+
+	public void setBelleza(JButton belleza) {
+		this.belleza = belleza;
+	}
+
+	public JButton getHerramienta() {
+		return herramienta;
+	}
+
+	public void setHerramienta(JButton herramienta) {
+		this.herramienta = herramienta;
+	}
+
+	public JButton getVideojuego() {
+		return videojuego;
+	}
+
+	public void setVideojuego(JButton videojuego) {
+		this.videojuego = videojuego;
+	}
+
+	public JButton getMascota() {
+		return mascota;
+	}
+
+	public void setMascota(JButton mascota) {
+		this.mascota = mascota;
+	}
+
+	public JLabel getlModa() {
+		return lModa;
+	}
+
+	public void setlModa(JLabel lModa) {
+		this.lModa = lModa;
+	}
+
+	public JLabel getlHogar() {
+		return lHogar;
+	}
+
+	public void setlHogar(JLabel lHogar) {
+		this.lHogar = lHogar;
+	}
+
+	public JLabel getlTecnologia() {
+		return lTecnologia;
+	}
+
+	public void setlTecnologia(JLabel lTecnologia) {
+		this.lTecnologia = lTecnologia;
+	}
+
+	public JLabel getlDeporte() {
+		return lDeporte;
+	}
+
+	public void setlDeporte(JLabel lDeporte) {
+		this.lDeporte = lDeporte;
+	}
+
+	public JLabel getlElectrodomestico() {
+		return lElectrodomestico;
+	}
+
+	public void setlElectrodomestico(JLabel lElectrodomestico) {
+		this.lElectrodomestico = lElectrodomestico;
+	}
+
+	public JLabel getlArte() {
+		return lArte;
+	}
+
+	public void setlArte(JLabel lArte) {
+		this.lArte = lArte;
+	}
+
+	public JLabel getlBelleza() {
+		return lBelleza;
+	}
+
+	public void setlBelleza(JLabel lBelleza) {
+		this.lBelleza = lBelleza;
+	}
+
+	public JLabel getlHerramienta() {
+		return lHerramienta;
+	}
+
+	public void setlHerramienta(JLabel lHerramienta) {
+		this.lHerramienta = lHerramienta;
+	}
+
+	public JLabel getlVideojuego() {
+		return lVideojuego;
+	}
+
+	public void setlVideojuego(JLabel lVideojuego) {
+		this.lVideojuego = lVideojuego;
+	}
+
+	public JLabel getlMascota() {
+		return lMascota;
+	}
+
+	public void setlMascota(JLabel lMascota) {
+		this.lMascota = lMascota;
+	}
+
+	public JButton getModoVendador() {
+		return modoVendador;
+	}
+
+	public void setModoVendador(JButton modoVendador) {
+		this.modoVendador = modoVendador;
+	}
+	
+	
 
 
 
