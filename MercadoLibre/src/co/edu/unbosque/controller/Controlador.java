@@ -80,6 +80,7 @@ public class Controlador implements ActionListener {
 		vi.getPortugues().setActionCommand("boton_portugues");
 		vi.getLatin().addActionListener(this);
 		vi.getLatin().setActionCommand("boton_latin");
+		//nnnnnnnnnnn
 		
 		// oyentes ventana inicial
 		vi.getBotonInicioSesion().addActionListener(this);
