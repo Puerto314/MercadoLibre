@@ -56,10 +56,10 @@ public class VentanaModa extends JFrame {
 		add(bModoVendedorM);
 
 		// boton carrito
-		ImageIcon imagen1 = new ImageIcon(getClass().getResource("spanish.JPG"));
+		ImageIcon imagen1 = new ImageIcon(getClass().getResource("carrito.JPG"));
 		JLabel labelImagen1 = new JLabel(imagen1);
 		anadirCarrito = new JButton(imagen1);
-		anadirCarrito.setBounds(380, 500, 35, 35);
+		anadirCarrito.setBounds(565, 590, 40, 40);
 		anadirCarrito.setFocusPainted(false);
 		anadirCarrito.setBorderPainted(true);
 		this.add(anadirCarrito);
@@ -114,4 +114,5 @@ public class VentanaModa extends JFrame {
 		this.anadirCarrito = anadirCarrito;
 	}
 
+	
 }

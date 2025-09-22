@@ -85,6 +85,7 @@ public class VentanaInicio extends JFrame {
 		spanish.setFocusPainted(false);
 		spanish.setBorderPainted(true);
 		this.add(spanish);
+		
 
 		// ingles
 		ImageIcon imagen2 = new ImageIcon(getClass().getResource("ingles.JPG"));
@@ -112,6 +113,7 @@ public class VentanaInicio extends JFrame {
 		latin.setFocusPainted(false);
 		latin.setBorderPainted(true);
 		this.add(latin);
+		
 
 		// Logo
 		ImageIcon logo = new ImageIcon(getClass().getResource("logoML.JPG"));
