@@ -12,16 +12,16 @@ public class UsuarioDAO implements DAO<Usuario> {
 	private final String SERIAL_FILE_NAME = "Usuario.bin";
 
 	public UsuarioDAO() {
-		listaUsuario = new ArrayList<>();
+		listaUsuario = new ArrayList<Usuario>();
 		leerDesdeArchivoDeTexto(FILE_NAME);
-		cargarDesdeArchivoSerializado();
+//		cargarDesdeArchivoSerializado();
 	}
 
 	@Override
 	public void crear(Usuario objeto) {
 		listaUsuario.add(objeto);
 		escribirEnArchivoTexto();
-		escribirArchivoSerializado();
+//		escribirArchivoSerializado();
 	}
 
 	@Override
@@ -105,13 +105,13 @@ public class UsuarioDAO implements DAO<Usuario> {
 		FileHandler.escribirEnArchivoSerializado(SERIAL_FILE_NAME, listaUsuario);
 
 	}
-
+/*
 	@Override
 	public List<Usuario> buscarPorAtributo(String atributo, String valor) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+*/
 	@Override
 	public boolean existe(String id) {
 		// TODO Auto-generated method stub

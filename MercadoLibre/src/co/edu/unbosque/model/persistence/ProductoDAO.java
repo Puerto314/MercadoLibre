@@ -11,16 +11,16 @@ public class ProductoDAO implements DAO<Producto> {
 	private final String SERIAL_FILE_NAME = "Producto.bin";
 
 	public ProductoDAO() {
-		listaProductos = new ArrayList<>();
+		listaProductos = new ArrayList<Producto>();
 		leerDesdeArchivoDeTexto(FILE_NAME);
-		cargarDesdeArchivoSerializado();
+//		cargarDesdeArchivoSerializado();
 	}
 
 	@Override
 	public void crear(Producto objeto) {
 		listaProductos.add(objeto);
 		escribirEnArchivoTexto();
-		escribirArchivoSerializado();
+//		escribirArchivoSerializado();
 	}
 
 	@Override
@@ -34,7 +34,7 @@ public class ProductoDAO implements DAO<Producto> {
 			if (listaProductos.get(i).getNombreProducto().equalsIgnoreCase(objeto.getNombreProducto())) {
 				listaProductos.set(i, objeto);
 				escribirEnArchivoTexto();
-				escribirArchivoSerializado();
+//				escribirArchivoSerializado();
 				return true;
 			}
 		}
@@ -104,12 +104,13 @@ public class ProductoDAO implements DAO<Producto> {
 		FileHandler.escribirEnArchivoSerializado(SERIAL_FILE_NAME, listaProductos);
 
 	}
+/*
 	@Override
 	public List<Producto> buscarPorAtributo(String atributo, String valor) {
 		// FALTA POR AGREGAR
 		return null;
 	}
-
+*/
 	@Override
 	public boolean existe(String id) {
 		// FALTA POR AGREGAR

@@ -106,7 +106,7 @@ public class FileHandler {
 		return null;
 	}
 	
-	public static Properties cargarArchivosDePropiedad(String url) {
+/*	public static Properties cargarArchivosDePropiedad(String url) {
         try {
             File archivo = new File(url);
             if (!archivo.exists()) {
@@ -122,6 +122,6 @@ public class FileHandler {
         }
         return null;
     }
-	
+*/	
 
 }

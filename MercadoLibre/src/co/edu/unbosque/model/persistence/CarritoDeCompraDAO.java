@@ -8,19 +8,19 @@ public class CarritoDeCompraDAO implements DAO<CarritoDeCompra>{
 
 	private List<CarritoDeCompra> listaCarritoDeCompra = new ArrayList<>();
 	private final String FILE_NAME = "CarritoDeCompra.csv";
-	private final String SERIAL_FILE_NAME = "CarritoDeCompra.csv";
+	private final String SERIAL_FILE_NAME = "CarritoDeCompra.bin";
 	
 	public CarritoDeCompraDAO() {
-		listaCarritoDeCompra = new ArrayList<>();
+		listaCarritoDeCompra = new ArrayList<CarritoDeCompra>();
 		leerDesdeArchivoDeTexto(FILE_NAME);
-		cargarDesdeArchivoSerializado();
+//		cargarDesdeArchivoSerializado();
 	}
 
 	@Override
 	public void crear(CarritoDeCompra objeto) {
 		listaCarritoDeCompra.add(objeto);
 		escribirEnArchivoTexto();
-		escribirArchivoSerializado();
+//		escribirArchivoSerializado();
 	}
 
 	@Override
@@ -34,7 +34,7 @@ public class CarritoDeCompraDAO implements DAO<CarritoDeCompra>{
 			if (listaCarritoDeCompra.get(i).getNombreProducto().equalsIgnoreCase(objeto.getNombreProducto())) {
 				listaCarritoDeCompra.set(i, objeto);
 				escribirEnArchivoTexto();
-				escribirArchivoSerializado();
+//				escribirArchivoSerializado();
 				return true;
 			}
 		}
@@ -100,12 +100,12 @@ public class CarritoDeCompraDAO implements DAO<CarritoDeCompra>{
 
 	}
 
-	@Override
+/*	@Override
 	public List<CarritoDeCompra> buscarPorAtributo(String atributo, String valor) {
 		// FALTA POR AGREGAR
 		return null;
 	}
-
+*/
 	@Override
 	public boolean existe(String id) {
 		// FALTA POR AGREGAR
