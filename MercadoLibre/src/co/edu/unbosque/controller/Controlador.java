@@ -101,7 +101,7 @@ public class Controlador implements ActionListener {
 		vc.getBelleza().setActionCommand("boton_categoria_belleza");
 
 		vc.getHogar().addActionListener(this);
-		vc.getHogar().setActionCommand("boton_categoria_hogar_y_mueble");
+		vc.getHogar().setActionCommand("boton_categoria_hogar");
 
 		vc.getElectrodomestico().addActionListener(this);
 		vc.getElectrodomestico().setActionCommand("boton_categoria_electrodomestico");
@@ -308,45 +308,97 @@ public class Controlador implements ActionListener {
 			vi.setVisible(true);
 			break;
 		}
+		case "boton_categoria_arte": {
+			vc.dispose();
+			va.setVisible(true);
+			break;
+		}
+		case "boton_categoria_belleza": {
+			vc.dispose();
+			vb.setVisible(true);
+			break;
+		}
+		case "boton_categoria_deporte": {
+			vc.dispose();
+			vd.setVisible(true);
+			break;
+		}
+		case "boton_categoria_electrodomestico": {
+			vc.dispose();
+			vm.setVisible(true);
+			break;
+		}
+		case "boton_categoria_herramienta": {
+			vc.dispose();
+			vhe.setVisible(true);
+			break;
+		}
+		case "boton_categoria_hogar": {
+			vc.dispose();
+			vho.setVisible(true);
+			break;
+		}
 		case "boton_categoria_moda": {
 			vc.dispose();
 			vm.setVisible(true);
+			break;
 		}
+		case "boton_categoria_tecnologia": {
+			vc.dispose();
+			vt.setVisible(true);
+			break;
+		}
+		case "boton_categoria_videojuego": {
+			vc.dispose();
+			vv.setVisible(true);
+			break;
+		}
+
+		// botones categoria volver
 		case "boton_categoria_arte_volver": {
 			va.dispose();
 			vc.setVisible(true);
+			break;
 		}
 		case "boton_categoria_belleza_volver": {
 			vb.dispose();
 			vc.setVisible(true);
+			break;
 		}
 		case "boton_categoria_deporte_volver": {
 			vd.dispose();
 			vc.setVisible(true);
+			break;
 		}
 		case "boton_categoria_electrodomestico_volver": {
 			ve.dispose();
 			vc.setVisible(true);
+			break;
 		}
 		case "boton_categoria_herramienta_volver": {
 			vhe.dispose();
 			vc.setVisible(true);
+			break;
 		}
 		case "boton_categoria_hogar_volver": {
 			vho.dispose();
 			vc.setVisible(true);
+			break;
 		}
 		case "boton_categoria_moda_volver": {
 			vm.dispose();
 			vc.setVisible(true);
+			break;
 		}
 		case "boton_categoria_videojuegos_volver": {
 			vv.dispose();
 			vc.setVisible(true);
+			break;
 		}
 		case "boton_categoria_tecnologia_volver": {
 			vt.dispose();
 			vc.setVisible(true);
+			break;
 		}
 
 		}
