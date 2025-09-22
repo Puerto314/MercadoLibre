@@ -13,10 +13,19 @@ import co.edu.unbosque.util.exception.DireccionException;
 import co.edu.unbosque.util.exception.LanzadorException;
 import co.edu.unbosque.util.exception.NombreUsuarioException;
 import co.edu.unbosque.util.exception.TelefonoException;
+import co.edu.unbosque.view.VentanaArte;
+import co.edu.unbosque.view.VentanaBelleza;
 import co.edu.unbosque.view.VentanaCategoria;
+import co.edu.unbosque.view.VentanaDeporte;
+import co.edu.unbosque.view.VentanaElectrodomestico;
+import co.edu.unbosque.view.VentanaHerramienta;
+import co.edu.unbosque.view.VentanaHogar;
 import co.edu.unbosque.view.VentanaIniciarSesion;
 import co.edu.unbosque.view.VentanaInicio;
+import co.edu.unbosque.view.VentanaModa;
 import co.edu.unbosque.view.VentanaRegistrarse;
+import co.edu.unbosque.view.VentanaTecnologia;
+import co.edu.unbosque.view.VentanaVideojuego;
 
 public class Controlador implements ActionListener {
 
@@ -24,6 +33,16 @@ public class Controlador implements ActionListener {
 	private VentanaIniciarSesion vis;
 	private VentanaRegistrarse vr;
 	private VentanaCategoria vc;
+	private VentanaModa vm;
+	private VentanaHogar vho;
+	private VentanaArte va;
+	private VentanaBelleza vb;
+	private VentanaDeporte vd;
+	private VentanaElectrodomestico ve;
+	private VentanaHerramienta vhe;
+	private VentanaVideojuego vv;
+	private VentanaTecnologia vt;
+	//falta la categoria de mascotas
 	private ModelFacade mf;
 	private List<Usuario> usuariosRegistrados;
 
@@ -32,9 +51,17 @@ public class Controlador implements ActionListener {
 		vis = new VentanaIniciarSesion();
 		vr = new VentanaRegistrarse();
 		vc = new VentanaCategoria();
+		vm = new VentanaModa();
+		vho = new VentanaHogar();
+		va = new VentanaArte();
+		vb = new VentanaBelleza();
+		vd = new VentanaDeporte();
+		ve = new VentanaElectrodomestico();
+		vhe = new VentanaHerramienta();
+		vv = new VentanaVideojuego();
+		vt = new VentanaTecnologia();
 		mf = new ModelFacade();
 		usuariosRegistrados = new ArrayList<>();
-
 		asignarOyentes();
 	}
 
@@ -57,6 +84,38 @@ public class Controlador implements ActionListener {
 		vr.getBotonVolver().addActionListener(this);
 		vr.getBotonVolver().setActionCommand("boton_registrarse_volver");
 		// oyentes ventana categoria
+		vc.getBotonVolver().addActionListener(this);
+		vc.getBotonVolver().setActionCommand("boton_categoria_volver");
+		
+		vc.getModoVendador().addActionListener(this);
+		vc.getModoVendador().setActionCommand("boton_modo_vendedor");
+		
+		vc.getModa().addActionListener(this);
+		vc.getModa().setActionCommand("boton_categoria_moda");
+		
+		vc.getDeporte().addActionListener(this);
+		vc.getDeporte().setActionCommand("boton_categoria_deporte");
+		
+		vc.getBelleza().addActionListener(this);
+		vc.getBelleza().setActionCommand("boton_categoria_belleza");
+		
+		vc.getHogar().addActionListener(this);
+		vc.getHogar().setActionCommand("boton_categoria_hogar_y_mueble");
+		
+		vc.getElectrodomestico().addActionListener(this);
+		vc.getElectrodomestico().setActionCommand("boton_categoria_electrodomestico");
+		
+		vc.getHerramienta().addActionListener(this);
+		vc.getHerramienta().setActionCommand("boton_categoria_herramienta");
+		
+		vc.getTecnologia().addActionListener(this);
+		vc.getTecnologia().setActionCommand("boton_categoria_tecnologia");
+		
+		vc.getArte().addActionListener(this);
+		vc.getArte().setActionCommand("boton_categoria_arte");
+		
+		vc.getVideojuego().addActionListener(this);
+		vc.getVideojuego().setActionCommand("boton_categoria_videojuego");
 
 	}
 
@@ -212,6 +271,12 @@ public class Controlador implements ActionListener {
 			vi.setVisible(true);
 			break;
 		}
+		case "boton_categoria_moda":{
+			vc.dispose();
+			vm.setVisible(true);
+		}
+		
+		
 		}
 	}
 
@@ -257,6 +322,80 @@ public class Controlador implements ActionListener {
 
 	public void setVc(VentanaCategoria vc) {
 		this.vc = vc;
+	}
+	
+	
+
+	public VentanaModa getVm() {
+		return vm;
+	}
+
+	public void setVm(VentanaModa vm) {
+		this.vm = vm;
+	}
+
+	public VentanaHogar getVho() {
+		return vho;
+	}
+
+	public void setVho(VentanaHogar vho) {
+		this.vho = vho;
+	}
+
+	public VentanaArte getVa() {
+		return va;
+	}
+
+	public void setVa(VentanaArte va) {
+		this.va = va;
+	}
+
+	public VentanaBelleza getVb() {
+		return vb;
+	}
+
+	public void setVb(VentanaBelleza vb) {
+		this.vb = vb;
+	}
+
+	public VentanaDeporte getVd() {
+		return vd;
+	}
+
+	public void setVd(VentanaDeporte vd) {
+		this.vd = vd;
+	}
+
+	public VentanaElectrodomestico getVe() {
+		return ve;
+	}
+
+	public void setVe(VentanaElectrodomestico ve) {
+		this.ve = ve;
+	}
+
+	public VentanaHerramienta getVhe() {
+		return vhe;
+	}
+
+	public void setVhe(VentanaHerramienta vhe) {
+		this.vhe = vhe;
+	}
+
+	public VentanaVideojuego getVv() {
+		return vv;
+	}
+
+	public void setVv(VentanaVideojuego vv) {
+		this.vv = vv;
+	}
+
+	public VentanaTecnologia getVt() {
+		return vt;
+	}
+
+	public void setVt(VentanaTecnologia vt) {
+		this.vt = vt;
 	}
 
 	public List<Usuario> getUsuariosRegistrados() {

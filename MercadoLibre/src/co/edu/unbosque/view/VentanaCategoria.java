@@ -38,7 +38,7 @@ public class VentanaCategoria extends JFrame {
 	private JLabel lHerramienta;
 	private JLabel lVideojuego;
 	private JLabel lMascota;
-	private JButton modoVendador;
+	private JButton modoVendedor;
 
 	public VentanaCategoria() {
 		inicializarCategoria();
@@ -70,13 +70,13 @@ public class VentanaCategoria extends JFrame {
 		add(botonVolver);
 		
 		// boton vendedor
-		modoVendador = new JButton("MODO VENDEDOR");
-		modoVendador.setBounds(610, 590, 180, 40);
-		modoVendador.setBackground(Color.decode("#042F6D"));
-		modoVendador.setForeground(Color.decode("#FFFFFF"));
-		modoVendador.setFocusPainted(false);
-		modoVendador.setBorderPainted(false);
-		add(modoVendador);
+		modoVendedor = new JButton("MODO VENDEDOR");
+		modoVendedor.setBounds(610, 590, 180, 40);
+		modoVendedor.setBackground(Color.decode("#042F6D"));
+		modoVendedor.setForeground(Color.decode("#FFFFFF"));
+		modoVendedor.setFocusPainted(false);
+		modoVendedor.setBorderPainted(false);
+		add(modoVendedor);
 		
 		// ---PANEL X CATEGORIA---
 		// --columna 1---
@@ -402,11 +402,11 @@ public class VentanaCategoria extends JFrame {
 	}
 
 	public JButton getModoVendador() {
-		return modoVendador;
+		return modoVendedor;
 	}
 
 	public void setModoVendador(JButton modoVendador) {
-		this.modoVendador = modoVendador;
+		this.modoVendedor = modoVendador;
 	}
 	
 	
