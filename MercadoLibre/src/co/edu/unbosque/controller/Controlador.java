@@ -116,6 +116,33 @@ public class Controlador implements ActionListener {
 		
 		vc.getVideojuego().addActionListener(this);
 		vc.getVideojuego().setActionCommand("boton_categoria_videojuego");
+		
+		va.getbVolverM().addActionListener(this);
+		va.getbVolverM().setActionCommand("boton_categoria_arte_volver");
+		
+		vb.getbVolverM().addActionListener(this);
+		vb.getbVolverM().setActionCommand("boton_categoria_belleza_volver");
+		
+		vd.getbVolverM().addActionListener(this);
+		vd.getbVolverM().setActionCommand("boton_categoria_deportes_volver");
+		
+		ve.getbVolverM().addActionListener(this);
+		ve.getbVolverM().setActionCommand("boton_categoria_electrodomesticos_volver");
+		
+		vhe.getbVolverM().addActionListener(this);
+		vhe.getbVolverM().setActionCommand("boton_categoria_herramientas_volver");
+		
+		vho.getbVolverM().addActionListener(this);
+		vho.getbVolverM().setActionCommand("boton_categoria_hogar_volver");
+		
+		vm.getbVolverM().addActionListener(this);
+		vm.getbVolverM().setActionCommand("boton_categoria_moda_volver");
+		
+		vt.getbVolverM().addActionListener(this);
+		vt.getbVolverM().setActionCommand("boton_categoria_tecnologia_volver");
+		
+		vv.getbVolverM().addActionListener(this);
+		vv.getbVolverM().setActionCommand("boton_categoria_videojuegos");
 
 	}
 
@@ -275,7 +302,42 @@ public class Controlador implements ActionListener {
 			vc.dispose();
 			vm.setVisible(true);
 		}
-		
+		case "boton_categoria_arte_volver":{
+			va.dispose();
+			vc.setVisible(true);
+		}
+		case "boton_categoria_belleza_volver":{
+			vb.dispose();
+			vc.setVisible(true);
+		}
+		case "boton_categoria_deporte_volver":{
+			vd.dispose();
+			vc.setVisible(true);
+		}
+		case "boton_categoria_electrodomestico_volver":{
+			ve.dispose();
+			vc.setVisible(true);
+		}
+		case "boton_categoria_herramienta_volver":{
+			vhe.dispose();
+			vc.setVisible(true);
+		}
+		case "boton_categoria_hogar_volver":{
+			vho.dispose();
+			vc.setVisible(true);
+		}
+		case "boton_categoria_moda_volver":{
+			vm.dispose();
+			vc.setVisible(true);
+		}	
+		case "boton_categoria_videojuegos_volver": {
+			vv.dispose();
+			vc.setVisible(true);
+		}
+		case "boton_categoria_tecnologia_volver": {
+			vt.dispose();
+			vc.setVisible(true);
+		}
 		
 		}
 	}

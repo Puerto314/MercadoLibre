@@ -71,7 +71,7 @@ public class VentanaInicio extends JFrame {
 		this.add(botonSalir);
 
 		// languages
-		idioma = new JLabel("- Change the lenguage -");
+		idioma = new JLabel("- Change the language -");
 		idioma.setBounds(380, 450, 260, 30);
 		idioma.setForeground(Color.decode("#03080D"));
 		idioma.setFont(new Font("Arial", Font.BOLD, 20));
