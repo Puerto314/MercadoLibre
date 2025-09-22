@@ -55,7 +55,56 @@ public class VentanaModa extends JFrame {
 		bModoVendedorM.setBorderPainted(false);
 		add(bModoVendedorM);
 
-		
 	}
+
+	public JLabel getBannerM() {
+		return bannerM;
+	}
+
+	public void setBannerM(JLabel bannerM) {
+		this.bannerM = bannerM;
+	}
+
+	public JLabel getImagenM() {
+		return imagenM;
+	}
+
+	public void setImagenM(JLabel imagenM) {
+		this.imagenM = imagenM;
+	}
+
+	public JLabel getTxtM() {
+		return txtM;
+	}
+
+	public void setTxtM(JLabel txtM) {
+		this.txtM = txtM;
+	}
+
+	public JButton getbVolverM() {
+		return bVolverM;
+	}
+
+	public void setbVolverM(JButton bVolverM) {
+		this.bVolverM = bVolverM;
+	}
+
+	public JButton getbModoVendedorM() {
+		return bModoVendedorM;
+	}
+
+	public void setbModoVendedorM(JButton bModoVendedorM) {
+		this.bModoVendedorM = bModoVendedorM;
+	}
+
+	public JButton getAnadirCarrito() {
+		return anadirCarrito;
+	}
+
+	public void setAnadirCarrito(JButton anadirCarrito) {
+		this.anadirCarrito = anadirCarrito;
+	}
+	
+	
 
 }
