@@ -48,7 +48,6 @@ public class Controlador implements ActionListener {
 	private VentanaTecnologia vt;
 //  private VentanaMascota vma;
 	private ModelFacade mf;
-	private List<Usuario> usuariosRegistrados;
 
 	public Controlador() {
 		vi = new VentanaInicio(this);
@@ -64,15 +63,14 @@ public class Controlador implements ActionListener {
 		vhe = new VentanaHerramienta();
 		vv = new VentanaVideojuego();
 		vt = new VentanaTecnologia();
-		//vma = new VentanaMascota();
+		// vma = new VentanaMascota();
 		mf = new ModelFacade();
-		usuariosRegistrados = new ArrayList<>();
 		asignarOyentes();
 	}
 
 	public void asignarOyentes() {
-		
-		//oyentes botones de idioma
+
+		// oyentes botones de idioma
 		vi.getSpanish().addActionListener(this);
 		vi.getSpanish().setActionCommand("boton_spanish");
 		vi.getIngles().addActionListener(this);
@@ -81,8 +79,8 @@ public class Controlador implements ActionListener {
 		vi.getPortugues().setActionCommand("boton_portugues");
 		vi.getLatin().addActionListener(this);
 		vi.getLatin().setActionCommand("boton_latin");
-		//nnnnnnnnnnn
-		
+		// nnnnnnnnnnn
+
 		// oyentes ventana inicial
 		vi.getBotonInicioSesion().addActionListener(this);
 		vi.getBotonInicioSesion().setActionCommand("boton_iniciar_sesion");
@@ -133,11 +131,11 @@ public class Controlador implements ActionListener {
 
 		vc.getVideojuego().addActionListener(this);
 		vc.getVideojuego().setActionCommand("boton_categoria_videojuego");
-		
-		//vc.getMascota().addActionListener(this);
-		//vc.getMascota().setActionCommand("boton_categoria_mascota");
 
-		//botones de volver de las categorias
+		// vc.getMascota().addActionListener(this);
+		// vc.getMascota().setActionCommand("boton_categoria_mascota");
+
+		// botones de volver de las categorias
 		vm.getbVolverM().addActionListener(this);
 		vm.getbVolverM().setActionCommand("boton_categoria_moda_volver");
 		va.getbVolverA().addActionListener(this);
@@ -156,9 +154,9 @@ public class Controlador implements ActionListener {
 		vt.getbVolverT().setActionCommand("boton_categoria_tecnologia_volver");
 		vv.getbVolverV().addActionListener(this);
 		vv.getbVolverV().setActionCommand("boton_categoria_videojuego_volver");
-		//vma.getbVolverMa().addActionListener(this);
-		//vma.getbVolverMa().setActionCommand("boton_Categoria_mascota_volver");
-		
+		// vma.getbVolverMa().addActionListener(this);
+		// vma.getbVolverMa().setActionCommand("boton_Categoria_mascota_volver");
+
 	}
 
 	@Override
@@ -178,15 +176,15 @@ public class Controlador implements ActionListener {
 		}
 		case "boton_portugues": {
 			idiomaSeleccionado = "message_pt.properties";
-			JOptionPane.showMessageDialog(vi,"Idioma português selecionado");
+			JOptionPane.showMessageDialog(vi, "Idioma português selecionado");
 			break;
 		}
 		case "boton_latin": {
 			idiomaSeleccionado = "message_la.properties";
-			JOptionPane.showMessageDialog(vi,"electus lingua latina");
+			JOptionPane.showMessageDialog(vi, "electus lingua latina");
 			break;
 		}
-		
+
 		case "boton_iniciar_sesion": {
 			vi.setVisible(false);
 			vis.setVisible(true);
@@ -209,7 +207,7 @@ public class Controlador implements ActionListener {
 		}
 
 		case "boton_crear_cuenta": {
-			String nombreUsuario ,correo, direccionCasa, contrasenia, ciudad;
+			String nombreUsuario, correo, direccionCasa, contrasenia, ciudad;
 			long telefono;
 			try {
 				nombreUsuario = vr.getTextoIdUsuario().getText().trim();
@@ -287,48 +285,48 @@ public class Controlador implements ActionListener {
 		}
 
 		case "boton_entrar": {
-            try {
-                String usuarioIngresado = vis.getUsuario().getText().trim();
-                String identificadorIngresado = vis.getEmail().getText().trim();
-                String contraseniaIngresada = vis.getContrasenia().getText().trim();
+			try {
+				String usuarioIngresado = vis.getUsuario().getText().trim();
+				String identificadorIngresado = vis.getEmail().getText().trim();
+				String contraseniaIngresada = vis.getContrasenia().getText().trim();
 
-                boolean encontrado = false;
+				boolean encontrado = false;
 
-                for (Usuario u : mf.getUsuarioDAO().leerTodos()) {
-                    boolean idValido = u.getCorreo().equals(identificadorIngresado);
+				for (Usuario u : mf.getUsuarioDAO().leerTodos()) {
+					boolean idValido = u.getCorreo().equals(identificadorIngresado);
 
-                    try {
-                        long numeroIngresado = Long.parseLong(identificadorIngresado);
-                        if (u.getTelefono() == numeroIngresado) {
-                            idValido = true;
-                        }
-                    } catch (NumberFormatException ex) {
-                        // ignorar si no es número
-                    }
+					try {
+						long numeroIngresado = Long.parseLong(identificadorIngresado);
+						if (u.getTelefono() == numeroIngresado) {
+							idValido = true;
+						}
+					} catch (NumberFormatException ex) {
+						// ignorar si no es número
+					}
 
-                    // 🔹 Aquí agregamos la validación del nombre de usuario
-                    if (idValido && u.getnombreUsuario().equals(usuarioIngresado)
-                            && u.getContrasenia().equals(contraseniaIngresada)) {
+					// 🔹 Aquí agregamos la validación del nombre de usuario
+					if (idValido && u.getnombreUsuario().equals(usuarioIngresado)
+							&& u.getContrasenia().equals(contraseniaIngresada)) {
 
-                        encontrado = true;
-                        break;
-                    }
-                }
+						encontrado = true;
+						break;
+					}
+				}
 
-                if (encontrado) {
-                    vis.dispose();
-                    vc.setVisible(true);
-                } else {
-                    JOptionPane.showMessageDialog(null, "Usuario, correo, teléfono o contraseña incorrectos",
-                            "Error de inicio de sesión", JOptionPane.ERROR_MESSAGE);
-                }
+				if (encontrado) {
+					vis.dispose();
+					vc.setVisible(true);
+				} else {
+					JOptionPane.showMessageDialog(null, "Usuario, correo, teléfono o contraseña incorrectos",
+							"Error de inicio de sesión", JOptionPane.ERROR_MESSAGE);
+				}
 
-            } catch (Exception ex) {
-                JOptionPane.showMessageDialog(null, "Ocurrió un error al iniciar sesión", "Error",
-                        JOptionPane.ERROR_MESSAGE);
-            }
-            break;
-        }
+			} catch (Exception ex) {
+				JOptionPane.showMessageDialog(null, "Ocurrió un error al iniciar sesión", "Error",
+						JOptionPane.ERROR_MESSAGE);
+			}
+			break;
+		}
 
 		case "boton_continuar": {
 			vi.setVisible(true);
@@ -431,11 +429,10 @@ public class Controlador implements ActionListener {
 			vc.setVisible(true);
 			break;
 		}
-		/*case "boton_categoria_mascota_volver":{
-			vma.dispose();
-			vc.setVisible(true);
-			break;
-		}*/
+		/*
+		 * case "boton_categoria_mascota_volver":{ vma.dispose(); vc.setVisible(true);
+		 * break; }
+		 */
 
 		}
 	}
@@ -554,14 +551,6 @@ public class Controlador implements ActionListener {
 
 	public void setVt(VentanaTecnologia vt) {
 		this.vt = vt;
-	}
-
-	public List<Usuario> getUsuariosRegistrados() {
-		return usuariosRegistrados;
-	}
-
-	public void setUsuariosRegistrados(List<Usuario> usuariosRegistrados) {
-		this.usuariosRegistrados = usuariosRegistrados;
 	}
 
 }
