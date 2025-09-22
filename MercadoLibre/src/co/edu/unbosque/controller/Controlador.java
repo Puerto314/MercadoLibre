@@ -31,6 +31,7 @@ import co.edu.unbosque.view.VentanaVideojuego;
 
 public class Controlador implements ActionListener {
 
+	private String idiomaSeleccionado = null;
 	private VentanaInicio vi;
 	private VentanaIniciarSesion vis;
 	private VentanaRegistrarse vr;
@@ -69,6 +70,17 @@ public class Controlador implements ActionListener {
 	}
 
 	public void asignarOyentes() {
+		
+		//oyentes botones de idioma
+		vi.getSpanish().addActionListener(this);
+		vi.getSpanish().setActionCommand("boton_spanish");
+		vi.getIngles().addActionListener(this);
+		vi.getIngles().setActionCommand("boton_ingles");
+		vi.getPortugues().addActionListener(this);
+		vi.getPortugues().setActionCommand("boton_portugues");
+		vi.getLatin().addActionListener(this);
+		vi.getLatin().setActionCommand("boton_latin");
+		
 		// oyentes ventana inicial
 		vi.getBotonInicioSesion().addActionListener(this);
 		vi.getBotonInicioSesion().setActionCommand("boton_iniciar_sesion");
@@ -152,6 +164,27 @@ public class Controlador implements ActionListener {
 		String alias = e.getActionCommand();
 		switch (alias) {
 		// SOLO ABRIR LA VENTANA DE INICIAR SESIÓN
+		case "boton_spanish": {
+			idiomaSeleccionado = "message_spa.properties";
+			JOptionPane.showMessageDialog(vi, "Idioma español seleccionado");
+			break;
+		}
+		case "boton_ingles": {
+			idiomaSeleccionado = "message_eng.properties";
+			JOptionPane.showMessageDialog(vi, "English language selected");
+			break;
+		}
+		case "boton_portugues": {
+			idiomaSeleccionado = "message_pt.properties";
+			JOptionPane.showMessageDialog(vi,"Idioma português selecionado");
+			break;
+		}
+		case "boton_latin": {
+			idiomaSeleccionado = "message_la.properties";
+			JOptionPane.showMessageDialog(vi,"electus lingua latina");
+			break;
+		}
+		
 		case "boton_iniciar_sesion": {
 			vi.setVisible(false);
 			vis.setVisible(true);

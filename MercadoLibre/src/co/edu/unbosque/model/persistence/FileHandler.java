@@ -58,21 +58,21 @@ public class FileHandler {
 	}
 	
 	public static Properties cargarArchivosDePropiedad(String url) {
-		
-		try {
-			archivo = new File(url);
-			if(!archivo.exists()) {
-				archivo.createNewFile();
-			}
-			prop = new Properties();
-			prop.load(new FileInputStream(archivo));
-			return prop;
-		} catch (IOException e) {
-			
-			System.out.println("Error al cargar el archivo de propiedad");
-			e.printStackTrace();
-		}
-		return null;
-	}
+        try {
+            File archivo = new File(url);
+            if (!archivo.exists()) {
+                System.out.println("El archivo no existe: " + url);
+                return null;
+            }
+            Properties prop = new Properties();
+            prop.load(new FileInputStream(archivo));
+            return prop;
+        } catch (IOException e) {
+            System.out.println("Error al cargar el archivo de propiedad");
+            e.printStackTrace();
+        }
+        return null;
+    }
+	
 
 }
