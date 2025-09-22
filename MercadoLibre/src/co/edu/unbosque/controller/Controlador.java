@@ -382,7 +382,7 @@ public class Controlador implements ActionListener {
 			break;
 		}
 
-		// botones categoria volver
+		// BOTONES CATEGORIA VOLVER
 		case "boton_categoria_arte_volver": {
 			va.dispose();
 			vc.setVisible(true);
@@ -429,6 +429,22 @@ public class Controlador implements ActionListener {
 			break;
 		}
 		}
+	}
+
+	public String getIdiomaSeleccionado() {
+		return idiomaSeleccionado;
+	}
+
+	public void setIdiomaSeleccionado(String idiomaSeleccionado) {
+		this.idiomaSeleccionado = idiomaSeleccionado;
+	}
+
+	public VentanaPago getVp() {
+		return vp;
+	}
+
+	public void setVp(VentanaPago vp) {
+		this.vp = vp;
 	}
 
 	public ModelFacade getMf() {
