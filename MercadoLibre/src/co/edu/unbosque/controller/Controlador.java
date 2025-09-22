@@ -287,44 +287,48 @@ public class Controlador implements ActionListener {
 		}
 
 		case "boton_entrar": {
-			try {
-				String usuarioIngresado = vis.getUsuario().getText().trim();
-				String identificadorIngresado = vis.getEmail().getText().trim();
-				String contraseniaIngresada = vis.getContrasenia().getText().trim();
+            try {
+                String usuarioIngresado = vis.getUsuario().getText().trim();
+                String identificadorIngresado = vis.getEmail().getText().trim();
+                String contraseniaIngresada = vis.getContrasenia().getText().trim();
 
-				boolean encontrado = false;
+                boolean encontrado = false;
 
-				for (Usuario u : mf.getUsuarioDAO().leerTodos()) {
-					boolean idValido = u.getCorreo().equals(identificadorIngresado);
+                for (Usuario u : mf.getUsuarioDAO().leerTodos()) {
+                    boolean idValido = u.getCorreo().equals(identificadorIngresado);
 
-					try {
-						long numeroIngresado = Long.parseLong(identificadorIngresado);
-						if (u.getTelefono() == numeroIngresado) {
-							idValido = true;
-						}
-					} catch (NumberFormatException ex) {
-					}
+                    try {
+                        long numeroIngresado = Long.parseLong(identificadorIngresado);
+                        if (u.getTelefono() == numeroIngresado) {
+                            idValido = true;
+                        }
+                    } catch (NumberFormatException ex) {
+                        // ignorar si no es número
+                    }
 
-					if (idValido && u.getContrasenia().equals(contraseniaIngresada)) {
-						encontrado = true;
-						break;
-					}
-				}
+                    // 🔹 Aquí agregamos la validación del nombre de usuario
+                    if (idValido && u.getnombreUsuario().equals(usuarioIngresado)
+                            && u.getContrasenia().equals(contraseniaIngresada)) {
 
-				if (encontrado) {
-					vis.dispose();
-					vc.setVisible(true);
-				} else {
-					JOptionPane.showMessageDialog(null, "Usuario, correo, teléfono o contraseña incorrectos",
-							"Error de inicio de sesión", JOptionPane.ERROR_MESSAGE);
-				}
+                        encontrado = true;
+                        break;
+                    }
+                }
 
-			} catch (Exception ex) {
-				JOptionPane.showMessageDialog(null, "Ocurrió un error al iniciar sesión", "Error",
-						JOptionPane.ERROR_MESSAGE);
-			}
-			break;
-		}
+                if (encontrado) {
+                    vis.dispose();
+                    vc.setVisible(true);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Usuario, correo, teléfono o contraseña incorrectos",
+                            "Error de inicio de sesión", JOptionPane.ERROR_MESSAGE);
+                }
+
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, "Ocurrió un error al iniciar sesión", "Error",
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            break;
+        }
 
 		case "boton_continuar": {
 			vi.setVisible(true);
