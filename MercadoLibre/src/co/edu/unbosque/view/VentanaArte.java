@@ -6,6 +6,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 public class VentanaArte extends JFrame {
 
@@ -15,6 +17,8 @@ public class VentanaArte extends JFrame {
 	private JButton bVolverA;
 	private JButton bModoVendedorA;
 	private JButton anadirCarrito;
+	private JPanel ventanaProducto;
+		
 
 	public VentanaArte() {
 		inicializarArte();
