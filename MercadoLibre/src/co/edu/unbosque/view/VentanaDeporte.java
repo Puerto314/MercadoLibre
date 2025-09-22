@@ -8,11 +8,11 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 public class VentanaDeporte extends JFrame{
-	private JLabel bannerM;
-	private JLabel imagenM;
-	private JLabel txtM;
-	private JButton bVolverM;
-	private JButton bModoVendedorM;
+	private JLabel bannerMD;
+	private JLabel imagenD;
+	private JLabel txtD;
+	private JButton bVolverD;
+	private JButton bModoVendedorD;
 	private JButton anadirCarrito;
 
 	public VentanaDeporte() {
@@ -32,67 +32,67 @@ public class VentanaDeporte extends JFrame{
 		// banner
 		ImageIcon imagen = new ImageIcon(getClass().getResource("bannerProducto.JPG"));
 		JLabel labelimagen = new JLabel(imagen);
-		bannerM = new JLabel(imagen);
-		bannerM.setBounds(0, -30, 965, 180);
-		add(bannerM);
+		bannerMD = new JLabel(imagen);
+		bannerMD.setBounds(0, -30, 965, 180);
+		add(bannerMD);
 
 		// boton volver -> la idea es que vuelva a la ventana categoria
-		bVolverM = new JButton("VOLVER");
-		bVolverM.setBounds(795, 590, 100, 40);
-		bVolverM.setBackground(Color.decode("#042F6D"));
-		bVolverM.setForeground(Color.decode("#FFFFFF"));
-		bVolverM.setFocusPainted(false);
-		bVolverM.setBorderPainted(false);
-		add(bVolverM);
+		bVolverD = new JButton("VOLVER");
+		bVolverD.setBounds(795, 590, 100, 40);
+		bVolverD.setBackground(Color.decode("#042F6D"));
+		bVolverD.setForeground(Color.decode("#FFFFFF"));
+		bVolverD.setFocusPainted(false);
+		bVolverD.setBorderPainted(false);
+		add(bVolverD);
 
 		// boton vendedor
-		bModoVendedorM = new JButton("MODO VENDEDOR");
-		bModoVendedorM.setBounds(610, 590, 180, 40);
-		bModoVendedorM.setBackground(Color.decode("#042F6D"));
-		bModoVendedorM.setForeground(Color.decode("#FFFFFF"));
-		bModoVendedorM.setFocusPainted(false);
-		bModoVendedorM.setBorderPainted(false);
-		add(bModoVendedorM);
+		bModoVendedorD = new JButton("MODO VENDEDOR");
+		bModoVendedorD.setBounds(610, 590, 180, 40);
+		bModoVendedorD.setBackground(Color.decode("#042F6D"));
+		bModoVendedorD.setForeground(Color.decode("#FFFFFF"));
+		bModoVendedorD.setFocusPainted(false);
+		bModoVendedorD.setBorderPainted(false);
+		add(bModoVendedorD);
 	}
 
 	public JLabel getBannerM() {
-		return bannerM;
+		return bannerMD;
 	}
 
 	public void setBannerM(JLabel bannerM) {
-		this.bannerM = bannerM;
+		this.bannerMD = bannerM;
 	}
 
 	public JLabel getImagenM() {
-		return imagenM;
+		return imagenD;
 	}
 
 	public void setImagenM(JLabel imagenM) {
-		this.imagenM = imagenM;
+		this.imagenD = imagenM;
 	}
 
 	public JLabel getTxtM() {
-		return txtM;
+		return txtD;
 	}
 
 	public void setTxtM(JLabel txtM) {
-		this.txtM = txtM;
+		this.txtD = txtM;
 	}
 
 	public JButton getbVolverM() {
-		return bVolverM;
+		return bVolverD;
 	}
 
 	public void setbVolverM(JButton bVolverM) {
-		this.bVolverM = bVolverM;
+		this.bVolverD = bVolverM;
 	}
 
 	public JButton getbModoVendedorM() {
-		return bModoVendedorM;
+		return bModoVendedorD;
 	}
 
 	public void setbModoVendedorM(JButton bModoVendedorM) {
-		this.bModoVendedorM = bModoVendedorM;
+		this.bModoVendedorD = bModoVendedorM;
 	}
 
 	public JButton getAnadirCarrito() {
