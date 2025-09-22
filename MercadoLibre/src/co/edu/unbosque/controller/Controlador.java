@@ -7,6 +7,7 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import co.edu.unbosque.model.ModelFacade;
 import co.edu.unbosque.model.Usuario;
+import co.edu.unbosque.util.exception.CiudadException;
 import co.edu.unbosque.util.exception.ContraseniaException;
 import co.edu.unbosque.util.exception.CorreoException;
 import co.edu.unbosque.util.exception.DireccionException;
@@ -42,7 +43,7 @@ public class Controlador implements ActionListener {
 	private VentanaHerramienta vhe;
 	private VentanaVideojuego vv;
 	private VentanaTecnologia vt;
-	//falta la categoria de mascotas
+	// falta la categoria de mascotas
 	private ModelFacade mf;
 	private List<Usuario> usuariosRegistrados;
 
@@ -86,61 +87,61 @@ public class Controlador implements ActionListener {
 		// oyentes ventana categoria
 		vc.getBotonVolver().addActionListener(this);
 		vc.getBotonVolver().setActionCommand("boton_categoria_volver");
-		
+
 		vc.getModoVendador().addActionListener(this);
 		vc.getModoVendador().setActionCommand("boton_modo_vendedor");
-		
+
 		vc.getModa().addActionListener(this);
 		vc.getModa().setActionCommand("boton_categoria_moda");
-		
+
 		vc.getDeporte().addActionListener(this);
 		vc.getDeporte().setActionCommand("boton_categoria_deporte");
-		
+
 		vc.getBelleza().addActionListener(this);
 		vc.getBelleza().setActionCommand("boton_categoria_belleza");
-		
+
 		vc.getHogar().addActionListener(this);
 		vc.getHogar().setActionCommand("boton_categoria_hogar_y_mueble");
-		
+
 		vc.getElectrodomestico().addActionListener(this);
 		vc.getElectrodomestico().setActionCommand("boton_categoria_electrodomestico");
-		
+
 		vc.getHerramienta().addActionListener(this);
 		vc.getHerramienta().setActionCommand("boton_categoria_herramienta");
-		
+
 		vc.getTecnologia().addActionListener(this);
 		vc.getTecnologia().setActionCommand("boton_categoria_tecnologia");
-		
+
 		vc.getArte().addActionListener(this);
 		vc.getArte().setActionCommand("boton_categoria_arte");
-		
+
 		vc.getVideojuego().addActionListener(this);
 		vc.getVideojuego().setActionCommand("boton_categoria_videojuego");
-		
+
 		va.getbVolverM().addActionListener(this);
 		va.getbVolverM().setActionCommand("boton_categoria_arte_volver");
-		
+
 		vb.getbVolverM().addActionListener(this);
 		vb.getbVolverM().setActionCommand("boton_categoria_belleza_volver");
-		
+
 		vd.getbVolverM().addActionListener(this);
 		vd.getbVolverM().setActionCommand("boton_categoria_deportes_volver");
-		
+
 		ve.getbVolverM().addActionListener(this);
 		ve.getbVolverM().setActionCommand("boton_categoria_electrodomesticos_volver");
-		
+
 		vhe.getbVolverM().addActionListener(this);
 		vhe.getbVolverM().setActionCommand("boton_categoria_herramientas_volver");
-		
+
 		vho.getbVolverM().addActionListener(this);
 		vho.getbVolverM().setActionCommand("boton_categoria_hogar_volver");
-		
+
 		vm.getbVolverM().addActionListener(this);
 		vm.getbVolverM().setActionCommand("boton_categoria_moda_volver");
-		
+
 		vt.getbVolverM().addActionListener(this);
 		vt.getbVolverM().setActionCommand("boton_categoria_tecnologia_volver");
-		
+
 		vv.getbVolverM().addActionListener(this);
 		vv.getbVolverM().setActionCommand("boton_categoria_videojuegos");
 
@@ -173,7 +174,7 @@ public class Controlador implements ActionListener {
 		}
 
 		case "boton_crear_cuenta": {
-			String nombreUsuario, correo, direccion, contrasenia;
+			String nombreUsuario, correo, direccion, contrasenia, ciudad;
 			long telefono;
 
 			try {
@@ -223,6 +224,15 @@ public class Controlador implements ActionListener {
 				LanzadorException.verificarContraseñaValida(contrasenia);
 			} catch (ContraseniaException ex) {
 				JOptionPane.showMessageDialog(null, ex.getMessage(), "ERROR CONTRASEÑA", JOptionPane.ERROR_MESSAGE);
+				vr.setVisible(true);
+				vi.setVisible(false);
+				break;
+			}
+			try {
+				ciudad = vr.getTextoCiudad().getText().trim();
+				LanzadorException.verificarCiudadValida(ciudad);
+			} catch (CiudadException ex) {
+				JOptionPane.showMessageDialog(null, ex.getMessage(), "ERROR CIUDAD", JOptionPane.ERROR_MESSAGE);
 				vr.setVisible(true);
 				vi.setVisible(false);
 				break;
@@ -298,38 +308,38 @@ public class Controlador implements ActionListener {
 			vi.setVisible(true);
 			break;
 		}
-		case "boton_categoria_moda":{
+		case "boton_categoria_moda": {
 			vc.dispose();
 			vm.setVisible(true);
 		}
-		case "boton_categoria_arte_volver":{
+		case "boton_categoria_arte_volver": {
 			va.dispose();
 			vc.setVisible(true);
 		}
-		case "boton_categoria_belleza_volver":{
+		case "boton_categoria_belleza_volver": {
 			vb.dispose();
 			vc.setVisible(true);
 		}
-		case "boton_categoria_deporte_volver":{
+		case "boton_categoria_deporte_volver": {
 			vd.dispose();
 			vc.setVisible(true);
 		}
-		case "boton_categoria_electrodomestico_volver":{
+		case "boton_categoria_electrodomestico_volver": {
 			ve.dispose();
 			vc.setVisible(true);
 		}
-		case "boton_categoria_herramienta_volver":{
+		case "boton_categoria_herramienta_volver": {
 			vhe.dispose();
 			vc.setVisible(true);
 		}
-		case "boton_categoria_hogar_volver":{
+		case "boton_categoria_hogar_volver": {
 			vho.dispose();
 			vc.setVisible(true);
 		}
-		case "boton_categoria_moda_volver":{
+		case "boton_categoria_moda_volver": {
 			vm.dispose();
 			vc.setVisible(true);
-		}	
+		}
 		case "boton_categoria_videojuegos_volver": {
 			vv.dispose();
 			vc.setVisible(true);
@@ -338,7 +348,7 @@ public class Controlador implements ActionListener {
 			vt.dispose();
 			vc.setVisible(true);
 		}
-		
+
 		}
 	}
 
@@ -385,8 +395,6 @@ public class Controlador implements ActionListener {
 	public void setVc(VentanaCategoria vc) {
 		this.vc = vc;
 	}
-	
-	
 
 	public VentanaModa getVm() {
 		return vm;
