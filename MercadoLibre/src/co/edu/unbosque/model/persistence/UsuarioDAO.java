@@ -2,22 +2,26 @@ package co.edu.unbosque.model.persistence;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import co.edu.unbosque.model.Usuario;
 
 public class UsuarioDAO implements DAO<Usuario> {
 
 	private List<Usuario> listaUsuario = new ArrayList<>();
 	private final String FILE_NAME = "Usuario.csv";
+	private final String SERIAL_FILE_NAME = "Usuario.bin";
 
 	public UsuarioDAO() {
 		listaUsuario = new ArrayList<>();
 		leerDesdeArchivoDeTexto(FILE_NAME);
+		cargarDesdeArchivoSerializado();
 	}
 
 	@Override
 	public void crear(Usuario objeto) {
-		escribirEnArchivoTexto();
 		listaUsuario.add(objeto);
+		escribirEnArchivoTexto();
+		escribirArchivoSerializado();
 	}
 
 	@Override
@@ -84,6 +88,21 @@ public class UsuarioDAO implements DAO<Usuario> {
 			}
 
 		}
+
+	}
+	public void cargarDesdeArchivoSerializado() {
+		Object contenido = FileHandler.leerDesdeArchivoSerializado(SERIAL_FILE_NAME);
+		if (contenido != null) {
+			listaUsuario = (ArrayList<Usuario>) contenido;
+		} else {
+			listaUsuario = new ArrayList<>();
+		}
+
+	}
+
+	@Override
+	public void escribirArchivoSerializado() {
+		FileHandler.escribirEnArchivoSerializado(SERIAL_FILE_NAME, listaUsuario);
 
 	}
 

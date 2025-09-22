@@ -8,16 +8,19 @@ public class CarritoDeCompraDAO implements DAO<CarritoDeCompra>{
 
 	private List<CarritoDeCompra> listaCarritoDeCompra = new ArrayList<>();
 	private final String FILE_NAME = "CarritoDeCompra.csv";
+	private final String SERIAL_FILE_NAME = "CarritoDeCompra.csv";
 	
 	public CarritoDeCompraDAO() {
 		listaCarritoDeCompra = new ArrayList<>();
 		leerDesdeArchivoDeTexto(FILE_NAME);
+		cargarDesdeArchivoSerializado();
 	}
 
 	@Override
 	public void crear(CarritoDeCompra objeto) {
 		listaCarritoDeCompra.add(objeto);
 		escribirEnArchivoTexto();
+		escribirArchivoSerializado();
 	}
 
 	@Override
@@ -31,6 +34,7 @@ public class CarritoDeCompraDAO implements DAO<CarritoDeCompra>{
 			if (listaCarritoDeCompra.get(i).getNombreProducto().equalsIgnoreCase(objeto.getNombreProducto())) {
 				listaCarritoDeCompra.set(i, objeto);
 				escribirEnArchivoTexto();
+				escribirArchivoSerializado();
 				return true;
 			}
 		}
@@ -79,6 +83,21 @@ public class CarritoDeCompraDAO implements DAO<CarritoDeCompra>{
 
 		}
 		
+	}
+	public void cargarDesdeArchivoSerializado() {
+		Object contenido = FileHandler.leerDesdeArchivoSerializado(SERIAL_FILE_NAME);
+		if (contenido != null) {
+			listaCarritoDeCompra = (ArrayList<CarritoDeCompra>) contenido;
+		} else {
+			listaCarritoDeCompra = new ArrayList<>();
+		}
+
+	}
+
+	@Override
+	public void escribirArchivoSerializado() {
+		FileHandler.escribirEnArchivoSerializado(SERIAL_FILE_NAME, listaCarritoDeCompra);
+
 	}
 
 	@Override

@@ -20,4 +20,8 @@ public interface DAO<E> {
 	
 	public boolean existe(String id);//VERIFICA QUE CADA USUARIO SEA ÚNICO
 
+	public void cargarDesdeArchivoSerializado();
+	
+	public void escribirArchivoSerializado();
+
 }
