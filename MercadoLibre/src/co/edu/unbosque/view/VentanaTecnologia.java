@@ -55,44 +55,44 @@ public class VentanaTecnologia extends JFrame {
 		add(bModoVendedorT);
 	}
 
-	public JLabel getBannerM() {
+	public JLabel getBannerT() {
 		return bannerT;
 	}
 
-	public void setBannerM(JLabel bannerM) {
-		this.bannerT = bannerM;
+	public void setBannerT(JLabel bannerT) {
+		this.bannerT = bannerT;
 	}
 
-	public JLabel getImagenM() {
+	public JLabel getImagenT() {
 		return imagenT;
 	}
 
-	public void setImagenM(JLabel imagenM) {
-		this.imagenT = imagenM;
+	public void setImagenT(JLabel imagenT) {
+		this.imagenT = imagenT;
 	}
 
-	public JLabel getTxtM() {
+	public JLabel getTxtT() {
 		return txtT;
 	}
 
-	public void setTxtM(JLabel txtM) {
-		this.txtT = txtM;
+	public void setTxtT(JLabel txtT) {
+		this.txtT = txtT;
 	}
 
-	public JButton getbVolverM() {
+	public JButton getbVolverT() {
 		return bVolverT;
 	}
 
-	public void setbVolverM(JButton bVolverM) {
-		this.bVolverT = bVolverM;
+	public void setbVolverT(JButton bVolverT) {
+		this.bVolverT = bVolverT;
 	}
 
-	public JButton getbModoVendedorM() {
+	public JButton getbModoVendedorT() {
 		return bModoVendedorT;
 	}
 
-	public void setbModoVendedorM(JButton bModoVendedorM) {
-		this.bModoVendedorT = bModoVendedorM;
+	public void setbModoVendedorT(JButton bModoVendedorT) {
+		this.bModoVendedorT = bModoVendedorT;
 	}
 
 	public JButton getAnadirCarrito() {
@@ -102,7 +102,5 @@ public class VentanaTecnologia extends JFrame {
 	public void setAnadirCarrito(JButton anadirCarrito) {
 		this.anadirCarrito = anadirCarrito;
 	}
-	
-	
 
 }

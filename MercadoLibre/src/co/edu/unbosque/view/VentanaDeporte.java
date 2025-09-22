@@ -55,44 +55,44 @@ public class VentanaDeporte extends JFrame{
 		add(bModoVendedorD);
 	}
 
-	public JLabel getBannerM() {
+	public JLabel getBannerMD() {
 		return bannerMD;
 	}
 
-	public void setBannerM(JLabel bannerM) {
-		this.bannerMD = bannerM;
+	public void setBannerMD(JLabel bannerMD) {
+		this.bannerMD = bannerMD;
 	}
 
-	public JLabel getImagenM() {
+	public JLabel getImagenD() {
 		return imagenD;
 	}
 
-	public void setImagenM(JLabel imagenM) {
-		this.imagenD = imagenM;
+	public void setImagenD(JLabel imagenD) {
+		this.imagenD = imagenD;
 	}
 
-	public JLabel getTxtM() {
+	public JLabel getTxtD() {
 		return txtD;
 	}
 
-	public void setTxtM(JLabel txtM) {
-		this.txtD = txtM;
+	public void setTxtD(JLabel txtD) {
+		this.txtD = txtD;
 	}
 
-	public JButton getbVolverM() {
+	public JButton getbVolverD() {
 		return bVolverD;
 	}
 
-	public void setbVolverM(JButton bVolverM) {
-		this.bVolverD = bVolverM;
+	public void setbVolverD(JButton bVolverD) {
+		this.bVolverD = bVolverD;
 	}
 
-	public JButton getbModoVendedorM() {
+	public JButton getbModoVendedorD() {
 		return bModoVendedorD;
 	}
 
-	public void setbModoVendedorM(JButton bModoVendedorM) {
-		this.bModoVendedorD = bModoVendedorM;
+	public void setbModoVendedorD(JButton bModoVendedorD) {
+		this.bModoVendedorD = bModoVendedorD;
 	}
 
 	public JButton getAnadirCarrito() {

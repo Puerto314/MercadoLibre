@@ -23,6 +23,7 @@ import co.edu.unbosque.view.VentanaHerramienta;
 import co.edu.unbosque.view.VentanaHogar;
 import co.edu.unbosque.view.VentanaIniciarSesion;
 import co.edu.unbosque.view.VentanaInicio;
+import co.edu.unbosque.view.VentanaMascota;
 import co.edu.unbosque.view.VentanaModa;
 import co.edu.unbosque.view.VentanaRegistrarse;
 import co.edu.unbosque.view.VentanaTecnologia;
@@ -43,7 +44,7 @@ public class Controlador implements ActionListener {
 	private VentanaHerramienta vhe;
 	private VentanaVideojuego vv;
 	private VentanaTecnologia vt;
-	// falta la categoria de mascotas
+	private VentanaMascota vma;
 	private ModelFacade mf;
 	private List<Usuario> usuariosRegistrados;
 
@@ -61,6 +62,7 @@ public class Controlador implements ActionListener {
 		vhe = new VentanaHerramienta();
 		vv = new VentanaVideojuego();
 		vt = new VentanaTecnologia();
+		//vma = new VentanaMascota();
 		mf = new ModelFacade();
 		usuariosRegistrados = new ArrayList<>();
 		asignarOyentes();
@@ -117,34 +119,32 @@ public class Controlador implements ActionListener {
 
 		vc.getVideojuego().addActionListener(this);
 		vc.getVideojuego().setActionCommand("boton_categoria_videojuego");
+		
+		//vc.getMascota().addActionListener(this);
+		//vc.getMascota().setActionCommand("boton_categoria_mascota");
 
-		va.getbVolverM().addActionListener(this);
-		va.getbVolverM().setActionCommand("boton_categoria_arte_volver");
-
-		vb.getbVolverM().addActionListener(this);
-		vb.getbVolverM().setActionCommand("boton_categoria_belleza_volver");
-
-		vd.getbVolverM().addActionListener(this);
-		vd.getbVolverM().setActionCommand("boton_categoria_deportes_volver");
-
-		ve.getbVolverM().addActionListener(this);
-		ve.getbVolverM().setActionCommand("boton_categoria_electrodomesticos_volver");
-
-		vhe.getbVolverM().addActionListener(this);
-		vhe.getbVolverM().setActionCommand("boton_categoria_herramientas_volver");
-
-		vho.getbVolverM().addActionListener(this);
-		vho.getbVolverM().setActionCommand("boton_categoria_hogar_volver");
-
+		//botones de volver de las categorias
 		vm.getbVolverM().addActionListener(this);
 		vm.getbVolverM().setActionCommand("boton_categoria_moda_volver");
-
-		vt.getbVolverM().addActionListener(this);
-		vt.getbVolverM().setActionCommand("boton_categoria_tecnologia_volver");
-
-		vv.getbVolverM().addActionListener(this);
-		vv.getbVolverM().setActionCommand("boton_categoria_videojuegos");
-
+		va.getbVolverA().addActionListener(this);
+		va.getbVolverA().setActionCommand("boton_categoria_arte_volver");
+		vb.getbVolverB().addActionListener(this);
+		vb.getbVolverB().setActionCommand("boton_categoria_belleza_volver");
+		vd.getbVolverD().addActionListener(this);
+		vd.getbVolverD().setActionCommand("boton_categoria_deporte_volver");
+		ve.getbVolverE().addActionListener(this);
+		ve.getbVolverE().setActionCommand("boton_categoria_electrodomestico_volver");
+		vhe.getbVolverHE().addActionListener(this);
+		vhe.getbVolverHE().setActionCommand("boton_categoria_herramienta_volver");
+		vho.getbVolverHO().addActionListener(this);
+		vho.getbVolverHO().setActionCommand("boton_categoria_hogar_volver");
+		vt.getbVolverT().addActionListener(this);
+		vt.getbVolverT().setActionCommand("boton_categoria_tecnologia_volver");
+		vv.getbVolverV().addActionListener(this);
+		vv.getbVolverV().setActionCommand("boton_categoria_videojuego_volver");
+		//vma.getbVolverMa().addActionListener(this);
+		//vma.getbVolverMa().setActionCommand("boton_Categoria_mascota_volver");
+		
 	}
 
 	@Override
@@ -390,7 +390,7 @@ public class Controlador implements ActionListener {
 			vc.setVisible(true);
 			break;
 		}
-		case "boton_categoria_videojuegos_volver": {
+		case "boton_categoria_videojuego_volver": {
 			vv.dispose();
 			vc.setVisible(true);
 			break;
@@ -400,6 +400,11 @@ public class Controlador implements ActionListener {
 			vc.setVisible(true);
 			break;
 		}
+		/*case "boton_categoria_mascota_volver":{
+			vma.dispose();
+			vc.setVisible(true);
+			break;
+		}*/
 
 		}
 	}
