@@ -325,7 +325,7 @@ public class Controlador implements ActionListener {
 		}
 		case "boton_categoria_electrodomestico": {
 			vc.dispose();
-			vm.setVisible(true);
+			ve.setVisible(true);
 			break;
 		}
 		case "boton_categoria_herramienta": {
