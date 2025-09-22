@@ -2,10 +2,7 @@ package co.edu.unbosque.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.List;
 import javax.swing.JOptionPane;
-
 import co.edu.unbosque.model.ModelFacade;
 import co.edu.unbosque.model.Usuario;
 import co.edu.unbosque.util.exception.CiudadException;
@@ -24,8 +21,8 @@ import co.edu.unbosque.view.VentanaHerramienta;
 import co.edu.unbosque.view.VentanaHogar;
 import co.edu.unbosque.view.VentanaIniciarSesion;
 import co.edu.unbosque.view.VentanaInicio;
-import co.edu.unbosque.view.VentanaMascota;
 import co.edu.unbosque.view.VentanaModa;
+import co.edu.unbosque.view.VentanaPago;
 import co.edu.unbosque.view.VentanaRegistrarse;
 import co.edu.unbosque.view.VentanaTecnologia;
 import co.edu.unbosque.view.VentanaVideojuego;
@@ -46,7 +43,7 @@ public class Controlador implements ActionListener {
 	private VentanaHerramienta vhe;
 	private VentanaVideojuego vv;
 	private VentanaTecnologia vt;
-//  private VentanaMascota vma;
+	private VentanaPago vp;
 	private ModelFacade mf;
 
 	public Controlador() {
@@ -63,14 +60,15 @@ public class Controlador implements ActionListener {
 		vhe = new VentanaHerramienta();
 		vv = new VentanaVideojuego();
 		vt = new VentanaTecnologia();
-		// vma = new VentanaMascota();
+		vt = new VentanaTecnologia();
+		vp = new VentanaPago();
 		mf = new ModelFacade();
 		asignarOyentes();
 	}
 
 	public void asignarOyentes() {
 
-		// oyentes botones de idioma
+		// OYENTES BOTONES DE IDIOMA
 		vi.getSpanish().addActionListener(this);
 		vi.getSpanish().setActionCommand("boton_spanish");
 		vi.getIngles().addActionListener(this);
@@ -79,26 +77,24 @@ public class Controlador implements ActionListener {
 		vi.getPortugues().setActionCommand("boton_portugues");
 		vi.getLatin().addActionListener(this);
 		vi.getLatin().setActionCommand("boton_latin");
-		// nnnnnnnnnnn
-
-		// oyentes ventana inicial
+		// OYENTES VENTANA INICIAL
 		vi.getBotonInicioSesion().addActionListener(this);
 		vi.getBotonInicioSesion().setActionCommand("boton_iniciar_sesion");
 		vi.getBotonRegistrarse().addActionListener(this);
 		vi.getBotonRegistrarse().setActionCommand("boton_registrarse");
 		vi.getBotonSalir().addActionListener(this);
 		vi.getBotonSalir().setActionCommand("boton_salir");
-		// oyentes ventana iniciar sesion
+		// OYENTES VENTANA INICIAR SESION
 		vis.getBotonVolver().addActionListener(this);
 		vis.getBotonVolver().setActionCommand("boton_iniciar_sesion_volver");
 		vis.getBotonEntrar().addActionListener(this);
 		vis.getBotonEntrar().setActionCommand("boton_entrar");
-		// oyentes ventana registrar
+		// OYENTES VENTANA REGISTRAR
 		vr.getBotonRegistrar().addActionListener(this);
 		vr.getBotonRegistrar().setActionCommand("boton_crear_cuenta");
 		vr.getBotonVolver().addActionListener(this);
 		vr.getBotonVolver().setActionCommand("boton_registrarse_volver");
-		// oyentes ventana categoria
+		// OYENTES VENTANA CATEGORIA
 		vc.getBotonVolver().addActionListener(this);
 		vc.getBotonVolver().setActionCommand("boton_categoria_volver");
 
@@ -131,11 +127,14 @@ public class Controlador implements ActionListener {
 
 		vc.getVideojuego().addActionListener(this);
 		vc.getVideojuego().setActionCommand("boton_categoria_videojuego");
+		// OYENTES VENTANA PAGO
+		vp.getBotonComprar().addActionListener(this);
+		vp.getBotonComprar().setActionCommand("boton_comprar");
 
 		// vc.getMascota().addActionListener(this);
 		// vc.getMascota().setActionCommand("boton_categoria_mascota");
 
-		// botones de volver de las categorias
+		// BOTONES DE VOLVER DE LAS CATEGORIAS
 		vm.getbVolverM().addActionListener(this);
 		vm.getbVolverM().setActionCommand("boton_categoria_moda_volver");
 		va.getbVolverA().addActionListener(this);
@@ -429,11 +428,6 @@ public class Controlador implements ActionListener {
 			vc.setVisible(true);
 			break;
 		}
-		/*
-		 * case "boton_categoria_mascota_volver":{ vma.dispose(); vc.setVisible(true);
-		 * break; }
-		 */
-
 		}
 	}
 

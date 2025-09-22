@@ -38,8 +38,8 @@ public class VentanaPago extends JFrame {
 		setLayout(null);
 		getContentPane().setBackground(Color.decode("#FFFFFF"));
 
-		labelDatosPago = new JLabel("Ingrese los datos de pago <-");
-		labelDatosPago.setBounds(610, 60, 350, 40);
+		labelDatosPago = new JLabel("Ingrese los datos");
+		labelDatosPago.setBounds(510, 60, 500, 40);
 		labelDatosPago.setFont(new Font("Georgia", Font.BOLD, 40));
 		add(labelDatosPago);
 
@@ -136,9 +136,9 @@ public class VentanaPago extends JFrame {
 		botonVolver.setBorderPainted(false);
 		add(botonVolver);
 
-		ImageIcon banner1 = new ImageIcon(getClass().getResource("Factura.jpg"));
-		JLabel b1 = new JLabel(banner1);
-		imagenPago = new JLabel(banner1);
+		ImageIcon imagenFactura = new ImageIcon(getClass().getResource("Factura.jpg"));
+		JLabel imgFac = new JLabel(imagenFactura);
+		imagenPago = new JLabel(imagenFactura);
 		imagenPago.setBounds(0, 0, 570, 690);
 		add(imagenPago);
 
