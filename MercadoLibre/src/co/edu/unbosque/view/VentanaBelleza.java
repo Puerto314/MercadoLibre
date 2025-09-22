@@ -7,7 +7,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-public class VentanaBelleza extends JFrame{
+public class VentanaBelleza extends JFrame {
 	private JLabel bannerB;
 	private JLabel imagenB;
 	private JLabel txtB;
@@ -53,6 +53,15 @@ public class VentanaBelleza extends JFrame{
 		bModoVendedorB.setFocusPainted(false);
 		bModoVendedorB.setBorderPainted(false);
 		add(bModoVendedorB);
+
+		// boton carrito
+		ImageIcon imagen1 = new ImageIcon(getClass().getResource("carrito.JPG"));
+		JLabel labelImagen1 = new JLabel(imagen1);
+		anadirCarrito = new JButton(imagen1);
+		anadirCarrito.setBounds(565, 590, 40, 40);
+		anadirCarrito.setFocusPainted(false);
+		anadirCarrito.setBorderPainted(true);
+		this.add(anadirCarrito);
 	}
 
 	public JLabel getBannerB() {
@@ -103,7 +112,4 @@ public class VentanaBelleza extends JFrame{
 		this.anadirCarrito = anadirCarrito;
 	}
 
-	
-
-	
 }

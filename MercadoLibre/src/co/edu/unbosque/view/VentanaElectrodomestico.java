@@ -7,8 +7,8 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-public class VentanaElectrodomestico extends JFrame{
-	
+public class VentanaElectrodomestico extends JFrame {
+
 	private JLabel bannerE;
 	private JLabel imagenE;
 	private JLabel txtE;
@@ -54,6 +54,15 @@ public class VentanaElectrodomestico extends JFrame{
 		bModoVendedorE.setFocusPainted(false);
 		bModoVendedorE.setBorderPainted(false);
 		add(bModoVendedorE);
+		// boton carrito
+		ImageIcon imagen1 = new ImageIcon(getClass().getResource("carrito.JPG"));
+		JLabel labelImagen1 = new JLabel(imagen1);
+		anadirCarrito = new JButton(imagen1);
+		anadirCarrito.setBounds(565, 590, 40, 40);
+		anadirCarrito.setFocusPainted(false);
+		anadirCarrito.setBorderPainted(true);
+		this.add(anadirCarrito);
+
 	}
 
 	public JLabel getBannerE() {
@@ -104,5 +113,4 @@ public class VentanaElectrodomestico extends JFrame{
 		this.anadirCarrito = anadirCarrito;
 	}
 
-	
 }
