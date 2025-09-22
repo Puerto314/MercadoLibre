@@ -8,13 +8,14 @@ public class Producto {
 	private int cantidad;
 	private int descuento;
 	private double puntuacion;
-
+	private String url;
+	
 	public Producto() {
 
 	}
 
 	public Producto(String nombreProducto, float precio, String categoria, String descripcionProducto, int cantidad,
-			int descuento, double puntuacion) {
+			int descuento, double puntuacion, String url) {
 		super();
 		this.nombreProducto = nombreProducto;
 		this.precio = precio;
@@ -23,6 +24,7 @@ public class Producto {
 		this.cantidad = cantidad;
 		this.descuento = descuento;
 		this.puntuacion = puntuacion;
+		this.url = url;
 	}
 
 	public String getNombreProducto() {
@@ -79,6 +81,14 @@ public class Producto {
 
 	public void setPuntuacion(double puntuacion) {
 		this.puntuacion = puntuacion;
+	}
+	
+	public String getUrl() {
+		return url;
+	}
+	
+	public void setUrl(String url) {
+		this.url = url;
 	}
 
 	@Override

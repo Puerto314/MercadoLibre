@@ -11,17 +11,13 @@ public class CarritoDeCompraDAO implements DAO<CarritoDeCompra>{
 	
 	public CarritoDeCompraDAO() {
 		listaCarritoDeCompra = new ArrayList<>();
+		leerDesdeArchivoDeTexto(FILE_NAME);
 	}
 
 	@Override
-	public boolean crear(CarritoDeCompra objeto) {
-		for (CarritoDeCompra carritodecompra : listaCarritoDeCompra) {
-			if (carritodecompra.getNombreProducto().equalsIgnoreCase(objeto.getNombreProducto())) {
-
-				return false;
-			}
-		}
-		return listaCarritoDeCompra.add(objeto);
+	public void crear(CarritoDeCompra objeto) {
+		listaCarritoDeCompra.add(objeto);
+		escribirEnArchivoTexto();
 	}
 
 	@Override
@@ -64,7 +60,7 @@ public class CarritoDeCompraDAO implements DAO<CarritoDeCompra>{
 	public void leerDesdeArchivoDeTexto(String url) {
 
 		String contenido;
-		contenido = FileHandler.leerDesdeArchivoDeTexto("");
+		contenido = FileHandler.leerDesdeArchivoDeTexto("CarritoDeCompra.csv");
 		if (contenido == "" || contenido.isBlank()) {
 			return;
 		} else {

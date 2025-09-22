@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
+
 import co.edu.unbosque.model.ModelFacade;
 import co.edu.unbosque.model.Usuario;
 import co.edu.unbosque.util.exception.CiudadException;
@@ -44,7 +45,7 @@ public class Controlador implements ActionListener {
 	private VentanaHerramienta vhe;
 	private VentanaVideojuego vv;
 	private VentanaTecnologia vt;
-	private VentanaMascota vma;
+//  private VentanaMascota vma;
 	private ModelFacade mf;
 	private List<Usuario> usuariosRegistrados;
 
@@ -174,9 +175,8 @@ public class Controlador implements ActionListener {
 		}
 
 		case "boton_crear_cuenta": {
-			String nombreUsuario, correo, direccion, contrasenia, ciudad;
+			String nombreUsuario ,correo, direccionCasa, contrasenia, ciudad;
 			long telefono;
-
 			try {
 				nombreUsuario = vr.getTextoIdUsuario().getText().trim();
 				LanzadorException.verificarNombreUsuario(nombreUsuario);
@@ -210,8 +210,8 @@ public class Controlador implements ActionListener {
 			}
 
 			try {
-				direccion = vr.getTextoDireccion().getText().trim();
-				LanzadorException.verificarDireccionValida(direccion);
+				direccionCasa = vr.getTextoDireccion().getText().trim();
+				LanzadorException.verificarDireccionValida(direccionCasa);
 			} catch (DireccionException ex) {
 				JOptionPane.showMessageDialog(null, ex.getMessage(), "ERROR DIRECCION", JOptionPane.ERROR_MESSAGE);
 				vr.setVisible(true);
@@ -238,14 +238,7 @@ public class Controlador implements ActionListener {
 				break;
 			}
 
-			Usuario nuevo = new Usuario();
-			nuevo.setIdUsuario(nombreUsuario);
-			nuevo.setCorreo(correo);
-			nuevo.setTelefono(telefono);
-			nuevo.setDireccionCasa(direccion);
-			nuevo.setContrasenia(contrasenia);
-
-			mf.getUsuarioDAO().crear(nuevo);
+			mf.getUsuarioDAO().crear(new Usuario(nombreUsuario, contrasenia, direccionCasa, correo, telefono, ciudad));
 
 			vr.setVisible(false);
 			JOptionPane.showMessageDialog(null, "Cuenta creada con éxito");

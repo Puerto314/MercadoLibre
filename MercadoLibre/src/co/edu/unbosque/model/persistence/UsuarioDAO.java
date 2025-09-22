@@ -11,16 +11,13 @@ public class UsuarioDAO implements DAO<Usuario> {
 
 	public UsuarioDAO() {
 		listaUsuario = new ArrayList<>();
+		leerDesdeArchivoDeTexto(FILE_NAME);
 	}
 
 	@Override
-	public boolean crear(Usuario objeto) {
-		for (Usuario Usuario : listaUsuario) {
-			if (Usuario.getIdUsuario().equals(objeto.getIdUsuario())) {
-				return false;
-			}
-		}
-		return listaUsuario.add(objeto);
+	public void crear(Usuario objeto) {
+		escribirEnArchivoTexto();
+		listaUsuario.add(objeto);
 	}
 
 	@Override
@@ -31,7 +28,7 @@ public class UsuarioDAO implements DAO<Usuario> {
 	@Override
 	public boolean actualizar(Usuario objeto) {
 		for (int i = 0; i < listaUsuario.size(); i++) {
-			if (listaUsuario.get(i).getIdUsuario().equalsIgnoreCase(objeto.getIdUsuario())) {
+			if (listaUsuario.get(i).getnombreUsuario().equalsIgnoreCase(objeto.getnombreUsuario())) {
 				listaUsuario.set(i, objeto);
 				escribirEnArchivoTexto();
 				return true;
@@ -42,7 +39,7 @@ public class UsuarioDAO implements DAO<Usuario> {
 
 	@Override
 	public boolean eliminar(String producto) {
-		return listaUsuario.removeIf(p -> p.getIdUsuario().equalsIgnoreCase(producto));
+		return listaUsuario.removeIf(p -> p.getnombreUsuario().equalsIgnoreCase(producto));
 	}
 
 	@Override
@@ -50,14 +47,15 @@ public class UsuarioDAO implements DAO<Usuario> {
 
 		StringBuilder sb = new StringBuilder();
 		for (Usuario Usuario : listaUsuario) {
-			sb.append(Usuario.getIdUsuario() + ";");
+			sb.append(Usuario.getnombreUsuario() + ";");
 			sb.append(Usuario.getContrasenia() + ";");
 			sb.append(Usuario.getDireccionCasa() + ";");
 			sb.append(Usuario.getCorreo() + ";");
 			sb.append(Usuario.getTelefono() + ";");
 			sb.append(Usuario.getCiudad() + ";");
-			sb.append(Usuario.getNumeroTarjeta() + ";");
+	/*		sb.append(Usuario.getNumeroTarjeta() + ";");
 			sb.append(Usuario.getClaveDeSeguridad() + ";");
+	*/	
 		}
 		FileHandler.escribirEnArchivoTexto(FILE_NAME, sb.toString());
 	}
@@ -65,7 +63,7 @@ public class UsuarioDAO implements DAO<Usuario> {
 	@Override
 	public void leerDesdeArchivoDeTexto(String url) {
 		String contenido;
-		contenido = FileHandler.leerDesdeArchivoDeTexto("");
+		contenido = FileHandler.leerDesdeArchivoDeTexto("Usuario.csv");
 		if (contenido == "" || contenido.isBlank()) {
 			return;
 		} else {
@@ -79,8 +77,9 @@ public class UsuarioDAO implements DAO<Usuario> {
 				temp.setCorreo(columnas[3]);
 				temp.setTelefono(Long.parseLong(columnas[4]));
 				temp.setCiudad(columnas[5]);
-				temp.setNumeroTarjeta(columnas[6]);
+			/*	temp.setNumeroTarjeta(columnas[6]);
 				temp.setClaveDeSeguridad(Short.parseShort(columnas[7]));
+			*/	
 				listaUsuario.add(temp);
 			}
 

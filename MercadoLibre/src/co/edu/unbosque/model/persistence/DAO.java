@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface DAO<E> {
 
-	public boolean crear(E objeto);//CRUD
+	public void crear(E objeto);//CRUD
 
 	public List<E> leerTodos();//CRUD
 

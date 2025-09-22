@@ -11,17 +11,13 @@ public class ProductoDAO implements DAO<Producto> {
 
 	public ProductoDAO() {
 		listaProductos = new ArrayList<>();
+		leerDesdeArchivoDeTexto(FILE_NAME);
 	}
 
 	@Override
-	public boolean crear(Producto objeto) {
-		for (Producto producto : listaProductos) {
-			if (producto.getNombreProducto().equalsIgnoreCase(objeto.getNombreProducto())) {
-
-				return false;
-			}
-		}
-		return listaProductos.add(objeto);
+	public void crear(Producto objeto) {
+		listaProductos.add(objeto);
+		escribirEnArchivoTexto();
 	}
 
 	@Override
@@ -56,6 +52,7 @@ public class ProductoDAO implements DAO<Producto> {
 			sb.append(producto.getCantidad() + ";");
 			sb.append(producto.getDescuento() + ";");
 			sb.append(producto.getPuntuacion() + ";");
+			sb.append(producto.getUrl() + ";");
 
 		}
 		FileHandler.escribirEnArchivoTexto(FILE_NAME, sb.toString());
@@ -65,7 +62,7 @@ public class ProductoDAO implements DAO<Producto> {
 	public void leerDesdeArchivoDeTexto(String url) {
 
 		String contenido;
-		contenido = FileHandler.leerDesdeArchivoDeTexto("");
+		contenido = FileHandler.leerDesdeArchivoDeTexto("Producto.csv");
 		if (contenido == "" || contenido.isBlank()) {
 			return;
 		} else {
@@ -79,6 +76,7 @@ public class ProductoDAO implements DAO<Producto> {
 				temp.setCantidad(Integer.parseInt(columnas[3]));
 				temp.setDescuento(Integer.parseInt(columnas[4]));
 				temp.setPuntuacion(Double.parseDouble(columnas[5]));
+				temp.setUrl(columnas[6]);
 
 				listaProductos.add(temp);
 			}

@@ -2,24 +2,41 @@ package co.edu.unbosque.model;
 
 public class Usuario {
 
-	private String idUsuario;
+	private String nombreUsuario;
 	private String contrasenia;
 	private String direccionCasa;
 	private String correo;
 	private long telefono;
 	private String ciudad;
-	private String numeroTarjeta;
-	private short claveDeSeguridad;
+//	 private String numeroTarjeta;
+//	private short claveDeSeguridad;
+
+	public Usuario() {
+		super();
+	}
+	public Usuario(String nombreUsuario, String contrasenia, String direccionCasa, String correo, long telefono,
+			String ciudad) {
+		super();
+		this.nombreUsuario = nombreUsuario;
+		this.contrasenia = contrasenia;
+		this.direccionCasa = direccionCasa;
+		this.correo = correo;
+		this.telefono = telefono;
+		this.ciudad = ciudad;
+	}
+
+
 
 	public String getCiudad() {
 		return ciudad;
 	}
 
+
 	public void setCiudad(String ciudad) {
 		this.ciudad = ciudad;
 	}
 
-	public String getNumeroTarjeta() {
+/*	public String getNumeroTarjeta() {
 		return numeroTarjeta;
 	}
 
@@ -34,13 +51,13 @@ public class Usuario {
 	public void setClaveDeSeguridad(short claveDeSeguridad) {
 		this.claveDeSeguridad = claveDeSeguridad;
 	}
-
-	public String getIdUsuario() {
-		return idUsuario;
+*/
+	public String getnombreUsuario() {
+		return nombreUsuario;
 	}
 
-	public void setIdUsuario(String idUsuario) {
-		this.idUsuario = idUsuario;
+	public void setIdUsuario(String nombreUsuario) {
+		this.nombreUsuario = nombreUsuario;
 	}
 
 	public String getContrasenia() {
@@ -77,7 +94,7 @@ public class Usuario {
 
 	@Override
 	public String toString() {
-		return " Usuario \n id: " + idUsuario + "\n Contraseña: " + contrasenia + "\n Dirección: " + direccionCasa
+		return " Usuario \n id: " + nombreUsuario + "\n Contraseña: " + contrasenia + "\n Dirección: " + direccionCasa
 				+ "\n Correo: " + correo + "\n Teléfono: " + telefono;
 	}
 
