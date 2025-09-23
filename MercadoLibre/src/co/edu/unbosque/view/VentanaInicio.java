@@ -23,7 +23,7 @@ public class VentanaInicio extends JFrame {
 	private JLabel logoML;
 	private JLabel labelOpcion;
 
-	public VentanaInicio(Controlador controlador) {
+	public VentanaInicio() {
 		inicializarComponentes();
 		setVisible(true);
 	}

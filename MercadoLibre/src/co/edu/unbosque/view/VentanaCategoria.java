@@ -33,6 +33,7 @@ public class VentanaCategoria extends JFrame {
 	private JLabel lVideojuego;
 	private JLabel lMascota;
 	private JButton modoVendedor;
+	private JButton masOpciones;
 
 	public VentanaCategoria() {
 		inicializarCategoria();
@@ -71,7 +72,16 @@ public class VentanaCategoria extends JFrame {
 		modoVendedor.setFocusPainted(false);
 		modoVendedor.setBorderPainted(false);
 		add(modoVendedor);
-
+		
+		//boton mas opciones para el usuario
+		masOpciones = new JButton("MÁS OPCIONES");
+		masOpciones.setBounds(565, 590, 110, 40);
+		masOpciones.setBackground(Color.decode("#042F6D"));
+		masOpciones.setForeground(Color.decode("#FFFFFF"));
+		masOpciones.setFocusPainted(false);
+		masOpciones.setBorderPainted(false);
+		add(masOpciones);
+		
 		// ---PANEL X CATEGORIA---
 		// --columna 1---
 		// moda
