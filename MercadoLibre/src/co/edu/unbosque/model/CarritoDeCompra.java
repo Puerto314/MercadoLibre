@@ -1,6 +1,8 @@
 package co.edu.unbosque.model;
 
-public class CarritoDeCompra {
+import java.io.Serializable;
+
+public class CarritoDeCompra implements Serializable {
 
 	private String nombreProducto;
 	private float precio;
