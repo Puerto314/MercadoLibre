@@ -28,7 +28,7 @@ public class ViewFacade {
 		vhe = new VentanaHerramienta();
 		vho = new VentanaHogar();
 		vis = new VentanaIniciarSesion();
-		vi = new VentanaInicio(null);
+		vi = new VentanaInicio();
 		vma = new VentanaMascota();
 		vmo = new VentanaModa();
 		vp = new VentanaPago();
