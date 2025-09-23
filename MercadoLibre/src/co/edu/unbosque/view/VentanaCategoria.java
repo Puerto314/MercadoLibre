@@ -2,16 +2,10 @@ package co.edu.unbosque.view;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-
-import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
 
 public class VentanaCategoria extends JFrame {
 
@@ -53,13 +47,13 @@ public class VentanaCategoria extends JFrame {
 		setLayout(null);
 		getContentPane().setBackground(Color.decode("#FFFFFF"));
 
-		//banner
+		// banner
 		ImageIcon imagen = new ImageIcon(getClass().getResource("banner.JPG"));
 		JLabel labelimagen = new JLabel(imagen);
 		bannerVentana = new JLabel(imagen);
 		bannerVentana.setBounds(-10, -30, 980, 200);
 		add(bannerVentana);
-		
+
 		// boton salir
 		botonVolver = new JButton("VOLVER");
 		botonVolver.setBounds(795, 590, 100, 40);
@@ -68,7 +62,7 @@ public class VentanaCategoria extends JFrame {
 		botonVolver.setFocusPainted(false);
 		botonVolver.setBorderPainted(false);
 		add(botonVolver);
-		
+
 		// boton vendedor
 		modoVendedor = new JButton("MODO VENDEDOR");
 		modoVendedor.setBounds(610, 590, 180, 40);
@@ -77,7 +71,7 @@ public class VentanaCategoria extends JFrame {
 		modoVendedor.setFocusPainted(false);
 		modoVendedor.setBorderPainted(false);
 		add(modoVendedor);
-		
+
 		// ---PANEL X CATEGORIA---
 		// --columna 1---
 		// moda
@@ -126,11 +120,11 @@ public class VentanaCategoria extends JFrame {
 		// mascotas
 		ImageIcon imagen6 = new ImageIcon(getClass().getResource("mascota.JPG"));
 		JLabel labelImagen6 = new JLabel(imagen6);
-		belleza = new JButton(imagen6);
-		belleza.setBounds(30, 530, 100, 100);
-		belleza.setFocusPainted(false);
-		belleza.setBorderPainted(true);
-		add(belleza);
+		mascota = new JButton(imagen6);
+		mascota.setBounds(30, 530, 100, 100);
+		mascota.setFocusPainted(false);
+		mascota.setBorderPainted(true);
+		add(mascota);
 
 		lMascota = new JLabel("Para Mascotas ");
 		lMascota.setBounds(140, 565, 180, 25);
@@ -408,9 +402,13 @@ public class VentanaCategoria extends JFrame {
 	public void setModoVendador(JButton modoVendador) {
 		this.modoVendedor = modoVendador;
 	}
-	
-	
 
+	public JButton getModoVendedor() {
+		return modoVendedor;
+	}
 
+	public void setModoVendedor(JButton modoVendedor) {
+		this.modoVendedor = modoVendedor;
+	}
 
 }

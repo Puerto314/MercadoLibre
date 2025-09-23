@@ -21,6 +21,7 @@ import co.edu.unbosque.view.VentanaHerramienta;
 import co.edu.unbosque.view.VentanaHogar;
 import co.edu.unbosque.view.VentanaIniciarSesion;
 import co.edu.unbosque.view.VentanaInicio;
+import co.edu.unbosque.view.VentanaMascota;
 import co.edu.unbosque.view.VentanaModa;
 import co.edu.unbosque.view.VentanaPago;
 import co.edu.unbosque.view.VentanaRegistrarse;
@@ -45,13 +46,13 @@ public class Controlador implements ActionListener {
 	private VentanaTecnologia vt;
 	private VentanaPago vp;
 	private ModelFacade mf;
+	private VentanaMascota vmas;
 
 	public Controlador() {
 		vi = new VentanaInicio(this);
 		vis = new VentanaIniciarSesion();
 		vr = new VentanaRegistrarse();
 		vc = new VentanaCategoria();
-		vm = new VentanaModa();
 		vho = new VentanaHogar();
 		va = new VentanaArte();
 		vb = new VentanaBelleza();
@@ -63,6 +64,8 @@ public class Controlador implements ActionListener {
 		vt = new VentanaTecnologia();
 		vp = new VentanaPago();
 		mf = new ModelFacade();
+		vm = new VentanaModa();
+		vmas = new VentanaMascota();
 		asignarOyentes();
 	}
 
@@ -77,6 +80,7 @@ public class Controlador implements ActionListener {
 		vi.getPortugues().setActionCommand("boton_portugues");
 		vi.getLatin().addActionListener(this);
 		vi.getLatin().setActionCommand("boton_latin");
+
 		// OYENTES VENTANA INICIAL
 		vi.getBotonInicioSesion().addActionListener(this);
 		vi.getBotonInicioSesion().setActionCommand("boton_iniciar_sesion");
@@ -84,16 +88,19 @@ public class Controlador implements ActionListener {
 		vi.getBotonRegistrarse().setActionCommand("boton_registrarse");
 		vi.getBotonSalir().addActionListener(this);
 		vi.getBotonSalir().setActionCommand("boton_salir");
+
 		// OYENTES VENTANA INICIAR SESION
 		vis.getBotonVolver().addActionListener(this);
 		vis.getBotonVolver().setActionCommand("boton_iniciar_sesion_volver");
 		vis.getBotonEntrar().addActionListener(this);
 		vis.getBotonEntrar().setActionCommand("boton_entrar");
+
 		// OYENTES VENTANA REGISTRAR
 		vr.getBotonRegistrar().addActionListener(this);
 		vr.getBotonRegistrar().setActionCommand("boton_crear_cuenta");
 		vr.getBotonVolver().addActionListener(this);
 		vr.getBotonVolver().setActionCommand("boton_registrarse_volver");
+
 		// OYENTES VENTANA CATEGORIA
 		vc.getBotonVolver().addActionListener(this);
 		vc.getBotonVolver().setActionCommand("boton_categoria_volver");
@@ -127,12 +134,13 @@ public class Controlador implements ActionListener {
 
 		vc.getVideojuego().addActionListener(this);
 		vc.getVideojuego().setActionCommand("boton_categoria_videojuego");
+
+		vc.getMascota().addActionListener(this);
+		vc.getMascota().setActionCommand("boton_categoria_mascota");
+
 		// OYENTES VENTANA PAGO
 		vp.getBotonComprar().addActionListener(this);
 		vp.getBotonComprar().setActionCommand("boton_comprar");
-
-		// vc.getMascota().addActionListener(this);
-		// vc.getMascota().setActionCommand("boton_categoria_mascota");
 
 		// BOTONES DE VOLVER DE LAS CATEGORIAS
 		vm.getbVolverM().addActionListener(this);
@@ -153,8 +161,8 @@ public class Controlador implements ActionListener {
 		vt.getbVolverT().setActionCommand("boton_categoria_tecnologia_volver");
 		vv.getbVolverV().addActionListener(this);
 		vv.getbVolverV().setActionCommand("boton_categoria_videojuego_volver");
-		// vma.getbVolverMa().addActionListener(this);
-		// vma.getbVolverMa().setActionCommand("boton_Categoria_mascota_volver");
+		vmas.getbVolverMa().addActionListener(this);
+		vmas.getbVolverMa().setActionCommand("boton_categoria_mascota_volver");
 
 	}
 
@@ -381,6 +389,11 @@ public class Controlador implements ActionListener {
 			vv.setVisible(true);
 			break;
 		}
+		case "boton_categoria_mascota": {
+			vc.dispose();
+			vmas.setVisible(true);
+			break;
+		}
 
 		// BOTONES CATEGORIA VOLVER
 		case "boton_categoria_arte_volver": {
@@ -428,7 +441,16 @@ public class Controlador implements ActionListener {
 			vc.setVisible(true);
 			break;
 		}
+		case "boton_categoria_mascota_volver": {
+			vmas.dispose();
+			vc.setVisible(true);
+			break;
 		}
+		}
+	}
+
+	public void runGUI() { // RUN DE LA VENTANA
+		vi.setVisible(true);
 	}
 
 	public String getIdiomaSeleccionado() {
@@ -453,10 +475,6 @@ public class Controlador implements ActionListener {
 
 	public void setMf(ModelFacade mf) {
 		this.mf = mf;
-	}
-
-	public void runGUI() { // Run de la ventana
-		vi.setVisible(true);
 	}
 
 	public VentanaInicio getVi() {
@@ -561,6 +579,14 @@ public class Controlador implements ActionListener {
 
 	public void setVt(VentanaTecnologia vt) {
 		this.vt = vt;
+	}
+
+	public VentanaMascota getVmas() {
+		return vmas;
+	}
+
+	public void setVmas(VentanaMascota vmas) {
+		this.vmas = vmas;
 	}
 
 }
