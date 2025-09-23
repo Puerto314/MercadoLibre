@@ -13,16 +13,16 @@ public class UsuarioDAO implements DAO<Usuario> {
 
 	public UsuarioDAO() {
 		listaUsuario = new ArrayList<Usuario>();
-		leerDesdeArchivoDeTexto(FILE_NAME);
-//		cargarDesdeArchivoSerializado();
+		cargarDesdeArchivoSerializado(); // lee Usuario.bin
 	}
 
 	@Override
 	public void crear(Usuario objeto) {
-		listaUsuario.add(objeto);
-		escribirEnArchivoTexto();
-//		escribirArchivoSerializado();
+	    listaUsuario.add(objeto);
+	    escribirEnArchivoTexto();
+	    escribirArchivoSerializado();
 	}
+
 
 	@Override
 	public List<Usuario> leerTodos() {
@@ -31,19 +31,23 @@ public class UsuarioDAO implements DAO<Usuario> {
 
 	@Override
 	public boolean actualizar(Usuario objeto) {
-		for (int i = 0; i < listaUsuario.size(); i++) {
-			if (listaUsuario.get(i).getnombreUsuario().equalsIgnoreCase(objeto.getnombreUsuario())) {
-				listaUsuario.set(i, objeto);
-				escribirEnArchivoTexto();
-				return true;
-			}
-		}
-		return false;
+	    for (int i = 0; i < listaUsuario.size(); i++) {
+	        if (listaUsuario.get(i).getnombreUsuario().equalsIgnoreCase(objeto.getnombreUsuario())) {
+	            listaUsuario.set(i, objeto);
+	            escribirArchivoSerializado();
+	            return true;
+	        }
+	    }
+	    return false;
 	}
 
 	@Override
 	public boolean eliminar(String producto) {
-		return listaUsuario.removeIf(p -> p.getnombreUsuario().equalsIgnoreCase(producto));
+	    boolean eliminado = listaUsuario.removeIf(p -> p.getnombreUsuario().equalsIgnoreCase(producto));
+	    if (eliminado) {
+	        escribirArchivoSerializado();
+	    }
+	    return eliminado;
 	}
 
 	@Override
@@ -57,9 +61,10 @@ public class UsuarioDAO implements DAO<Usuario> {
 			sb.append(Usuario.getCorreo() + ";");
 			sb.append(Usuario.getTelefono() + ";");
 			sb.append(Usuario.getCiudad() + ";");
-	/*		sb.append(Usuario.getNumeroTarjeta() + ";");
-			sb.append(Usuario.getClaveDeSeguridad() + ";");
-	*/	
+			/*
+			 * sb.append(Usuario.getNumeroTarjeta() + ";");
+			 * sb.append(Usuario.getClaveDeSeguridad() + ";");
+			 */
 		}
 		FileHandler.escribirEnArchivoTexto(FILE_NAME, sb.toString());
 	}
@@ -81,15 +86,17 @@ public class UsuarioDAO implements DAO<Usuario> {
 				temp.setCorreo(columnas[3]);
 				temp.setTelefono(Long.parseLong(columnas[4]));
 				temp.setCiudad(columnas[5]);
-			/*	temp.setNumeroTarjeta(columnas[6]);
-				temp.setClaveDeSeguridad(Short.parseShort(columnas[7]));
-			*/	
+				/*
+				 * temp.setNumeroTarjeta(columnas[6]);
+				 * temp.setClaveDeSeguridad(Short.parseShort(columnas[7]));
+				 */
 				listaUsuario.add(temp);
 			}
 
 		}
 
 	}
+
 	public void cargarDesdeArchivoSerializado() {
 		Object contenido = FileHandler.leerDesdeArchivoSerializado(SERIAL_FILE_NAME);
 		if (contenido != null) {
@@ -105,13 +112,11 @@ public class UsuarioDAO implements DAO<Usuario> {
 		FileHandler.escribirEnArchivoSerializado(SERIAL_FILE_NAME, listaUsuario);
 
 	}
-/*
-	@Override
-	public List<Usuario> buscarPorAtributo(String atributo, String valor) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-*/
+
+	/*
+	 * @Override public List<Usuario> buscarPorAtributo(String atributo, String
+	 * valor) { // TODO Auto-generated method stub return null; }
+	 */
 	@Override
 	public boolean existe(String id) {
 		// TODO Auto-generated method stub

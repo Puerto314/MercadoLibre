@@ -1,6 +1,10 @@
 package co.edu.unbosque.model;
 
-public class Usuario {
+import java.io.Serializable;
+
+public class Usuario implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	private String nombreUsuario;
 	private String contrasenia;
@@ -14,6 +18,7 @@ public class Usuario {
 	public Usuario() {
 		super();
 	}
+
 	public Usuario(String nombreUsuario, String contrasenia, String direccionCasa, String correo, long telefono,
 			String ciudad) {
 		super();
@@ -25,33 +30,25 @@ public class Usuario {
 		this.ciudad = ciudad;
 	}
 
-
-
 	public String getCiudad() {
 		return ciudad;
 	}
-
 
 	public void setCiudad(String ciudad) {
 		this.ciudad = ciudad;
 	}
 
-/*	public String getNumeroTarjeta() {
-		return numeroTarjeta;
-	}
-
-	public void setNumeroTarjeta(String numeroTarjeta) {
-		this.numeroTarjeta = numeroTarjeta;
-	}
-
-	public short getClaveDeSeguridad() {
-		return claveDeSeguridad;
-	}
-
-	public void setClaveDeSeguridad(short claveDeSeguridad) {
-		this.claveDeSeguridad = claveDeSeguridad;
-	}
-*/
+	/*
+	 * public String getNumeroTarjeta() { return numeroTarjeta; }
+	 * 
+	 * public void setNumeroTarjeta(String numeroTarjeta) { this.numeroTarjeta =
+	 * numeroTarjeta; }
+	 * 
+	 * public short getClaveDeSeguridad() { return claveDeSeguridad; }
+	 * 
+	 * public void setClaveDeSeguridad(short claveDeSeguridad) {
+	 * this.claveDeSeguridad = claveDeSeguridad; }
+	 */
 	public String getnombreUsuario() {
 		return nombreUsuario;
 	}
