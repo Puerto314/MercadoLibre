@@ -18,8 +18,12 @@ public class VentanaModa extends JFrame {
 	private JButton bVolverM;
 	private JButton bModoVendedorM;
 	private JButton anadirCarrito;
-	private JLabel producto1;
 	private JScrollPane scroll;
+	private JLabel producto1;
+	private JLabel producto2;
+	private JLabel producto3;
+	private JLabel producto4;
+	private JLabel producto5;
 
 	public VentanaModa() {
 		inicializarModa();
@@ -47,16 +51,42 @@ public class VentanaModa extends JFrame {
 		panelProductos.setBackground(Color.WHITE);
 
 		// PRODUCTO 1
-		ImageIcon imgProducto = new ImageIcon(getClass().getResource("productomoda1.png"));
-		Image img = imgProducto.getImage().getScaledInstance(230, 230, Image.SCALE_SMOOTH);
-		producto1 = new JLabel(new ImageIcon(img));
+		ImageIcon pro1 = new ImageIcon(getClass().getResource("productomoda1.png"));
+		Image img1 = pro1.getImage().getScaledInstance(230, 230, Image.SCALE_SMOOTH);
+		producto1 = new JLabel(new ImageIcon(img1));
 		producto1.setBounds(30, 30, 200, 200);
 		panelProductos.add(producto1);
 
-		// ACÁ SE PUEDEN AÑADIR MÁS PRODUCTOS CON JLabel + setBounds
+		// PRODUCTO 2
+		ImageIcon pro2 = new ImageIcon(getClass().getResource("productomoda2.png"));
+		Image img2 = pro2.getImage().getScaledInstance(230, 230, Image.SCALE_SMOOTH);
+		producto2 = new JLabel(new ImageIcon(img2));
+		producto2.setBounds(30, 260, 200, 200);
+		panelProductos.add(producto2);
+
+		// PRODUCTO 3
+		ImageIcon pro3 = new ImageIcon(getClass().getResource("productomoda3.png"));
+		Image img3 = pro3.getImage().getScaledInstance(230, 230, Image.SCALE_SMOOTH);
+		producto3 = new JLabel(new ImageIcon(img3));
+		producto3.setBounds(30, 490, 200, 200);
+		panelProductos.add(producto3);
+
+		// PRODUCTO 4
+		ImageIcon pro4 = new ImageIcon(getClass().getResource("productomoda4.png"));
+		Image img4 = pro4.getImage().getScaledInstance(230, 230, Image.SCALE_SMOOTH);
+		producto4 = new JLabel(new ImageIcon(img4));
+		producto4.setBounds(30, 720, 200, 200);
+		panelProductos.add(producto4);
+
+		// PRODUCTO 5
+		ImageIcon pro5 = new ImageIcon(getClass().getResource("productomoda5.png"));
+		Image img5 = pro5.getImage().getScaledInstance(230, 230, Image.SCALE_SMOOTH);
+		producto5 = new JLabel(new ImageIcon(img5));
+		producto5.setBounds(30, 950, 200, 200);
+		panelProductos.add(producto5);
 
 		// AJUSTE DEL TAMAÑO DEL PANEL
-		panelProductos.setPreferredSize(new java.awt.Dimension(800, 600));
+		panelProductos.setPreferredSize(new java.awt.Dimension(800, 1200));
 
 		// SCROLL CON EL PANEL DE PRODUCTOS
 		scroll = new JScrollPane(panelProductos, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
@@ -154,6 +184,38 @@ public class VentanaModa extends JFrame {
 
 	public void setScroll(JScrollPane scroll) {
 		this.scroll = scroll;
+	}
+
+	public JLabel getProducto2() {
+		return producto2;
+	}
+
+	public void setProducto2(JLabel producto2) {
+		this.producto2 = producto2;
+	}
+
+	public JLabel getProducto3() {
+		return producto3;
+	}
+
+	public void setProducto3(JLabel producto3) {
+		this.producto3 = producto3;
+	}
+
+	public JLabel getProducto4() {
+		return producto4;
+	}
+
+	public void setProducto4(JLabel producto4) {
+		this.producto4 = producto4;
+	}
+
+	public JLabel getProducto5() {
+		return producto5;
+	}
+
+	public void setProducto5(JLabel producto5) {
+		this.producto5 = producto5;
 	}
 
 }
