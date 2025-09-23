@@ -185,13 +185,17 @@ public class LanzadorException {
 		if (entrada == null || entrada.trim().isEmpty()) {
 			throw new CorreoException();
 		}
+
 		entrada = entrada.trim();
-		if (entrada.endsWith("@unbosque.edu.co")) {
-			return;
-		}
-		String patronDelCorreo = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$";
+
+		String patronDelCorreo = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.(?:[A-Za-z]{2,})$";
 
 		if (!entrada.matches(patronDelCorreo)) {
+			throw new CorreoException();
+		}
+
+		if (!(entrada.endsWith("@unbosque.edu.co") || entrada.endsWith("@gmail.com")
+				|| entrada.endsWith("@hotmail.com"))) {
 			throw new CorreoException();
 		}
 	}
