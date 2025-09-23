@@ -12,15 +12,16 @@ public class Usuario implements Serializable {
 	private String correo;
 	private long telefono;
 	private String ciudad;
-//	 private String numeroTarjeta;
-//	private short claveDeSeguridad;
+	private String numeroTarjeta;
+	private short claveDeSeguridad;
+	private short fechaTarjeta;
 
 	public Usuario() {
 		super();
 	}
 
 	public Usuario(String nombreUsuario, String contrasenia, String direccionCasa, String correo, long telefono,
-			String ciudad) {
+			String ciudad, String numeroTarjeta, short claveDeSeguridad, short fechaTarjeta) {
 		super();
 		this.nombreUsuario = nombreUsuario;
 		this.contrasenia = contrasenia;
@@ -28,32 +29,16 @@ public class Usuario implements Serializable {
 		this.correo = correo;
 		this.telefono = telefono;
 		this.ciudad = ciudad;
+		this.numeroTarjeta = numeroTarjeta;
+		this.claveDeSeguridad = claveDeSeguridad;
+		this.fechaTarjeta = fechaTarjeta;
 	}
 
-	public String getCiudad() {
-		return ciudad;
-	}
-
-	public void setCiudad(String ciudad) {
-		this.ciudad = ciudad;
-	}
-
-	/*
-	 * public String getNumeroTarjeta() { return numeroTarjeta; }
-	 * 
-	 * public void setNumeroTarjeta(String numeroTarjeta) { this.numeroTarjeta =
-	 * numeroTarjeta; }
-	 * 
-	 * public short getClaveDeSeguridad() { return claveDeSeguridad; }
-	 * 
-	 * public void setClaveDeSeguridad(short claveDeSeguridad) {
-	 * this.claveDeSeguridad = claveDeSeguridad; }
-	 */
-	public String getnombreUsuario() {
+	public String getNombreUsuario() {
 		return nombreUsuario;
 	}
 
-	public void setIdUsuario(String nombreUsuario) {
+	public void setNombreUsuario(String nombreUsuario) {
 		this.nombreUsuario = nombreUsuario;
 	}
 
@@ -89,10 +74,47 @@ public class Usuario implements Serializable {
 		this.telefono = telefono;
 	}
 
+	public String getCiudad() {
+		return ciudad;
+	}
+
+	public void setCiudad(String ciudad) {
+		this.ciudad = ciudad;
+	}
+
+	public String getNumeroTarjeta() {
+		return numeroTarjeta;
+	}
+
+	public void setNumeroTarjeta(String numeroTarjeta) {
+		this.numeroTarjeta = numeroTarjeta;
+	}
+
+	public short getClaveDeSeguridad() {
+		return claveDeSeguridad;
+	}
+
+	public void setClaveDeSeguridad(short claveDeSeguridad) {
+		this.claveDeSeguridad = claveDeSeguridad;
+	}
+
+	public short getFechaTarjeta() {
+		return fechaTarjeta;
+	}
+
+	public void setFechaTarjeta(short fechaTarjeta) {
+		this.fechaTarjeta = fechaTarjeta;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
 	@Override
 	public String toString() {
-		return " Usuario \n id: " + nombreUsuario + "\n Contraseña: " + contrasenia + "\n Dirección: " + direccionCasa
-				+ "\n Correo: " + correo + "\n Teléfono: " + telefono;
+		return " Usuario: Nombre: " + nombreUsuario + " Contraseña: " + contrasenia + " Dirección " + direccionCasa
+				+ " Correo: " + correo + " Teléfono: " + telefono + " Ciudad: " + ciudad + " Número de tarjeta: "
+				+ numeroTarjeta + " Pin: " + claveDeSeguridad + " Fecha de expiración: " + fechaTarjeta;
 	}
 
 }

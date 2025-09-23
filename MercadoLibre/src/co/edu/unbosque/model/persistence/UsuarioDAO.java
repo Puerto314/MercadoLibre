@@ -2,7 +2,6 @@ package co.edu.unbosque.model.persistence;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import co.edu.unbosque.model.Usuario;
 
 public class UsuarioDAO implements DAO<Usuario> {
@@ -13,16 +12,15 @@ public class UsuarioDAO implements DAO<Usuario> {
 
 	public UsuarioDAO() {
 		listaUsuario = new ArrayList<Usuario>();
-		cargarDesdeArchivoSerializado(); // lee Usuario.bin
+		cargarDesdeArchivoSerializado();
 	}
 
 	@Override
 	public void crear(Usuario objeto) {
-	    listaUsuario.add(objeto);
-	    escribirEnArchivoTexto();
-	    escribirArchivoSerializado();
+		listaUsuario.add(objeto);
+		escribirEnArchivoTexto();
+		escribirArchivoSerializado();
 	}
-
 
 	@Override
 	public List<Usuario> leerTodos() {
@@ -31,23 +29,23 @@ public class UsuarioDAO implements DAO<Usuario> {
 
 	@Override
 	public boolean actualizar(Usuario objeto) {
-	    for (int i = 0; i < listaUsuario.size(); i++) {
-	        if (listaUsuario.get(i).getnombreUsuario().equalsIgnoreCase(objeto.getnombreUsuario())) {
-	            listaUsuario.set(i, objeto);
-	            escribirArchivoSerializado();
-	            return true;
-	        }
-	    }
-	    return false;
+		for (int i = 0; i < listaUsuario.size(); i++) {
+			if (listaUsuario.get(i).getNombreUsuario().equalsIgnoreCase(objeto.getNombreUsuario())) {
+				listaUsuario.set(i, objeto);
+				escribirArchivoSerializado();
+				return true;
+			}
+		}
+		return false;
 	}
 
 	@Override
 	public boolean eliminar(String producto) {
-	    boolean eliminado = listaUsuario.removeIf(p -> p.getnombreUsuario().equalsIgnoreCase(producto));
-	    if (eliminado) {
-	        escribirArchivoSerializado();
-	    }
-	    return eliminado;
+		boolean eliminado = listaUsuario.removeIf(p -> p.getNombreUsuario().equalsIgnoreCase(producto));
+		if (eliminado) {
+			escribirArchivoSerializado();
+		}
+		return eliminado;
 	}
 
 	@Override
@@ -55,16 +53,16 @@ public class UsuarioDAO implements DAO<Usuario> {
 
 		StringBuilder sb = new StringBuilder();
 		for (Usuario Usuario : listaUsuario) {
-			sb.append(Usuario.getnombreUsuario() + ";");
+			sb.append(Usuario.getNombreUsuario() + ";");
 			sb.append(Usuario.getContrasenia() + ";");
 			sb.append(Usuario.getDireccionCasa() + ";");
 			sb.append(Usuario.getCorreo() + ";");
 			sb.append(Usuario.getTelefono() + ";");
 			sb.append(Usuario.getCiudad() + ";");
-			/*
-			 * sb.append(Usuario.getNumeroTarjeta() + ";");
-			 * sb.append(Usuario.getClaveDeSeguridad() + ";");
-			 */
+			sb.append(Usuario.getNumeroTarjeta() + ";");
+			sb.append(Usuario.getClaveDeSeguridad() + ";");
+			sb.append(Usuario.getFechaTarjeta() + ";");
+
 		}
 		FileHandler.escribirEnArchivoTexto(FILE_NAME, sb.toString());
 	}
@@ -80,16 +78,16 @@ public class UsuarioDAO implements DAO<Usuario> {
 			for (int i = 0; i < filas.length; i++) {
 				String[] columnas = filas[i].split(";");
 				Usuario temp = new Usuario();
-				temp.setIdUsuario(columnas[0]);
+				temp.setNombreUsuario(contenido);
 				temp.setContrasenia(columnas[1]);
 				temp.setDireccionCasa(columnas[2]);
 				temp.setCorreo(columnas[3]);
 				temp.setTelefono(Long.parseLong(columnas[4]));
 				temp.setCiudad(columnas[5]);
-				/*
-				 * temp.setNumeroTarjeta(columnas[6]);
-				 * temp.setClaveDeSeguridad(Short.parseShort(columnas[7]));
-				 */
+				temp.setNumeroTarjeta(columnas[6]);
+				temp.setClaveDeSeguridad(Short.parseShort(columnas[7]));
+				temp.setFechaTarjeta(Short.parseShort(columnas[8]));
+
 				listaUsuario.add(temp);
 			}
 
@@ -98,12 +96,13 @@ public class UsuarioDAO implements DAO<Usuario> {
 	}
 
 	public void cargarDesdeArchivoSerializado() {
-	    Object contenido = FileHandler.leerDesdeArchivoSerializado(SERIAL_FILE_NAME);
-	    if (contenido != null) {
-	        listaUsuario = (ArrayList<Usuario>) contenido;
-	    } else {
-	        listaUsuario = new ArrayList<>();
-	    }
+		Object contenido = FileHandler.leerDesdeArchivoSerializado(SERIAL_FILE_NAME);
+		if (contenido != null) {
+			listaUsuario = (ArrayList<Usuario>) contenido;
+		} else {
+			listaUsuario = new ArrayList<>();
+		}
+
 	}
 
 	@Override
@@ -112,10 +111,6 @@ public class UsuarioDAO implements DAO<Usuario> {
 
 	}
 
-	/*
-	 * @Override public List<Usuario> buscarPorAtributo(String atributo, String
-	 * valor) { // TODO Auto-generated method stub return null; }
-	 */
 	@Override
 	public boolean existe(String id) {
 		// TODO Auto-generated method stub

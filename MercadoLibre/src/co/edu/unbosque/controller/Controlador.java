@@ -277,7 +277,8 @@ public class Controlador implements ActionListener {
 				break;
 			}
 
-			mf.getUsuarioDAO().crear(new Usuario(nombreUsuario, contrasenia, direccionCasa, correo, telefono, ciudad));
+			mf.getUsuarioDAO().crear(new Usuario(nombreUsuario, contrasenia, direccionCasa, correo, telefono, ciudad,
+					"", (short) 0, (short) 0));
 
 			vr.setVisible(false);
 			JOptionPane.showMessageDialog(null, "Cuenta creada con éxito");
@@ -312,7 +313,7 @@ public class Controlador implements ActionListener {
 					}
 
 					// 🔹 Aquí agregamos la validación del nombre de usuario
-					if (idValido && u.getnombreUsuario().equals(usuarioIngresado)
+					if (idValido && u.getNombreUsuario().equals(usuarioIngresado)
 							&& u.getContrasenia().equals(contraseniaIngresada)) {
 
 						encontrado = true;
