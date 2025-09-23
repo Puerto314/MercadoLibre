@@ -128,18 +128,28 @@ public class Controlador implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		String alias = e.getActionCommand();
 		switch (alias) {
-		// SOLO ABRIR LA VENTANA DE INICIAR SESIÓN
-		/*
-		 * case "boton_spanish": { idiomaSeleccionado = "message_spa.properties";
-		 * JOptionPane.showMessageDialog(vf.getVi(), "Idioma español seleccionado");
-		 * break; } case "boton_ingles": { idiomaSeleccionado =
-		 * "message_eng.properties"; JOptionPane.showMessageDialog(vi,
-		 * "English language selected"); break; } case "boton_portugues": {
-		 * idiomaSeleccionado = "message_pt.properties";
-		 * JOptionPane.showMessageDialog(vi, "Idioma português selecionado"); break; }
-		 * case "boton_latin": { idiomaSeleccionado = "message_la.properties";
-		 * JOptionPane.showMessageDialog(vi, "electus lingua latina"); break; }
-		 */
+
+		case "boton_spanish": {
+			idiomaSeleccionado = "message_spa.properties";
+			JOptionPane.showMessageDialog(vf.getVi(), "Idioma español seleccionado");
+			break;
+		}
+		case "boton_ingles": {
+			idiomaSeleccionado = "message_eng.properties";
+			JOptionPane.showMessageDialog(vf.getVi(), "English language selected");
+			break;
+		}
+		case "boton_portugues": {
+			idiomaSeleccionado = "message_pt.properties";
+			JOptionPane.showMessageDialog(vf.getVi(), "Idioma português selecionado");
+			break;
+		}
+		case "boton_latin": {
+			idiomaSeleccionado = "message_la.properties";
+			JOptionPane.showMessageDialog(vf.getVi(), "electus lingua latina");
+			break;
+		}
+
 		case "boton_iniciar_sesion": {
 			vf.getVi().setVisible(false);
 			vf.getVis().setVisible(true);
