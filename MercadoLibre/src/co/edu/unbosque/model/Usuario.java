@@ -4,8 +4,11 @@ import java.io.Serializable;
 
 public class Usuario implements Serializable {
 
-	private static final long serialVersionUID = 1L;
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 975084396426742501L;
 	private String nombreUsuario;
 	private String contrasenia;
 	private String direccionCasa;

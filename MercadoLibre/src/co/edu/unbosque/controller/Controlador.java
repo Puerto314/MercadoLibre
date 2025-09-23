@@ -27,6 +27,7 @@ import co.edu.unbosque.view.VentanaPago;
 import co.edu.unbosque.view.VentanaRegistrarse;
 import co.edu.unbosque.view.VentanaTecnologia;
 import co.edu.unbosque.view.VentanaVideojuego;
+import co.edu.unbosque.view.ViewFacade;
 
 public class Controlador implements ActionListener {
 
@@ -46,26 +47,11 @@ public class Controlador implements ActionListener {
 	private VentanaTecnologia vt;
 	private VentanaPago vp;
 	private ModelFacade mf;
+	private ViewFacade vf;
 	private VentanaMascota vmas;
 
 	public Controlador() {
 		vi = new VentanaInicio(this);
-		vis = new VentanaIniciarSesion();
-		vr = new VentanaRegistrarse();
-		vc = new VentanaCategoria();
-		vho = new VentanaHogar();
-		va = new VentanaArte();
-		vb = new VentanaBelleza();
-		vd = new VentanaDeporte();
-		ve = new VentanaElectrodomestico();
-		vhe = new VentanaHerramienta();
-		vv = new VentanaVideojuego();
-		vt = new VentanaTecnologia();
-		vt = new VentanaTecnologia();
-		vp = new VentanaPago();
-		mf = new ModelFacade();
-		vm = new VentanaModa();
-		vmas = new VentanaMascota();
 		asignarOyentes();
 	}
 
@@ -459,134 +445,6 @@ public class Controlador implements ActionListener {
 
 	public void setIdiomaSeleccionado(String idiomaSeleccionado) {
 		this.idiomaSeleccionado = idiomaSeleccionado;
-	}
-
-	public VentanaPago getVp() {
-		return vp;
-	}
-
-	public void setVp(VentanaPago vp) {
-		this.vp = vp;
-	}
-
-	public ModelFacade getMf() {
-		return mf;
-	}
-
-	public void setMf(ModelFacade mf) {
-		this.mf = mf;
-	}
-
-	public VentanaInicio getVi() {
-		return vi;
-	}
-
-	public void setVi(VentanaInicio vi) {
-		this.vi = vi;
-	}
-
-	public VentanaIniciarSesion getVis() {
-		return vis;
-	}
-
-	public void setVis(VentanaIniciarSesion vis) {
-		this.vis = vis;
-	}
-
-	public VentanaRegistrarse getVr() {
-		return vr;
-	}
-
-	public void setVr(VentanaRegistrarse vr) {
-		this.vr = vr;
-	}
-
-	public VentanaCategoria getVc() {
-		return vc;
-	}
-
-	public void setVc(VentanaCategoria vc) {
-		this.vc = vc;
-	}
-
-	public VentanaModa getVm() {
-		return vm;
-	}
-
-	public void setVm(VentanaModa vm) {
-		this.vm = vm;
-	}
-
-	public VentanaHogar getVho() {
-		return vho;
-	}
-
-	public void setVho(VentanaHogar vho) {
-		this.vho = vho;
-	}
-
-	public VentanaArte getVa() {
-		return va;
-	}
-
-	public void setVa(VentanaArte va) {
-		this.va = va;
-	}
-
-	public VentanaBelleza getVb() {
-		return vb;
-	}
-
-	public void setVb(VentanaBelleza vb) {
-		this.vb = vb;
-	}
-
-	public VentanaDeporte getVd() {
-		return vd;
-	}
-
-	public void setVd(VentanaDeporte vd) {
-		this.vd = vd;
-	}
-
-	public VentanaElectrodomestico getVe() {
-		return ve;
-	}
-
-	public void setVe(VentanaElectrodomestico ve) {
-		this.ve = ve;
-	}
-
-	public VentanaHerramienta getVhe() {
-		return vhe;
-	}
-
-	public void setVhe(VentanaHerramienta vhe) {
-		this.vhe = vhe;
-	}
-
-	public VentanaVideojuego getVv() {
-		return vv;
-	}
-
-	public void setVv(VentanaVideojuego vv) {
-		this.vv = vv;
-	}
-
-	public VentanaTecnologia getVt() {
-		return vt;
-	}
-
-	public void setVt(VentanaTecnologia vt) {
-		this.vt = vt;
-	}
-
-	public VentanaMascota getVmas() {
-		return vmas;
-	}
-
-	public void setVmas(VentanaMascota vmas) {
-		this.vmas = vmas;
 	}
 
 }
