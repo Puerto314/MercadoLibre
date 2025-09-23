@@ -2,12 +2,10 @@ package co.edu.unbosque.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Properties;
-
 import javax.swing.JOptionPane;
+
 import co.edu.unbosque.model.ModelFacade;
 import co.edu.unbosque.model.Usuario;
-import co.edu.unbosque.model.persistence.FileHandler;
 import co.edu.unbosque.util.exception.CiudadException;
 import co.edu.unbosque.util.exception.ContraseniaException;
 import co.edu.unbosque.util.exception.CorreoException;
@@ -19,21 +17,18 @@ import co.edu.unbosque.view.ViewFacade;
 
 public class Controlador implements ActionListener {
 
-	private String idiomaSeleccionado = "message_eng.properties";
+	private String idiomaSeleccionado = null;
 	private ModelFacade mf;
 	private ViewFacade vf;
 
-
 	public Controlador() {
-		mf = new ModelFacade();
 		vf = new ViewFacade();
+		mf = new ModelFacade();
 		asignarOyentes();
-		cargarIdioma(idiomaSeleccionado);
-		actualizarTextos();
 	}
 
 	public void asignarOyentes() {
-
+		
 		// OYENTES BOTONES DE IDIOMA
 		vf.getVi().getSpanish().addActionListener(this);
 		vf.getVi().getSpanish().setActionCommand("boton_spanish");
@@ -128,141 +123,23 @@ public class Controlador implements ActionListener {
 		vf.getVma().getbVolverMa().setActionCommand("boton_categoria_mascota_volver");
 
 	}
-	
-	public void cargarIdioma(String nombreArchivo) {
-		Properties p = FileHandler.cargarArchivosDePropiedad(nombreArchivo);
-		if (p != null) {
-			mf.setProp(p);
-			idiomaSeleccionado = nombreArchivo;
-		} else {
-			JOptionPane.showMessageDialog(null, "Error al cargar el archivo de idioma:" + nombreArchivo, "Error", JOptionPane.ERROR_MESSAGE);
-		}
-	}
-	
-	public void actualizarTextos() {
-		Properties prop = mf.getProp();
-		if(prop == null) return;
-		
-		//VentanaInicio
-				vf.getVi().setTitle(prop.getProperty("ventana_inicio_titulo"));
-				vf.getVi().getLabelOpcion().setText(prop.getProperty("label_opcion"));
-				vf.getVi().getBotonInicioSesion().setText(prop.getProperty("boton_iniciar_sesion"));
-				vf.getVi().getBotonRegistrarse().setText(prop.getProperty("boton_registrarse"));
-				vf.getVi().getBotonSalir().setText(prop.getProperty("boton_salir"));
-				vf.getVi().getIdioma().setText(prop.getProperty("idioma"));
-				
-				//ventanaIniciarSesion
-				vf.getVis().setTitle(prop.getProperty("ventana_iniciar_sesion_titulo"));
-				vf.getVis().getLabelIniciarSesion().setText(prop.getProperty("label_iniciar_sesion"));
-				vf.getVis().getLabelUsuario().setText(prop.getProperty("label_usuario"));
-				vf.getVis().getLabelEmail().setText(prop.getProperty("label_email"));
-				vf.getVis().getLabelContrasenia().setText(prop.getProperty("label_contrasenia"));
-				vf.getVis().getBotonEntrar().setText(prop.getProperty("boton_entrar"));
-				vf.getVis().getBotonVolver().setText(prop.getProperty("boton_volver"));
-				
-				//VentanaRegistrarse
-				vf.getVr().setTitle(prop.getProperty("ventaba_registrarse_titulo"));
-				vf.getVr().getRegistrar().setText(prop.getProperty("label_registrarse"));
-				vf.getVr().getLabelIdUsuario().setText(prop.getProperty("label_id_usuario"));
-				vf.getVr().getLabelTelefono().setText(prop.getProperty("label_telefono"));
-				vf.getVr().getLabelContrasenia().setText(prop.getProperty("label_contrasenia"));
-				vf.getVr().getLabelEmail().setText(prop.getProperty("label_email"));
-				vf.getVr().getLabelDireccion().setText(prop.getProperty("label_direccion"));
-				vf.getVr().getLabelCiudad().setText(prop.getProperty("label_ciudad"));
-				vf.getVr().getBotonRegistrar().setText(prop.getProperty("boton_registrar"));
-				vf.getVr().getBotonVolver().setText(prop.getProperty("boton_volver"));
-				
-				//VentanaCategoria
-				vf.getVc().setTitle(prop.getProperty("ventana_categoria_titulo"));
-				vf.getVc().getBotonVolver().setText(prop.getProperty("boton_volver"));
-				vf.getVc().getModoVendador().setText(prop.getProperty("boton_modo_vendedor"));
-				vf.getVc().getlModa().setText(prop.getProperty("categoria_moda"));
-				vf.getVc().getlDeporte().setText(prop.getProperty("categoria_deportes"));
-				vf.getVc().getlBelleza().setText(prop.getProperty("categoria_belleza"));
-				vf.getVc().getlMascota().setText(prop.getProperty("categoria_mascotas"));
-				vf.getVc().getlHogar().setText(prop.getProperty("categoria_hogar"));
-				vf.getVc().getlElectrodomestico().setText(prop.getProperty("categoria_electrodomesticos"));
-				vf.getVc().getlHerramienta().setText(prop.getProperty("categoria_herramientas"));
-				vf.getVc().getlTecnologia().setText(prop.getProperty("categoria_tecnologia"));
-				vf.getVc().getlArte().setText(prop.getProperty("categoria_arte"));
-				vf.getVc().getlVideojuego().setText(prop.getProperty("categoria_videojuegos"));
-				
-				//VentanasDeCategoriasEspecificas
-				vf.getVmo().setTitle(prop.getProperty("ventana_moda_titulo"));
-				vf.getVmo().getbVolverM().setText(prop.getProperty("boton_volver"));
-				vf.getVmo().getbModoVendedorM().setText(prop.getProperty("boton_modo_vendedor"));
-				
-				vf.getVa().setTitle(prop.getProperty("ventana_arte_titulo"));
-				vf.getVa().getbVolverA().setText(prop.getProperty("boton_volver"));
-				vf.getVa().getbModoVendedorA().setText(prop.getProperty("boton_modo_vendedor"));
-				
-				vf.getVb().setTitle(prop.getProperty("ventana_belleza_titulo"));
-				vf.getVb().getbVolverB().setText(prop.getProperty("boton_volver"));
-				vf.getVb().getbModoVendedorB().setText(prop.getProperty("boton_modo_vendedor"));
-				
-				vf.getVd().setTitle(prop.getProperty("ventana_deporte_titulo"));
-				vf.getVd().getbVolverD().setText(prop.getProperty("boton_volver"));
-				vf.getVd().getbModoVendedorD().setText(prop.getProperty("boton_modo_vendedor"));
-				
-				vf.getVe().setTitle(prop.getProperty("ventana_electrodomesticos_titulo"));
-				vf.getVe().getbVolverE().setText(prop.getProperty("boton_volver"));
-				vf.getVe().getbModoVendedorE().setText(prop.getProperty("boton_modo_vendedor"));
-				
-				vf.getVhe().setTitle(prop.getProperty("ventana_herramientas_titulo"));
-				vf.getVhe().getbVolverHE().setText(prop.getProperty("boton_volver"));
-				vf.getVhe().getbModoVendedorHE().setText(prop.getProperty("boton_modo_vendedor"));
-				
-				vf.getVho().setTitle(prop.getProperty("ventana_hogar_titulo"));
-				vf.getVho().getbVolverHO().setText(prop.getProperty("boton_volver"));
-				vf.getVho().getbModoVendedorHO().setText(prop.getProperty("boton_modo_vendedor"));
-				
-				vf.getVt().setTitle(prop.getProperty("ventana_tecnologia_titulo"));
-				vf.getVt().getbVolverT().setText(prop.getProperty("boton_volver"));
-				vf.getVt().getbModoVendedorT().setText(prop.getProperty("boton_modo_vendedor"));
-				
-				vf.getVv().setTitle(prop.getProperty("ventana_videojuego_titulo"));
-				vf.getVv().getbVolverV().setText(prop.getProperty("boton_volver"));
-				vf.getVv().getbModoVendedorV().setText(prop.getProperty("boton_modo_vendedor"));
-				
-				
-			}
 
-	
-	
-	
-	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String alias = e.getActionCommand();
-		Properties prop = mf.getProp();
 		switch (alias) {
 		// SOLO ABRIR LA VENTANA DE INICIAR SESIÓN
-
-		case "boton_spanish": {
-			cargarIdioma("message_spa.properties");
-			actualizarTextos();
-			JOptionPane.showMessageDialog(vf.getVi(), prop.getProperty("idioma_seleccionado_spanish"));
-			break;
-		}
-		case "boton_ingles": {
-			cargarIdioma("message_eng.properties");
-			actualizarTextos();
-			JOptionPane.showMessageDialog(vf.getVi(), prop.getProperty("idioma_seleccionado_english"));
-			break;
-		}
-		case "boton_portugues": {
-			cargarIdioma("message_pt.properties");
-			actualizarTextos();
-			JOptionPane.showMessageDialog(vf.getVi(), prop.getProperty("idioma_seleccionado_portugues"));
-			break;
-		}
-		case "boton_latin": {
-			cargarIdioma("message_la.properties");
-			actualizarTextos();
-			JOptionPane.showMessageDialog(vf.getVi(), prop.getProperty("idioma_seleccionado_latin"));
-			break;
-		}
-
+		/*
+		 * case "boton_spanish": { idiomaSeleccionado = "message_spa.properties";
+		 * JOptionPane.showMessageDialog(vf.getVi(), "Idioma español seleccionado");
+		 * break; } case "boton_ingles": { idiomaSeleccionado =
+		 * "message_eng.properties"; JOptionPane.showMessageDialog(vi,
+		 * "English language selected"); break; } case "boton_portugues": {
+		 * idiomaSeleccionado = "message_pt.properties";
+		 * JOptionPane.showMessageDialog(vi, "Idioma português selecionado"); break; }
+		 * case "boton_latin": { idiomaSeleccionado = "message_la.properties";
+		 * JOptionPane.showMessageDialog(vi, "electus lingua latina"); break; }
+		 */
 		case "boton_iniciar_sesion": {
 			vf.getVi().setVisible(false);
 			vf.getVis().setVisible(true);

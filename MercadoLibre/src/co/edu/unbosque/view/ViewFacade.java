@@ -34,6 +34,7 @@ public class ViewFacade {
 		vp = new VentanaPago();
 		vr = new VentanaRegistrarse();
 		vv = new VentanaVideojuego();
+		vt = new VentanaTecnologia();
 			
 	}
 
@@ -92,13 +93,6 @@ public class ViewFacade {
 	public void setVho(VentanaHogar vho) {
 		this.vho = vho;
 	}
-	public VentanaInicio getVi() {
-		return vi;
-	}
-	
-	public void setVi(VentanaInicio vi) {
-		this.vi = vi;
-	}
 
 	public VentanaIniciarSesion getVis() {
 		return vis;
@@ -108,6 +102,13 @@ public class ViewFacade {
 		this.vis = vis;
 	}
 
+	public VentanaInicio getVi() {
+		return vi;
+	}
+
+	public void setVi(VentanaInicio vi) {
+		this.vi = vi;
+	}
 
 	public VentanaMascota getVma() {
 		return vma;
@@ -157,15 +158,5 @@ public class ViewFacade {
 		this.vv = vv;
 	}
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 }

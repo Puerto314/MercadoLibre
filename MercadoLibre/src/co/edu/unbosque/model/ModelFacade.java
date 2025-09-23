@@ -19,7 +19,6 @@ public class ModelFacade {
 		productoDAO = new ProductoDAO();
 		usuarioDAO = new UsuarioDAO();
 		prop = new Properties();
-		
 
 	}
 
