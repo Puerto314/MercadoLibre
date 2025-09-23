@@ -83,28 +83,31 @@ public class FileHandler {
 	}
 	
 	public static Object leerDesdeArchivoSerializado(String url) {
-		try {
-			archivo = new File(url);
-			if (!archivo.exists()) {
-				archivo.createNewFile();
-			}
-			fis = new FileInputStream(archivo);
-			ois = new ObjectInputStream(fis);
-			Object contenido = ois.readObject();
-			
-			ois.close();
-			fis.close();
-			return contenido;
-			
-		} catch (IOException e) {
-			System.err.println("Error al leer el archivo serializado.");
-			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			System.err.println("Error al deserializar los datos del usuario.");
-			e.printStackTrace();
-		}
-		return null;
+	    try {
+	        archivo = new File(url);
+	        if (!archivo.exists() || archivo.length() == 0) { 
+	            // si no existe o está vacío, devolvemos null
+	            return null;
+	        }
+
+	        fis = new FileInputStream(archivo);
+	        ois = new ObjectInputStream(fis);
+	        Object contenido = ois.readObject();
+
+	        ois.close();
+	        fis.close();
+	        return contenido;
+
+	    } catch (IOException e) {
+	        System.err.println("Error al leer el archivo serializado.");
+	        e.printStackTrace();
+	    } catch (ClassNotFoundException e) {
+	        System.err.println("Error al deserializar los datos del usuario.");
+	        e.printStackTrace();
+	    }
+	    return null;
 	}
+
 	
 /*	public static Properties cargarArchivosDePropiedad(String url) {
         try {

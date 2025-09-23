@@ -98,13 +98,12 @@ public class UsuarioDAO implements DAO<Usuario> {
 	}
 
 	public void cargarDesdeArchivoSerializado() {
-		Object contenido = FileHandler.leerDesdeArchivoSerializado(SERIAL_FILE_NAME);
-		if (contenido != null) {
-			listaUsuario = (ArrayList<Usuario>) contenido;
-		} else {
-			listaUsuario = new ArrayList<>();
-		}
-
+	    Object contenido = FileHandler.leerDesdeArchivoSerializado(SERIAL_FILE_NAME);
+	    if (contenido != null) {
+	        listaUsuario = (ArrayList<Usuario>) contenido;
+	    } else {
+	        listaUsuario = new ArrayList<>();
+	    }
 	}
 
 	@Override
