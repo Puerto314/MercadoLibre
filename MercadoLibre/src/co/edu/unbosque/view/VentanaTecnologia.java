@@ -13,7 +13,6 @@ public class VentanaTecnologia extends JFrame {
 	private JLabel txtT;
 	private JButton bVolverT;
 	private JButton bModoVendedorT;
-	private JButton anadirCarrito;
 
 	public VentanaTecnologia() {
 		inicializarTecnologia();
@@ -54,14 +53,6 @@ public class VentanaTecnologia extends JFrame {
 		bModoVendedorT.setBorderPainted(false);
 		add(bModoVendedorT);
 
-		// boton carrito
-		ImageIcon imagen1 = new ImageIcon(getClass().getResource("carrito.JPG"));
-		JLabel labelImagen1 = new JLabel(imagen1);
-		anadirCarrito = new JButton(imagen1);
-		anadirCarrito.setBounds(565, 590, 40, 40);
-		anadirCarrito.setFocusPainted(false);
-		anadirCarrito.setBorderPainted(true);
-		this.add(anadirCarrito);
 	}
 
 	public JLabel getBannerT() {
@@ -102,14 +93,6 @@ public class VentanaTecnologia extends JFrame {
 
 	public void setbModoVendedorT(JButton bModoVendedorT) {
 		this.bModoVendedorT = bModoVendedorT;
-	}
-
-	public JButton getAnadirCarrito() {
-		return anadirCarrito;
-	}
-
-	public void setAnadirCarrito(JButton anadirCarrito) {
-		this.anadirCarrito = anadirCarrito;
 	}
 
 }

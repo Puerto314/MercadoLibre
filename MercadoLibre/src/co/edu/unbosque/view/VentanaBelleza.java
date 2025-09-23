@@ -13,7 +13,6 @@ public class VentanaBelleza extends JFrame {
 	private JLabel txtB;
 	private JButton bVolverB;
 	private JButton bModoVendedorB;
-	private JButton anadirCarrito;
 
 	public VentanaBelleza() {
 		inicializarBelleza();
@@ -54,14 +53,6 @@ public class VentanaBelleza extends JFrame {
 		bModoVendedorB.setBorderPainted(false);
 		add(bModoVendedorB);
 
-		// boton carrito
-		ImageIcon imagen1 = new ImageIcon(getClass().getResource("carrito.JPG"));
-		JLabel labelImagen1 = new JLabel(imagen1);
-		anadirCarrito = new JButton(imagen1);
-		anadirCarrito.setBounds(565, 590, 40, 40);
-		anadirCarrito.setFocusPainted(false);
-		anadirCarrito.setBorderPainted(true);
-		this.add(anadirCarrito);
 	}
 
 	public JLabel getBannerB() {
@@ -102,14 +93,6 @@ public class VentanaBelleza extends JFrame {
 
 	public void setbModoVendedorB(JButton bModoVendedorB) {
 		this.bModoVendedorB = bModoVendedorB;
-	}
-
-	public JButton getAnadirCarrito() {
-		return anadirCarrito;
-	}
-
-	public void setAnadirCarrito(JButton anadirCarrito) {
-		this.anadirCarrito = anadirCarrito;
 	}
 
 }

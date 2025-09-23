@@ -14,7 +14,6 @@ public class VentanaHerramienta extends JFrame {
 	private JLabel txtHE;
 	private JButton bVolverHE;
 	private JButton bModoVendedorHE;
-	private JButton anadirCarrito;
 
 	public VentanaHerramienta() {
 		inicializarHerramienta();
@@ -55,14 +54,6 @@ public class VentanaHerramienta extends JFrame {
 		bModoVendedorHE.setBorderPainted(false);
 		add(bModoVendedorHE);
 
-		// boton carrito
-		ImageIcon imagen1 = new ImageIcon(getClass().getResource("carrito.JPG"));
-		JLabel labelImagen1 = new JLabel(imagen1);
-		anadirCarrito = new JButton(imagen1);
-		anadirCarrito.setBounds(565, 590, 40, 40);
-		anadirCarrito.setFocusPainted(false);
-		anadirCarrito.setBorderPainted(true);
-		this.add(anadirCarrito);
 	}
 
 	public JLabel getBannerHE() {
@@ -103,14 +94,6 @@ public class VentanaHerramienta extends JFrame {
 
 	public void setbModoVendedorHE(JButton bModoVendedorHE) {
 		this.bModoVendedorHE = bModoVendedorHE;
-	}
-
-	public JButton getAnadirCarrito() {
-		return anadirCarrito;
-	}
-
-	public void setAnadirCarrito(JButton anadirCarrito) {
-		this.anadirCarrito = anadirCarrito;
 	}
 
 }

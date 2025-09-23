@@ -14,7 +14,6 @@ public class VentanaMascota extends JFrame {
 	private JLabel txtMa;
 	private JButton bVolverMa;
 	private JButton bModoVendedorMa;
-	private JButton anadirCarrito;
 
 	public VentanaMascota() {
 		inicializarMascota();
@@ -54,15 +53,6 @@ public class VentanaMascota extends JFrame {
 		bModoVendedorMa.setFocusPainted(false);
 		bModoVendedorMa.setBorderPainted(false);
 		add(bModoVendedorMa);
-
-		// boton carrito
-		ImageIcon imagen1 = new ImageIcon(getClass().getResource("carrito.JPG"));
-		JLabel labelImagen1 = new JLabel(imagen1);
-		anadirCarrito = new JButton(imagen1);
-		anadirCarrito.setBounds(565, 590, 40, 40);
-		anadirCarrito.setFocusPainted(false);
-		anadirCarrito.setBorderPainted(true);
-		this.add(anadirCarrito);
 
 	}
 
@@ -104,14 +94,6 @@ public class VentanaMascota extends JFrame {
 
 	public void setbModoVendedorMa(JButton bModoVendedorMa) {
 		this.bModoVendedorMa = bModoVendedorMa;
-	}
-
-	public JButton getAnadirCarrito() {
-		return anadirCarrito;
-	}
-
-	public void setAnadirCarrito(JButton anadirCarrito) {
-		this.anadirCarrito = anadirCarrito;
 	}
 
 }

@@ -13,7 +13,6 @@ public class VentanaHogar extends JFrame {
 	private JLabel txtHO;
 	private JButton bVolverHO;
 	private JButton bModoVendedorHO;
-	private JButton anadirCarrito;
 
 	public VentanaHogar() {
 		inicializarHogar();
@@ -54,14 +53,6 @@ public class VentanaHogar extends JFrame {
 		bModoVendedorHO.setBorderPainted(false);
 		add(bModoVendedorHO);
 
-		// boton carrito
-		ImageIcon imagen1 = new ImageIcon(getClass().getResource("carrito.JPG"));
-		JLabel labelImagen1 = new JLabel(imagen1);
-		anadirCarrito = new JButton(imagen1);
-		anadirCarrito.setBounds(565, 590, 40, 40);
-		anadirCarrito.setFocusPainted(false);
-		anadirCarrito.setBorderPainted(true);
-		this.add(anadirCarrito);
 	}
 
 	public JLabel getBannerHO() {
@@ -102,14 +93,6 @@ public class VentanaHogar extends JFrame {
 
 	public void setbModoVendedorHO(JButton bModoVendedorHO) {
 		this.bModoVendedorHO = bModoVendedorHO;
-	}
-
-	public JButton getAnadirCarrito() {
-		return anadirCarrito;
-	}
-
-	public void setAnadirCarrito(JButton anadirCarrito) {
-		this.anadirCarrito = anadirCarrito;
 	}
 
 }

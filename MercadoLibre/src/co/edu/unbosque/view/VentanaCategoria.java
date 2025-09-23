@@ -33,7 +33,6 @@ public class VentanaCategoria extends JFrame {
 	private JLabel lVideojuego;
 	private JLabel lMascota;
 	private JButton modoVendedor;
-	private JButton masOpciones;
 
 	public VentanaCategoria() {
 		inicializarCategoria();

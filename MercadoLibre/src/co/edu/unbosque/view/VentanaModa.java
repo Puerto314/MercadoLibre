@@ -18,7 +18,6 @@ public class VentanaModa extends JFrame {
 	private JLabel txtM;
 	private JButton bVolverM;
 	private JButton bModoVendedorM;
-	private JButton anadirCarrito;
 	private JScrollPane scroll;
 	private JLabel producto1;
 	private JLabel producto2;
@@ -35,6 +34,7 @@ public class VentanaModa extends JFrame {
 	private JLabel precioProducto3;
 	private JLabel precioProducto4;
 	private JLabel precioProducto5;
+	private JButton anadirCarrito;
 
 	public VentanaModa() {
 		inicializarModa();
@@ -174,13 +174,46 @@ public class VentanaModa extends JFrame {
 		bModoVendedorM.setBorderPainted(false);
 		add(bModoVendedorM);
 
-		// BOTON CARRITO
 		ImageIcon imagen1 = new ImageIcon(getClass().getResource("carrito.JPG"));
+		JLabel labelImagen1 = new JLabel(imagen1);
 		anadirCarrito = new JButton(imagen1);
-		anadirCarrito.setBounds(565, 590, 40, 40);
+		anadirCarrito.setBounds(700, 110, 40, 40);
 		anadirCarrito.setFocusPainted(false);
 		anadirCarrito.setBorderPainted(true);
-		this.add(anadirCarrito);
+		panelProductos.add(anadirCarrito);
+
+		ImageIcon imagen2 = new ImageIcon(getClass().getResource("carrito.JPG"));
+		JLabel labelImagen2 = new JLabel(imagen2);
+		anadirCarrito = new JButton(imagen2);
+		anadirCarrito.setBounds(700, 340, 40, 40);
+		anadirCarrito.setFocusPainted(false);
+		anadirCarrito.setBorderPainted(true);
+		panelProductos.add(anadirCarrito);
+
+		ImageIcon imagen3 = new ImageIcon(getClass().getResource("carrito.JPG"));
+		JLabel labelImagen3 = new JLabel(imagen3);
+		anadirCarrito = new JButton(imagen3);
+		anadirCarrito.setBounds(700, 570, 40, 40);
+		anadirCarrito.setFocusPainted(false);
+		anadirCarrito.setBorderPainted(true);
+		panelProductos.add(anadirCarrito);
+
+		ImageIcon imagen4 = new ImageIcon(getClass().getResource("carrito.JPG"));
+		JLabel labelImagen4 = new JLabel(imagen4);
+		anadirCarrito = new JButton(imagen4);
+		anadirCarrito.setBounds(700, 800, 40, 40);
+		anadirCarrito.setFocusPainted(false);
+		anadirCarrito.setBorderPainted(true);
+		panelProductos.add(anadirCarrito);
+
+		ImageIcon imagen5 = new ImageIcon(getClass().getResource("carrito.JPG"));
+		JLabel labelImagen5 = new JLabel(imagen5);
+		anadirCarrito = new JButton(imagen5);
+		anadirCarrito.setBounds(700, 1030, 40, 40);
+		anadirCarrito.setFocusPainted(false);
+		anadirCarrito.setBorderPainted(true);
+		panelProductos.add(anadirCarrito);
+
 	}
 
 	public JLabel getBannerM() {
@@ -221,14 +254,6 @@ public class VentanaModa extends JFrame {
 
 	public void setbModoVendedorM(JButton bModoVendedorM) {
 		this.bModoVendedorM = bModoVendedorM;
-	}
-
-	public JButton getAnadirCarrito() {
-		return anadirCarrito;
-	}
-
-	public void setAnadirCarrito(JButton anadirCarrito) {
-		this.anadirCarrito = anadirCarrito;
 	}
 
 	public JScrollPane getScroll() {
@@ -357,6 +382,14 @@ public class VentanaModa extends JFrame {
 
 	public void setPrecioProducto5(JLabel precioProducto5) {
 		this.precioProducto5 = precioProducto5;
+	}
+
+	public JButton getAnadirCarrito() {
+		return anadirCarrito;
+	}
+
+	public void setAnadirCarrito(JButton anadirCarrito) {
+		this.anadirCarrito = anadirCarrito;
 	}
 
 }

@@ -13,7 +13,6 @@ public class VentanaVideojuego extends JFrame {
 	private JLabel txtV;
 	private JButton bVolverV;
 	private JButton bModoVendedorV;
-	private JButton anadirCarrito;
 
 	public VentanaVideojuego() {
 		inicializarVideojuego();
@@ -53,15 +52,6 @@ public class VentanaVideojuego extends JFrame {
 		bModoVendedorV.setFocusPainted(false);
 		bModoVendedorV.setBorderPainted(false);
 		add(bModoVendedorV);
-
-		// boton carrito
-		ImageIcon imagen1 = new ImageIcon(getClass().getResource("carrito.JPG"));
-		JLabel labelImagen1 = new JLabel(imagen1);
-		anadirCarrito = new JButton(imagen1);
-		anadirCarrito.setBounds(565, 590, 40, 40);
-		anadirCarrito.setFocusPainted(false);
-		anadirCarrito.setBorderPainted(true);
-		this.add(anadirCarrito);
 	}
 
 	public JLabel getBannerV() {
@@ -102,14 +92,6 @@ public class VentanaVideojuego extends JFrame {
 
 	public void setbModoVendedorV(JButton bModoVendedorV) {
 		this.bModoVendedorV = bModoVendedorV;
-	}
-
-	public JButton getAnadirCarrito() {
-		return anadirCarrito;
-	}
-
-	public void setAnadirCarrito(JButton anadirCarrito) {
-		this.anadirCarrito = anadirCarrito;
 	}
 
 }
