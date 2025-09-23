@@ -28,7 +28,7 @@ public class Controlador implements ActionListener {
 	}
 
 	public void asignarOyentes() {
-		
+
 		// OYENTES BOTONES DE IDIOMA
 		vf.getVi().getSpanish().addActionListener(this);
 		vf.getVi().getSpanish().setActionCommand("boton_spanish");
@@ -398,16 +398,9 @@ public class Controlador implements ActionListener {
 		}
 	}
 
-	public void runGUI() { // RUN DE LA VENTANA
+	// RUN DE LA VENTANA
+	public void runGUI() {
 		vf.getVi().setVisible(true);
-	}
-
-	public String getIdiomaSeleccionado() {
-		return idiomaSeleccionado;
-	}
-
-	public void setIdiomaSeleccionado(String idiomaSeleccionado) {
-		this.idiomaSeleccionado = idiomaSeleccionado;
 	}
 
 }
