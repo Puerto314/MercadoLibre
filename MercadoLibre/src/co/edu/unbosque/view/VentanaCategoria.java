@@ -66,7 +66,7 @@ public class VentanaCategoria extends JFrame {
 
 		// boton vendedor
 		modoVendedor = new JButton("MÁS OPCIONES");
-		modoVendedor.setBounds(610, 590, 180, 40);
+		modoVendedor.setBounds(610, 590, 150, 40);
 		modoVendedor.setBackground(Color.decode("#042F6D"));
 		modoVendedor.setForeground(Color.decode("#FFFFFF"));
 		modoVendedor.setFocusPainted(false);
