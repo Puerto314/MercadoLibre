@@ -1,13 +1,14 @@
 package co.edu.unbosque.view;
 
 import java.awt.Color;
+import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
 import javax.swing.BorderFactory;
+import javax.swing.JPanel;
 
 public class VentanaModa extends JFrame {
 
@@ -17,10 +18,8 @@ public class VentanaModa extends JFrame {
 	private JButton bVolverM;
 	private JButton bModoVendedorM;
 	private JButton anadirCarrito;
-
-	// NUEVOS componentes
-	private JTextArea areaTexto;
-	private JScrollPane scrollTexto;
+	private JLabel producto1;
+	private JScrollPane scroll;
 
 	public VentanaModa() {
 		inicializarModa();
@@ -28,7 +27,7 @@ public class VentanaModa extends JFrame {
 	}
 
 	public void inicializarModa() {
-		// configuracion ventana
+		// CONFIGURACION VENTANA
 		setTitle("Ventana Categoría de Moda");
 		setBounds(275, 20, 980, 720);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -36,70 +35,37 @@ public class VentanaModa extends JFrame {
 		setLayout(null);
 		getContentPane().setBackground(Color.decode("#FFFFFF"));
 
-		// banner
+		// IMAGEN
 		ImageIcon imagen = new ImageIcon(getClass().getResource("bannerProducto.JPG"));
 		bannerM = new JLabel(imagen);
 		bannerM.setBounds(0, -30, 965, 180);
 		add(bannerM);
 
-		// ===== RECUADRO CON SCROLL Y TEXTO =====
-		areaTexto = new JTextArea();
-		areaTexto.setText("Aquí va la descripción de la categoría Moda.\n\n"
-				+ "Puedes escribir bastante texto para que aparezca el scroll.\n"
-				+ "Por ejemplo:\n"
-				+ "1. Vestidos\n"
-				+ "2. Camisas\n"
-				+ "3. Zapatos\n"
-				+ "4. Accesorios\n"
-				+ "...\n\n"
-				+ "Este es un ejemplo de cómo se vería un cuadro con scroll."+ "Puedes escribir bastante texto para que aparezca el scroll.\n"
-				+ "Por ejemplo:\n"
-				+ "1. Vestidos\n"
-				+ "2. Camisas\n"
-				+ "3. Zapatos\n"
-				+ "4. Accesorios\n"
-				+ "...\n\n"
-				+ "Este es un ejemplo de cómo se vería un cuadro con scroll."+ "Puedes escribir bastante texto para que aparezca el scroll.\n"
-				+ "Por ejemplo:\n"
-				+ "1. Vestidos\n"
-				+ "2. Camisas\n"
-				+ "3. Zapatos\n"
-				+ "4. Accesorios\n"
-				+ "...\n\n"
-				+ "Este es un ejemplo de cómo se vería un cuadro con scroll."+ "Puedes escribir bastante texto para que aparezca el scroll.\n"
-				+ "Por ejemplo:\n"
-				+ "1. Vestidos\n"
-				+ "2. Camisas\n"
-				+ "3. Zapatos\n"
-				+ "4. Accesorios\n"
-				+ "...\n\n"
-				+ "Este es un ejemplo de cómo se vería un cuadro con scroll."+ "Puedes escribir bastante texto para que aparezca el scroll.\n"
-				+ "Por ejemplo:\n"
-				+ "1. Vestidos\n"
-				+ "2. Camisas\n"
-				+ "3. Zapatos\n"
-				+ "4. Accesorios\n"
-				+ "...\n\n"
-				+ "Este es un ejemplo de cómo se vería un cuadro con scroll."+ "Puedes escribir bastante texto para que aparezca el scroll.\n"
-				+ "Por ejemplo:\n"
-				+ "1. Vestidos\n"
-				+ "2. Camisas\n"
-				+ "3. Zapatos\n"
-				+ "4. Accesorios\n"
-				+ "...\n\n"
-				+ "Este es un ejemplo de cómo se vería un cuadro con scroll.");
-		areaTexto.setLineWrap(true); // Ajusta texto al ancho
-		areaTexto.setWrapStyleWord(true);
-		areaTexto.setEditable(false); // solo lectura
+		// PANEL
+		JPanel panelProductos = new JPanel();
+		panelProductos.setLayout(null); // POSICIONES MANUALES
+		panelProductos.setBackground(Color.WHITE);
 
-		scrollTexto = new JScrollPane(areaTexto, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
-				JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-		scrollTexto.setBounds(200, 200, 550, 300); // posición y tamaño del recuadro
-		scrollTexto.setBorder(BorderFactory.createTitledBorder("Información de Moda"));
+		// PRODUCTO 1
+		ImageIcon imgProducto = new ImageIcon(getClass().getResource("productomoda1.png"));
+		Image img = imgProducto.getImage().getScaledInstance(230, 230, Image.SCALE_SMOOTH);
+		producto1 = new JLabel(new ImageIcon(img));
+		producto1.setBounds(30, 30, 200, 200);
+		panelProductos.add(producto1);
 
-		add(scrollTexto);
+		// ACÁ SE PUEDEN AÑADIR MÁS PRODUCTOS CON JLabel + setBounds
 
-		// boton volver -> la idea es que vuelva a la ventana categoria
+		// AJUSTE DEL TAMAÑO DEL PANEL
+		panelProductos.setPreferredSize(new java.awt.Dimension(800, 600));
+
+		// SCROLL CON EL PANEL DE PRODUCTOS
+		scroll = new JScrollPane(panelProductos, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
+				JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		scroll.setBounds(50, 150, 870, 420); // POSICION Y TAMAÑO DEL RECUADRO
+		scroll.setBorder(BorderFactory.createTitledBorder("Productos de moda"));
+		add(scroll);
+
+		// BOTON VOLVER
 		bVolverM = new JButton("VOLVER");
 		bVolverM.setBounds(795, 590, 100, 40);
 		bVolverM.setBackground(Color.decode("#042F6D"));
@@ -108,7 +74,7 @@ public class VentanaModa extends JFrame {
 		bVolverM.setBorderPainted(false);
 		add(bVolverM);
 
-		// boton vendedor
+		// BOTON VENDEDOR
 		bModoVendedorM = new JButton("MODO VENDEDOR");
 		bModoVendedorM.setBounds(610, 590, 180, 40);
 		bModoVendedorM.setBackground(Color.decode("#042F6D"));
@@ -117,7 +83,7 @@ public class VentanaModa extends JFrame {
 		bModoVendedorM.setBorderPainted(false);
 		add(bModoVendedorM);
 
-		// boton carrito
+		// BOTON CARRITO
 		ImageIcon imagen1 = new ImageIcon(getClass().getResource("carrito.JPG"));
 		anadirCarrito = new JButton(imagen1);
 		anadirCarrito.setBounds(565, 590, 40, 40);
@@ -126,7 +92,6 @@ public class VentanaModa extends JFrame {
 		this.add(anadirCarrito);
 	}
 
-	// GETTERS Y SETTERS
 	public JLabel getBannerM() {
 		return bannerM;
 	}
@@ -174,4 +139,21 @@ public class VentanaModa extends JFrame {
 	public void setAnadirCarrito(JButton anadirCarrito) {
 		this.anadirCarrito = anadirCarrito;
 	}
+
+	public JLabel getProducto1() {
+		return producto1;
+	}
+
+	public void setProducto1(JLabel producto1) {
+		this.producto1 = producto1;
+	}
+
+	public JScrollPane getScroll() {
+		return scroll;
+	}
+
+	public void setScroll(JScrollPane scroll) {
+		this.scroll = scroll;
+	}
+
 }
