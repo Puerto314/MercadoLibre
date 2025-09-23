@@ -22,6 +22,8 @@ public class Controlador implements ActionListener {
 
 
 	public Controlador() {
+		mf = new ModelFacade();
+		vf = new ViewFacade();
 		asignarOyentes();
 	}
 
