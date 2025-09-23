@@ -65,7 +65,7 @@ public class VentanaCategoria extends JFrame {
 		add(botonVolver);
 
 		// boton vendedor
-		modoVendedor = new JButton("MODO VENDEDOR");
+		modoVendedor = new JButton("MÁS OPCIONES");
 		modoVendedor.setBounds(610, 590, 180, 40);
 		modoVendedor.setBackground(Color.decode("#042F6D"));
 		modoVendedor.setForeground(Color.decode("#FFFFFF"));
@@ -74,13 +74,7 @@ public class VentanaCategoria extends JFrame {
 		add(modoVendedor);
 		
 		//boton mas opciones para el usuario
-		masOpciones = new JButton("MÁS OPCIONES");
-		masOpciones.setBounds(565, 590, 110, 40);
-		masOpciones.setBackground(Color.decode("#042F6D"));
-		masOpciones.setForeground(Color.decode("#FFFFFF"));
-		masOpciones.setFocusPainted(false);
-		masOpciones.setBorderPainted(false);
-		add(masOpciones);
+		
 		
 		// ---PANEL X CATEGORIA---
 		// --columna 1---
