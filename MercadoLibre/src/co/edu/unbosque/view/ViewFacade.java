@@ -10,7 +10,7 @@ public class ViewFacade {
 	private	VentanaHerramienta vhe;
 	private	VentanaHogar vho;
 	private	VentanaIniciarSesion vis;
-//	private	entanaInicio vi;
+	private	VentanaInicio vi;
 	private	VentanaMascota vma; 
 	private	VentanaModa vmo;
 	private	VentanaPago vp;
@@ -28,7 +28,7 @@ public class ViewFacade {
 		vhe = new VentanaHerramienta();
 		vho = new VentanaHogar();
 		vis = new VentanaIniciarSesion();
-//		vi = new VentanaInicio(null);
+		vi = new VentanaInicio(null);
 		vma = new VentanaMascota();
 		vmo = new VentanaModa();
 		vp = new VentanaPago();
@@ -92,6 +92,13 @@ public class ViewFacade {
 	public void setVho(VentanaHogar vho) {
 		this.vho = vho;
 	}
+	public VentanaInicio getVi() {
+		return vi;
+	}
+	
+	public void setVi(VentanaInicio vi) {
+		this.vi = vi;
+	}
 
 	public VentanaIniciarSesion getVis() {
 		return vis;
@@ -100,6 +107,7 @@ public class ViewFacade {
 	public void setVis(VentanaIniciarSesion vis) {
 		this.vis = vis;
 	}
+
 
 	public VentanaMascota getVma() {
 		return vma;

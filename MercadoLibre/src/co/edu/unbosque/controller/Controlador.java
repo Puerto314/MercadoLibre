@@ -12,154 +12,124 @@ import co.edu.unbosque.util.exception.DireccionException;
 import co.edu.unbosque.util.exception.LanzadorException;
 import co.edu.unbosque.util.exception.NombreUsuarioException;
 import co.edu.unbosque.util.exception.TelefonoException;
-import co.edu.unbosque.view.VentanaArte;
-import co.edu.unbosque.view.VentanaBelleza;
-import co.edu.unbosque.view.VentanaCategoria;
-import co.edu.unbosque.view.VentanaDeporte;
-import co.edu.unbosque.view.VentanaElectrodomestico;
-import co.edu.unbosque.view.VentanaHerramienta;
-import co.edu.unbosque.view.VentanaHogar;
-import co.edu.unbosque.view.VentanaIniciarSesion;
-import co.edu.unbosque.view.VentanaInicio;
-import co.edu.unbosque.view.VentanaMascota;
-import co.edu.unbosque.view.VentanaModa;
-import co.edu.unbosque.view.VentanaPago;
-import co.edu.unbosque.view.VentanaRegistrarse;
-import co.edu.unbosque.view.VentanaTecnologia;
-import co.edu.unbosque.view.VentanaVideojuego;
 import co.edu.unbosque.view.ViewFacade;
 
 public class Controlador implements ActionListener {
 
 	private String idiomaSeleccionado = null;
-	private VentanaInicio vi;
-	private VentanaIniciarSesion vis;
-	private VentanaRegistrarse vr;
-	private VentanaCategoria vc;
-	private VentanaModa vm;
-	private VentanaHogar vho;
-	private VentanaArte va;
-	private VentanaBelleza vb;
-	private VentanaDeporte vd;
-	private VentanaElectrodomestico ve;
-	private VentanaHerramienta vhe;
-	private VentanaVideojuego vv;
-	private VentanaTecnologia vt;
-	private VentanaPago vp;
 	private ModelFacade mf;
 	private ViewFacade vf;
-	private VentanaMascota vmas;
+
 
 	public Controlador() {
-		vi = new VentanaInicio(this);
 		asignarOyentes();
 	}
 
 	public void asignarOyentes() {
 
 		// OYENTES BOTONES DE IDIOMA
-		vi.getSpanish().addActionListener(this);
-		vi.getSpanish().setActionCommand("boton_spanish");
-		vi.getIngles().addActionListener(this);
-		vi.getIngles().setActionCommand("boton_ingles");
-		vi.getPortugues().addActionListener(this);
-		vi.getPortugues().setActionCommand("boton_portugues");
-		vi.getLatin().addActionListener(this);
-		vi.getLatin().setActionCommand("boton_latin");
+		vf.getVi().getSpanish().addActionListener(this);
+		vf.getVi().getSpanish().setActionCommand("boton_spanish");
+		vf.getVi().getIngles().addActionListener(this);
+		vf.getVi().getIngles().setActionCommand("boton_ingles");
+		vf.getVi().getPortugues().addActionListener(this);
+		vf.getVi().getPortugues().setActionCommand("boton_portugues");
+		vf.getVi().getLatin().addActionListener(this);
+		vf.getVi().getLatin().setActionCommand("boton_latin");
 
 		// OYENTES VENTANA INICIAL
-		vi.getBotonInicioSesion().addActionListener(this);
-		vi.getBotonInicioSesion().setActionCommand("boton_iniciar_sesion");
-		vi.getBotonRegistrarse().addActionListener(this);
-		vi.getBotonRegistrarse().setActionCommand("boton_registrarse");
-		vi.getBotonSalir().addActionListener(this);
-		vi.getBotonSalir().setActionCommand("boton_salir");
+		vf.getVi().getBotonInicioSesion().addActionListener(this);
+		vf.getVi().getBotonInicioSesion().setActionCommand("boton_iniciar_sesion");
+		vf.getVi().getBotonRegistrarse().addActionListener(this);
+		vf.getVi().getBotonRegistrarse().setActionCommand("boton_registrarse");
+		vf.getVi().getBotonSalir().addActionListener(this);
+		vf.getVi().getBotonSalir().setActionCommand("boton_salir");
 
 		// OYENTES VENTANA INICIAR SESION
-		vis.getBotonVolver().addActionListener(this);
-		vis.getBotonVolver().setActionCommand("boton_iniciar_sesion_volver");
-		vis.getBotonEntrar().addActionListener(this);
-		vis.getBotonEntrar().setActionCommand("boton_entrar");
+		vf.getVis().getBotonVolver().addActionListener(this);
+		vf.getVis().getBotonVolver().setActionCommand("boton_iniciar_sesion_volver");
+		vf.getVis().getBotonEntrar().addActionListener(this);
+		vf.getVis().getBotonEntrar().setActionCommand("boton_entrar");
 
 		// OYENTES VENTANA REGISTRAR
-		vr.getBotonRegistrar().addActionListener(this);
-		vr.getBotonRegistrar().setActionCommand("boton_crear_cuenta");
-		vr.getBotonVolver().addActionListener(this);
-		vr.getBotonVolver().setActionCommand("boton_registrarse_volver");
+		vf.getVr().getBotonRegistrar().addActionListener(this);
+		vf.getVr().getBotonRegistrar().setActionCommand("boton_crear_cuenta");
+		vf.getVr().getBotonVolver().addActionListener(this);
+		vf.getVr().getBotonVolver().setActionCommand("boton_registrarse_volver");
 
 		// OYENTES VENTANA CATEGORIA
-		vc.getBotonVolver().addActionListener(this);
-		vc.getBotonVolver().setActionCommand("boton_categoria_volver");
+		vf.getVc().getBotonVolver().addActionListener(this);
+		vf.getVc().getBotonVolver().setActionCommand("boton_categoria_volver");
 
-		vc.getModoVendador().addActionListener(this);
-		vc.getModoVendador().setActionCommand("boton_modo_vendedor");
+		vf.getVc().getModoVendador().addActionListener(this);
+		vf.getVc().getModoVendador().setActionCommand("boton_modo_vendedor");
 
-		vc.getModa().addActionListener(this);
-		vc.getModa().setActionCommand("boton_categoria_moda");
+		vf.getVc().getModa().addActionListener(this);
+		vf.getVc().getModa().setActionCommand("boton_categoria_moda");
 
-		vc.getDeporte().addActionListener(this);
-		vc.getDeporte().setActionCommand("boton_categoria_deporte");
+		vf.getVc().getDeporte().addActionListener(this);
+		vf.getVc().getDeporte().setActionCommand("boton_categoria_deporte");
 
-		vc.getBelleza().addActionListener(this);
-		vc.getBelleza().setActionCommand("boton_categoria_belleza");
+		vf.getVc().getBelleza().addActionListener(this);
+		vf.getVc().getBelleza().setActionCommand("boton_categoria_belleza");
 
-		vc.getHogar().addActionListener(this);
-		vc.getHogar().setActionCommand("boton_categoria_hogar");
+		vf.getVc().getHogar().addActionListener(this);
+		vf.getVc().getHogar().setActionCommand("boton_categoria_hogar");
 
-		vc.getElectrodomestico().addActionListener(this);
-		vc.getElectrodomestico().setActionCommand("boton_categoria_electrodomestico");
+		vf.getVc().getElectrodomestico().addActionListener(this);
+		vf.getVc().getElectrodomestico().setActionCommand("boton_categoria_electrodomestico");
 
-		vc.getHerramienta().addActionListener(this);
-		vc.getHerramienta().setActionCommand("boton_categoria_herramienta");
+		vf.getVc().getHerramienta().addActionListener(this);
+		vf.getVc().getHerramienta().setActionCommand("boton_categoria_herramienta");
 
-		vc.getTecnologia().addActionListener(this);
-		vc.getTecnologia().setActionCommand("boton_categoria_tecnologia");
+		vf.getVc().getTecnologia().addActionListener(this);
+		vf.getVc().getTecnologia().setActionCommand("boton_categoria_tecnologia");
 
-		vc.getArte().addActionListener(this);
-		vc.getArte().setActionCommand("boton_categoria_arte");
+		vf.getVc().getArte().addActionListener(this);
+		vf.getVc().getArte().setActionCommand("boton_categoria_arte");
 
-		vc.getVideojuego().addActionListener(this);
-		vc.getVideojuego().setActionCommand("boton_categoria_videojuego");
+		vf.getVc().getVideojuego().addActionListener(this);
+		vf.getVc().getVideojuego().setActionCommand("boton_categoria_videojuego");
 
-		vc.getMascota().addActionListener(this);
-		vc.getMascota().setActionCommand("boton_categoria_mascota");
+		vf.getVc().getMascota().addActionListener(this);
+		vf.getVc().getMascota().setActionCommand("boton_categoria_mascota");
 
 		// OYENTES VENTANA PAGO
-		vp.getBotonComprar().addActionListener(this);
-		vp.getBotonComprar().setActionCommand("boton_comprar");
+		vf.getVp().getBotonComprar().addActionListener(this);
+		vf.getVp().getBotonComprar().setActionCommand("boton_comprar");
 
 		// BOTONES DE VOLVER DE LAS CATEGORIAS
-		vm.getbVolverM().addActionListener(this);
-		vm.getbVolverM().setActionCommand("boton_categoria_moda_volver");
-		va.getbVolverA().addActionListener(this);
-		va.getbVolverA().setActionCommand("boton_categoria_arte_volver");
-		vb.getbVolverB().addActionListener(this);
-		vb.getbVolverB().setActionCommand("boton_categoria_belleza_volver");
-		vd.getbVolverD().addActionListener(this);
-		vd.getbVolverD().setActionCommand("boton_categoria_deporte_volver");
-		ve.getbVolverE().addActionListener(this);
-		ve.getbVolverE().setActionCommand("boton_categoria_electrodomestico_volver");
-		vhe.getbVolverHE().addActionListener(this);
-		vhe.getbVolverHE().setActionCommand("boton_categoria_herramienta_volver");
-		vho.getbVolverHO().addActionListener(this);
-		vho.getbVolverHO().setActionCommand("boton_categoria_hogar_volver");
-		vt.getbVolverT().addActionListener(this);
-		vt.getbVolverT().setActionCommand("boton_categoria_tecnologia_volver");
-		vv.getbVolverV().addActionListener(this);
-		vv.getbVolverV().setActionCommand("boton_categoria_videojuego_volver");
-		vmas.getbVolverMa().addActionListener(this);
-		vmas.getbVolverMa().setActionCommand("boton_categoria_mascota_volver");
+		vf.getVmo().getbVolverM().addActionListener(this);
+		vf.getVmo().getbVolverM().setActionCommand("boton_categoria_moda_volver");
+		vf.getVa().getbVolverA().addActionListener(this);
+		vf.getVa().getbVolverA().setActionCommand("boton_categoria_arte_volver");
+		vf.getVb().getbVolverB().addActionListener(this);
+		vf.getVb().getbVolverB().setActionCommand("boton_categoria_belleza_volver");
+		vf.getVd().getbVolverD().addActionListener(this);
+		vf.getVd().getbVolverD().setActionCommand("boton_categoria_deporte_volver");
+		vf.getVe().getbVolverE().addActionListener(this);
+		vf.getVe().getbVolverE().setActionCommand("boton_categoria_electrodomestico_volver");
+		vf.getVhe().getbVolverHE().addActionListener(this);
+		vf.getVhe().getbVolverHE().setActionCommand("boton_categoria_herramienta_volver");
+		vf.getVho().getbVolverHO().addActionListener(this);
+		vf.getVho().getbVolverHO().setActionCommand("boton_categoria_hogar_volver");
+		vf.getVt().getbVolverT().addActionListener(this);
+		vf.getVt().getbVolverT().setActionCommand("boton_categoria_tecnologia_volver");
+		vf.getVv().getbVolverV().addActionListener(this);
+		vf.getVv().getbVolverV().setActionCommand("boton_categoria_videojuego_volver");
+		vf.getVma().getbVolverMa().addActionListener(this);
+		vf.getVma().getbVolverMa().setActionCommand("boton_categoria_mascota_volver");
 
 	}
-
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String alias = e.getActionCommand();
 		switch (alias) {
 		// SOLO ABRIR LA VENTANA DE INICIAR SESIÓN
+		/*
 		case "boton_spanish": {
 			idiomaSeleccionado = "message_spa.properties";
-			JOptionPane.showMessageDialog(vi, "Idioma español seleccionado");
+			JOptionPane.showMessageDialog(vf.getVi(), "Idioma español seleccionado");
 			break;
 		}
 		case "boton_ingles": {
@@ -177,16 +147,16 @@ public class Controlador implements ActionListener {
 			JOptionPane.showMessageDialog(vi, "electus lingua latina");
 			break;
 		}
-
+*/
 		case "boton_iniciar_sesion": {
-			vi.setVisible(false);
-			vis.setVisible(true);
+			vf.getVi().setVisible(false);
+			vf.getVis().setVisible(true);
 			break;
 		}
 
 		case "boton_registrarse": {
-			vi.dispose();
-			vr.setVisible(true);
+			vf.getVi().dispose();
+			vf.getVr().setVisible(true);
 			break;
 		}
 		case "boton_salir": {
@@ -194,8 +164,8 @@ public class Controlador implements ActionListener {
 			break;
 		}
 		case "boton_iniciar_sesion_volver": {
-			vis.dispose();
-			vi.setVisible(true);
+			vf.getVis().dispose();
+			vf.getVi().setVisible(true);
 			break;
 		}
 
@@ -203,86 +173,86 @@ public class Controlador implements ActionListener {
 			String nombreUsuario, correo, direccionCasa, contrasenia, ciudad;
 			long telefono;
 			try {
-				nombreUsuario = vr.getTextoIdUsuario().getText().trim();
+				nombreUsuario = vf.getVr().getTextoIdUsuario().getText().trim();
 				LanzadorException.verificarNombreUsuario(nombreUsuario);
 			} catch (NombreUsuarioException ex) {
 				JOptionPane.showMessageDialog(null, ex.getMessage(), "ERROR NOMBRE DE USUARIO",
 						JOptionPane.ERROR_MESSAGE);
-				vr.setVisible(true);
-				vi.setVisible(false);
+				vf.getVr().setVisible(true);
+				vf.getVi().setVisible(false);
 				break;
 			}
 
 			try {
-				correo = vr.getTextoEmail().getText().trim();
+				correo = vf.getVr().getTextoEmail().getText().trim();
 				LanzadorException.verificarCorreoValido(correo);
 			} catch (CorreoException ex) {
 				JOptionPane.showMessageDialog(null, ex.getMessage(), "ERROR CORREO", JOptionPane.ERROR_MESSAGE);
-				vr.setVisible(true);
-				vi.setVisible(false);
+				vf.getVr().setVisible(true);
+				vf.getVi().setVisible(false);
 				break;
 			}
 
 			try {
-				String entrada = vr.getTextoTelefono().getText().trim();
+				String entrada = vf.getVr().getTextoTelefono().getText().trim();
 				LanzadorException.verificarNumeroCelular(entrada);
 				telefono = Long.parseLong(entrada);
 			} catch (TelefonoException ex) {
 				JOptionPane.showMessageDialog(null, ex.getMessage(), "ERROR TELEFONO", JOptionPane.ERROR_MESSAGE);
-				vr.setVisible(true);
-				vi.setVisible(false);
+				vf.getVr().setVisible(true);
+				vf.getVi().setVisible(false);
 				break;
 			}
 
 			try {
-				direccionCasa = vr.getTextoDireccion().getText().trim();
+				direccionCasa = vf.getVr().getTextoDireccion().getText().trim();
 				LanzadorException.verificarDireccionValida(direccionCasa);
 			} catch (DireccionException ex) {
 				JOptionPane.showMessageDialog(null, ex.getMessage(), "ERROR DIRECCION", JOptionPane.ERROR_MESSAGE);
-				vr.setVisible(true);
-				vi.setVisible(false);
+				vf.getVr().setVisible(true);
+				vf.getVi().setVisible(false);
 				break;
 			}
 
 			try {
-				contrasenia = vr.getTextoContrasenia().getText().trim();
+				contrasenia = vf.getVr().getTextoContrasenia().getText().trim();
 				LanzadorException.verificarContraseñaValida(contrasenia);
 			} catch (ContraseniaException ex) {
 				JOptionPane.showMessageDialog(null, ex.getMessage(), "ERROR CONTRASEÑA", JOptionPane.ERROR_MESSAGE);
-				vr.setVisible(true);
-				vi.setVisible(false);
+				vf.getVr().setVisible(true);
+				vf.getVi().setVisible(false);
 				break;
 			}
 			try {
-				ciudad = vr.getTextoCiudad().getText().trim();
+				ciudad = vf.getVr().getTextoCiudad().getText().trim();
 				LanzadorException.verificarCiudadValida(ciudad);
 			} catch (CiudadException ex) {
 				JOptionPane.showMessageDialog(null, ex.getMessage(), "ERROR CIUDAD", JOptionPane.ERROR_MESSAGE);
-				vr.setVisible(true);
-				vi.setVisible(false);
+				vf.getVr().setVisible(true);
+				vf.getVi().setVisible(false);
 				break;
 			}
 
 			mf.getUsuarioDAO().crear(new Usuario(nombreUsuario, contrasenia, direccionCasa, correo, telefono, ciudad,
 					"", (short) 0, (short) 0));
 
-			vr.setVisible(false);
+			vf.getVr().setVisible(false);
 			JOptionPane.showMessageDialog(null, "Cuenta creada con éxito");
-			vi.setVisible(true);
+			vf.getVi().setVisible(true);
 			break;
 		}
 
 		case "boton_registrarse_volver": {
-			vr.dispose();
-			vi.setVisible(true);
+			vf.getVr().dispose();
+			vf.getVi().setVisible(true);
 			break;
 		}
 
 		case "boton_entrar": {
 			try {
-				String usuarioIngresado = vis.getUsuario().getText().trim();
-				String identificadorIngresado = vis.getEmail().getText().trim();
-				String contraseniaIngresada = vis.getContrasenia().getText().trim();
+				String usuarioIngresado = vf.getVis().getUsuario().getText().trim();
+				String identificadorIngresado = vf.getVis().getEmail().getText().trim();
+				String contraseniaIngresada = vf.getVis().getContrasenia().getText().trim();
 
 				boolean encontrado = false;
 
@@ -308,8 +278,8 @@ public class Controlador implements ActionListener {
 				}
 
 				if (encontrado) {
-					vis.dispose();
-					vc.setVisible(true);
+					vf.getVis().dispose();
+					vf.getVc().setVisible(true);
 				} else {
 					JOptionPane.showMessageDialog(null, "Usuario, correo, teléfono o contraseña incorrectos",
 							"Error de inicio de sesión", JOptionPane.ERROR_MESSAGE);
@@ -323,121 +293,121 @@ public class Controlador implements ActionListener {
 		}
 
 		case "boton_continuar": {
-			vi.setVisible(true);
+			vf.getVi().setVisible(true);
 			break;
 		}
 		case "boton_categoria_volver": {
-			vc.dispose();
-			vi.setVisible(true);
+			vf.getVc().dispose();
+			vf.getVi().setVisible(true);
 			break;
 		}
 		case "boton_categoria_arte": {
-			vc.dispose();
-			va.setVisible(true);
+			vf.getVc().dispose();
+			vf.getVa().setVisible(true);
 			break;
 		}
 		case "boton_categoria_belleza": {
-			vc.dispose();
-			vb.setVisible(true);
+			vf.getVc().dispose();
+			vf.getVb().setVisible(true);
 			break;
 		}
 		case "boton_categoria_deporte": {
-			vc.dispose();
-			vd.setVisible(true);
+			vf.getVc().dispose();
+			vf.getVd().setVisible(true);
 			break;
 		}
 		case "boton_categoria_electrodomestico": {
-			vc.dispose();
-			ve.setVisible(true);
+			vf.getVc().dispose();
+			vf.getVe().setVisible(true);
 			break;
 		}
 		case "boton_categoria_herramienta": {
-			vc.dispose();
-			vhe.setVisible(true);
+			vf.getVc().dispose();
+			vf.getVhe().setVisible(true);
 			break;
 		}
 		case "boton_categoria_hogar": {
-			vc.dispose();
-			vho.setVisible(true);
+			vf.getVc().dispose();
+			vf.getVho().setVisible(true);
 			break;
 		}
 		case "boton_categoria_moda": {
-			vc.dispose();
-			vm.setVisible(true);
+			vf.getVc().dispose();
+			vf.getVmo().setVisible(true);
 			break;
 		}
 		case "boton_categoria_tecnologia": {
-			vc.dispose();
-			vt.setVisible(true);
+			vf.getVc().dispose();
+			vf.getVt().setVisible(true);
 			break;
 		}
 		case "boton_categoria_videojuego": {
-			vc.dispose();
-			vv.setVisible(true);
+			vf.getVc().dispose();
+			vf.getVv().setVisible(true);
 			break;
 		}
 		case "boton_categoria_mascota": {
-			vc.dispose();
-			vmas.setVisible(true);
+			vf.getVc().dispose();
+			vf.getVma().setVisible(true);
 			break;
 		}
 
 		// BOTONES CATEGORIA VOLVER
 		case "boton_categoria_arte_volver": {
-			va.dispose();
-			vc.setVisible(true);
+			vf.getVa().dispose();
+			vf.getVc().setVisible(true);
 			break;
 		}
 		case "boton_categoria_belleza_volver": {
-			vb.dispose();
-			vc.setVisible(true);
+			vf.getVb().dispose();
+			vf.getVc().setVisible(true);
 			break;
 		}
 		case "boton_categoria_deporte_volver": {
-			vd.dispose();
-			vc.setVisible(true);
+			vf.getVd().dispose();
+			vf.getVc().setVisible(true);
 			break;
 		}
 		case "boton_categoria_electrodomestico_volver": {
-			ve.dispose();
-			vc.setVisible(true);
+			vf.getVe().dispose();
+			vf.getVc().setVisible(true);
 			break;
 		}
 		case "boton_categoria_herramienta_volver": {
-			vhe.dispose();
-			vc.setVisible(true);
+			vf.getVhe().dispose();
+			vf.getVc().setVisible(true);
 			break;
 		}
 		case "boton_categoria_hogar_volver": {
-			vho.dispose();
-			vc.setVisible(true);
+			vf.getVho().dispose();
+			vf.getVc().setVisible(true);
 			break;
 		}
 		case "boton_categoria_moda_volver": {
-			vm.dispose();
-			vc.setVisible(true);
+			vf.getVmo().dispose();
+			vf.getVc().setVisible(true);
 			break;
 		}
 		case "boton_categoria_videojuego_volver": {
-			vv.dispose();
-			vc.setVisible(true);
+			vf.getVv().dispose();
+			vf.getVc().setVisible(true);
 			break;
 		}
 		case "boton_categoria_tecnologia_volver": {
-			vt.dispose();
-			vc.setVisible(true);
+			vf.getVt().dispose();
+			vf.getVc().setVisible(true);
 			break;
 		}
 		case "boton_categoria_mascota_volver": {
-			vmas.dispose();
-			vc.setVisible(true);
+			vf.getVma().dispose();
+			vf.getVc().setVisible(true);
 			break;
 		}
 		}
 	}
 
 	public void runGUI() { // RUN DE LA VENTANA
-		vi.setVisible(true);
+		vf.getVi().setVisible(true);
 	}
 
 	public String getIdiomaSeleccionado() {
