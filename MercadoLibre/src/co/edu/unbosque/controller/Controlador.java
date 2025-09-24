@@ -123,7 +123,7 @@ public class Controlador implements ActionListener {
 		vf.getVma().getbVolverMa().setActionCommand("boton_categoria_mascota_volver");
 		vf.getVmv().getBotonVolver().addActionListener(this);
 		vf.getVmv().getBotonVolver().setActionCommand("boton_categoria_modoVendedor_volver");
-
+		
 		// BOTONES DE IR AL MODO VENDEDOR
 		vf.getVa().getbModoVendedorA().addActionListener(this);
 		vf.getVa().getbModoVendedorA().setActionCommand("boton_categoria_arte_modoVendedor");
@@ -145,7 +145,10 @@ public class Controlador implements ActionListener {
 		vf.getVt().getbModoVendedorT().setActionCommand("boton_categoria_tecnologia_modoVendedor");
 		vf.getVv().getbModoVendedorV().addActionListener(null);
 		vf.getVv().getbModoVendedorV().setActionCommand("boton_categoria_videojuego_modoVendedor");
-
+		
+		
+		
+		
 	}
 
 	@Override
@@ -259,7 +262,8 @@ public class Controlador implements ActionListener {
 				break;
 			}
 
-			mf.getUsuarioDAO().crear(new Usuario(direccionCasa, correo, telefono, ciudad, nombreUsuario, contrasenia));
+			mf.getUsuarioDAO().crear(new Usuario(nombreUsuario, contrasenia, direccionCasa, correo, telefono, ciudad,
+					"", (short) 0, (short) 0));
 
 			vf.getVr().setVisible(false);
 			JOptionPane.showMessageDialog(null, "Cuenta creada con éxito");
@@ -428,13 +432,12 @@ public class Controlador implements ActionListener {
 			vf.getVc().setVisible(true);
 			break;
 		}
-	/*	
-		case "boton_categoria_modoVendedor_volver": {
+		case "boton_categoria_modoVendedor_volver" : {
 			vf.getVmv().dispose();
 			vf.getVc().setVisible(true);
 		}
-
-		// BOTONES DEL MODO VENDEDOR
+		
+		//BOTONES DEL MODO VENDEDOR
 		case "boton_categoria_arte_modoVendedor": {
 			vf.getVa().dispose();
 			vf.getVmv().setVisible(true);
@@ -443,7 +446,7 @@ public class Controlador implements ActionListener {
 			vf.getVb().dispose();
 			vf.getVmv().setVisible(true);
 		}
-		case "boton_categoria_deporte_modoVendedor": {
+		case "boton_categoria_deporte_modoVendedor" : {
 			vf.getVd().dispose();
 			vf.getVmv().setVisible(true);
 		}
@@ -455,30 +458,31 @@ public class Controlador implements ActionListener {
 			vf.getVhe().dispose();
 			vf.getVmv().setVisible(true);
 		}
-		case "boton_categoria_hogar_modoVendedor": {
+		case "boton_categoria_hogar_modoVendedor" : {
 			vf.getVho().dispose();
 			vf.getVmv().setVisible(true);
 		}
-		case "boton_categoria_mascota_modoVendedor": {
+		case "boton_categoria_mascota_modoVendedor" : {
 			vf.getVma().dispose();
 			vf.getVmv().setVisible(true);
 		}
-		case "boton_categoria_moda_modoVendedor": {
+		case "boton_categoria_moda_modoVendedor" : {
 			vf.getVmo().dispose();
 			vf.getVmv().setVisible(true);
 		}
-		case "boton_categoria_tecnologia_modoVendedor": {
+		case "boton_categoria_tecnologia_modoVendedor" : {
 			vf.getVt().dispose();
 			vf.getVmv().setVisible(true);
 		}
-		case "boton_categoria_videojuego_modoVendedor": {
+		case "boton_categoria_videojuego_modoVendedor" : {
 			vf.getVv().dispose();
 			vf.getVmv().setVisible(true);
 		}
 
+		
 		}
 	}
-*/
+
 	// RUN DE LA VENTANA
 	public void runGUI() {
 		vf.getVi().setVisible(true);
