@@ -274,23 +274,54 @@ public class Controlador implements ActionListener {
 		}
 
 		case "boton_entrar": {
-			try {
-				String nombreUsuario = vf.getVis().getUsuario().getText().trim();
-				String emailOTelefono = vf.getVis().getEmail().getText().trim();
-				String contrasenia = vf.getVis().getContrasenia().getText().trim();
+			String nombreUsuario = vf.getVis().getUsuario().getText().trim();
+			String emailOTelefono = vf.getVis().getEmail().getText().trim();
+			String contrasenia = vf.getVis().getContrasenia().getText().trim();
 
-				// Validar que los campos no estén vacíos
-				if (nombreUsuario.isEmpty() || emailOTelefono.isEmpty() || contrasenia.isEmpty()) {
-					JOptionPane.showMessageDialog(null, "Todos los campos son obligatorios", "Error de validación",
-							JOptionPane.ERROR_MESSAGE);
+			// Validar nombre de usuario usando tu excepción personalizada
+			try {
+				LanzadorException.verificarNombreUsuario(nombreUsuario);
+			} catch (NombreUsuarioException ex) {
+				JOptionPane.showMessageDialog(null, ex.getMessage(), "ERROR NOMBRE DE USUARIO",
+						JOptionPane.ERROR_MESSAGE);
+				break;
+			}
+
+			// Validar contraseña usando tu excepción personalizada
+			try {
+				LanzadorException.verificarContraseñaValida(contrasenia);
+			} catch (ContraseniaException ex) {
+				JOptionPane.showMessageDialog(null, ex.getMessage(), "ERROR CONTRASEÑA", JOptionPane.ERROR_MESSAGE);
+				break;
+			}
+
+			// Validar correo o teléfono usando tus excepciones personalizadas
+			boolean esCorreo = false;
+			boolean esTelefono = false;
+
+			// Intentar validar como correo primero
+			try {
+				LanzadorException.verificarCorreoValido(emailOTelefono);
+				esCorreo = true;
+			} catch (CorreoException ex) {
+				// Si no es correo válido, intentar como teléfono
+				try {
+					LanzadorException.verificarNumeroCelular(emailOTelefono);
+					esTelefono = true;
+				} catch (TelefonoException ex2) {
+					// Si no es ni correo ni teléfono válido
+					JOptionPane.showMessageDialog(null,
+							"Debe ingresar un correo electrónico válido o un número de teléfono válido",
+							"ERROR CORREO/TELÉFONO", JOptionPane.ERROR_MESSAGE);
 					break;
 				}
+			}
 
+			try {
 				boolean encontrado = false;
 				Usuario usuarioEncontrado = null;
 
 				for (Usuario u : mf.getUsuarioDAO().leerTodos()) {
-					// Verificar que el usuario no sea null y tenga los datos necesarios
 					if (u == null || u.getNombreUsuario() == null || u.getContrasenia() == null) {
 						continue;
 					}
@@ -301,20 +332,15 @@ public class Controlador implements ActionListener {
 					boolean coincideEmail = false;
 					boolean coincideTelefono = false;
 
-					// Verificar correo si existe
-					if (u.getCorreo() != null) {
+					if (esCorreo && u.getCorreo() != null) {
 						coincideEmail = u.getCorreo().equalsIgnoreCase(emailOTelefono);
 					}
 
-					// Verificar teléfono si el input es numérico
-					try {
+					if (esTelefono) {
 						long telIngresado = Long.parseLong(emailOTelefono);
 						coincideTelefono = (u.getTelefono() == telIngresado);
-					} catch (NumberFormatException ex) {
-						// No es número, se ignora (esto está bien)
 					}
 
-					// ✅ Validación: TODOS los campos deben coincidir
 					if (coincideUsuario && coincideContrasenia && (coincideEmail || coincideTelefono)) {
 						encontrado = true;
 						usuarioEncontrado = u;
@@ -323,30 +349,29 @@ public class Controlador implements ActionListener {
 				}
 
 				if (encontrado) {
-					// Limpiar los campos del formulario de login
 					vf.getVis().getUsuario().setText("");
 					vf.getVis().getEmail().setText("");
 					vf.getVis().getContrasenia().setText("");
 
-					// Proceder con el login exitoso
 					vf.getVis().dispose();
 					vf.getVc().setVisible(true);
 
-					// Mensaje de bienvenida opcional
 					JOptionPane.showMessageDialog(null, "¡Bienvenido " + usuarioEncontrado.getNombreUsuario() + "!",
 							"Inicio de sesión exitoso", JOptionPane.INFORMATION_MESSAGE);
 
 				} else {
 					JOptionPane.showMessageDialog(null,
 							"Los datos ingresados no coinciden con ningún usuario registrado.\n" + "Verifique:\n"
-									+ "- Nombre de usuario\n" + "- Contraseña\n" + "- Correo electrónico o teléfono",
+									+ "- Nombre de usuario (4-8 caracteres, debe contener letras)\n"
+									+ "- Contraseña (4-8 caracteres, mayúscula, minúscula y número)\n"
+									+ "- Correo electrónico válido o teléfono de 10 dígitos",
 							"Error de inicio de sesión", JOptionPane.ERROR_MESSAGE);
 				}
 
 			} catch (Exception ex) {
 				JOptionPane.showMessageDialog(null, "Error al procesar los datos: " + ex.getMessage(),
 						"Error del sistema", JOptionPane.ERROR_MESSAGE);
-				ex.printStackTrace(); // Para debugging
+				ex.printStackTrace();
 			}
 			break;
 		}
