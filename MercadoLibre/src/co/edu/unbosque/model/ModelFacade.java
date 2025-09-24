@@ -12,6 +12,7 @@ public class ModelFacade {
 	private ProductoDAO productoDAO;
 	private UsuarioDAO usuarioDAO;
 	private Properties prop;
+	private Comprador compradorDAO;
 
 	public ModelFacade() {
 
@@ -19,6 +20,7 @@ public class ModelFacade {
 		productoDAO = new ProductoDAO();
 		usuarioDAO = new UsuarioDAO();
 		prop = new Properties();
+		compradorDAO = new Comprador();
 
 	}
 
@@ -52,6 +54,14 @@ public class ModelFacade {
 
 	public void setProp(Properties prop) {
 		this.prop = prop;
+	}
+
+	public Comprador getCompradorDAO() {
+		return compradorDAO;
+	}
+
+	public void setCompradorDAO(Comprador compradorDAO) {
+		this.compradorDAO = compradorDAO;
 	}
 
 }

@@ -143,7 +143,7 @@ public class Controlador implements ActionListener {
 		vf.getVmo().getbModoVendedorM().setActionCommand("boton_categoria_moda_modoVendedor");
 		vf.getVt().getbModoVendedorT().addActionListener(this);
 		vf.getVt().getbModoVendedorT().setActionCommand("boton_categoria_tecnologia_modoVendedor");
-		vf.getVv().getbModoVendedorV().addActionListener(null);
+		vf.getVv().getbModoVendedorV().addActionListener(this);
 		vf.getVv().getbModoVendedorV().setActionCommand("boton_categoria_videojuego_modoVendedor");
 
 	}
@@ -275,44 +275,78 @@ public class Controlador implements ActionListener {
 
 		case "boton_entrar": {
 			try {
-				String usuarioIngresado = vf.getVis().getUsuario().getText().trim();
-				String identificadorIngresado = vf.getVis().getEmail().getText().trim();
-				String contraseniaIngresada = vf.getVis().getContrasenia().getText().trim();
+				String nombreUsuario = vf.getVis().getUsuario().getText().trim();
+				String emailOTelefono = vf.getVis().getEmail().getText().trim();
+				String contrasenia = vf.getVis().getContrasenia().getText().trim();
+
+				// Validar que los campos no estén vacíos
+				if (nombreUsuario.isEmpty() || emailOTelefono.isEmpty() || contrasenia.isEmpty()) {
+					JOptionPane.showMessageDialog(null, "Todos los campos son obligatorios", "Error de validación",
+							JOptionPane.ERROR_MESSAGE);
+					break;
+				}
 
 				boolean encontrado = false;
+				Usuario usuarioEncontrado = null;
 
 				for (Usuario u : mf.getUsuarioDAO().leerTodos()) {
-					boolean idValido = u.getCorreo().equals(identificadorIngresado);
-
-					try {
-						long numeroIngresado = Long.parseLong(identificadorIngresado);
-						if (u.getTelefono() == numeroIngresado) {
-							idValido = true;
-						}
-					} catch (NumberFormatException ex) {
-						// ignorar si no es número
+					// Verificar que el usuario no sea null y tenga los datos necesarios
+					if (u == null || u.getNombreUsuario() == null || u.getContrasenia() == null) {
+						continue;
 					}
 
-					// 🔹 Aquí agregamos la validación del nombre de usuario
-					if (idValido && u.getNombreUsuario().equals(usuarioIngresado)
-							&& u.getContrasenia().equals(contraseniaIngresada)) {
+					boolean coincideUsuario = u.getNombreUsuario().equalsIgnoreCase(nombreUsuario);
+					boolean coincideContrasenia = u.getContrasenia().equals(contrasenia);
 
+					boolean coincideEmail = false;
+					boolean coincideTelefono = false;
+
+					// Verificar correo si existe
+					if (u.getCorreo() != null) {
+						coincideEmail = u.getCorreo().equalsIgnoreCase(emailOTelefono);
+					}
+
+					// Verificar teléfono si el input es numérico
+					try {
+						long telIngresado = Long.parseLong(emailOTelefono);
+						coincideTelefono = (u.getTelefono() == telIngresado);
+					} catch (NumberFormatException ex) {
+						// No es número, se ignora (esto está bien)
+					}
+
+					// ✅ Validación: TODOS los campos deben coincidir
+					if (coincideUsuario && coincideContrasenia && (coincideEmail || coincideTelefono)) {
 						encontrado = true;
+						usuarioEncontrado = u;
 						break;
 					}
 				}
 
 				if (encontrado) {
+					// Limpiar los campos del formulario de login
+					vf.getVis().getUsuario().setText("");
+					vf.getVis().getEmail().setText("");
+					vf.getVis().getContrasenia().setText("");
+
+					// Proceder con el login exitoso
 					vf.getVis().dispose();
 					vf.getVc().setVisible(true);
+
+					// Mensaje de bienvenida opcional
+					JOptionPane.showMessageDialog(null, "¡Bienvenido " + usuarioEncontrado.getNombreUsuario() + "!",
+							"Inicio de sesión exitoso", JOptionPane.INFORMATION_MESSAGE);
+
 				} else {
-					JOptionPane.showMessageDialog(null, "Usuario, correo, teléfono o contraseña incorrectos",
+					JOptionPane.showMessageDialog(null,
+							"Los datos ingresados no coinciden con ningún usuario registrado.\n" + "Verifique:\n"
+									+ "- Nombre de usuario\n" + "- Contraseña\n" + "- Correo electrónico o teléfono",
 							"Error de inicio de sesión", JOptionPane.ERROR_MESSAGE);
 				}
 
 			} catch (Exception ex) {
-				JOptionPane.showMessageDialog(null, "Ocurrió un error al iniciar sesión", "Error",
-						JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null, "Error al procesar los datos: " + ex.getMessage(),
+						"Error del sistema", JOptionPane.ERROR_MESSAGE);
+				ex.printStackTrace(); // Para debugging
 			}
 			break;
 		}
