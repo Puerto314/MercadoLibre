@@ -19,7 +19,7 @@ public class VentanaPago extends JFrame {
 	private JLabel labelPinTarjeta;
 	private JTextField pinTarjeta;
 	private JLabel labelFechaTarjeta;
-	private JLabel labelDatosPago;
+	private JLabel labelDatoPago;
 	private JTextField fechaTarjeta;
 	private JButton botonComprar;
 	private JButton botonVolver;
@@ -38,10 +38,10 @@ public class VentanaPago extends JFrame {
 		setLayout(null);
 		getContentPane().setBackground(Color.decode("#FFFFFF"));
 
-		labelDatosPago = new JLabel("Ingrese los datos");
-		labelDatosPago.setBounds(510, 60, 500, 40);
-		labelDatosPago.setFont(new Font("Georgia", Font.BOLD, 40));
-		add(labelDatosPago);
+		labelDatoPago = new JLabel("Ingrese los datos");
+		labelDatoPago.setBounds(510, 60, 500, 40);
+		labelDatoPago.setFont(new Font("Georgia", Font.BOLD, 40));
+		add(labelDatoPago);
 
 		labelTarjeta = new JLabel("Numero de tarjeta: ");
 		labelTarjeta.setBounds(520, 210, 180, 25);
@@ -192,12 +192,12 @@ public class VentanaPago extends JFrame {
 		this.labelFechaTarjeta = labelFechaTarjeta;
 	}
 
-	public JLabel getLabelDatosPago() {
-		return labelDatosPago;
+	public JLabel getLabelDatosago() {
+		return labelDatoPago;
 	}
 
-	public void setLabelDatosPago(JLabel labelDatosPago) {
-		this.labelDatosPago = labelDatosPago;
+	public void setLabelDatoPago(JLabel labelDatoPago) {
+		this.labelDatoPago = labelDatoPago;
 	}
 
 	public JTextField getFechaTarjeta() {
