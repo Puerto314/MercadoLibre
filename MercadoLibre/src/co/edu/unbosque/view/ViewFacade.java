@@ -36,6 +36,7 @@ public class ViewFacade {
 		vr = new VentanaRegistrarse();
 		vv = new VentanaVideojuego();
 		vt = new VentanaTecnologia();
+		vmv = new VentanaModoVendedor();
 			
 	}
 
