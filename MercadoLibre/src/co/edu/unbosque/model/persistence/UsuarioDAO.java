@@ -59,9 +59,7 @@ public class UsuarioDAO implements DAO<Usuario> {
 			sb.append(Usuario.getCorreo() + ";");
 			sb.append(Usuario.getTelefono() + ";");
 			sb.append(Usuario.getCiudad() + ";");
-			sb.append(Usuario.getNumeroTarjeta() + ";");
-			sb.append(Usuario.getClaveDeSeguridad() + ";");
-			sb.append(Usuario.getFechaTarjeta() + ";");
+
 
 		}
 		FileHandler.escribirEnArchivoTexto(FILE_NAME, sb.toString());
@@ -84,9 +82,6 @@ public class UsuarioDAO implements DAO<Usuario> {
 				temp.setCorreo(columnas[3]);
 				temp.setTelefono(Long.parseLong(columnas[4]));
 				temp.setCiudad(columnas[5]);
-				temp.setNumeroTarjeta(columnas[6]);
-				temp.setClaveDeSeguridad(Short.parseShort(columnas[7]));
-				temp.setFechaTarjeta(Short.parseShort(columnas[8]));
 
 				listaUsuario.add(temp);
 			}
