@@ -10,7 +10,7 @@ public class ProductoDAO implements DAO<Producto> {
 	private final String FILE_NAME = "Producto.csv";
 	private final String SERIAL_FILE_NAME = "Producto.bin";
 
-	public ProductoDAO() {
+	public ProductoDAO(String nombreProducto, float precio, String categoria, int cantidad, double puntuacion, String rutaImagenProducto) {
 		listaProductos = new ArrayList<Producto>();
 		leerDesdeArchivoDeTexto(FILE_NAME);
 //		cargarDesdeArchivoSerializado();
