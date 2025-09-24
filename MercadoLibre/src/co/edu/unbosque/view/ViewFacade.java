@@ -12,12 +12,12 @@ public class ViewFacade {
 	private	VentanaIniciarSesion vis;
 	private	VentanaInicio vi;
 	private	VentanaMascota vma; 
-	private	VentanaModa vmo;
 	private VentanaModoVendedor vmv;
 	private	VentanaPago vp;
 	private	VentanaRegistrarse vr;
 	private	VentanaTecnologia vt;
 	private	VentanaVideojuego vv;
+	private	VentanaModa vmo;
 
 	public ViewFacade() {
 		

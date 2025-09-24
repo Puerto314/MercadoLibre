@@ -14,6 +14,22 @@ import co.edu.unbosque.util.exception.LanzadorException;
 import co.edu.unbosque.util.exception.NombreUsuarioException;
 import co.edu.unbosque.util.exception.NumeroTarjetaException;
 import co.edu.unbosque.util.exception.TelefonoException;
+import co.edu.unbosque.view.VentanaArte;
+import co.edu.unbosque.view.VentanaBelleza;
+import co.edu.unbosque.view.VentanaCategoria;
+import co.edu.unbosque.view.VentanaDeporte;
+import co.edu.unbosque.view.VentanaElectrodomestico;
+import co.edu.unbosque.view.VentanaHerramienta;
+import co.edu.unbosque.view.VentanaHogar;
+import co.edu.unbosque.view.VentanaIniciarSesion;
+import co.edu.unbosque.view.VentanaInicio;
+import co.edu.unbosque.view.VentanaMascota;
+import co.edu.unbosque.view.VentanaModa;
+import co.edu.unbosque.view.VentanaModoVendedor;
+import co.edu.unbosque.view.VentanaPago;
+import co.edu.unbosque.view.VentanaRegistrarse;
+import co.edu.unbosque.view.VentanaTecnologia;
+import co.edu.unbosque.view.VentanaVideojuego;
 import co.edu.unbosque.view.ViewFacade;
 
 public class Controlador implements ActionListener {
@@ -115,6 +131,116 @@ public class Controlador implements ActionListener {
 
 		vf.getVmo().getAnadirCarrito5().addActionListener(this);
 		vf.getVmo().getAnadirCarrito5().setActionCommand("boton_carrito_moda5");
+		//
+		vf.getVa().getAnadirCarrito1().addActionListener(this);
+		vf.getVa().getAnadirCarrito1().setActionCommand("boton_carrito_arte1");
+
+		vf.getVa().getAnadirCarrito2().addActionListener(this);
+		vf.getVa().getAnadirCarrito2().setActionCommand("boton_carrito_arte2");
+
+		vf.getVa().getAnadirCarrito3().addActionListener(this);
+		vf.getVa().getAnadirCarrito3().setActionCommand("boton_carrito_arte3");
+
+		vf.getVa().getAnadirCarrito4().addActionListener(this);
+		vf.getVa().getAnadirCarrito4().setActionCommand("boton_carrito_arte4");
+
+		vf.getVa().getAnadirCarrito5().addActionListener(this);
+		vf.getVa().getAnadirCarrito5().setActionCommand("boton_carrito_arte5");
+		//
+		vf.getVb().getAnadirCarrito1().addActionListener(this);
+		vf.getVb().getAnadirCarrito1().setActionCommand("boton_carrito_belleza1");
+
+		vf.getVb().getAnadirCarrito2().addActionListener(this);
+		vf.getVb().getAnadirCarrito2().setActionCommand("boton_carrito_belleza2");
+
+		vf.getVb().getAnadirCarrito3().addActionListener(this);
+		vf.getVb().getAnadirCarrito3().setActionCommand("boton_carrito_belleza3");
+
+		vf.getVb().getAnadirCarrito4().addActionListener(this);
+		vf.getVb().getAnadirCarrito4().setActionCommand("boton_carrito_belleza4");
+
+		vf.getVb().getAnadirCarrito5().addActionListener(this);
+		vf.getVb().getAnadirCarrito5().setActionCommand("boton_carrito_belleza5");
+		//
+		vf.getVd().getAnadirCarrito1().addActionListener(this);
+		vf.getVd().getAnadirCarrito1().setActionCommand("boton_carrito_deporte1");
+
+		vf.getVd().getAnadirCarrito2().addActionListener(this);
+		vf.getVd().getAnadirCarrito2().setActionCommand("boton_carrito_deporte2");
+
+		vf.getVd().getAnadirCarrito3().addActionListener(this);
+		vf.getVd().getAnadirCarrito3().setActionCommand("boton_carrito_deporte3");
+
+		vf.getVd().getAnadirCarrito4().addActionListener(this);
+		vf.getVd().getAnadirCarrito4().setActionCommand("boton_carrito_deporte4");
+
+		vf.getVd().getAnadirCarrito5().addActionListener(this);
+		vf.getVd().getAnadirCarrito5().setActionCommand("boton_carrito_deporte5");
+		//
+		vf.getVe().getAnadirCarrito1().addActionListener(this);
+		vf.getVe().getAnadirCarrito1().setActionCommand("boton_carrito_electrodomestico1");
+
+		vf.getVe().getAnadirCarrito2().addActionListener(this);
+		vf.getVe().getAnadirCarrito2().setActionCommand("boton_carrito_electrodomestico2");
+
+		vf.getVe().getAnadirCarrito3().addActionListener(this);
+		vf.getVe().getAnadirCarrito3().setActionCommand("boton_carrito_electrodomestico3");
+
+		vf.getVe().getAnadirCarrito4().addActionListener(this);
+		vf.getVe().getAnadirCarrito4().setActionCommand("boton_carrito_electrodomestico4");
+
+		vf.getVe().getAnadirCarrito5().addActionListener(this);
+		vf.getVe().getAnadirCarrito5().setActionCommand("boton_carrito_electrodomestico5");
+		//
+		vf.getVhe().getAnadirCarrito1().addActionListener(this);
+		vf.getVhe().getAnadirCarrito1().setActionCommand("boton_carrito_herramienta1");
+
+		vf.getVhe().getAnadirCarrito2().addActionListener(this);
+		vf.getVhe().getAnadirCarrito2().setActionCommand("boton_carrito_herramienta2");
+
+		vf.getVhe().getAnadirCarrito3().addActionListener(this);
+		vf.getVhe().getAnadirCarrito3().setActionCommand("boton_carrito_herramienta3");
+
+		vf.getVhe().getAnadirCarrito4().addActionListener(this);
+		vf.getVhe().getAnadirCarrito4().setActionCommand("boton_carrito_herramienta4");
+
+		vf.getVhe().getAnadirCarrito5().addActionListener(this);
+		vf.getVhe().getAnadirCarrito5().setActionCommand("boton_carrito_herramienta5");
+		//
+		vf.getVho().getAnadirCarrito1().addActionListener(this);
+		vf.getVho().getAnadirCarrito1().setActionCommand("boton_carrito_hogar1");
+
+		vf.getVho().getAnadirCarrito2().addActionListener(this);
+		vf.getVho().getAnadirCarrito2().setActionCommand("boton_carrito_hogar2");
+
+		vf.getVho().getAnadirCarrito3().addActionListener(this);
+		vf.getVho().getAnadirCarrito3().setActionCommand("boton_carrito_hogar3");
+
+		vf.getVho().getAnadirCarrito4().addActionListener(this);
+		vf.getVho().getAnadirCarrito4().setActionCommand("boton_carrito_hogar4");
+
+		vf.getVho().getAnadirCarrito5().addActionListener(this);
+		vf.getVho().getAnadirCarrito5().setActionCommand("boton_carrito_hogar5");
+		//
+		vf.getVma().getAnadirCarrito1().addActionListener(this);
+		vf.getVma().getAnadirCarrito1().setActionCommand("boton_carrito_mascota1");
+
+		vf.getVma().getAnadirCarrito2().addActionListener(this);
+		vf.getVma().getAnadirCarrito2().setActionCommand("boton_carrito_mascota2");
+
+		vf.getVma().getAnadirCarrito3().addActionListener(this);
+		vf.getVma().getAnadirCarrito3().setActionCommand("boton_carrito_mascota3");
+
+		vf.getVma().getAnadirCarrito4().addActionListener(this);
+		vf.getVma().getAnadirCarrito4().setActionCommand("boton_carrito_mascota4");
+
+		vf.getVma().getAnadirCarrito5().addActionListener(this);
+		vf.getVma().getAnadirCarrito5().setActionCommand("boton_carrito_mascota5");
+
+		/*
+		 * private VentanaMascota vma; private VentanaTecnologia vt; private
+		 * VentanaVideojuego vv;
+		 */
 
 		// BOTONES DE VOLVER DE LAS CATEGORIAS
 		vf.getVmo().getbVolverM().addActionListener(this);
