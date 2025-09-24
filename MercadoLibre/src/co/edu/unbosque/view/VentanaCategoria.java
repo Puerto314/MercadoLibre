@@ -398,14 +398,6 @@ public class VentanaCategoria extends JFrame {
 		this.lMascota = lMascota;
 	}
 
-	public JButton getModoVendador() {
-		return modoVendedor;
-	}
-
-	public void setModoVendador(JButton modoVendador) {
-		this.modoVendedor = modoVendador;
-	}
-
 	public JButton getModoVendedor() {
 		return modoVendedor;
 	}

@@ -13,6 +13,7 @@ public class ViewFacade {
 	private	VentanaInicio vi;
 	private	VentanaMascota vma; 
 	private	VentanaModa vmo;
+	private VentanaModoVendedor vmv;
 	private	VentanaPago vp;
 	private	VentanaRegistrarse vr;
 	private	VentanaTecnologia vt;
@@ -120,6 +121,14 @@ public class ViewFacade {
 
 	public VentanaModa getVmo() {
 		return vmo;
+	}
+
+	public VentanaModoVendedor getVmv() {
+		return vmv;
+	}
+
+	public void setVmv(VentanaModoVendedor vmv) {
+		this.vmv = vmv;
 	}
 
 	public void setVmo(VentanaModa vmo) {
