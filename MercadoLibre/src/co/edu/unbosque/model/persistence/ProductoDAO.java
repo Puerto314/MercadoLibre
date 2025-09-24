@@ -10,7 +10,7 @@ public class ProductoDAO implements DAO<Producto> {
 	private final String FILE_NAME = "Producto.csv";
 	private final String SERIAL_FILE_NAME = "Producto.bin";
 
-	public ProductoDAO(String nombreProducto, float precio, String categoria, int cantidad, double puntuacion, String rutaImagenProducto) {
+	public ProductoDAO() {
 		listaProductos = new ArrayList<Producto>();
 		leerDesdeArchivoDeTexto(FILE_NAME);
 //		cargarDesdeArchivoSerializado();
@@ -104,13 +104,11 @@ public class ProductoDAO implements DAO<Producto> {
 		FileHandler.escribirEnArchivoSerializado(SERIAL_FILE_NAME, listaProductos);
 
 	}
-/*
-	@Override
-	public List<Producto> buscarPorAtributo(String atributo, String valor) {
-		// FALTA POR AGREGAR
-		return null;
-	}
-*/
+
+	/*
+	 * @Override public List<Producto> buscarPorAtributo(String atributo, String
+	 * valor) { // FALTA POR AGREGAR return null; }
+	 */
 	@Override
 	public boolean existe(String id) {
 		// FALTA POR AGREGAR
