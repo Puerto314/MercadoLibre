@@ -206,7 +206,7 @@ public class VentanaCategoria extends JFrame {
 		add(lVideojuego);
 
 		botonComprarTodo = new JButton("COMPRAR CARRITO");
-		botonComprarTodo.setBounds(400, 590, 200, 40);
+		botonComprarTodo.setBounds(585, 590, 200, 40);
 		botonComprarTodo.setBackground(Color.decode("#042F6D"));
 		botonComprarTodo.setForeground(Color.decode("#FFFFFF"));
 		botonComprarTodo.setFocusPainted(false);

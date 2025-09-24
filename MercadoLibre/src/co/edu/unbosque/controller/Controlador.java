@@ -7,11 +7,13 @@ import javax.swing.JOptionPane;
 import co.edu.unbosque.model.ModelFacade;
 import co.edu.unbosque.model.Usuario;
 import co.edu.unbosque.util.exception.CiudadException;
+import co.edu.unbosque.util.exception.ClaveTarjetaException;
 import co.edu.unbosque.util.exception.ContraseniaException;
 import co.edu.unbosque.util.exception.CorreoException;
 import co.edu.unbosque.util.exception.DireccionException;
 import co.edu.unbosque.util.exception.LanzadorException;
 import co.edu.unbosque.util.exception.NombreUsuarioException;
+import co.edu.unbosque.util.exception.NumeroTarjetaException;
 import co.edu.unbosque.util.exception.TelefonoException;
 import co.edu.unbosque.view.ViewFacade;
 
@@ -416,19 +418,35 @@ public class Controlador implements ActionListener {
 			vf.getVc().dispose();
 			vf.getVp().setVisible(true);
 
-			// Recuperar los datos ingresados en la ventana de pago
-			String numeroTarjeta = vf.getVp().getNumeroTarjeta().getText();
-			String pin = vf.getVp().getPinTarjeta().getText();
-			String fechaVencimiento = vf.getVp().getFechaTarjeta().getText();
+			// Recuperar los datos ingresados
+			String numeroTarjeta, pin, fechaVencimiento;
 
-			// Validaciones básicas
-			if (numeroTarjeta.isEmpty() || pin.isEmpty() || fechaVencimiento.isEmpty()) {
-				JOptionPane.showMessageDialog(vf.getVp(), "Por favor complete todos los campos.");
-			} else {
-				JOptionPane.showMessageDialog(vf.getVp(), "Datos ingresados:\n" + "Número: " + numeroTarjeta + "\n"
-						+ "PIN: " + pin + "\n" + "Fecha: " + fechaVencimiento);
-				// Aquí podrías seguir con la lógica de pago
+			try {
+				// Validar número de tarjeta
+				LanzadorException.verificarNumeroTarjeta(numeroTarjeta);
+
+				// Validar PIN
+				LanzadorException.verificarPinValido(pin);
+
+				// Validar que la fecha no esté vacía (si quieres le metemos regex MM/AA
+				// después)
+				if (fechaVencimiento.isEmpty()) {
+					JOptionPane.showMessageDialog(vf.getVp(), "Por favor ingrese la fecha de vencimiento.");
+					break;
+				}
+
+				// Si todo está correcto
+				JOptionPane.showMessageDialog(vf.getVp(), "Pago procesado correctamente.\n" + "Número: " + numeroTarjeta
+						+ "\n" + "PIN: " + pin + "\n" + "Fecha: " + fechaVencimiento);
+
+			} catch (NumeroTarjetaException e) {
+				JOptionPane.showMessageDialog(vf.getVp(), "El número de tarjeta debe tener 16 dígitos numéricos.");
+			} catch (ClaveTarjetaException e) {
+				JOptionPane.showMessageDialog(vf.getVp(), "El PIN debe ser un número de 3 dígitos.");
 			}
+			vf.getVc().dispose();
+			vf.getVp().setVisible(true);
+			JOptionPane.showMessageDialog(null, "Pago realizado con éxito");
 			break;
 		}
 
