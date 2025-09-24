@@ -99,6 +99,8 @@ public class Controlador implements ActionListener {
 		// OYENTES VENTANA PAGO
 		vf.getVp().getBotonComprar().addActionListener(this);
 		vf.getVp().getBotonComprar().setActionCommand("boton_comprar");
+		
+		//OYENTES CARRITO DE COMPRA
 
 		// BOTONES DE VOLVER DE LAS CATEGORIAS
 		vf.getVmo().getbVolverM().addActionListener(this);
@@ -401,6 +403,11 @@ public class Controlador implements ActionListener {
 			break;
 		}
 		case "boton_categoria_mascota_volver": {
+			vf.getVma().dispose();
+			vf.getVc().setVisible(true);
+			break;
+		}
+		case "": {
 			vf.getVma().dispose();
 			vf.getVc().setVisible(true);
 			break;
