@@ -14,22 +14,6 @@ import co.edu.unbosque.util.exception.LanzadorException;
 import co.edu.unbosque.util.exception.NombreUsuarioException;
 import co.edu.unbosque.util.exception.NumeroTarjetaException;
 import co.edu.unbosque.util.exception.TelefonoException;
-import co.edu.unbosque.view.VentanaArte;
-import co.edu.unbosque.view.VentanaBelleza;
-import co.edu.unbosque.view.VentanaCategoria;
-import co.edu.unbosque.view.VentanaDeporte;
-import co.edu.unbosque.view.VentanaElectrodomestico;
-import co.edu.unbosque.view.VentanaHerramienta;
-import co.edu.unbosque.view.VentanaHogar;
-import co.edu.unbosque.view.VentanaIniciarSesion;
-import co.edu.unbosque.view.VentanaInicio;
-import co.edu.unbosque.view.VentanaMascota;
-import co.edu.unbosque.view.VentanaModa;
-import co.edu.unbosque.view.VentanaModoVendedor;
-import co.edu.unbosque.view.VentanaPago;
-import co.edu.unbosque.view.VentanaRegistrarse;
-import co.edu.unbosque.view.VentanaTecnologia;
-import co.edu.unbosque.view.VentanaVideojuego;
 import co.edu.unbosque.view.ViewFacade;
 
 public class Controlador implements ActionListener {
@@ -238,14 +222,34 @@ public class Controlador implements ActionListener {
 		vf.getVma().getAnadirCarrito5().setActionCommand("boton_carrito_mascota5");
 		//
 		vf.getVt().getAnadirCarrito1().addActionListener(this);
-		vf.getVt().getAnadirCarrito1().setActionCommand("boton_carrito_mascota5");
-		
-		
-		
-		
-		/*private VentanaTecnologia vt; 
-		 * private VentanaVideojuego vv;
-		 */
+		vf.getVt().getAnadirCarrito1().setActionCommand("boton_carrito_tecnologia1");
+
+		vf.getVt().getAnadirCarrito2().addActionListener(this);
+		vf.getVt().getAnadirCarrito2().setActionCommand("boton_carrito_tecnologia2");
+
+		vf.getVt().getAnadirCarrito3().addActionListener(this);
+		vf.getVt().getAnadirCarrito3().setActionCommand("boton_carrito_tecnologia3");
+
+		vf.getVt().getAnadirCarrito4().addActionListener(this);
+		vf.getVt().getAnadirCarrito4().setActionCommand("boton_carrito_tecnologia4");
+
+		vf.getVt().getAnadirCarrito5().addActionListener(this);
+		vf.getVt().getAnadirCarrito5().setActionCommand("boton_carrito_tecnologia5");
+		//
+		vf.getVv().getAnadirCarrito1().addActionListener(this);
+		vf.getVv().getAnadirCarrito1().setActionCommand("boton_carrito_videojuego1");
+
+		vf.getVv().getAnadirCarrito2().addActionListener(this);
+		vf.getVv().getAnadirCarrito2().setActionCommand("boton_carrito_videojuego2");
+
+		vf.getVv().getAnadirCarrito3().addActionListener(this);
+		vf.getVv().getAnadirCarrito3().setActionCommand("boton_carrito_videojuego3");
+
+		vf.getVv().getAnadirCarrito4().addActionListener(this);
+		vf.getVv().getAnadirCarrito4().setActionCommand("boton_carrito_videojuego4");
+
+		vf.getVv().getAnadirCarrito5().addActionListener(this);
+		vf.getVv().getAnadirCarrito5().setActionCommand("boton_carrito_videojuego5");
 
 		// BOTONES DE VOLVER DE LAS CATEGORIAS
 		vf.getVmo().getbVolverM().addActionListener(this);
@@ -270,6 +274,30 @@ public class Controlador implements ActionListener {
 		vf.getVma().getbVolverMa().setActionCommand("boton_categoria_mascota_volver");
 		vf.getVp().getBotonVolver().addActionListener(this);
 		vf.getVp().getBotonVolver().setActionCommand("boton_pagar_volver");
+
+		// BOTONES MODO VENDEDOR
+		vf.getVa().getbModoVendedorA().addActionListener(this);
+		vf.getVa().getbModoVendedorA().setActionCommand("boton_arte_modoVendedor");
+		vf.getVb().getbModoVendedorB().addActionListener(this);
+		vf.getVb().getbModoVendedorB().setActionCommand("boton_belleza_modoVendedor");
+		vf.getVd().getbModoVendedorD().addActionListener(this);
+		vf.getVd().getbModoVendedorD().setActionCommand("boton_deporte_modoVendedor");
+		vf.getVe().getbModoVendedorE().addActionListener(this);
+		vf.getVe().getbModoVendedorE().setActionCommand("boton_electrodomestico_modoVendedor");
+		vf.getVhe().getbModoVendedorHE().addActionListener(this);
+		vf.getVhe().getbModoVendedorHE().setActionCommand("boton_herramienta_modoVendedor");
+		vf.getVho().getbModoVendedorHO().addActionListener(this);
+		vf.getVho().getbModoVendedorHO().setActionCommand("boton_herramienta_modoVendedor");
+		vf.getVma().getbModoVendedorMa().addActionListener(this);
+		vf.getVma().getbModoVendedorMa().setActionCommand("boton_mascota_modoVendedor");
+		vf.getVmo().getbModoVendedorM().addActionListener(this);
+		vf.getVmo().getbModoVendedorM().setActionCommand("boton_moda_modoVendedor");
+		vf.getVt().getbModoVendedorT().addActionListener(this);
+		vf.getVt().getbModoVendedorT().setActionCommand("boton_tecnologia_modoVendedor");
+		vf.getVv().getbModoVendedorV().addActionListener(this);
+		vf.getVv().getbModoVendedorV().setActionCommand("boton_videojuego_modoVendedor");
+		vf.getVmv().getBotonVolver().addActionListener(this);
+		vf.getVmv().getBotonVolver().setActionCommand("boton_modoVendedor_volver");
 
 	}
 
@@ -611,6 +639,253 @@ public class Controlador implements ActionListener {
 		}
 		case "boton_carrito_moda5": {
 			JOptionPane.showMessageDialog(null, "Agregado al carrito");
+			break;
+		}
+		case "boton_carrito_arte1": {
+			JOptionPane.showMessageDialog(null, "Agregado al carrito");
+			break;
+		}
+		case "boton_carrito_arte2": {
+			JOptionPane.showMessageDialog(null, "Agregado al carrito");
+			break;
+		}
+		case "boton_carrito_arte3": {
+			JOptionPane.showMessageDialog(null, "Agregado al carrito");
+			break;
+		}
+		case "boton_carrito_arte4": {
+			JOptionPane.showMessageDialog(null, "Agregado al carrito");
+			break;
+		}
+		case "boton_carrito_arte5": {
+			JOptionPane.showMessageDialog(null, "Agregado al carrito");
+			break;
+		}
+		case "boton_carrito_belleza1": {
+			JOptionPane.showMessageDialog(null, "Agregado al carrito");
+			break;
+		}
+		case "boton_carrito_belleza2": {
+			JOptionPane.showMessageDialog(null, "Agregado al carrito");
+			break;
+		}
+		case "boton_carrito_belleza3": {
+			JOptionPane.showMessageDialog(null, "Agregado al carrito");
+			break;
+		}
+		case "boton_carrito_belleza4": {
+			JOptionPane.showMessageDialog(null, "Agregado al carrito");
+			break;
+		}
+		case "boton_carrito_belleza5": {
+			JOptionPane.showMessageDialog(null, "Agregado al carrito");
+			break;
+		}
+		case "boton_carrito_deporte1": {
+			JOptionPane.showMessageDialog(null, "Agregado al carrito");
+			break;
+		}
+		case "boton_carrito_deporte2": {
+			JOptionPane.showMessageDialog(null, "Agregado al carrito");
+			break;
+		}
+		case "boton_carrito_deporte3": {
+			JOptionPane.showMessageDialog(null, "Agregado al carrito");
+			break;
+		}
+		case "boton_carrito_deporte4": {
+			JOptionPane.showMessageDialog(null, "Agregado al carrito");
+			break;
+		}
+		case "boton_carrito_deporte5": {
+			JOptionPane.showMessageDialog(null, "Agregado al carrito");
+			break;
+		}
+		case "boton_carrito_electrodomestico1": {
+			JOptionPane.showMessageDialog(null, "Agregado al carrito");
+			break;
+		}
+		case "boton_carrito_electrodomestico2": {
+			JOptionPane.showMessageDialog(null, "Agregado al carrito");
+			break;
+		}
+		case "boton_carrito_electrodomestico3": {
+			JOptionPane.showMessageDialog(null, "Agregado al carrito");
+			break;
+		}
+		case "boton_carrito_electrodomestico4": {
+			JOptionPane.showMessageDialog(null, "Agregado al carrito");
+			break;
+		}
+		case "boton_carrito_electrodomestico5": {
+			JOptionPane.showMessageDialog(null, "Agregado al carrito");
+			break;
+		}
+		case "boton_carrito_herramienta1": {
+			JOptionPane.showMessageDialog(null, "Agregado al carrito");
+			break;
+		}
+		case "boton_carrito_herramienta2": {
+			JOptionPane.showMessageDialog(null, "Agregado al carrito");
+			break;
+		}
+		case "boton_carrito_herramienta3": {
+			JOptionPane.showMessageDialog(null, "Agregado al carrito");
+			break;
+		}
+		case "boton_carrito_herramienta4": {
+			JOptionPane.showMessageDialog(null, "Agregado al carrito");
+			break;
+		}
+		case "boton_carrito_herramienta5": {
+			JOptionPane.showMessageDialog(null, "Agregado al carrito");
+			break;
+		}
+		case "boton_carrito_hogar1": {
+			JOptionPane.showMessageDialog(null, "Agregado al carrito");
+			break;
+		}
+		case "boton_carrito_hogar2": {
+			JOptionPane.showMessageDialog(null, "Agregado al carrito");
+			break;
+		}
+		case "boton_carrito_hogar3": {
+			JOptionPane.showMessageDialog(null, "Agregado al carrito");
+			break;
+		}
+		case "boton_carrito_hogar4": {
+			JOptionPane.showMessageDialog(null, "Agregado al carrito");
+			break;
+		}
+		case "boton_carrito_hogar5": {
+			JOptionPane.showMessageDialog(null, "Agregado al carrito");
+			break;
+		}
+		case "boton_carrito_mascota1": {
+			JOptionPane.showMessageDialog(null, "Agregado al carrito");
+			break;
+		}
+		case "boton_carrito_mascota2": {
+			JOptionPane.showMessageDialog(null, "Agregado al carrito");
+			break;
+		}
+		case "boton_carrito_mascota3": {
+			JOptionPane.showMessageDialog(null, "Agregado al carrito");
+			break;
+		}
+		case "boton_carrito_mascota4": {
+			JOptionPane.showMessageDialog(null, "Agregado al carrito");
+			break;
+		}
+		case "boton_carrito_mascota5": {
+			JOptionPane.showMessageDialog(null, "Agregado al carrito");
+			break;
+		}
+		case "boton_carrito_tecnologia1": {
+			JOptionPane.showMessageDialog(null, "Agregado al carrito");
+			break;
+		}
+		case "boton_carrito_tecnologia2": {
+			JOptionPane.showMessageDialog(null, "Agregado al carrito");
+			break;
+		}
+		case "boton_carrito_tecnologia3": {
+			JOptionPane.showMessageDialog(null, "Agregado al carrito");
+			break;
+		}
+		case "boton_carrito_tecnologia4": {
+			JOptionPane.showMessageDialog(null, "Agregado al carrito");
+			break;
+		}
+		case "boton_carrito_tecnologia5": {
+			JOptionPane.showMessageDialog(null, "Agregado al carrito");
+			break;
+		}
+		case "boton_carrito_videojuego1": {
+			JOptionPane.showMessageDialog(null, "Agregado al carrito");
+			break;
+		}
+		case "boton_carrito_videojuego2": {
+			JOptionPane.showMessageDialog(null, "Agregado al carrito");
+			break;
+		}
+		case "boton_carrito_videojuego3": {
+			JOptionPane.showMessageDialog(null, "Agregado al carrito");
+			break;
+		}
+		case "boton_carrito_videojuego4": {
+			JOptionPane.showMessageDialog(null, "Agregado al carrito");
+			break;
+		}
+		case "boton_carrito_videojuego5": {
+			JOptionPane.showMessageDialog(null, "Agregado al carrito");
+			break;
+		}
+		case "boton_modoVendedor_volver": {
+			vf.getVmv().dispose();
+			vf.getVc().setVisible(true);
+			break;
+		}
+		case "boton_arte_modoVendedor": {
+
+			vf.getVa().dispose();
+			vf.getVmv().setVisible(true);
+			break;
+
+		}
+		case "boton_belleza_modoVendedor": {
+
+			vf.getVb().dispose();
+			vf.getVmv().setVisible(true);
+			break;
+
+		}
+		case "boton_deporte_modoVendedor": {
+
+			vf.getVd().dispose();
+			vf.getVmv().setVisible(true);
+			break;
+
+		}
+		case "boton_electrodomestico_modoVendedor": {
+			vf.getVe().dispose();
+			vf.getVmv().setVisible(true);
+			break;
+
+		}
+		case "boton_herramienta_modoVendedor": {
+			vf.getVhe().dispose();
+			vf.getVmv().setVisible(true);
+			break;
+		}
+		case "boton_hogar_modoVendedor": {
+
+			vf.getVho().dispose();
+			vf.getVmv().setVisible(true);
+			break;
+
+		}
+		case "boton_mascota_modoVendedor": {
+			vf.getVma().dispose();
+			vf.getVmv().setVisible(true);
+			break;
+
+		}
+		case "boton_moda_modoVendedor": {
+			vf.getVmo().dispose();
+			vf.getVmv().setVisible(true);
+			break;
+
+		}
+		case "boton_tecnologia_modoVendedor": {
+			vf.getVt().dispose();
+			vf.getVmv().setVisible(true);
+			break;
+
+		}
+		case "boton_videojuego_modoVendedor": {
+			vf.getVv().dispose();
+			vf.getVmv().setVisible(true);
 			break;
 		}
 
