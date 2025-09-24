@@ -105,10 +105,6 @@ public class ProductoDAO implements DAO<Producto> {
 
 	}
 
-	/*
-	 * @Override public List<Producto> buscarPorAtributo(String atributo, String
-	 * valor) { // FALTA POR AGREGAR return null; }
-	 */
 	@Override
 	public boolean existe(String id) {
 		// FALTA POR AGREGAR

@@ -2,16 +2,9 @@ package co.edu.unbosque.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.StandardCopyOption;
-
-import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import co.edu.unbosque.model.ModelFacade;
-import co.edu.unbosque.model.Producto;
 import co.edu.unbosque.model.Usuario;
-import co.edu.unbosque.model.persistence.ProductoDAO;
 import co.edu.unbosque.util.exception.CiudadException;
 import co.edu.unbosque.util.exception.ClaveTarjetaException;
 import co.edu.unbosque.util.exception.ContraseniaException;
@@ -28,7 +21,6 @@ public class Controlador implements ActionListener {
 	private String idiomaSeleccionado = null;
 	private ModelFacade mf;
 	private ViewFacade vf;
-	private String rutaImagenProducto = "";
 
 	public Controlador() {
 		vf = new ViewFacade();
@@ -306,10 +298,6 @@ public class Controlador implements ActionListener {
 		vf.getVv().getbModoVendedorV().setActionCommand("boton_videojuego_modoVendedor");
 		vf.getVmv().getBotonVolver().addActionListener(this);
 		vf.getVmv().getBotonVolver().setActionCommand("boton_modoVendedor_volver");
-		vf.getVmv().getBotonSeleccionarImagen().addActionListener(this);
-		vf.getVmv().getBotonSeleccionarImagen().setActionCommand("boton_seleccionar_imagen");
-		vf.getVmv().getBotonAgregarProducto().addActionListener(this);
-		vf.getVmv().getBotonAgregarProducto().setActionCommand("boton_agregar_producto");
 
 	}
 
@@ -833,7 +821,6 @@ public class Controlador implements ActionListener {
 			JOptionPane.showMessageDialog(null, "Agregado al carrito");
 			break;
 		}
-		//MODO VENDEDOR
 		case "boton_modoVendedor_volver": {
 			vf.getVmv().dispose();
 			vf.getVc().setVisible(true);
@@ -900,106 +887,6 @@ public class Controlador implements ActionListener {
 			vf.getVv().dispose();
 			vf.getVmv().setVisible(true);
 			break;
-		}
-		
-		case "boton_seleccionar_imagen": {
-		    JFileChooser fileChooser = new JFileChooser();
-		    fileChooser.setCurrentDirectory(new File(System.getProperty("user.dir"))); // Directorio actual del proyecto
-		    int result = fileChooser.showOpenDialog(vf.getVmv());
-		    if (result == JFileChooser.APPROVE_OPTION) {
-		        File selectedFile = fileChooser.getSelectedFile();
-		        String fileName = selectedFile.getName();
-		        
-		        // Ruta relativa para guardar la imagen en la carpeta 'view'
-		        File destinationFolder = new File("MercadoLibre/MercadoLibre/MercadoLibre/src/co/edu/unbosque/view/");
-		        if (!destinationFolder.exists()) {
-		            destinationFolder.mkdirs(); // Crear la carpeta si no existe
-		        }
-		        File destinationFile = new File(destinationFolder, fileName);
-		        
-		        try {
-		            File.copy(selectedFile.toPath(), destinationFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
-		            rutaImagenProducto = "co/edu/unbosque/view/" + fileName; // Guardar la ruta relativa para el modelo
-		            vf.getVmv().getLabelImagenSeleccionada().setText("Imagen seleccionada: " + fileName);
-		            JOptionPane.showMessageDialog(vf.getVmv(), "Imagen cargada con éxito: " + fileName);
-		        } catch ( e) {
-		            
-		            rutaImagenProducto = "";
-		        }
-		    }
-		    break;
-		}
-
-		case "boton_agregar_producto": {
-		    String nombreProducto, categoria;
-		    float precio;
-		    int cantidad;
-		    double puntuacion;
-
-		    try {
-		        nombreProducto = vf.getVmv().getTextoNombreProducto().getText().trim();
-		        LanzadorException.verificarProductoValido(nombreProducto);
-		    } catch ( e) {
-		       
-		        break;
-		    }
-
-		    try {
-		        precio = Float.parseFloat(vf.getVmv().getTextoPrecio().getText().trim());
-		        LanzadorException.verificarPrecioProducto(String.valueOf(precio));
-		    } catch ( e) {
-		        
-		        break;
-		    }
-
-		    categoria = (String) vf.getVmv().getComboBoxCategoria().getSelectedItem();
-		    if (categoria == null || categoria.equals("Seleccione una categoría")) {
-		        JOptionPane.showMessageDialog(null, "Debe seleccionar una categoría.", "ERROR CATEGORÍA", JOptionPane.ERROR_MESSAGE);
-		        break;
-		    }
-
-		    try {
-		        cantidad = Integer.parseInt(vf.getVmv().getTextoCantidad().getText().trim());
-		        LanzadorException.verificarCantidadProductoValida(String.valueOf(cantidad));
-		    } catch ( e) {
-		        
-		        break;
-		    }
-		    
-		    try {
-		        puntuacion = Double.parseDouble(vf.getVmv().getTextoPuntuacion().getText().trim());
-		        if (puntuacion < 0 || puntuacion > 5) {
-		            JOptionPane.showMessageDialog(null, "La puntuación debe ser un número entre 0 y 5.", "ERROR PUNTUACIÓN", JOptionPane.ERROR_MESSAGE);
-		            break;
-		        }
-		    } catch (e) {
-		       
-		        break;
-		    }
-
-		    if (rutaImagenProducto.isEmpty()) {
-		        JOptionPane.showMessageDialog(null, "Debe seleccionar una imagen para el producto.", "ERROR IMAGEN", JOptionPane.ERROR_MESSAGE);
-		        break;
-		    }
-		    
-		   
-
-		    ProductoDAO objeto = new ProductoDAO(nombreProducto, precio, categoria, cantidad, puntuacion, rutaImagenProducto);
-		    mf.getProductoDAO().crear(objeto);
-		    JOptionPane.showMessageDialog(null, "Producto agregado con éxito a la categoría: " + categoria);
-		    
-		    // Limpiar campos después de agregar
-		    vf.getVmv().getTextoNombreProducto().setText("");
-		    vf.getVmv().getTextoPrecio().setText("");
-		    vf.getVmv().getComboBoxCategoria().setSelectedIndex(0);
-		    vf.getVmv().getTextoCantidad().setText("");
-		    vf.getVmv().getTextoPuntuacion().setText("");
-		    vf.getVmv().getLabelImagenSeleccionada().setText("Ninguna imagen seleccionada");
-		    rutaImagenProducto = "";
-		    
-		    vf.getVmv().dispose();
-		    vf.getVc().setVisible(true);
-		    break;
 		}
 
 		}

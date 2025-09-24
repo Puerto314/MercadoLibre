@@ -7,31 +7,27 @@ public class Producto implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = -1489327248235404241L;
-	
+
 	private String nombreProducto;
 	private float precio;
 	private String categoria;
-	private String descripcionProducto;
 	private int cantidad;
-	private int descuento;
 	private double puntuacion;
-	private String url;
-	
+	private String rutaImagenProducto;
+
 	public Producto() {
 
 	}
 
-	public Producto(String nombreProducto, float precio, String categoria, String descripcionProducto, int cantidad,
-			int descuento, double puntuacion, String url) {
+	public Producto(String nombreProducto, float precio, String categoria, int cantidad, double puntuacion,
+			String rutaImagenProducto) {
 		super();
 		this.nombreProducto = nombreProducto;
 		this.precio = precio;
 		this.categoria = categoria;
-		this.descripcionProducto = descripcionProducto;
 		this.cantidad = cantidad;
-		this.descuento = descuento;
 		this.puntuacion = puntuacion;
-		this.url = url;
+		this.rutaImagenProducto = rutaImagenProducto;
 	}
 
 	public String getNombreProducto() {
@@ -58,28 +54,12 @@ public class Producto implements Serializable {
 		this.categoria = categoria;
 	}
 
-	public String getDescripcionProducto() {
-		return descripcionProducto;
-	}
-
-	public void setDescripcionProducto(String descripcionProducto) {
-		this.descripcionProducto = descripcionProducto;
-	}
-
 	public int getCantidad() {
 		return cantidad;
 	}
 
 	public void setCantidad(int cantidad) {
 		this.cantidad = cantidad;
-	}
-
-	public int getDescuento() {
-		return descuento;
-	}
-
-	public void setDescuento(int descuento) {
-		this.descuento = descuento;
 	}
 
 	public double getPuntuacion() {
@@ -89,20 +69,23 @@ public class Producto implements Serializable {
 	public void setPuntuacion(double puntuacion) {
 		this.puntuacion = puntuacion;
 	}
-	
-	public String getUrl() {
-		return url;
+
+	public String getRutaImagenProducto() {
+		return rutaImagenProducto;
 	}
-	
-	public void setUrl(String url) {
-		this.url = url;
+
+	public void setRutaImagenProducto(String rutaImagenProducto) {
+		this.rutaImagenProducto = rutaImagenProducto;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 	@Override
 	public String toString() {
 		return " \n - Nombre del producto: " + nombreProducto + "\n - Precio: " + precio + " \n - Descripción: "
-				+ descripcionProducto + "\n - Cantidad: " + cantidad + "\n - Descuento: " + descuento
-				+ "\n - Puntuación: " + puntuacion;
+				+ "\n - Cantidad: " + cantidad + "\n - Puntuación: " + puntuacion;
 	}
 
 }
