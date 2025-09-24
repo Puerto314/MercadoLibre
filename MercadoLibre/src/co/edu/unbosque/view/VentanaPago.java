@@ -94,10 +94,18 @@ public class VentanaPago extends JFrame {
 		});
 		this.add(pinTarjeta);
 
-		labelFechaTarjeta = new JLabel("Email/ Número de teléfono: ");
+		labelFechaTarjeta = new JLabel("Fecha de vencimiento (MM/AA): ");
 		labelFechaTarjeta.setBounds(520, 320, 350, 25);
 		labelFechaTarjeta.setFont(new Font("Arial", Font.BOLD, 20));
 		add(labelFechaTarjeta);
+
+		// campo fecha vencimiento
+		fechaTarjeta = new JTextField();
+		fechaTarjeta.setBounds(520, 360, 400, 40);
+		fechaTarjeta.setFont(new Font("Arial", Font.PLAIN, 14));
+		fechaTarjeta.setBorder(BorderFactory.createLineBorder(Color.decode("#144031"), 1));
+		this.add(fechaTarjeta);
+
 
 		// campo email
 		fechaTarjeta = new JTextField();

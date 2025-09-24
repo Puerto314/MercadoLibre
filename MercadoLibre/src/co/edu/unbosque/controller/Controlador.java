@@ -92,15 +92,13 @@ public class Controlador implements ActionListener {
 
 		vf.getVc().getMascota().addActionListener(this);
 		vf.getVc().getMascota().setActionCommand("boton_categoria_mascota");
-		
+
 		vf.getVc().getComprarTodo().addActionListener(this);
 		vf.getVc().getComprarTodo().setActionCommand("boton_comprar_todo");
 
 		// OYENTES VENTANA PAGO
 		vf.getVp().getBotonComprar().addActionListener(this);
 		vf.getVp().getBotonComprar().setActionCommand("boton_comprar");
-		
-		
 
 		// BOTONES DE VOLVER DE LAS CATEGORIAS
 		vf.getVmo().getbVolverM().addActionListener(this);
@@ -417,8 +415,23 @@ public class Controlador implements ActionListener {
 		case "boton_comprar_todo": {
 			vf.getVc().dispose();
 			vf.getVp().setVisible(true);
+
+			// Recuperar los datos ingresados en la ventana de pago
+			String numeroTarjeta = vf.getVp().getNumeroTarjeta().getText();
+			String pin = vf.getVp().getPinTarjeta().getText();
+			String fechaVencimiento = vf.getVp().getFechaTarjeta().getText();
+
+			// Validaciones básicas
+			if (numeroTarjeta.isEmpty() || pin.isEmpty() || fechaVencimiento.isEmpty()) {
+				JOptionPane.showMessageDialog(vf.getVp(), "Por favor complete todos los campos.");
+			} else {
+				JOptionPane.showMessageDialog(vf.getVp(), "Datos ingresados:\n" + "Número: " + numeroTarjeta + "\n"
+						+ "PIN: " + pin + "\n" + "Fecha: " + fechaVencimiento);
+				// Aquí podrías seguir con la lógica de pago
+			}
 			break;
 		}
+
 		}
 	}
 
