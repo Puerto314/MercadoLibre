@@ -3,7 +3,6 @@ package co.edu.unbosque.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
-
 import co.edu.unbosque.model.ModelFacade;
 import co.edu.unbosque.model.Usuario;
 import co.edu.unbosque.util.exception.CiudadException;
@@ -11,11 +10,9 @@ import co.edu.unbosque.util.exception.ClaveTarjetaException;
 import co.edu.unbosque.util.exception.ContraseniaException;
 import co.edu.unbosque.util.exception.CorreoException;
 import co.edu.unbosque.util.exception.DireccionException;
-import co.edu.unbosque.util.exception.FechaTarjetaException;
 import co.edu.unbosque.util.exception.LanzadorException;
 import co.edu.unbosque.util.exception.NombreUsuarioException;
 import co.edu.unbosque.util.exception.NumeroTarjetaException;
-import co.edu.unbosque.util.exception.PrecioException;
 import co.edu.unbosque.util.exception.TelefonoException;
 import co.edu.unbosque.view.ViewFacade;
 
