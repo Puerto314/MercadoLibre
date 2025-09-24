@@ -100,6 +100,22 @@ public class Controlador implements ActionListener {
 		vf.getVp().getBotonComprar().addActionListener(this);
 		vf.getVp().getBotonComprar().setActionCommand("boton_pagar");
 
+		// OYENTES CARRITOS
+		vf.getVmo().getAnadirCarrito1().addActionListener(this);
+		vf.getVmo().getAnadirCarrito1().setActionCommand("boton_carrito_moda1");
+
+		vf.getVmo().getAnadirCarrito2().addActionListener(this);
+		vf.getVmo().getAnadirCarrito2().setActionCommand("boton_carrito_moda2");
+
+		vf.getVmo().getAnadirCarrito3().addActionListener(this);
+		vf.getVmo().getAnadirCarrito3().setActionCommand("boton_carrito_moda3");
+
+		vf.getVmo().getAnadirCarrito4().addActionListener(this);
+		vf.getVmo().getAnadirCarrito4().setActionCommand("boton_carrito_moda4");
+
+		vf.getVmo().getAnadirCarrito5().addActionListener(this);
+		vf.getVmo().getAnadirCarrito5().setActionCommand("boton_carrito_moda5");
+
 		// BOTONES DE VOLVER DE LAS CATEGORIAS
 		vf.getVmo().getbVolverM().addActionListener(this);
 		vf.getVmo().getbVolverM().setActionCommand("boton_categoria_moda_volver");
@@ -444,6 +460,26 @@ public class Controlador implements ActionListener {
 			vf.getVp().dispose();
 			vf.getVi().setVisible(true);
 
+			break;
+		}
+		case "boton_carrito_moda1": {
+			JOptionPane.showMessageDialog(null, "Agregado al carrito");
+			break;
+		}
+		case "boton_carrito_moda2": {
+			JOptionPane.showMessageDialog(null, "Agregado al carrito");
+			break;
+		}
+		case "boton_carrito_moda3": {
+			JOptionPane.showMessageDialog(null, "Agregado al carrito");
+			break;
+		}
+		case "boton_carrito_moda4": {
+			JOptionPane.showMessageDialog(null, "Agregado al carrito");
+			break;
+		}
+		case "boton_carrito_moda5": {
+			JOptionPane.showMessageDialog(null, "Agregado al carrito");
 			break;
 		}
 
