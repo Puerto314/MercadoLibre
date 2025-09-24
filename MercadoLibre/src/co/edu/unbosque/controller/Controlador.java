@@ -236,10 +236,15 @@ public class Controlador implements ActionListener {
 
 		vf.getVma().getAnadirCarrito5().addActionListener(this);
 		vf.getVma().getAnadirCarrito5().setActionCommand("boton_carrito_mascota5");
-
-		/*
-		 * private VentanaMascota vma; private VentanaTecnologia vt; private
-		 * VentanaVideojuego vv;
+		//
+		vf.getVt().getAnadirCarrito1().addActionListener(this);
+		vf.getVt().getAnadirCarrito1().setActionCommand("boton_carrito_mascota5");
+		
+		
+		
+		
+		/*private VentanaTecnologia vt; 
+		 * private VentanaVideojuego vv;
 		 */
 
 		// BOTONES DE VOLVER DE LAS CATEGORIAS
