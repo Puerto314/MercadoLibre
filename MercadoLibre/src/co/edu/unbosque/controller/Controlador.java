@@ -11,9 +11,11 @@ import co.edu.unbosque.util.exception.ClaveTarjetaException;
 import co.edu.unbosque.util.exception.ContraseniaException;
 import co.edu.unbosque.util.exception.CorreoException;
 import co.edu.unbosque.util.exception.DireccionException;
+import co.edu.unbosque.util.exception.FechaTarjetaException;
 import co.edu.unbosque.util.exception.LanzadorException;
 import co.edu.unbosque.util.exception.NombreUsuarioException;
 import co.edu.unbosque.util.exception.NumeroTarjetaException;
+import co.edu.unbosque.util.exception.PrecioException;
 import co.edu.unbosque.util.exception.TelefonoException;
 import co.edu.unbosque.view.ViewFacade;
 
@@ -96,11 +98,10 @@ public class Controlador implements ActionListener {
 		vf.getVc().getMascota().setActionCommand("boton_categoria_mascota");
 
 		vf.getVc().getComprarTodo().addActionListener(this);
-		vf.getVc().getComprarTodo().setActionCommand("boton_comprar_todo");
+		vf.getVc().getComprarTodo().setActionCommand("boton_comprar_carrito");
 
-		// OYENTES VENTANA PAGO
 		vf.getVp().getBotonComprar().addActionListener(this);
-		vf.getVp().getBotonComprar().setActionCommand("boton_comprar");
+		vf.getVp().getBotonComprar().setActionCommand("boton_pagar");
 
 		// BOTONES DE VOLVER DE LAS CATEGORIAS
 		vf.getVmo().getbVolverM().addActionListener(this);
@@ -414,39 +415,38 @@ public class Controlador implements ActionListener {
 			vf.getVc().setVisible(true);
 			break;
 		}
-		case "boton_comprar_todo": {
+		case "boton_comprar_carrito": {
+			vf.getVc().dispose();
+			vf.getVp().setVisible(true);
+			break;
+		}
+		case "boton_pagar": {
 			vf.getVc().dispose();
 			vf.getVp().setVisible(true);
 
-			// Recuperar los datos ingresados
-			String numeroTarjeta, pin, fechaVencimiento;
+			String numeroTarjeta = vf.getVp().getNumeroTarjeta().getText();
+			String fechaVencimiento = vf.getVp().getFechaTarjeta().getText();
+			String pin = vf.getVp().getPinTarjeta().getText();
 
 			try {
-				// Validar número de tarjeta
 				LanzadorException.verificarNumeroTarjeta(numeroTarjeta);
-
-				// Validar PIN
-				LanzadorException.verificarPinValido(pin);
-
-				// Validar que la fecha no esté vacía (si quieres le metemos regex MM/AA
-				// después)
-				if (fechaVencimiento.isEmpty()) {
-					JOptionPane.showMessageDialog(vf.getVp(), "Por favor ingrese la fecha de vencimiento.");
-					break;
-				}
-
-				// Si todo está correcto
-				JOptionPane.showMessageDialog(vf.getVp(), "Pago procesado correctamente.\n" + "Número: " + numeroTarjeta
-						+ "\n" + "PIN: " + pin + "\n" + "Fecha: " + fechaVencimiento);
-
-			} catch (NumeroTarjetaException e) {
-				JOptionPane.showMessageDialog(vf.getVp(), "El número de tarjeta debe tener 16 dígitos numéricos.");
-			} catch (ClaveTarjetaException e) {
-				JOptionPane.showMessageDialog(vf.getVp(), "El PIN debe ser un número de 3 dígitos.");
+			} catch (NumeroTarjetaException ex) {
+				JOptionPane.showMessageDialog(null, ex.getMessage(), "ERROR TARJETA", JOptionPane.ERROR_MESSAGE);
+				break;
 			}
-			vf.getVc().dispose();
-			vf.getVp().setVisible(true);
-			JOptionPane.showMessageDialog(null, "Pago realizado con éxito");
+
+			try {
+				LanzadorException.verificarPinValido(pin);
+			} catch (ClaveTarjetaException ex) {
+				JOptionPane.showMessageDialog(null, ex.getMessage(), "ERROR PIN", JOptionPane.ERROR_MESSAGE);
+				break;
+			}
+
+			JOptionPane.showMessageDialog(vf.getVp(), "Pago realizado correctamente");
+
+			vf.getVp().dispose();
+			vf.getVi().setVisible(true);
+
 			break;
 		}
 

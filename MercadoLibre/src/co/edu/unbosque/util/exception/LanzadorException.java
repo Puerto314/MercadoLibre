@@ -152,14 +152,14 @@ public class LanzadorException {
 		}
 	}
 
-	public static void verificarPinValido(String entrada) throws DescuentoException {
+	public static void verificarPinValido(String entrada) throws ClaveTarjetaException {
 		try {
 			if (!entrada.matches("\\d{3}")) {
-				throw new DescuentoException();
+				throw new ClaveTarjetaException();
 			}
 
 		} catch (NumberFormatException e) {
-			throw new DescuentoException();
+			throw new ClaveTarjetaException();
 		}
 	}
 
