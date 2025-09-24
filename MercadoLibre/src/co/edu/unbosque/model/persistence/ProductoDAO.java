@@ -52,11 +52,10 @@ public class ProductoDAO implements DAO<Producto> {
 		for (Producto producto : listaProductos) {
 			sb.append(producto.getNombreProducto() + ";");
 			sb.append(producto.getPrecio() + ";");
-			sb.append(producto.getDescripcionProducto() + ";");
+			sb.append(producto.getCategoria() + ";");
 			sb.append(producto.getCantidad() + ";");
-			sb.append(producto.getDescuento() + ";");
 			sb.append(producto.getPuntuacion() + ";");
-			sb.append(producto.getUrl() + ";");
+			sb.append(producto.getRutaImagenProducto() + ";");
 
 		}
 		FileHandler.escribirEnArchivoTexto(FILE_NAME, sb.toString());
@@ -76,10 +75,10 @@ public class ProductoDAO implements DAO<Producto> {
 				Producto temp = new Producto();
 				temp.setNombreProducto(columnas[0]);
 				temp.setPrecio(Float.parseFloat(columnas[1]));
-				temp.getCategoria();
+				temp.setCategoria(columnas[2]);
 				temp.setCantidad(Integer.parseInt(columnas[3]));
-				temp.setPuntuacion(Double.parseDouble(columnas[5]));
-				temp.setRutaImagenProducto(columnas[2]);
+				temp.setPuntuacion(Double.parseDouble(columnas[4]));
+				temp.setRutaImagenProducto(columnas[5]);
 
 				listaProductos.add(temp);
 			}
@@ -111,11 +110,3 @@ public class ProductoDAO implements DAO<Producto> {
 	}
 
 }
-/*
-private String nombreProducto;
-private float precio;
-private String categoria;
-private int cantidad;
-private double puntuacion;
-private String rutaImagenProducto;
-*/
