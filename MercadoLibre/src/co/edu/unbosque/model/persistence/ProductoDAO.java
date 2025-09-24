@@ -76,11 +76,10 @@ public class ProductoDAO implements DAO<Producto> {
 				Producto temp = new Producto();
 				temp.setNombreProducto(columnas[0]);
 				temp.setPrecio(Float.parseFloat(columnas[1]));
-				temp.setDescripcionProducto(columnas[2]);
+				temp.getCategoria();
 				temp.setCantidad(Integer.parseInt(columnas[3]));
-				temp.setDescuento(Integer.parseInt(columnas[4]));
 				temp.setPuntuacion(Double.parseDouble(columnas[5]));
-				temp.setUrl(columnas[6]);
+				temp.setRutaImagenProducto(columnas[2]);
 
 				listaProductos.add(temp);
 			}
@@ -112,3 +111,11 @@ public class ProductoDAO implements DAO<Producto> {
 	}
 
 }
+/*
+private String nombreProducto;
+private float precio;
+private String categoria;
+private int cantidad;
+private double puntuacion;
+private String rutaImagenProducto;
+*/
