@@ -63,9 +63,6 @@ public class Controlador implements ActionListener {
 		vf.getVc().getBotonVolver().addActionListener(this);
 		vf.getVc().getBotonVolver().setActionCommand("boton_categoria_volver");
 
-		vf.getVc().getModoVendedor().addActionListener(this);
-		vf.getVc().getModoVendedor().setActionCommand("boton_modo_vendedor");
-
 		vf.getVc().getModa().addActionListener(this);
 		vf.getVc().getModa().setActionCommand("boton_categoria_moda");
 
@@ -101,6 +98,8 @@ public class Controlador implements ActionListener {
 		vf.getVp().getBotonComprar().setActionCommand("boton_comprar");
 
 		// BOTONES DE VOLVER DE LAS CATEGORIAS
+		vf.getVmo().getbVolverM().addActionListener(this);
+		vf.getVmo().getbVolverM().setActionCommand("boton_categoria_moda_volver");
 		vf.getVa().getbVolverA().addActionListener(this);
 		vf.getVa().getbVolverA().setActionCommand("boton_categoria_arte_volver");
 		vf.getVb().getbVolverB().addActionListener(this);
@@ -113,38 +112,12 @@ public class Controlador implements ActionListener {
 		vf.getVhe().getbVolverHE().setActionCommand("boton_categoria_herramienta_volver");
 		vf.getVho().getbVolverHO().addActionListener(this);
 		vf.getVho().getbVolverHO().setActionCommand("boton_categoria_hogar_volver");
-		vf.getVmo().getbVolverM().addActionListener(this);
-		vf.getVmo().getbVolverM().setActionCommand("boton_categoria_moda_volver");
 		vf.getVt().getbVolverT().addActionListener(this);
 		vf.getVt().getbVolverT().setActionCommand("boton_categoria_tecnologia_volver");
 		vf.getVv().getbVolverV().addActionListener(this);
 		vf.getVv().getbVolverV().setActionCommand("boton_categoria_videojuego_volver");
 		vf.getVma().getbVolverMa().addActionListener(this);
 		vf.getVma().getbVolverMa().setActionCommand("boton_categoria_mascota_volver");
-		vf.getVmv().getBotonVolver().addActionListener(this);
-		vf.getVmv().getBotonVolver().setActionCommand("boton_categoria_modoVendedor_volver");
-
-		// BOTONES DE IR AL MODO VENDEDOR
-		vf.getVa().getbModoVendedorA().addActionListener(this);
-		vf.getVa().getbModoVendedorA().setActionCommand("boton_categoria_arte_modoVendedor");
-		vf.getVb().getbModoVendedorB().addActionListener(this);
-		vf.getVb().getbModoVendedorB().setActionCommand("boton_categoria_belleza_modoVendedor");
-		vf.getVd().getbModoVendedorD().addActionListener(this);
-		vf.getVd().getbModoVendedorD().setActionCommand("boton_categoria_deporte_modoVendedor");
-		vf.getVe().getbModoVendedorE().addActionListener(this);
-		vf.getVe().getbModoVendedorE().setActionCommand("boton_categoria_electrodomestico_modoVendedor");
-		vf.getVhe().getbModoVendedorHE().addActionListener(this);
-		vf.getVhe().getbModoVendedorHE().setActionCommand("boton_categoria_herramienta_modoVendedor");
-		vf.getVho().getbModoVendedorHO().addActionListener(this);
-		vf.getVho().getbModoVendedorHO().setActionCommand("boton_categoria_hogar_modoVendedor");
-		vf.getVma().getbModoVendedorMa().addActionListener(this);
-		vf.getVma().getbModoVendedorMa().setActionCommand("boton_categoria_mascota_modoVendedor");
-		vf.getVmo().getbModoVendedorM().addActionListener(this);
-		vf.getVmo().getbModoVendedorM().setActionCommand("boton_categoria_moda_modoVendedor");
-		vf.getVt().getbModoVendedorT().addActionListener(this);
-		vf.getVt().getbModoVendedorT().setActionCommand("boton_categoria_tecnologia_modoVendedor");
-		vf.getVv().getbModoVendedorV().addActionListener(this);
-		vf.getVv().getbModoVendedorV().setActionCommand("boton_categoria_videojuego_modoVendedor");
 
 	}
 
@@ -259,7 +232,8 @@ public class Controlador implements ActionListener {
 				break;
 			}
 
-			mf.getUsuarioDAO().crear(new Usuario(direccionCasa, correo, telefono, ciudad, nombreUsuario, contrasenia));
+			mf.getUsuarioDAO().crear(new Usuario(nombreUsuario, contrasenia, direccionCasa, correo, telefono, ciudad,
+					"", (short) 0, (short) 0));
 
 			vf.getVr().setVisible(false);
 			JOptionPane.showMessageDialog(null, "Cuenta creada con éxito");
@@ -274,104 +248,45 @@ public class Controlador implements ActionListener {
 		}
 
 		case "boton_entrar": {
-			String nombreUsuario = vf.getVis().getUsuario().getText().trim();
-			String emailOTelefono = vf.getVis().getEmail().getText().trim();
-			String contrasenia = vf.getVis().getContrasenia().getText().trim();
-
-			// Validar nombre de usuario usando tu excepción personalizada
 			try {
-				LanzadorException.verificarNombreUsuario(nombreUsuario);
-			} catch (NombreUsuarioException ex) {
-				JOptionPane.showMessageDialog(null, ex.getMessage(), "ERROR NOMBRE DE USUARIO",
-						JOptionPane.ERROR_MESSAGE);
-				break;
-			}
+				String usuarioIngresado = vf.getVis().getUsuario().getText().trim();
+				String identificadorIngresado = vf.getVis().getEmail().getText().trim();
+				String contraseniaIngresada = vf.getVis().getContrasenia().getText().trim();
 
-			// Validar contraseña usando tu excepción personalizada
-			try {
-				LanzadorException.verificarContraseñaValida(contrasenia);
-			} catch (ContraseniaException ex) {
-				JOptionPane.showMessageDialog(null, ex.getMessage(), "ERROR CONTRASEÑA", JOptionPane.ERROR_MESSAGE);
-				break;
-			}
-
-			// Validar correo o teléfono usando tus excepciones personalizadas
-			boolean esCorreo = false;
-			boolean esTelefono = false;
-
-			// Intentar validar como correo primero
-			try {
-				LanzadorException.verificarCorreoValido(emailOTelefono);
-				esCorreo = true;
-			} catch (CorreoException ex) {
-				// Si no es correo válido, intentar como teléfono
-				try {
-					LanzadorException.verificarNumeroCelular(emailOTelefono);
-					esTelefono = true;
-				} catch (TelefonoException ex2) {
-					// Si no es ni correo ni teléfono válido
-					JOptionPane.showMessageDialog(null,
-							"Debe ingresar un correo electrónico válido o un número de teléfono válido",
-							"ERROR CORREO/TELÉFONO", JOptionPane.ERROR_MESSAGE);
-					break;
-				}
-			}
-
-			try {
 				boolean encontrado = false;
-				Usuario usuarioEncontrado = null;
 
 				for (Usuario u : mf.getUsuarioDAO().leerTodos()) {
-					if (u == null || u.getNombreUsuario() == null || u.getContrasenia() == null) {
-						continue;
+					boolean idValido = u.getCorreo().equals(identificadorIngresado);
+
+					try {
+						long numeroIngresado = Long.parseLong(identificadorIngresado);
+						if (u.getTelefono() == numeroIngresado) {
+							idValido = true;
+						}
+					} catch (NumberFormatException ex) {
+						// ignorar si no es número
 					}
 
-					boolean coincideUsuario = u.getNombreUsuario().equalsIgnoreCase(nombreUsuario);
-					boolean coincideContrasenia = u.getContrasenia().equals(contrasenia);
+					// 🔹 Aquí agregamos la validación del nombre de usuario
+					if (idValido && u.getNombreUsuario().equals(usuarioIngresado)
+							&& u.getContrasenia().equals(contraseniaIngresada)) {
 
-					boolean coincideEmail = false;
-					boolean coincideTelefono = false;
-
-					if (esCorreo && u.getCorreo() != null) {
-						coincideEmail = u.getCorreo().equalsIgnoreCase(emailOTelefono);
-					}
-
-					if (esTelefono) {
-						long telIngresado = Long.parseLong(emailOTelefono);
-						coincideTelefono = (u.getTelefono() == telIngresado);
-					}
-
-					if (coincideUsuario && coincideContrasenia && (coincideEmail || coincideTelefono)) {
 						encontrado = true;
-						usuarioEncontrado = u;
 						break;
 					}
 				}
 
 				if (encontrado) {
-					vf.getVis().getUsuario().setText("");
-					vf.getVis().getEmail().setText("");
-					vf.getVis().getContrasenia().setText("");
-
 					vf.getVis().dispose();
 					vf.getVc().setVisible(true);
-
-					JOptionPane.showMessageDialog(null, "¡Bienvenido " + usuarioEncontrado.getNombreUsuario() + "!",
-							"Inicio de sesión exitoso", JOptionPane.INFORMATION_MESSAGE);
-
 				} else {
-					JOptionPane.showMessageDialog(null,
-							"Los datos ingresados no coinciden con ningún usuario registrado.\n" + "Verifique:\n"
-									+ "- Nombre de usuario (4-8 caracteres, debe contener letras)\n"
-									+ "- Contraseña (4-8 caracteres, mayúscula, minúscula y número)\n"
-									+ "- Correo electrónico válido o teléfono de 10 dígitos",
+					JOptionPane.showMessageDialog(null, "Usuario, correo, teléfono o contraseña incorrectos",
 							"Error de inicio de sesión", JOptionPane.ERROR_MESSAGE);
 				}
 
 			} catch (Exception ex) {
-				JOptionPane.showMessageDialog(null, "Error al procesar los datos: " + ex.getMessage(),
-						"Error del sistema", JOptionPane.ERROR_MESSAGE);
-				ex.printStackTrace();
+				JOptionPane.showMessageDialog(null, "Ocurrió un error al iniciar sesión", "Error",
+						JOptionPane.ERROR_MESSAGE);
 			}
 			break;
 		}
@@ -487,53 +402,6 @@ public class Controlador implements ActionListener {
 			vf.getVc().setVisible(true);
 			break;
 		}
-		case "boton_categoria_modoVendedor_volver": {
-			vf.getVmv().dispose();
-			vf.getVc().setVisible(true);
-		}
-
-		// BOTONES DEL MODO VENDEDOR
-		case "boton_categoria_arte_modoVendedor": {
-			vf.getVa().dispose();
-			vf.getVmv().setVisible(true);
-		}
-		case "boton_categoria_belleza_modoVendedor": {
-			vf.getVb().dispose();
-			vf.getVmv().setVisible(true);
-		}
-		case "boton_categoria_deporte_modoVendedor": {
-			vf.getVd().dispose();
-			vf.getVmv().setVisible(true);
-		}
-		case "boton_categoria_electrodomestico_modoVendedor": {
-			vf.getVe().dispose();
-			vf.getVmv().setVisible(true);
-		}
-		case "boton_categoria_herramienta_modoVendedor": {
-			vf.getVhe().dispose();
-			vf.getVmv().setVisible(true);
-		}
-		case "boton_categoria_hogar_modoVendedor": {
-			vf.getVho().dispose();
-			vf.getVmv().setVisible(true);
-		}
-		case "boton_categoria_mascota_modoVendedor": {
-			vf.getVma().dispose();
-			vf.getVmv().setVisible(true);
-		}
-		case "boton_categoria_moda_modoVendedor": {
-			vf.getVmo().dispose();
-			vf.getVmv().setVisible(true);
-		}
-		case "boton_categoria_tecnologia_modoVendedor": {
-			vf.getVt().dispose();
-			vf.getVmv().setVisible(true);
-		}
-		case "boton_categoria_videojuego_modoVendedor": {
-			vf.getVv().dispose();
-			vf.getVmv().setVisible(true);
-		}
-
 		}
 	}
 

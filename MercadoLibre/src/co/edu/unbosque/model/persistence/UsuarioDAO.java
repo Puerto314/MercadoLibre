@@ -11,13 +11,9 @@ public class UsuarioDAO implements DAO<Usuario> {
 	private final String SERIAL_FILE_NAME = "Usuario.bin";
 
 	public UsuarioDAO() {
-	    listaUsuario = new ArrayList<>();
-	    cargarDesdeArchivoSerializado();
-	    if (listaUsuario.isEmpty()) {
-	        leerDesdeArchivoDeTexto(FILE_NAME);
-	    }
+		listaUsuario = new ArrayList<Usuario>();
+		cargarDesdeArchivoSerializado();
 	}
-
 
 	@Override
 	public void crear(Usuario objeto) {
@@ -54,46 +50,49 @@ public class UsuarioDAO implements DAO<Usuario> {
 
 	@Override
 	public void escribirEnArchivoTexto() {
+
 		StringBuilder sb = new StringBuilder();
 		for (Usuario Usuario : listaUsuario) {
-			sb.append(Usuario.getNombreUsuario()).append(";");
-			sb.append(Usuario.getContrasenia()).append(";");
-			sb.append(Usuario.getDireccionCasa()).append(";");
-			sb.append(Usuario.getCorreo()).append(";");
-			sb.append(Usuario.getTelefono()).append(";");
-			sb.append(Usuario.getCiudad()).append(";\n");
+			sb.append(Usuario.getNombreUsuario() + ";");
+			sb.append(Usuario.getContrasenia() + ";");
+			sb.append(Usuario.getDireccionCasa() + ";");
+			sb.append(Usuario.getCorreo() + ";");
+			sb.append(Usuario.getTelefono() + ";");
+			sb.append(Usuario.getCiudad() + ";");
+			sb.append(Usuario.getNumeroTarjeta() + ";");
+			sb.append(Usuario.getClaveDeSeguridad() + ";");
+			sb.append(Usuario.getFechaTarjeta() + ";");
+
 		}
 		FileHandler.escribirEnArchivoTexto(FILE_NAME, sb.toString());
 	}
 
 	@Override
 	public void leerDesdeArchivoDeTexto(String url) {
-	    String contenido = FileHandler.leerDesdeArchivoDeTexto("Usuario.csv");
-	    if (contenido == null || contenido.isBlank()) {
-	        return;
-	    } else {
-	        String[] filas = contenido.split("\n");
-	        for (String fila : filas) {
-	            if (fila.trim().isEmpty()) continue; // Saltar líneas vacías
-	            
-	            String[] columnas = fila.split(";");
-	            if (columnas.length >= 6) { // Asegurar que tenemos todos los campos
-	                Usuario temp = new Usuario();
-	                temp.setNombreUsuario(columnas[0]); // ❌ ERROR ESTABA AQUÍ: tenías 'contenido' en lugar de 'columnas[0]'
-	                temp.setContrasenia(columnas[1]);
-	                temp.setDireccionCasa(columnas[2]);
-	                temp.setCorreo(columnas[3]);
-	                try {
-	                    temp.setTelefono(Long.parseLong(columnas[4]));
-	                } catch (NumberFormatException e) {
-	                    System.err.println("Error parsing telefono: " + columnas[4]);
-	                    continue; // Saltar este usuario si hay error
-	                }
-	                temp.setCiudad(columnas[5]);
-	                listaUsuario.add(temp);
-	            }
-	        }
-	    }
+		String contenido;
+		contenido = FileHandler.leerDesdeArchivoDeTexto("Usuario.csv");
+		if (contenido == "" || contenido.isBlank()) {
+			return;
+		} else {
+			String[] filas = contenido.split("\n");
+			for (int i = 0; i < filas.length; i++) {
+				String[] columnas = filas[i].split(";");
+				Usuario temp = new Usuario();
+				temp.setNombreUsuario(contenido);
+				temp.setContrasenia(columnas[1]);
+				temp.setDireccionCasa(columnas[2]);
+				temp.setCorreo(columnas[3]);
+				temp.setTelefono(Long.parseLong(columnas[4]));
+				temp.setCiudad(columnas[5]);
+				temp.setNumeroTarjeta(columnas[6]);
+				temp.setClaveDeSeguridad(Short.parseShort(columnas[7]));
+				temp.setFechaTarjeta(Short.parseShort(columnas[8]));
+
+				listaUsuario.add(temp);
+			}
+
+		}
+
 	}
 
 	public void cargarDesdeArchivoSerializado() {
