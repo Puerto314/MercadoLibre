@@ -35,7 +35,11 @@ public class VentanaElectrodomestico extends JFrame {
 	private JLabel precioProducto3;
 	private JLabel precioProducto4;
 	private JLabel precioProducto5;
-	private JButton anadirCarrito;
+	private JButton anadirCarrito1;
+	private JButton anadirCarrito2;
+	private JButton anadirCarrito3;
+	private JButton anadirCarrito4;
+	private JButton anadirCarrito5;
 
 	public VentanaElectrodomestico() {
 		inicializarElectrodomestico();
@@ -178,43 +182,43 @@ public class VentanaElectrodomestico extends JFrame {
 
 		ImageIcon imagen1 = new ImageIcon(getClass().getResource("carrito.JPG"));
 		JLabel labelImagen1 = new JLabel(imagen1);
-		anadirCarrito = new JButton(imagen1);
-		anadirCarrito.setBounds(700, 110, 40, 40);
-		anadirCarrito.setFocusPainted(false);
-		anadirCarrito.setBorderPainted(true);
-		panelProductos.add(anadirCarrito);
+		anadirCarrito1 = new JButton(imagen1);
+		anadirCarrito1.setBounds(700, 110, 40, 40);
+		anadirCarrito1.setFocusPainted(false);
+		anadirCarrito1.setBorderPainted(true);
+		panelProductos.add(anadirCarrito1);
 
 		ImageIcon imagen2 = new ImageIcon(getClass().getResource("carrito.JPG"));
 		JLabel labelImagen2 = new JLabel(imagen2);
-		anadirCarrito = new JButton(imagen2);
-		anadirCarrito.setBounds(700, 340, 40, 40);
-		anadirCarrito.setFocusPainted(false);
-		anadirCarrito.setBorderPainted(true);
-		panelProductos.add(anadirCarrito);
+		anadirCarrito2 = new JButton(imagen2);
+		anadirCarrito2.setBounds(700, 340, 40, 40);
+		anadirCarrito2.setFocusPainted(false);
+		anadirCarrito2.setBorderPainted(true);
+		panelProductos.add(anadirCarrito2);
 
 		ImageIcon imagen3 = new ImageIcon(getClass().getResource("carrito.JPG"));
 		JLabel labelImagen3 = new JLabel(imagen3);
-		anadirCarrito = new JButton(imagen3);
-		anadirCarrito.setBounds(700, 570, 40, 40);
-		anadirCarrito.setFocusPainted(false);
-		anadirCarrito.setBorderPainted(true);
-		panelProductos.add(anadirCarrito);
+		anadirCarrito3 = new JButton(imagen3);
+		anadirCarrito3.setBounds(700, 570, 40, 40);
+		anadirCarrito3.setFocusPainted(false);
+		anadirCarrito3.setBorderPainted(true);
+		panelProductos.add(anadirCarrito3);
 
 		ImageIcon imagen4 = new ImageIcon(getClass().getResource("carrito.JPG"));
 		JLabel labelImagen4 = new JLabel(imagen4);
-		anadirCarrito = new JButton(imagen4);
-		anadirCarrito.setBounds(700, 800, 40, 40);
-		anadirCarrito.setFocusPainted(false);
-		anadirCarrito.setBorderPainted(true);
-		panelProductos.add(anadirCarrito);
+		anadirCarrito4 = new JButton(imagen4);
+		anadirCarrito4.setBounds(700, 800, 40, 40);
+		anadirCarrito4.setFocusPainted(false);
+		anadirCarrito4.setBorderPainted(true);
+		panelProductos.add(anadirCarrito4);
 
 		ImageIcon imagen5 = new ImageIcon(getClass().getResource("carrito.JPG"));
 		JLabel labelImagen5 = new JLabel(imagen5);
-		anadirCarrito = new JButton(imagen5);
-		anadirCarrito.setBounds(700, 1030, 40, 40);
-		anadirCarrito.setFocusPainted(false);
-		anadirCarrito.setBorderPainted(true);
-		panelProductos.add(anadirCarrito);
+		anadirCarrito5 = new JButton(imagen5);
+		anadirCarrito5.setBounds(700, 1030, 40, 40);
+		anadirCarrito5.setFocusPainted(false);
+		anadirCarrito5.setBorderPainted(true);
+		panelProductos.add(anadirCarrito5);
 
 	}
 
@@ -386,13 +390,46 @@ public class VentanaElectrodomestico extends JFrame {
 		this.precioProducto5 = precioProducto5;
 	}
 
-	public JButton getAnadirCarrito() {
-		return anadirCarrito;
+	public JButton getAnadirCarrito1() {
+		return anadirCarrito1;
 	}
 
-	public void setAnadirCarrito(JButton anadirCarrito) {
-		this.anadirCarrito = anadirCarrito;
+	public void setAnadirCarrito1(JButton anadirCarrito1) {
+		this.anadirCarrito1 = anadirCarrito1;
 	}
 
+	public JButton getAnadirCarrito2() {
+		return anadirCarrito2;
+	}
+
+	public void setAnadirCarrito2(JButton anadirCarrito2) {
+		this.anadirCarrito2 = anadirCarrito2;
+	}
+
+	public JButton getAnadirCarrito3() {
+		return anadirCarrito3;
+	}
+
+	public void setAnadirCarrito3(JButton anadirCarrito3) {
+		this.anadirCarrito3 = anadirCarrito3;
+	}
+
+	public JButton getAnadirCarrito4() {
+		return anadirCarrito4;
+	}
+
+	public void setAnadirCarrito4(JButton anadirCarrito4) {
+		this.anadirCarrito4 = anadirCarrito4;
+	}
+
+	public JButton getAnadirCarrito5() {
+		return anadirCarrito5;
+	}
+
+	public void setAnadirCarrito5(JButton anadirCarrito5) {
+		this.anadirCarrito5 = anadirCarrito5;
+	}
+
+	
 	
 }
