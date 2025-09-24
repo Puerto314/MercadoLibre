@@ -64,21 +64,6 @@ public class VentanaCategoria extends JFrame {
 		botonVolver.setBorderPainted(false);
 		add(botonVolver);
 
-		// boton vendedor
-		modoVendedor = new JButton("MÁS OPCIONES");
-		modoVendedor.setBounds(650, 590, 150, 40);
-		modoVendedor.setBackground(Color.decode("#042F6D"));
-		modoVendedor.setForeground(Color.decode("#FFFFFF"));
-		modoVendedor.setFocusPainted(false);
-		modoVendedor.setBorderPainted(false);
-		add(modoVendedor);
-
-		// boton mas opciones para el usuario
-
-		// ---PANEL X CATEGORIA---
-		// --columna 1---
-		// moda
-
 		ImageIcon imagen3 = new ImageIcon(getClass().getResource("moda.JPG"));
 		JLabel labelImagen3 = new JLabel(imagen3);
 		moda = new JButton(imagen3);
@@ -220,7 +205,7 @@ public class VentanaCategoria extends JFrame {
 		lVideojuego.setFont(new Font("Arial", Font.BOLD, 20));
 		add(lVideojuego);
 
-		botonComprarTodo = new JButton("COMPRAR TODO");
+		botonComprarTodo = new JButton("COMPRAR CARRITO");
 		botonComprarTodo.setBounds(400, 590, 200, 40);
 		botonComprarTodo.setBackground(Color.decode("#042F6D"));
 		botonComprarTodo.setForeground(Color.decode("#FFFFFF"));

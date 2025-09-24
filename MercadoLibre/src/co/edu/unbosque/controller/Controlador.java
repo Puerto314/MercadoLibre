@@ -92,10 +92,15 @@ public class Controlador implements ActionListener {
 
 		vf.getVc().getMascota().addActionListener(this);
 		vf.getVc().getMascota().setActionCommand("boton_categoria_mascota");
+		
+		vf.getVc().getComprarTodo().addActionListener(this);
+		vf.getVc().getComprarTodo().setActionCommand("boton_comprar_todo");
 
 		// OYENTES VENTANA PAGO
 		vf.getVp().getBotonComprar().addActionListener(this);
 		vf.getVp().getBotonComprar().setActionCommand("boton_comprar");
+		
+		
 
 		// BOTONES DE VOLVER DE LAS CATEGORIAS
 		vf.getVmo().getbVolverM().addActionListener(this);
@@ -118,6 +123,8 @@ public class Controlador implements ActionListener {
 		vf.getVv().getbVolverV().setActionCommand("boton_categoria_videojuego_volver");
 		vf.getVma().getbVolverMa().addActionListener(this);
 		vf.getVma().getbVolverMa().setActionCommand("boton_categoria_mascota_volver");
+		vf.getVp().getBotonVolver().addActionListener(this);
+		vf.getVp().getBotonVolver().setActionCommand("boton_pagar_volver");
 
 	}
 
@@ -400,6 +407,16 @@ public class Controlador implements ActionListener {
 		case "boton_categoria_mascota_volver": {
 			vf.getVma().dispose();
 			vf.getVc().setVisible(true);
+			break;
+		}
+		case "boton_pagar_volver": {
+			vf.getVp().dispose();
+			vf.getVc().setVisible(true);
+			break;
+		}
+		case "boton_comprar_todo": {
+			vf.getVc().dispose();
+			vf.getVp().setVisible(true);
 			break;
 		}
 		}

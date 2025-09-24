@@ -120,7 +120,7 @@ public class VentanaPago extends JFrame {
 		});
 		this.add(fechaTarjeta);
 
-		botonComprar = new JButton("ENTRAR");
+		botonComprar = new JButton("PAGAR");
 		botonComprar.setBounds(600, 580, 100, 40);
 		botonComprar.setBackground(Color.decode("#042F6D"));
 		botonComprar.setForeground(Color.decode("#FFFFFF"));
